@@ -176,7 +176,7 @@ function renderProgress() {
     const tier = done ? L.tierFor(ms[i]) : null;
     const cls = ['dot', done ? `done ${tier.cls}` : '', current ? 'current' : '', reviewing ? 'reviewing' : ''].filter(Boolean).join(' ');
     const label = done ? `Question ${i + 1}: ${L.formatMultiple(ms[i])}, ${tier.label}. Review` : `Question ${i + 1}${current ? ', current' : ''}`;
-    return `<li><button type="button" class="${cls}" data-index="${i}" aria-label="${esc(label)}" ${done ? '' : 'disabled'}>${done ? tier.emoji : i + 1}</button></li>`;
+    return `<li><button type="button" class="${cls}" data-index="${i}" aria-label="${esc(label)}" ${done ? '' : 'disabled'}>${i + 1}</button></li>`;
   }).join('');
   $$('.dot.done', els.progress).forEach((btn) => {
     btn.addEventListener('click', () => {
