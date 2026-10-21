@@ -171,11 +171,11 @@
   },
   {
     "question": "How much did consumers spend on video games worldwide in 2024, according to Newzoo?",
-    "answer": 187700000000,
+    "answer": 182700000000,
     "unit": "US$",
-    "source_title": "Newzoo Global Games Market Report 2024",
-    "source_url": "https://newzoo.com/resources/trend-reports/newzoo-global-games-market-report-2024-free-version",
-    "explainer": "At about US$188 billion, the games market is roughly three times the global box office and recorded music industries combined; mobile games make up about half of it.",
+    "source_title": "Newzoo Global Games Market Report 2025 (revised 2024 figure), via Game World Observer",
+    "source_url": "https://gameworldobserver.com/2025/06/26/newzoo-in-2024-the-global-video-game-market-generated-182-7-billion-which-is-below-projections",
+    "explainer": "Newzoo put 2024 consumer spending at about US$183 billion, roughly three times the global box office and recorded music industries combined; mobile games make up more than half of it.",
     "difficulty": 3,
     "as_of": "2024"
   },

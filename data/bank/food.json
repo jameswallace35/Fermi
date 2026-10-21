@@ -50,12 +50,12 @@
     "as_of": "2024"
   },
   {
-    "question": "As of 2025, how many years has Sobrino de Botín in Madrid, the world's oldest continuously operating restaurant, been open?",
+    "question": "As of 2025, how many years has Madrid's Sobrino de Botín been open, counting from the founding year Guinness World Records recognises?",
     "answer": 300,
     "unit": "years",
-    "source_title": "Wikipedia - Sobrino de Botín",
-    "source_url": "https://en.wikipedia.org/wiki/Sobrino_de_Bot%C3%ADn",
-    "explainer": "Botín opened in 1725 and still roasts suckling pig in its original wood-fired oven; Guinness World Records lists it as the oldest restaurant in continuous operation.",
+    "source_title": "Restaurante Botín - History and evolution of Botín (Guinness World Records: oldest restaurant)",
+    "source_url": "https://botin.es/en/conoce-botin/historia-y-evolucion-de-botin/",
+    "explainer": "Guinness World Records dates Botín to 1725 and lists it as the oldest restaurant in continuous operation; it marked its 300th anniversary in 2025, though historians note the current business opened under the Botín name in 1865 and the 1725 date rests partly on tradition.",
     "difficulty": 2,
     "as_of": "2025"
   },
@@ -100,12 +100,12 @@
     "as_of": "2024-09-29"
   },
   {
-    "question": "What record price in US dollars did a single bottle of 1945 Romanée-Conti wine fetch at Sotheby's in 2018, the most ever paid?",
+    "question": "What record price in US dollars did a single bottle of 1945 Romanée-Conti wine fetch at Sotheby's in New York in 2018?",
     "answer": 558000,
     "unit": "US$",
     "source_title": "Wikipedia - Romanée-Conti",
     "source_url": "https://en.wikipedia.org/wiki/Roman%C3%A9e-Conti",
-    "explainer": "Only about 600 bottles of the 1945 vintage were made before the old vines were pulled out and replanted, which is why one bottle sold for the price of a house.",
+    "explainer": "Only about 600 bottles of the 1945 vintage were made before the old vines were pulled out and replanted. The 2018 sale set the auction record for a single bottle of wine; the very same bottle was resold at Acker in March 2026 for US$812,500, the new record.",
     "difficulty": 3,
     "as_of": "2018"
   },
@@ -134,7 +134,7 @@
     "answer": 10700000,
     "unit": "tonnes",
     "source_title": "International Coffee Organization - Coffee Report and Outlook, December 2023",
-    "source_url": "https://icocoffee.org/documents/cy2023-24/Coffee_Report_and_Outlook_December_2023.pdf",
+    "source_url": "https://ico.org/documents/cy2023-24/Coffee_Report_and_Outlook_December_2023_ICO.pdf",
     "explainer": "That is about 178 million standard 60 kg bags; Brazil grows roughly a third of the world's coffee and Vietnam about a sixth.",
     "difficulty": 2,
     "as_of": "2023/24"
@@ -145,7 +145,7 @@
     "unit": "tonnes",
     "source_title": "USDA Foreign Agricultural Service - Grain: World Markets and Trade",
     "source_url": "https://www.fas.usda.gov/data/grain-world-markets-and-trade",
-    "explainer": "That works out to almost 100 kg of wheat for every person on Earth; China, India, Russia and the EU together grow about half of it.",
+    "explainer": "That works out to almost 100 kg of wheat for every person on Earth; China, India, Russia and the EU together grow about 60% of it.",
     "difficulty": 2,
     "as_of": "2023/24"
   },
@@ -185,7 +185,7 @@
     "unit": "litres",
     "source_title": "OIV - State of the World Vine and Wine Sector in 2023",
     "source_url": "https://www.oiv.int/what-we-do/statistics",
-    "explainer": "At 237 million hectolitres it was the smallest harvest since 1961, hit by drought and frost, yet still enough for about 32 billion 750 ml bottles.",
+    "explainer": "At 237 million hectolitres it was then the smallest harvest since 1961, hit by drought and frost (2024 came in lower still), yet enough for about 32 billion 750 ml bottles.",
     "difficulty": 3,
     "as_of": "2023"
   },

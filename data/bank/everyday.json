@@ -65,7 +65,7 @@
     "unit": "medallions",
     "source_title": "Wikipedia: Taxis of New York City",
     "source_url": "https://en.wikipedia.org/wiki/Taxis_of_New_York_City",
-    "explainer": "The number has been capped at 13,587 since 2014. At the 2014 peak a single medallion sold for over US$1 million; prices later collapsed to under $200,000.",
+    "explainer": "The 1937 Haas Act first froze the number at 13,500, and the count has stood at 13,587 since 2016. At the 2014 peak a single medallion sold for over US$1 million; prices later collapsed to under $200,000.",
     "difficulty": 2,
     "as_of": "2024"
   },
@@ -125,7 +125,7 @@
     "unit": "bricks",
     "source_title": "Wikipedia: Empire State Building",
     "source_url": "https://en.wikipedia.org/wiki/Empire_State_Building",
-    "explainer": "The 102-storey tower also used about 57,000 tonnes of steel and went up in just 410 days. Ten million bricks would build around 1,000 ordinary houses.",
+    "explainer": "The 102-storey tower also used about 57,000 tons (roughly 52,000 tonnes) of structural steel and went up in just 410 days. Ten million bricks would build around 1,000 ordinary houses.",
     "difficulty": 3,
     "as_of": "stable"
   },

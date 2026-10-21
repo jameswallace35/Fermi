@@ -713,7 +713,7 @@
    "question": "How many yellow taxi medallions (licences to operate a cab) exist in New York City, as of 2024?",
    "answer": 13587,
    "unit": "medallions",
-   "explainer": "The number has been capped at 13,587 since 2014. At the 2014 peak a single medallion sold for over US$1 million; prices later collapsed to under $200,000.",
+   "explainer": "The 1937 Haas Act first froze the number at 13,500, and the count has stood at 13,587 since 2016. At the 2014 peak a single medallion sold for over US$1 million; prices later collapsed to under $200,000.",
    "source_title": "Wikipedia: Taxis of New York City",
    "source_url": "https://en.wikipedia.org/wiki/Taxis_of_New_York_City",
    "as_of": "2024",
@@ -1035,11 +1035,11 @@
    "id": "culture-d8d7t3",
    "category": "culture",
    "question": "How much did consumers spend on video games worldwide in 2024, according to Newzoo?",
-   "answer": 187700000000,
+   "answer": 182700000000,
    "unit": "US$",
-   "explainer": "At about US$188 billion, the games market is roughly three times the global box office and recorded music industries combined; mobile games make up about half of it.",
-   "source_title": "Newzoo Global Games Market Report 2024",
-   "source_url": "https://newzoo.com/resources/trend-reports/newzoo-global-games-market-report-2024-free-version",
+   "explainer": "Newzoo put 2024 consumer spending at about US$183 billion, roughly three times the global box office and recorded music industries combined; mobile games make up more than half of it.",
+   "source_title": "Newzoo Global Games Market Report 2025 (revised 2024 figure), via Game World Observer",
+   "source_url": "https://gameworldobserver.com/2025/06/26/newzoo-in-2024-the-global-video-game-market-generated-182-7-billion-which-is-below-projections",
    "as_of": "2024",
    "difficulty": 3
   },
@@ -1234,18 +1234,6 @@
    "source_url": "https://www.guinnessworldrecords.com/world-records/111053-largest-esports-prize-pool-for-a-single-tournament.html",
    "as_of": "2021",
    "difficulty": 2
-  },
-  {
-   "id": "food-124qdtc",
-   "category": "food",
-   "question": "What record price in US dollars did a single bottle of 1945 Romanée-Conti wine fetch at Sotheby's in 2018, the most ever paid?",
-   "answer": 558000,
-   "unit": "US$",
-   "explainer": "Only about 600 bottles of the 1945 vintage were made before the old vines were pulled out and replanted, which is why one bottle sold for the price of a house.",
-   "source_title": "Wikipedia - Romanée-Conti",
-   "source_url": "https://en.wikipedia.org/wiki/Roman%C3%A9e-Conti",
-   "as_of": "2018",
-   "difficulty": 3
   },
   {
    "id": "tech-1swppqj",
@@ -1745,7 +1733,7 @@
    "question": "What is the maximum takeoff weight of an Airbus A380, the world's largest passenger airliner, in tonnes?",
    "answer": 575,
    "unit": "tonnes",
-   "explainer": "A fully loaded A380 can weigh 575 tonnes at takeoff, roughly the weight of 100 adult African elephants, with fuel making up a large share of that.",
+   "explainer": "The heaviest-certified A380 variant can weigh 575 tonnes at takeoff (the original version was rated at 560 t), roughly the weight of 100 adult African elephants, with fuel making up a large share of that.",
    "source_title": "Airbus A380 - Wikipedia",
    "source_url": "https://en.wikipedia.org/wiki/Airbus_A380",
    "as_of": "stable",
@@ -2172,18 +2160,6 @@
    "difficulty": 2
   },
   {
-   "id": "food-yz45qx",
-   "category": "food",
-   "question": "As of 2025, how many years has Sobrino de Botín in Madrid, the world's oldest continuously operating restaurant, been open?",
-   "answer": 300,
-   "unit": "years",
-   "explainer": "Botín opened in 1725 and still roasts suckling pig in its original wood-fired oven; Guinness World Records lists it as the oldest restaurant in continuous operation.",
-   "source_title": "Wikipedia - Sobrino de Botín",
-   "source_url": "https://en.wikipedia.org/wiki/Sobrino_de_Bot%C3%ADn",
-   "as_of": "2025",
-   "difficulty": 2
-  },
-  {
    "id": "money-1f9ix0x",
    "category": "money",
    "question": "How much did the US federal government spend in total in fiscal year 2023 (October 2022 to September 2023)?",
@@ -2335,7 +2311,7 @@
    "unit": "tonnes",
    "explainer": "That is about 178 million standard 60 kg bags; Brazil grows roughly a third of the world's coffee and Vietnam about a sixth.",
    "source_title": "International Coffee Organization - Coffee Report and Outlook, December 2023",
-   "source_url": "https://icocoffee.org/documents/cy2023-24/Coffee_Report_and_Outlook_December_2023.pdf",
+   "source_url": "https://ico.org/documents/cy2023-24/Coffee_Report_and_Outlook_December_2023_ICO.pdf",
    "as_of": "2023/24",
    "difficulty": 2
   },
@@ -3029,7 +3005,7 @@
    "question": "How many litres of wine were produced worldwide in 2023, according to the OIV?",
    "answer": 23700000000,
    "unit": "litres",
-   "explainer": "At 237 million hectolitres it was the smallest harvest since 1961, hit by drought and frost, yet still enough for about 32 billion 750 ml bottles.",
+   "explainer": "At 237 million hectolitres it was then the smallest harvest since 1961, hit by drought and frost (2024 came in lower still), yet enough for about 32 billion 750 ml bottles.",
    "source_title": "OIV - State of the World Vine and Wine Sector in 2023",
    "source_url": "https://www.oiv.int/what-we-do/statistics",
    "as_of": "2023",
@@ -3413,7 +3389,7 @@
    "question": "How many tonnes of wheat were harvested worldwide in the 2023/24 season?",
    "answer": 790000000,
    "unit": "tonnes",
-   "explainer": "That works out to almost 100 kg of wheat for every person on Earth; China, India, Russia and the EU together grow about half of it.",
+   "explainer": "That works out to almost 100 kg of wheat for every person on Earth; China, India, Russia and the EU together grow about 60% of it.",
    "source_title": "USDA Foreign Agricultural Service - Grain: World Markets and Trade",
    "source_url": "https://www.fas.usda.gov/data/grain-world-markets-and-trade",
    "as_of": "2023/24",
@@ -3761,7 +3737,7 @@
    "question": "How many bricks were used to build the Empire State Building?",
    "answer": 10000000,
    "unit": "bricks",
-   "explainer": "The 102-storey tower also used about 57,000 tonnes of steel and went up in just 410 days. Ten million bricks would build around 1,000 ordinary houses.",
+   "explainer": "The 102-storey tower also used about 57,000 tons (roughly 52,000 tonnes) of structural steel and went up in just 410 days. Ten million bricks would build around 1,000 ordinary houses.",
    "source_title": "Wikipedia: Empire State Building",
    "source_url": "https://en.wikipedia.org/wiki/Empire_State_Building",
    "as_of": "stable",
@@ -3874,6 +3850,30 @@
    "source_url": "https://en.wikipedia.org/wiki/Liquid_nitrogen",
    "as_of": "stable",
    "difficulty": 2
+  },
+  {
+   "id": "food-23kfyq",
+   "category": "food",
+   "question": "As of 2025, how many years has Madrid's Sobrino de Botín been open, counting from the founding year Guinness World Records recognises?",
+   "answer": 300,
+   "unit": "years",
+   "explainer": "Guinness World Records dates Botín to 1725 and lists it as the oldest restaurant in continuous operation; it marked its 300th anniversary in 2025, though historians note the current business opened under the Botín name in 1865 and the 1725 date rests partly on tradition.",
+   "source_title": "Restaurante Botín - History and evolution of Botín (Guinness World Records: oldest restaurant)",
+   "source_url": "https://botin.es/en/conoce-botin/historia-y-evolucion-de-botin/",
+   "as_of": "2025",
+   "difficulty": 2
+  },
+  {
+   "id": "food-16ubup0",
+   "category": "food",
+   "question": "What record price in US dollars did a single bottle of 1945 Romanée-Conti wine fetch at Sotheby's in New York in 2018?",
+   "answer": 558000,
+   "unit": "US$",
+   "explainer": "Only about 600 bottles of the 1945 vintage were made before the old vines were pulled out and replanted. The 2018 sale set the auction record for a single bottle of wine; the very same bottle was resold at Acker in March 2026 for US$812,500, the new record.",
+   "source_title": "Wikipedia - Romanée-Conti",
+   "source_url": "https://en.wikipedia.org/wiki/Roman%C3%A9e-Conti",
+   "as_of": "2018",
+   "difficulty": 3
   }
  ]
 }
