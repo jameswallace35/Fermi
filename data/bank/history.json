@@ -75,7 +75,7 @@
     "unit": "km",
     "source_title": "Hadrian's Wall - Wikipedia",
     "source_url": "https://en.wikipedia.org/wiki/Hadrian%27s_Wall",
-    "explainer": "The wall ran 73 Roman-era miles (117.5 km) coast to coast across northern England and was built in about six years starting in AD 122. That is roughly the distance from London to Birmingham.",
+    "explainer": "The wall ran 80 Roman miles, about 73 modern miles (117.5 km), coast to coast across northern England and was built in about six years starting in AD 122. That is roughly the distance from London to Birmingham.",
     "difficulty": 2,
     "as_of": "stable"
   },
@@ -85,7 +85,7 @@
     "unit": "days",
     "source_title": "World War I - Wikipedia",
     "source_url": "https://en.wikipedia.org/wiki/World_War_I",
-    "explainer": "The war ran for 4 years, 3 months and 2 weeks, about 1,568 days. Averaged over that span, roughly 6,000 soldiers died every single day.",
+    "explainer": "The war ran for 4 years, 3 months and 2 weeks, about 1,568 days counting both the first and last day. Averaged over that span, roughly 6,000 soldiers died every single day.",
     "difficulty": 2,
     "as_of": "stable"
   },
@@ -105,7 +105,7 @@
     "unit": "days",
     "source_title": "Berlin Wall - Wikipedia",
     "source_url": "https://en.wikipedia.org/wiki/Berlin_Wall",
-    "explainer": "The wall divided Berlin for 28 years, 2 months and 27 days, about 10,316 days. On 5 February 2018 it had been gone for exactly as long as it had stood.",
+    "explainer": "The wall divided Berlin for 28 years, 2 months and 27 days, about 10,316 days counting both the first and last day. On 5 February 2018 it had been gone for exactly as long as it had stood.",
     "difficulty": 2,
     "as_of": "stable"
   },
@@ -165,7 +165,7 @@
     "unit": "people",
     "source_title": "1790 United States census - Wikipedia",
     "source_url": "https://en.wikipedia.org/wiki/1790_United_States_census",
-    "explainer": "The first census counted 3,929,214 people, fewer than live in Los Angeles today. Virginia was the most populous state and about one in five residents was enslaved.",
+    "explainer": "The first census counted 3,929,214 people, about the same as the population of the city of Los Angeles today. Virginia was the most populous state and nearly one in five residents was enslaved.",
     "difficulty": 2,
     "as_of": "1790"
   },

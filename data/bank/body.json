@@ -95,7 +95,7 @@
     "unit": "transplants",
     "source_title": "Continued increase in organ donation drives new records in 2023 (OPTN / UNOS)",
     "source_url": "https://optn.transplant.hrsa.gov/news/continued-increase-in-organ-donation-drives-new-records-in-2023-new-milestones-exceeded/",
-    "explainer": "Kidneys make up well over half of these. The annual total has set a new record every year since 2012, even so about 100,000 Americans remain on the waiting list.",
+    "explainer": "Kidneys make up well over half of these. The annual total has set a new record every year since 2013, yet more than 100,000 Americans remain on the waiting list.",
     "difficulty": 2,
     "as_of": "2023"
   },
@@ -105,7 +105,7 @@
     "unit": "deaths",
     "source_title": "Drug Overdose Deaths in the United States, 2003–2023 (CDC NCHS Data Brief No. 522)",
     "source_url": "https://www.cdc.gov/nchs/products/databriefs/db522.htm",
-    "explainer": "That is nearly 290 people a day, with most deaths involving synthetic opioids such as fentanyl. It was the first slight drop after years of steep increases.",
+    "explainer": "That is nearly 290 people a day, with most deaths involving synthetic opioids such as fentanyl. It was a drop of nearly 3% from 2022, the first annual decline since 2018.",
     "difficulty": 2,
     "as_of": "2023"
   },
@@ -145,7 +145,7 @@
     "unit": "nurses",
     "source_title": "Nursing and midwifery fact sheet (World Health Organization)",
     "source_url": "https://www.who.int/news-room/fact-sheets/detail/nursing-and-midwifery",
-    "explainer": "Nurses are the largest group of health workers, roughly two for every doctor on Earth, yet the WHO still projects a shortfall of about 4.1 million nurses by 2030.",
+    "explainer": "Nurses are the largest single group of health workers, yet the WHO still estimated a global shortfall of 5.8 million nurses in 2023, projected to shrink to about 4.1 million by 2030.",
     "difficulty": 3,
     "as_of": "2023"
   },
@@ -165,7 +165,7 @@
     "unit": "adults",
     "source_title": "Obesity and overweight fact sheet (World Health Organization)",
     "source_url": "https://www.who.int/news-room/fact-sheets/detail/obesity-and-overweight",
-    "explainer": "That is about one in eight people on the planet. Worldwide adult obesity has more than doubled since 1990.",
+    "explainer": "Counting children too, about one in eight people on the planet was living with obesity. Worldwide adult obesity has more than doubled since 1990.",
     "difficulty": 2,
     "as_of": "2022"
   },

@@ -45,7 +45,7 @@
     "unit": "languages",
     "source_title": "Ethnologue – Papua New Guinea",
     "source_url": "https://www.ethnologue.com/country/PG/",
-    "explainer": "With under 10 million people, Papua New Guinea has more languages than any other country, roughly one in every nine languages on Earth.",
+    "explainer": "With only about 10 million people, Papua New Guinea has more languages than any other country, more than one in every nine languages on Earth.",
     "difficulty": 2,
     "as_of": "2024"
   },
@@ -55,7 +55,7 @@
     "unit": "babies",
     "source_title": "Central Statistics Office (Ireland) – Vital Statistics Annual Report 2023",
     "source_url": "https://www.cso.ie/en/releasesandpublications/ep/p-vsar/vitalstatisticsannualreport2023/",
-    "explainer": "Ireland registered about 54,700 births in 2023, down from a peak of around 75,000 in 2009, so each day brings roughly 150 newborns.",
+    "explainer": "Ireland recorded about 54,500 births in 2023, down from a peak of around 75,000 in 2009, so each day brings roughly 150 newborns.",
     "difficulty": 2,
     "as_of": "2023"
   },
@@ -91,11 +91,11 @@
   },
   {
     "question": "What was the population of Greenland on 1 January 2024?",
-    "answer": 56865,
+    "answer": 56699,
     "unit": "people",
-    "source_title": "Statistics Greenland – Population",
-    "source_url": "https://stat.gl/",
-    "explainer": "The world's largest island has fewer residents than a mid-sized town; about a third of them live in the capital, Nuuk.",
+    "source_title": "Statistics Greenland – Population estimates, 1 January 2024",
+    "source_url": "https://stat.gl/publ/en/BE/202401/contents/Population%20estimates.htm",
+    "explainer": "The world's largest island has fewer residents than a mid-sized town; about a third of them live in the capital, Nuuk, and the population slipped to 56,542 a year later.",
     "difficulty": 2,
     "as_of": "2024-01-01"
   },
@@ -125,7 +125,7 @@
     "unit": "people",
     "source_title": "Central Statistics Office (Ireland) – Population and Migration Estimates, April 2024",
     "source_url": "https://www.cso.ie/en/releasesandpublications/ep/p-pme/populationandmigrationestimatesapril2024/",
-    "explainer": "Ireland's population passed 5 million in 2021 for the first time since the Great Famine of the 1840s, driven mostly by immigration.",
+    "explainer": "Ireland's population passed 5 million in 2021 for the first time since the 1851 census, taken just after the Great Famine, driven mostly by immigration.",
     "difficulty": 1,
     "as_of": "2024-04"
   },
@@ -185,7 +185,7 @@
     "unit": "children",
     "source_title": "UNESCO – 250 million children out-of-school: What you need to know about UNESCO's latest education data",
     "source_url": "https://www.unesco.org/en/articles/250-million-children-out-school-what-you-need-know-about-unescos-latest-education-data",
-    "explainer": "That is roughly one in six school-age children and youth; sub-Saharan Africa accounts for about 30% of them.",
+    "explainer": "That is roughly one in six school-age children and youth, and 6 million more than in 2021, partly because of the exclusion of girls and women from education in Afghanistan.",
     "difficulty": 2,
     "as_of": "2023"
   },
