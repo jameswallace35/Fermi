@@ -1,5 +1,6 @@
 [
   {
+    "id": "money-1t0kq9m",
     "question": "What was the average price of a Big Mac in the United States in July 2024, according to The Economist's Big Mac index?",
     "answer": 5.69,
     "unit": "US$",
@@ -10,6 +11,7 @@
     "as_of": "2024-07"
   },
   {
+    "id": "money-1my3mnl",
     "question": "What was the UK National Living Wage per hour for workers aged 21 and over from April 2024?",
     "answer": 11.44,
     "unit": "£",
@@ -20,6 +22,7 @@
     "as_of": "2024-04-01"
   },
   {
+    "id": "money-1w10mo0",
     "question": "At what price per share did Apple sell its stock in its initial public offering on 12 December 1980?",
     "answer": 22,
     "unit": "US$",
@@ -30,6 +33,7 @@
     "as_of": "1980-12-12"
   },
   {
+    "id": "money-okz49k",
     "question": "How many cents did a US First-Class Forever stamp cost after the price rise of 14 July 2024?",
     "answer": 73,
     "unit": "cents",
@@ -40,6 +44,7 @@
     "as_of": "2024-07-14"
   },
   {
+    "id": "money-jhka2f",
     "question": "What was the advertised price of the cheapest Ford Model T, the two-seat Runabout, in the United States in 1925?",
     "answer": 260,
     "unit": "US$",
@@ -50,6 +55,7 @@
     "as_of": "1925"
   },
   {
+    "id": "money-6s3q17",
     "question": "How many billionaires were on Forbes' 2024 list of the world's billionaires?",
     "answer": 2781,
     "unit": "billionaires",
@@ -60,6 +66,7 @@
     "as_of": "2024-04"
   },
   {
+    "id": "money-xas3hj",
     "question": "What was the world's GDP per person in 2023, in current US dollars (World Bank)?",
     "answer": 13237,
     "unit": "US$",
@@ -70,6 +77,7 @@
     "as_of": "2023"
   },
   {
+    "id": "money-13k94c3",
     "question": "What was the median US household income in 2023, according to the Census Bureau?",
     "answer": 80610,
     "unit": "US$",
@@ -80,6 +88,7 @@
     "as_of": "2023"
   },
   {
+    "id": "money-u17esp",
     "question": "What was Luxembourg's GDP per person in 2023, in current US dollars (World Bank)?",
     "answer": 133231,
     "unit": "US$",
@@ -90,6 +99,7 @@
     "as_of": "2023"
   },
   {
+    "id": "money-c606mq",
     "question": "What is the annual salary of the President of the United States, as set by law since 2001?",
     "answer": 400000,
     "unit": "US$",
@@ -100,6 +110,7 @@
     "as_of": "2024"
   },
   {
+    "id": "money-1xt74re",
     "question": "How much did the United States pay Russia for Alaska in 1867?",
     "answer": 7200000,
     "unit": "US$",
@@ -110,6 +121,7 @@
     "as_of": "1867"
   },
   {
+    "id": "money-16kkjhs",
     "question": "How much money, in Swedish kronor, came with each full Nobel Prize awarded in 2023?",
     "answer": 11000000,
     "unit": "SEK",
@@ -120,6 +132,7 @@
     "as_of": "2023"
   },
   {
+    "id": "money-1cx0e1g",
     "question": "What was the GDP of Tuvalu, the Pacific island nation of about 10,000 people, in 2023, in current US dollars (World Bank)?",
     "answer": 62280312,
     "unit": "US$",
@@ -130,6 +143,7 @@
     "as_of": "2023"
   },
   {
+    "id": "money-26vkc1",
     "question": "What price, including fees, did Leonardo da Vinci's Salvator Mundi fetch at Christie's in New York in November 2017?",
     "answer": 450300000,
     "unit": "US$",
@@ -140,6 +154,7 @@
     "as_of": "2017-11-15"
   },
   {
+    "id": "money-1u541x6",
     "question": "What was the advertised jackpot of the record US Powerball lottery draw won in California in November 2022?",
     "answer": 2040000000,
     "unit": "US$",
@@ -150,6 +165,7 @@
     "as_of": "2022-11-08"
   },
   {
+    "id": "money-4eq8bd",
     "question": "What was the United Nations' approved regular budget for the year 2024?",
     "answer": 3588431600,
     "unit": "US$",
@@ -160,6 +176,7 @@
     "as_of": "2024"
   },
   {
+    "id": "money-vnomtr",
     "question": "How much funding did the US Congress give NASA for fiscal year 2024?",
     "answer": 24875000000,
     "unit": "US$",
@@ -170,6 +187,7 @@
     "as_of": "FY2024"
   },
   {
+    "id": "money-34a8vo",
     "question": "What was the total worldwide cinema box office in 2023, in US dollars?",
     "answer": 33900000000,
     "unit": "US$",
@@ -180,6 +198,7 @@
     "as_of": "2023"
   },
   {
+    "id": "money-1iy219f",
     "question": "How much did the world's governments spend on their militaries in 2023, according to SIPRI?",
     "answer": 2443000000000,
     "unit": "US$",
@@ -190,6 +209,7 @@
     "as_of": "2023"
   },
   {
+    "id": "money-ri31db",
     "question": "What was India's GDP in 2023, in current US dollars (World Bank)?",
     "answer": 3638000000000,
     "unit": "US$",
@@ -200,6 +220,7 @@
     "as_of": "2023"
   },
   {
+    "id": "money-1f9ix0x",
     "question": "How much did the US federal government spend in total in fiscal year 2023 (October 2022 to September 2023)?",
     "answer": 6134500000000,
     "unit": "US$",
@@ -210,6 +231,7 @@
     "as_of": "FY2023"
   },
   {
+    "id": "money-vampio",
     "question": "What was the gross national debt of the United States on 31 December 2024?",
     "answer": 36218605000000,
     "unit": "US$",
@@ -220,6 +242,7 @@
     "as_of": "2024-12-31"
   },
   {
+    "id": "money-py8jzi",
     "question": "What was the total GDP of the whole world in 2023, in current US dollars (World Bank)?",
     "answer": 106740000000000,
     "unit": "US$",

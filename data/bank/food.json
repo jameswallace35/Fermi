@@ -1,5 +1,6 @@
 [
   {
+    "id": "food-ntuxbe",
     "question": "How many kilocalories are in one level teaspoon (4 g) of white granulated sugar?",
     "answer": 16,
     "unit": "kcal",
@@ -10,6 +11,7 @@
     "as_of": "stable"
   },
   {
+    "id": "food-17g1qjx",
     "question": "How many grams of sugar are in a 330 ml can of Coca-Cola Original Taste sold in the UK?",
     "answer": 35,
     "unit": "grams",
@@ -20,6 +22,7 @@
     "as_of": "2024"
   },
   {
+    "id": "food-1hmhlhw",
     "question": "How many hot dogs and buns did Joey Chestnut eat in 10 minutes to set the Nathan's Famous Fourth of July contest record in 2021?",
     "answer": 76,
     "unit": "hot dogs",
@@ -30,6 +33,7 @@
     "as_of": "2021"
   },
   {
+    "id": "food-1nso32n",
     "question": "How many milligrams of caffeine are in a standard 8 oz (240 ml) cup of brewed coffee, per the Mayo Clinic?",
     "answer": 96,
     "unit": "mg",
@@ -40,6 +44,7 @@
     "as_of": "stable"
   },
   {
+    "id": "food-1pxdn2c",
     "question": "How many kilocalories are in a McDonald's Big Mac in the US, according to McDonald's own nutrition facts?",
     "answer": 590,
     "unit": "kcal",
@@ -50,6 +55,7 @@
     "as_of": "2024"
   },
   {
+    "id": "food-23kfyq",
     "question": "As of 2025, how many years has Madrid's Sobrino de Botín been open, counting from the founding year Guinness World Records recognises?",
     "answer": 300,
     "unit": "years",
@@ -60,6 +66,7 @@
     "as_of": "2025"
   },
   {
+    "id": "food-lcv2fb",
     "question": "How many metres long was the longest pizza ever made, baked in Fontana, California in 2017 (Guinness World Record)?",
     "answer": 1930,
     "unit": "metres",
@@ -70,6 +77,7 @@
     "as_of": "2017"
   },
   {
+    "id": "food-2knpj",
     "question": "How many litres of water does it take on average worldwide to produce 1 kg of beef, counting feed, drinking and processing?",
     "answer": 15415,
     "unit": "litres",
@@ -80,6 +88,7 @@
     "as_of": "stable"
   },
   {
+    "id": "food-1006v43",
     "question": "How many McDonald's restaurants were operating worldwide at the end of 2024?",
     "answer": 43477,
     "unit": "restaurants",
@@ -90,6 +99,7 @@
     "as_of": "2024-12-31"
   },
   {
+    "id": "food-195eget",
     "question": "How many Starbucks stores were open worldwide at the end of fiscal year 2024 (September 2024)?",
     "answer": 40199,
     "unit": "stores",
@@ -100,6 +110,7 @@
     "as_of": "2024-09-29"
   },
   {
+    "id": "food-16ubup0",
     "question": "What record price in US dollars did a single bottle of 1945 Romanée-Conti wine fetch at Sotheby's in New York in 2018?",
     "answer": 558000,
     "unit": "US$",
@@ -110,6 +121,7 @@
     "as_of": "2018"
   },
   {
+    "id": "food-rzk8qt",
     "question": "How many Scoville heat units does Pepper X, certified the world's hottest chili pepper by Guinness in 2023, average?",
     "answer": 2693000,
     "unit": "SHU",
@@ -120,6 +132,7 @@
     "as_of": "2023"
   },
   {
+    "id": "food-64mswb",
     "question": "How many hectares of vineyards were planted worldwide in 2023, according to the OIV?",
     "answer": 7200000,
     "unit": "hectares",
@@ -130,6 +143,7 @@
     "as_of": "2023"
   },
   {
+    "id": "food-1h2wjgs",
     "question": "How many tonnes of green coffee beans were produced worldwide in the 2023/24 coffee year, per the ICO?",
     "answer": 10700000,
     "unit": "tonnes",
@@ -140,6 +154,7 @@
     "as_of": "2023/24"
   },
   {
+    "id": "food-hmbj22",
     "question": "How many tonnes of wheat were harvested worldwide in the 2023/24 season?",
     "answer": 790000000,
     "unit": "tonnes",
@@ -150,6 +165,7 @@
     "as_of": "2023/24"
   },
   {
+    "id": "food-1cloql7",
     "question": "How many hot dogs do Americans eat on the Fourth of July, according to the National Hot Dog and Sausage Council?",
     "answer": 150000000,
     "unit": "hot dogs",
@@ -160,6 +176,7 @@
     "as_of": "2024"
   },
   {
+    "id": "food-8i9p05",
     "question": "How many tonnes of food did households, food service and retail waste worldwide in 2022, per the UNEP Food Waste Index?",
     "answer": 1050000000,
     "unit": "tonnes",
@@ -170,6 +187,7 @@
     "as_of": "2022"
   },
   {
+    "id": "food-18bswa2",
     "question": "What was McDonald's Corporation's total revenue in 2024, in US dollars?",
     "answer": 25920000000,
     "unit": "US$",
@@ -180,6 +198,7 @@
     "as_of": "2024"
   },
   {
+    "id": "food-2rgxqz",
     "question": "How many litres of wine were produced worldwide in 2023, according to the OIV?",
     "answer": 23700000000,
     "unit": "litres",
@@ -190,6 +209,7 @@
     "as_of": "2023"
   },
   {
+    "id": "food-1qkyuy6",
     "question": "How many litres of beer were brewed worldwide in 2023, according to the BarthHaas hop report?",
     "answer": 188000000000,
     "unit": "litres",
@@ -200,6 +220,7 @@
     "as_of": "2023"
   },
   {
+    "id": "food-t02n9u",
     "question": "How many servings of instant noodles were eaten worldwide in 2023, according to the World Instant Noodles Association?",
     "answer": 120200000000,
     "unit": "servings",
@@ -210,6 +231,7 @@
     "as_of": "2023"
   },
   {
+    "id": "food-1a0c1p4",
     "question": "How much was spent on food in the United States in 2023, at home and away from home combined, in US dollars (USDA ERS)?",
     "answer": 2600000000000,
     "unit": "US$",
@@ -220,6 +242,7 @@
     "as_of": "2023"
   },
   {
+    "id": "food-14vu0mr",
     "question": "How many servings of Coca-Cola Company beverages are consumed worldwide every day, according to the company (as of 2024)?",
     "answer": 2200000000,
     "unit": "servings",

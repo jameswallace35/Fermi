@@ -1,5 +1,6 @@
 [
   {
+    "id": "sports-1wcqmik",
     "question": "How many grams of pure gold are in a Paris 2024 Olympic gold medal?",
     "answer": 6,
     "unit": "grams",
@@ -10,6 +11,7 @@
     "as_of": "2024"
   },
   {
+    "id": "sports-1te5xmp",
     "question": "How many minutes did the longest professional tennis match ever (Isner v Mahut, Wimbledon 2010) last?",
     "answer": 665,
     "unit": "minutes",
@@ -20,6 +22,7 @@
     "as_of": "stable"
   },
   {
+    "id": "sports-3jpdm5",
     "question": "How fast was the fastest badminton smash ever recorded (Guinness World Record, 2023), in km/h?",
     "answer": 565,
     "unit": "km/h",
@@ -30,6 +33,7 @@
     "as_of": "2023"
   },
   {
+    "id": "sports-2acw7c",
     "question": "How much does a Paris 2024 Olympic gold medal weigh, in grams?",
     "answer": 529,
     "unit": "grams",
@@ -40,6 +44,7 @@
     "as_of": "2024"
   },
   {
+    "id": "sports-10m2zj5",
     "question": "How long was the complete route of the 2024 Tour de France, in km?",
     "answer": 3498,
     "unit": "km",
@@ -50,6 +55,7 @@
     "as_of": "2024"
   },
   {
+    "id": "sports-kokrkk",
     "question": "How many entrants played the 2024 World Series of Poker Main Event in Las Vegas?",
     "answer": 10112,
     "unit": "players",
@@ -60,6 +66,7 @@
     "as_of": "2024"
   },
   {
+    "id": "sports-1mmyrhm",
     "question": "How much play money is in the bank of a standard US Monopoly set (2008 edition onward)?",
     "answer": 20580,
     "unit": "Monopoly $",
@@ -70,6 +77,7 @@
     "as_of": "stable"
   },
   {
+    "id": "sports-1o7x6yi",
     "question": "How many golf courses were there worldwide according to the R&A's 2019 'Golf Around the World' report?",
     "answer": 38864,
     "unit": "courses",
@@ -80,6 +88,7 @@
     "as_of": "2019"
   },
   {
+    "id": "sports-2w6gl0",
     "question": "How many runners finished the 2024 New York City Marathon?",
     "answer": 55646,
     "unit": "runners",
@@ -90,6 +99,7 @@
     "as_of": "2024"
   },
   {
+    "id": "sports-1sazebj",
     "question": "What is the official seating capacity of Michigan Stadium ('The Big House') in Ann Arbor?",
     "answer": 107601,
     "unit": "seats",
@@ -100,6 +110,7 @@
     "as_of": "2024"
   },
   {
+    "id": "sports-1y0z9g5",
     "question": "What was the official attendance at the deciding match of the 1950 World Cup, Brazil v Uruguay, at the Maracanã?",
     "answer": 173850,
     "unit": "people",
@@ -110,6 +121,7 @@
     "as_of": "stable"
   },
   {
+    "id": "sports-4jxzmc",
     "question": "How many words are valid in Collins Scrabble Words 2019, the list used in tournaments outside North America?",
     "answer": 279496,
     "unit": "words",
@@ -120,6 +132,7 @@
     "as_of": "2019"
   },
   {
+    "id": "sports-1tpuvp7",
     "question": "How many different 5-card hands can be dealt from a standard 52-card deck?",
     "answer": 2598960,
     "unit": "hands",
@@ -130,6 +143,7 @@
     "as_of": "stable"
   },
   {
+    "id": "sports-1xk4a0b",
     "question": "What was the total prize pool of The International 2021, the Dota 2 world championship, in US$?",
     "answer": 40018195,
     "unit": "US$",
@@ -140,6 +154,7 @@
     "as_of": "2021"
   },
   {
+    "id": "sports-9g3ixk",
     "question": "How much prize money did FIFA pay Argentina for winning the 2022 World Cup, in US$?",
     "answer": 42000000,
     "unit": "US$",
@@ -150,6 +165,7 @@
     "as_of": "2022"
   },
   {
+    "id": "sports-1a5ocrd",
     "question": "In chess, how many different move sequences are possible in the first three moves by each player (six half-moves)?",
     "answer": 119060324,
     "unit": "sequences",
@@ -160,6 +176,7 @@
     "as_of": "stable"
   },
   {
+    "id": "sports-dp8pwo",
     "question": "How many people watched Super Bowl LIX (February 2025) on average, according to Nielsen?",
     "answer": 127700000,
     "unit": "viewers",
@@ -170,6 +187,7 @@
     "as_of": "2025"
   },
   {
+    "id": "sports-1byjndn",
     "question": "What was Real Madrid's total revenue in the 2023/24 season, in euros (Deloitte Football Money League)?",
     "answer": 1045500000,
     "unit": "euros",
@@ -180,6 +198,7 @@
     "as_of": "2024"
   },
   {
+    "id": "sports-jq8a2y",
     "question": "How much did SoFi Stadium in Los Angeles, opened in 2020, cost to build, in US$?",
     "answer": 5500000000,
     "unit": "US$",
@@ -190,6 +209,7 @@
     "as_of": "2020"
   },
   {
+    "id": "sports-1c8u4qz",
     "question": "What is the total value of the NBA's 11-year media-rights deals with Disney, NBC and Amazon starting in 2025-26, in US$?",
     "answer": 76000000000,
     "unit": "US$",
@@ -200,6 +220,7 @@
     "as_of": "2024"
   },
   {
+    "id": "sports-tc3rhf",
     "question": "How many Pokémon trading cards had been produced worldwide in total by the end of March 2024?",
     "answer": 64800000000,
     "unit": "cards",
@@ -210,6 +231,7 @@
     "as_of": "2024-03-31"
   },
   {
+    "id": "sports-1jtwd0g",
     "question": "How many different positions can a standard 3x3 Rubik's Cube be scrambled into?",
     "answer": 43252003274489860000,
     "unit": "positions",
@@ -220,6 +242,7 @@
     "as_of": "stable"
   },
   {
+    "id": "sports-1at0x9q",
     "question": "How many different completed 9x9 Sudoku grids exist?",
     "answer": 6.670903752021073e+21,
     "unit": "grids",

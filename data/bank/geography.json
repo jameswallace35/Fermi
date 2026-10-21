@@ -1,5 +1,6 @@
 [
   {
+    "id": "geography-1vox4qk",
     "question": "How many countries does the Danube River flow through or along on its course from Germany to the Black Sea?",
     "answer": 10,
     "unit": "countries",
@@ -10,6 +11,7 @@
     "as_of": "stable"
   },
   {
+    "id": "geography-16uhoac",
     "question": "How many earthquakes of magnitude 7.0 or greater were recorded worldwide in 2023?",
     "answer": 19,
     "unit": "earthquakes",
@@ -20,6 +22,7 @@
     "as_of": "2023"
   },
   {
+    "id": "geography-1xuuysf",
     "question": "How long is the Panama Canal from its Atlantic entrance to its Pacific entrance?",
     "answer": 82,
     "unit": "km",
@@ -30,6 +33,7 @@
     "as_of": "stable"
   },
   {
+    "id": "geography-p7vhmw",
     "question": "What was the fastest wind gust ever measured by an anemometer at Earth's surface (Barrow Island, Australia, 1996)?",
     "answer": 408,
     "unit": "km/h",
@@ -40,6 +44,7 @@
     "as_of": "1996"
   },
   {
+    "id": "geography-1h1sg46",
     "question": "How many metres below sea level is the surface of the Dead Sea, as of 2025?",
     "answer": 440,
     "unit": "metres",
@@ -50,6 +55,7 @@
     "as_of": "2025"
   },
   {
+    "id": "geography-1blhj6b",
     "question": "How tall is Angel Falls in Venezuela, the world's tallest waterfall, from top to bottom?",
     "answer": 979,
     "unit": "metres",
@@ -60,6 +66,7 @@
     "as_of": "stable"
   },
   {
+    "id": "geography-2cj7pl",
     "question": "How deep is Lake Baikal in Siberia at its deepest point?",
     "answer": 1642,
     "unit": "metres",
@@ -70,6 +77,7 @@
     "as_of": "stable"
   },
   {
+    "id": "geography-kbm42x",
     "question": "How fast is a point on the equator moving because of Earth's rotation alone (ignoring its orbit)?",
     "answer": 1674,
     "unit": "km/h",
@@ -80,6 +88,7 @@
     "as_of": "stable"
   },
   {
+    "id": "geography-tmdl45",
     "question": "How many tornadoes were confirmed in the United States in 2023?",
     "answer": 1379,
     "unit": "tornadoes",
@@ -90,6 +99,7 @@
     "as_of": "2023"
   },
   {
+    "id": "geography-1bin397",
     "question": "How long is Australia's Great Barrier Reef, end to end along the Queensland coast?",
     "answer": 2300,
     "unit": "km",
@@ -100,6 +110,7 @@
     "as_of": "stable"
   },
   {
+    "id": "geography-odmini",
     "question": "How long is the Nile River from its most distant headwater to the Mediterranean Sea?",
     "answer": 6650,
     "unit": "km",
@@ -110,6 +121,7 @@
     "as_of": "stable"
   },
   {
+    "id": "geography-1fvxuxt",
     "question": "How many islands make up the Philippines, according to the official NAMRIA count?",
     "answer": 7641,
     "unit": "islands",
@@ -120,6 +132,7 @@
     "as_of": "2016"
   },
   {
+    "id": "geography-m0ccd9",
     "question": "How deep is the Challenger Deep, the deepest point of the Mariana Trench?",
     "answer": 10935,
     "unit": "metres",
@@ -130,6 +143,7 @@
     "as_of": "stable"
   },
   {
+    "id": "geography-rytjy4",
     "question": "How much rain falls in an average year at Mawsynram, India, the wettest inhabited place on Earth?",
     "answer": 11871,
     "unit": "mm",
@@ -140,6 +154,7 @@
     "as_of": "stable"
   },
   {
+    "id": "geography-1v5ydnq",
     "question": "What is the total area of Greenland, the world's largest island?",
     "answer": 2166086,
     "unit": "km²",
@@ -150,6 +165,7 @@
     "as_of": "stable"
   },
   {
+    "id": "geography-iy8pbq",
     "question": "How much water does the Amazon River discharge into the Atlantic every second, on average?",
     "answer": 209000,
     "unit": "m³/s",
@@ -160,6 +176,7 @@
     "as_of": "stable"
   },
   {
+    "id": "geography-1p2ecjx",
     "question": "How many islands does Sweden have, by Statistics Sweden's official 2013 count?",
     "answer": 267570,
     "unit": "islands",
@@ -170,6 +187,7 @@
     "as_of": "2013"
   },
   {
+    "id": "geography-afops7",
     "question": "What is the area of the Sahara Desert?",
     "answer": 9200000,
     "unit": "km²",
@@ -180,6 +198,7 @@
     "as_of": "stable"
   },
   {
+    "id": "geography-6raqqk",
     "question": "What is the surface area of the Pacific Ocean?",
     "answer": 165250000,
     "unit": "km²",
@@ -190,6 +209,7 @@
     "as_of": "stable"
   },
   {
+    "id": "geography-1lwvie7",
     "question": "What is the total volume of water in all of Earth's oceans?",
     "answer": 1335000000,
     "unit": "km³",
@@ -200,6 +220,7 @@
     "as_of": "stable"
   },
   {
+    "id": "geography-16js7n3",
     "question": "How old is the Acasta Gneiss in Canada, one of the oldest known rock formations on Earth?",
     "answer": 4030000000,
     "unit": "years",
@@ -210,6 +231,7 @@
     "as_of": "stable"
   },
   {
+    "id": "geography-y69xyw",
     "question": "How much damage did Hurricane Katrina cause in 2005, in 2005 dollars (NOAA estimate)?",
     "answer": 125000000000,
     "unit": "US$",
@@ -220,6 +242,7 @@
     "as_of": "2005"
   },
   {
+    "id": "geography-zbilsx",
     "question": "What is the total volume of planet Earth?",
     "answer": 1083210000000,
     "unit": "km³",
@@ -230,6 +253,7 @@
     "as_of": "stable"
   },
   {
+    "id": "geography-14wbuou",
     "question": "What is the total mass of Earth's atmosphere?",
     "answer": 5150000000000000,
     "unit": "tonnes",

@@ -1,5 +1,6 @@
 [
   {
+    "id": "body-1497idj",
     "question": "How many cases of wild poliovirus were reported worldwide in 2023?",
     "answer": 12,
     "unit": "cases",
@@ -10,6 +11,7 @@
     "as_of": "2023"
   },
   {
+    "id": "body-jhwqdq",
     "question": "How many novel drugs did the US FDA's Center for Drug Evaluation and Research approve in 2023?",
     "answer": 55,
     "unit": "drugs",
@@ -20,6 +22,7 @@
     "as_of": "2023"
   },
   {
+    "id": "body-2qvr0l",
     "question": "How many centimetres does human scalp hair grow in one year, on average?",
     "answer": 15,
     "unit": "cm",
@@ -30,6 +33,7 @@
     "as_of": "stable"
   },
   {
+    "id": "body-1vafcbt",
     "question": "How many days does a human red blood cell circulate before it is broken down and recycled?",
     "answer": 120,
     "unit": "days",
@@ -40,6 +44,7 @@
     "as_of": "stable"
   },
   {
+    "id": "body-51ghwy",
     "question": "How many litres of fluid do a healthy adult's kidneys filter from the blood each day?",
     "answer": 180,
     "unit": "litres",
@@ -50,6 +55,7 @@
     "as_of": "stable"
   },
   {
+    "id": "body-io9lkp",
     "question": "How many hours did Randy Gardner stay awake in his record-setting 1964 sleep-deprivation experiment?",
     "answer": 264,
     "unit": "hours",
@@ -60,6 +66,7 @@
     "as_of": "1964"
   },
   {
+    "id": "body-1qi03m8",
     "question": "How tall, in centimetres, was Robert Wadlow, the tallest person in recorded history, at his last measurement in 1940?",
     "answer": 272,
     "unit": "cm",
@@ -70,6 +77,7 @@
     "as_of": "1940"
   },
   {
+    "id": "body-10bjssm",
     "question": "What was the peak weight in kilograms of Jon Brower Minnoch, the heaviest person ever recorded, in 1978?",
     "answer": 635,
     "unit": "kg",
@@ -80,6 +88,7 @@
     "as_of": "1978"
   },
   {
+    "id": "body-cgjjqx",
     "question": "How many kilocalories of energy are stored in one kilogram of human body fat?",
     "answer": 7700,
     "unit": "kcal",
@@ -90,6 +99,7 @@
     "as_of": "stable"
   },
   {
+    "id": "body-16248pi",
     "question": "How many organ transplants were performed in the United States in 2023?",
     "answer": 46632,
     "unit": "transplants",
@@ -100,6 +110,7 @@
     "as_of": "2023"
   },
   {
+    "id": "body-e970hy",
     "question": "How many people died of drug overdoses in the United States in 2023?",
     "answer": 105007,
     "unit": "deaths",
@@ -110,6 +121,7 @@
     "as_of": "2023"
   },
   {
+    "id": "body-f80mhl",
     "question": "How many people died of malaria worldwide in 2023?",
     "answer": 597000,
     "unit": "deaths",
@@ -120,6 +132,7 @@
     "as_of": "2023"
   },
   {
+    "id": "body-1imcnxi",
     "question": "How many people died of tuberculosis worldwide in 2023?",
     "answer": 1250000,
     "unit": "deaths",
@@ -130,6 +143,7 @@
     "as_of": "2023"
   },
   {
+    "id": "body-1hojb9n",
     "question": "How many children worldwide died before their fifth birthday in 2023?",
     "answer": 4800000,
     "unit": "children",
@@ -140,6 +154,7 @@
     "as_of": "2023"
   },
   {
+    "id": "body-kpwsbs",
     "question": "How many nurses were working worldwide in 2023, according to the WHO?",
     "answer": 29800000,
     "unit": "nurses",
@@ -150,6 +165,7 @@
     "as_of": "2023"
   },
   {
+    "id": "body-11s2lyd",
     "question": "How many people worldwide were living with HIV at the end of 2023?",
     "answer": 39900000,
     "unit": "people",
@@ -160,6 +176,7 @@
     "as_of": "2023"
   },
   {
+    "id": "body-1eju5xj",
     "question": "How many adults worldwide were living with obesity in 2022?",
     "answer": 890000000,
     "unit": "adults",
@@ -170,6 +187,7 @@
     "as_of": "2022"
   },
   {
+    "id": "body-e1dkba",
     "question": "How many base pairs of DNA are in a single copy (haploid set) of the human genome?",
     "answer": 3100000000,
     "unit": "base pairs",
@@ -180,6 +198,7 @@
     "as_of": "stable"
   },
   {
+    "id": "body-40i3bl",
     "question": "How many doses of COVID-19 vaccine had been administered worldwide by August 2024?",
     "answer": 13580000000,
     "unit": "doses",
@@ -190,6 +209,7 @@
     "as_of": "2024-08-14"
   },
   {
+    "id": "body-14xxlsa",
     "question": "How many neurons are in an adult human brain?",
     "answer": 86000000000,
     "unit": "neurons",
@@ -200,6 +220,7 @@
     "as_of": "stable"
   },
   {
+    "id": "body-15onii2",
     "question": "How much did the United States spend on health care in total in 2023?",
     "answer": 4900000000000,
     "unit": "US$",
@@ -210,6 +231,7 @@
     "as_of": "2023"
   },
   {
+    "id": "body-t0qyny",
     "question": "How many bacterial cells live in or on the body of a typical 70 kg adult?",
     "answer": 38000000000000,
     "unit": "bacteria",
@@ -220,6 +242,7 @@
     "as_of": "stable"
   },
   {
+    "id": "body-tik3su",
     "question": "What top speed in km/h did Usain Bolt reach during his 9.58-second 100 m world record in 2009?",
     "answer": 44.72,
     "unit": "km/h",

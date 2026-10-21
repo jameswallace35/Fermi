@@ -1,5 +1,6 @@
 [
   {
+    "id": "population-1ijom10",
     "question": "What is the life expectancy at birth for women in Japan, according to the 2023 official life table?",
     "answer": 87.14,
     "unit": "years",
@@ -10,6 +11,7 @@
     "as_of": "2023"
   },
   {
+    "id": "population-xkzcq",
     "question": "What was the median age at first marriage for men in the United States in 2023?",
     "answer": 30.2,
     "unit": "years",
@@ -20,6 +22,7 @@
     "as_of": "2023"
   },
   {
+    "id": "population-1df6hhv",
     "question": "How many official languages does the European Union have?",
     "answer": 24,
     "unit": "languages",
@@ -30,6 +33,7 @@
     "as_of": "2024"
   },
   {
+    "id": "population-15lijzt",
     "question": "What share of the world's population lived in urban areas in 2023?",
     "answer": 57,
     "unit": "percent",
@@ -40,6 +44,7 @@
     "as_of": "2023"
   },
   {
+    "id": "population-98qs7b",
     "question": "How many living languages are spoken in Papua New Guinea?",
     "answer": 840,
     "unit": "languages",
@@ -50,6 +55,7 @@
     "as_of": "2024"
   },
   {
+    "id": "population-1bukyc7",
     "question": "On an average day in 2023, how many babies were born in Ireland?",
     "answer": 150,
     "unit": "babies",
@@ -60,6 +66,7 @@
     "as_of": "2023"
   },
   {
+    "id": "population-1yaxwwh",
     "question": "How many living languages are there in the world, as counted by Ethnologue in 2024?",
     "answer": 7164,
     "unit": "languages",
@@ -70,6 +77,7 @@
     "as_of": "2024"
   },
   {
+    "id": "population-epn028",
     "question": "On an average day in 2023, how many people died in Japan?",
     "answer": 4318,
     "unit": "people",
@@ -80,6 +88,7 @@
     "as_of": "2023"
   },
   {
+    "id": "population-1c4tpv1",
     "question": "How many baby boys born in the US in 2023 were named Liam, the year's most popular name?",
     "answer": 20802,
     "unit": "babies",
@@ -90,6 +99,7 @@
     "as_of": "2023"
   },
   {
+    "id": "population-1epn2fr",
     "question": "What was the population of Greenland on 1 January 2024?",
     "answer": 56699,
     "unit": "people",
@@ -100,6 +110,7 @@
     "as_of": "2024-01-01"
   },
   {
+    "id": "population-x1p1qv",
     "question": "On an average day in 2023, how many babies were born worldwide?",
     "answer": 360000,
     "unit": "babies",
@@ -110,6 +121,7 @@
     "as_of": "2023"
   },
   {
+    "id": "population-1u709lx",
     "question": "How many people became naturalized US citizens in fiscal year 2023?",
     "answer": 878500,
     "unit": "people",
@@ -120,6 +132,7 @@
     "as_of": "FY2023"
   },
   {
+    "id": "population-150coib",
     "question": "What was the population of the Republic of Ireland in April 2024?",
     "answer": 5380300,
     "unit": "people",
@@ -130,6 +143,7 @@
     "as_of": "2024-04"
   },
   {
+    "id": "population-1n24rlt",
     "question": "How many international students were enrolled at US colleges and universities in the 2023/24 academic year?",
     "answer": 1126690,
     "unit": "students",
@@ -140,6 +154,7 @@
     "as_of": "2023/24"
   },
   {
+    "id": "population-1tjbbii",
     "question": "What was Australia's population on 30 June 2024?",
     "answer": 27204809,
     "unit": "people",
@@ -150,6 +165,7 @@
     "as_of": "2024-06-30"
   },
   {
+    "id": "population-13j3svv",
     "question": "How many Jews were there in the world in 2023 (core Jewish population)?",
     "answer": 15700000,
     "unit": "people",
@@ -160,6 +176,7 @@
     "as_of": "2023"
   },
   {
+    "id": "population-c04grp",
     "question": "How many international migrants (people living outside the country they were born in) were there worldwide in 2024?",
     "answer": 304000000,
     "unit": "people",
@@ -170,6 +187,7 @@
     "as_of": "2024"
   },
   {
+    "id": "population-1pf4ba3",
     "question": "What was the population of Indonesia in mid-2023?",
     "answer": 278700000,
     "unit": "people",
@@ -180,6 +198,7 @@
     "as_of": "2023"
   },
   {
+    "id": "population-e3s3j4",
     "question": "How many children and youth worldwide were out of school in 2023, according to UNESCO?",
     "answer": 250000000,
     "unit": "children",
@@ -190,6 +209,7 @@
     "as_of": "2023"
   },
   {
+    "id": "population-13ivg71",
     "question": "How many Muslims were there in the world in 2020?",
     "answer": 2000000000,
     "unit": "people",
@@ -200,6 +220,7 @@
     "as_of": "2020"
   },
   {
+    "id": "population-uwpxt7",
     "question": "How many people worldwide spoke English as a first or second language in 2024?",
     "answer": 1515000000,
     "unit": "people",
@@ -210,6 +231,7 @@
     "as_of": "2024"
   },
   {
+    "id": "population-ocqv0i",
     "question": "How many humans have ever been born in all of history, up to 2022?",
     "answer": 117000000000,
     "unit": "people",
@@ -220,6 +242,7 @@
     "as_of": "2022"
   },
   {
+    "id": "population-16k0rfl",
     "question": "How much money did migrants send home in remittances to low- and middle-income countries in 2023?",
     "answer": 656000000000,
     "unit": "US$",
@@ -230,6 +253,7 @@
     "as_of": "2023"
   },
   {
+    "id": "population-1tf8tj8",
     "question": "What was the total outstanding student loan debt in the United States at the end of 2023?",
     "answer": 1600000000000,
     "unit": "US$",

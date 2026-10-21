@@ -23,6 +23,7 @@ const els = {
   calcResult: $('#calc-result'),
   calcUse: $('#calc-use'),
   shareFallback: $('#share-fallback'),
+  announcer: $('#announcer'),
 };
 
 let bank = null;
@@ -109,7 +110,28 @@ function toast(message) {
   toast.timer = setTimeout(() => els.toast.classList.remove('show'), 2400);
 }
 
+/** Speak a message through the persistent live region (cleared first so repeats are announced). */
+function announce(message) {
+  els.announcer.textContent = '';
+  clearTimeout(announce.timer);
+  announce.timer = setTimeout(() => { els.announcer.textContent = message; }, 60);
+}
+
+/** Full number plus unit, with the compact form first when the digits would not fit a phone column. */
+function valueHtml(v, unit) {
+  const full = L.formatNumber(v);
+  const compact = L.formatCompact(v);
+  if (compact && full.length > 15) return `${esc(compact)} <small>${esc(unit)}</small><span class="compact">${esc(full)}</span>`;
+  return `${esc(full)} <small>${esc(unit)}</small>${compact ? `<span class="compact">${esc(compact)}</span>` : ''}`;
+}
+
+function rowNumber(v) {
+  const compact = L.formatCompact(v);
+  return v >= 1e12 && compact ? compact : L.formatNumber(v);
+}
+
 function parseGuess(raw, unit) {
+  if (String(raw).length > L.MAX_INPUT_LENGTH) return NaN;
   let v = L.parseNumber(raw, unit);
   if (Number.isNaN(v)) {
     let s = String(raw).trim();
@@ -180,7 +202,7 @@ function goTo(n) {
 
 // --------------------------------------------------------------- rendering
 
-function render() {
+function render({ focus = false } = {}) {
   renderMeta();
   renderProgress();
   const showSummary = view.kind === 'summary';
@@ -189,6 +211,10 @@ function render() {
   if (view.kind === 'play') renderQuestion(state.guesses.length);
   else if (view.kind === 'result') renderResult(view.index);
   else renderSummary();
+  if (!focus) return;
+  // Keep keyboard and screen-reader users oriented after a view change.
+  const target = view.kind === 'play' ? $('#guess') : view.kind === 'result' ? $('#continue') : els.summary;
+  if (target) target.focus({ preventScroll: view.kind === 'result' });
 }
 
 function renderMeta() {
@@ -216,7 +242,7 @@ function renderProgress() {
   $$('.dot.done', els.progress).forEach((btn) => {
     btn.addEventListener('click', () => {
       view = { kind: 'result', index: Number(btn.dataset.index), from: complete() ? 'summary' : 'play' };
-      render();
+      render({ focus: true });
     });
   });
 }
@@ -236,10 +262,10 @@ function renderQuestion(i) {
     <form id="guess-form" novalidate autocomplete="off">
       <label class="sr-only" for="guess">Your estimate in ${esc(q.unit)}</label>
       <div class="input-wrap">
-        <input id="guess" type="text" inputmode="decimal" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Your estimate" enterkeyhint="done">
+        <input id="guess" type="text" inputmode="decimal" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Estimate" enterkeyhint="done" maxlength="${L.MAX_INPUT_LENGTH}">
         <span class="unit" aria-hidden="true">${esc(q.unit)}</span>
       </div>
-      <p id="preview" class="preview" aria-live="polite">&nbsp;</p>
+      <p id="preview" class="preview">&nbsp;</p>
       <button type="submit" id="lock" class="btn primary wide">Lock it in</button>
     </form>`;
 
@@ -249,6 +275,7 @@ function renderQuestion(i) {
   const wrap = $('.input-wrap', els.card);
 
   const updatePreview = () => {
+    wrap.classList.remove('shake');
     const raw = input.value;
     if (!raw.trim()) {
       preview.innerHTML = '&nbsp;';
@@ -279,16 +306,12 @@ function renderQuestion(i) {
       wrap.classList.remove('shake');
       void wrap.offsetWidth; // restart the animation
       wrap.classList.add('shake');
+      announce(preview.textContent);
       input.focus();
       return;
     }
     lockIn(i, v);
   });
-
-  if (view.focusInput) {
-    input.focus();
-    view.focusInput = false;
-  }
 }
 
 function lockIn(i, value) {
@@ -299,9 +322,12 @@ function lockIn(i, value) {
   S.savePuzzleState(puzzleNumber, state);
   if (complete() && !state.recorded) recordStats();
   view = { kind: 'result', index: i };
-  render();
-  const btn = $('#continue');
-  if (btn) btn.focus({ preventScroll: true });
+  render({ focus: true });
+  const q = questions[i];
+  const m = L.scoreMultiple(value, q.answer);
+  const tier = L.tierFor(m);
+  const direction = Math.abs(m - 1) < 0.005 ? '' : value > q.answer ? ', too high' : ', too low';
+  announce(`${L.formatMultiple(m)} off, ${tier.label}${direction}. The answer is ${L.formatNumber(q.answer)} ${q.unit}.`);
 }
 
 function scaleHtml(guess, answer) {
@@ -339,23 +365,22 @@ function renderResult(i) {
   let next;
   if (view.from === 'summary') {
     label = 'Back to results';
-    next = () => { view = { kind: 'summary' }; render(); };
+    next = () => { view = { kind: 'summary' }; render({ focus: true }); };
   } else if (done && isLast) {
     label = 'See results';
-    next = () => { view = { kind: 'summary' }; render(); };
+    next = () => { view = { kind: 'summary' }; render({ focus: true }); };
   } else if (!done && i === state.guesses.length - 1) {
     label = 'Next question';
-    next = () => { view = { kind: 'play', focusInput: true }; render(); };
+    next = () => { view = { kind: 'play' }; render({ focus: true }); };
   } else if (done) {
     label = 'Back to results';
-    next = () => { view = { kind: 'summary' }; render(); };
+    next = () => { view = { kind: 'summary' }; render({ focus: true }); };
   } else {
     label = `Back to question ${state.guesses.length + 1}`;
-    next = () => { view = { kind: 'play' }; render(); };
+    next = () => { view = { kind: 'play' }; render({ focus: true }); };
   }
 
   const direction = Math.abs(m - 1) < 0.005 ? '' : g > q.answer ? ' · too high' : ' · too low';
-  const compact = L.formatCompact(q.answer);
   const asOf = q.as_of && q.as_of !== 'stable' ? ` · ${esc(q.as_of)}` : '';
   const srcHost = (() => { try { return new URL(q.source_url).hostname.replace(/^www\./, ''); } catch { return ''; } })();
 
@@ -365,7 +390,7 @@ function renderResult(i) {
       <p class="qnum">Question ${i + 1} of ${questions.length}</p>
     </div>
     <h2 class="question">${esc(q.question)}</h2>
-    <div class="result ${tier.cls}" role="status" aria-live="polite">
+    <div class="result ${tier.cls}">
       <div class="result-score">
         <span class="result-mult">${L.formatMultiple(m)}</span>
         <span class="result-label">${tier.emoji} ${tier.label}${direction}</span>
@@ -373,11 +398,11 @@ function renderResult(i) {
       <dl class="compare">
         <div>
           <dt>Your guess</dt>
-          <dd>${L.formatNumber(g)} <small>${esc(q.unit)}</small>${L.formatCompact(g) ? `<span class="compact">${esc(L.formatCompact(g))}</span>` : ''}</dd>
+          <dd>${valueHtml(g, q.unit)}</dd>
         </div>
         <div>
           <dt>Answer</dt>
-          <dd>${L.formatNumber(q.answer)} <small>${esc(q.unit)}</small>${compact ? `<span class="compact">${esc(compact)}</span>` : ''}</dd>
+          <dd>${valueHtml(q.answer, q.unit)}</dd>
         </div>
       </dl>
       ${scaleHtml(g, q.answer)}
@@ -415,7 +440,7 @@ function renderSummary() {
             <span class="row-body">
               <span class="row-cat">${esc(q.categoryName)}</span>
               <span class="row-q">${esc(q.question)}</span>
-              <span class="row-nums">You: ${L.formatNumber(state.guesses[i])} · Answer: ${L.formatNumber(q.answer)} ${esc(q.unit)}</span>
+              <span class="row-nums">You: ${esc(rowNumber(state.guesses[i]))} · Answer: ${esc(rowNumber(q.answer))} ${esc(q.unit)}</span>
             </span>
             <span class="row-mult ${t.cls}">${L.formatMultiple(ms[i])}</span>
           </button></li>`;
@@ -435,7 +460,7 @@ function renderSummary() {
   $$('.row', els.summary).forEach((btn) => {
     btn.addEventListener('click', () => {
       view = { kind: 'result', index: Number(btn.dataset.index), from: 'summary' };
-      render();
+      render({ focus: true });
     });
   });
   $('#btn-share').addEventListener('click', share);
@@ -654,10 +679,22 @@ function effectiveTheme() {
   return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 }
 
+/** Reflect the active theme in the toggle button and the browser chrome colour. */
+function syncThemeUi() {
+  const dark = effectiveTheme() === 'dark';
+  const btn = $('#btn-theme');
+  btn.setAttribute('aria-pressed', String(dark));
+  const label = dark ? 'Switch to light mode' : 'Switch to dark mode';
+  btn.setAttribute('aria-label', label);
+  btn.title = label;
+  $$('meta[name="theme-color"]').forEach((m) => m.setAttribute('content', dark ? '#121214' : '#f6f5f2'));
+}
+
 function toggleTheme() {
   const next = effectiveTheme() === 'dark' ? 'light' : 'dark';
   document.documentElement.dataset.theme = next;
   S.savePrefs({ ...S.loadPrefs(), theme: next });
+  syncThemeUi();
 }
 
 // -------------------------------------------------------------- day change
@@ -700,6 +737,8 @@ async function init() {
     openDialog(els.archive);
   });
   $('#btn-theme').addEventListener('click', toggleTheme);
+  syncThemeUi();
+  if (window.matchMedia) window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', syncThemeUi);
   $('#btn-new-day').addEventListener('click', () => {
     els.banner.hidden = true;
     goTo(todayNumber);

@@ -187,10 +187,12 @@ export function canonicalDigits(raw) {
  * An optional unit label (e.g. "km") typed after the number is ignored.
  * Returns NaN when the text is not a plain number.
  */
+export const MAX_INPUT_LENGTH = 200;
+
 export function parseNumber(input, unit = '') {
   if (typeof input === 'number') return input;
   let s = String(input ?? '').trim().toLowerCase();
-  if (!s) return NaN;
+  if (!s || s.length > MAX_INPUT_LENGTH) return NaN;
   if (unit) {
     const u = String(unit).trim().toLowerCase();
     if (u) s = s.replace(new RegExp(`\\s*${escapeRegExp(u)}$`), '');

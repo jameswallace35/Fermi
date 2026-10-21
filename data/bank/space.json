@@ -1,5 +1,6 @@
 [
   {
+    "id": "space-jkun2f",
     "question": "How many different people flew to the Moon on Apollo missions (1968-72), including those who never landed on it?",
     "answer": 24,
     "unit": "astronauts",
@@ -10,6 +11,7 @@
     "as_of": "stable"
   },
   {
+    "id": "space-1smywyw",
     "question": "How many millimetres farther from Earth does the Moon drift each year?",
     "answer": 38,
     "unit": "mm",
@@ -20,6 +22,7 @@
     "as_of": "stable"
   },
   {
+    "id": "space-zbebn0",
     "question": "How many minutes did Yuri Gagarin's 1961 spaceflight last, from launch to landing?",
     "answer": 108,
     "unit": "minutes",
@@ -30,6 +33,7 @@
     "as_of": "stable"
   },
   {
+    "id": "space-biin3a",
     "question": "How many Space Shuttle missions did NASA fly between 1981 and 2011?",
     "answer": 135,
     "unit": "missions",
@@ -40,6 +44,7 @@
     "as_of": "stable"
   },
   {
+    "id": "space-1ngfuqs",
     "question": "How many Earth years does Neptune take to complete one orbit of the Sun?",
     "answer": 165,
     "unit": "years",
@@ -50,6 +55,7 @@
     "as_of": "stable"
   },
   {
+    "id": "space-qyhcbt",
     "question": "How many kilograms of Moon rock and soil did the six Apollo landings bring back to Earth in total?",
     "answer": 382,
     "unit": "kg",
@@ -60,6 +66,7 @@
     "as_of": "stable"
   },
   {
+    "id": "space-1ndxbud",
     "question": "How many days did Valeri Polyakov spend in space on his record single flight aboard the Mir station (1994-95)?",
     "answer": 438,
     "unit": "days",
@@ -70,6 +77,7 @@
     "as_of": "stable"
   },
   {
+    "id": "space-erz2nj",
     "question": "How many confirmed exoplanets were listed in the NASA Exoplanet Archive in September 2025?",
     "answer": 6000,
     "unit": "exoplanets",
@@ -80,6 +88,7 @@
     "as_of": "2025-09"
   },
   {
+    "id": "space-1ttzj0f",
     "question": "What was the launch mass of the James Webb Space Telescope in kilograms?",
     "answer": 6200,
     "unit": "kg",
@@ -90,6 +99,7 @@
     "as_of": "stable"
   },
   {
+    "id": "space-6yb36d",
     "question": "How fast does the International Space Station travel in its orbit, in km/h?",
     "answer": 28000,
     "unit": "km/h",
@@ -100,6 +110,7 @@
     "as_of": "stable"
   },
   {
+    "id": "space-1i5f0if",
     "question": "How many kilometres above the equator is a geostationary orbit?",
     "answer": 35786,
     "unit": "km",
@@ -110,6 +121,7 @@
     "as_of": "stable"
   },
   {
+    "id": "space-1lhfkvs",
     "question": "How many near-Earth asteroids had been discovered as of the end of 2025?",
     "answer": 40000,
     "unit": "asteroids",
@@ -120,6 +132,7 @@
     "as_of": "2025-12"
   },
   {
+    "id": "space-o9y0a1",
     "question": "How many times more massive is the Sun than Earth?",
     "answer": 333000,
     "unit": "Earth masses",
@@ -130,6 +143,7 @@
     "as_of": "stable"
   },
   {
+    "id": "space-1qwpjhg",
     "question": "What price per seat did Virgin Galactic set when it reopened spaceflight ticket sales in August 2021?",
     "answer": 450000,
     "unit": "US$",
@@ -140,6 +154,7 @@
     "as_of": "2021-08"
   },
   {
+    "id": "space-16x28ek",
     "question": "How fast was the Parker Solar Probe moving at its record closest approach to the Sun in December 2024, in km/h?",
     "answer": 692000,
     "unit": "km/h",
@@ -150,6 +165,7 @@
     "as_of": "2024-12-24"
   },
   {
+    "id": "space-1x7nysg",
     "question": "How many kilometres from Earth does the James Webb Space Telescope orbit, at the Sun-Earth L2 point?",
     "answer": 1500000,
     "unit": "km",
@@ -160,6 +176,7 @@
     "as_of": "stable"
   },
   {
+    "id": "space-znhcln",
     "question": "What is the temperature at the core of the Sun in degrees Celsius?",
     "answer": 15000000,
     "unit": "°C",
@@ -170,6 +187,7 @@
     "as_of": "stable"
   },
   {
+    "id": "space-r7z9c",
     "question": "What is the closest possible distance between Earth and Mars, in kilometres?",
     "answer": 54600000,
     "unit": "km",
@@ -180,6 +198,7 @@
     "as_of": "stable"
   },
   {
+    "id": "space-18nud7s",
     "question": "How many kilometres does Earth travel in one full orbit around the Sun?",
     "answer": 940000000,
     "unit": "km",
@@ -190,6 +209,7 @@
     "as_of": "stable"
   },
   {
+    "id": "space-2e8i71",
     "question": "What is Pluto's average distance from the Sun in kilometres?",
     "answer": 5900000000,
     "unit": "km",
@@ -200,6 +220,7 @@
     "as_of": "stable"
   },
   {
+    "id": "space-2ljkxq",
     "question": "What is NASA's estimated lifetime cost of the James Webb Space Telescope, in US dollars?",
     "answer": 9700000000,
     "unit": "US$",
@@ -210,6 +231,7 @@
     "as_of": "2021"
   },
   {
+    "id": "space-1dyo1t3",
     "question": "How many kilometres from Earth was Voyager 1 in mid-2025?",
     "answer": 25000000000,
     "unit": "km",
@@ -220,6 +242,7 @@
     "as_of": "2025-06"
   },
   {
+    "id": "space-7vyz21",
     "question": "What valuation did SpaceX's December 2024 share sale give the company, in US dollars?",
     "answer": 350000000000,
     "unit": "US$",
@@ -230,6 +253,7 @@
     "as_of": "2024-12"
   },
   {
+    "id": "space-1fc3xlf",
     "question": "How many kilometres away is Proxima Centauri, the nearest star to the Sun?",
     "answer": 40000000000000,
     "unit": "km",

@@ -15,8 +15,35 @@ const port = 8123 + Math.floor(Math.random() * 1000);
 const shots = process.env.SHOTS_DIR || path.join(root, '.e2e-shots');
 fs.mkdirSync(shots, { recursive: true });
 
-const server = spawn(process.execPath, [path.join(root, 'scripts', 'serve.mjs'), String(port)], { stdio: 'ignore' });
-await new Promise((r) => setTimeout(r, 600));
+const server = spawn(process.execPath, [path.join(root, 'scripts', 'serve.mjs'), String(port)], { stdio: ['ignore', 'ignore', 'pipe'] });
+let serverExit = null;
+let serverStderr = '';
+server.stderr.on('data', (d) => { serverStderr += d; });
+server.on('exit', (code) => { serverExit = code; });
+
+async function waitForServer(url, ms = 15000) {
+  const start = Date.now();
+  while (Date.now() - start < ms) {
+    if (serverExit !== null) throw new Error(`dev server exited with code ${serverExit}: ${serverStderr.trim()}`);
+    try {
+      const r = await fetch(url);
+      if (r.ok) return;
+    } catch {
+      // not listening yet
+    }
+    await new Promise((r) => setTimeout(r, 100));
+  }
+  throw new Error(`dev server did not answer on ${url} within ${ms} ms`);
+}
+
+try {
+  await waitForServer(`http://127.0.0.1:${port}/`);
+} catch (err) {
+  console.log(`not ok - dev server starts\n  ${err.message}`);
+  server.kill();
+  process.exit(1);
+}
+console.log('ok - dev server starts');
 
 const browser = await chromium.launch();
 const failures = [];

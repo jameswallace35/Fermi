@@ -1,5 +1,6 @@
 [
   {
+    "id": "culture-d10cpk",
     "question": "How much does an Oscar statuette weigh?",
     "answer": 3.86,
     "unit": "kg",
@@ -10,6 +11,7 @@
     "as_of": "stable"
   },
   {
+    "id": "culture-1qv3ezz",
     "question": "How tall is Michelangelo's marble statue of David, not counting its pedestal?",
     "answer": 5.17,
     "unit": "metres",
@@ -20,6 +22,7 @@
     "as_of": "stable"
   },
   {
+    "id": "culture-1dl4gi0",
     "question": "How tall is the Mona Lisa painting itself, excluding its frame?",
     "answer": 77,
     "unit": "cm",
@@ -30,6 +33,7 @@
     "as_of": "stable"
   },
   {
+    "id": "culture-a73a24",
     "question": "How long is the Bayeux Tapestry, the embroidered cloth depicting the Norman conquest of 1066?",
     "answer": 68.38,
     "unit": "metres",
@@ -40,6 +44,7 @@
     "as_of": "stable"
   },
   {
+    "id": "culture-14lc8cj",
     "question": "How much did Taylor Swift's Eras Tour (2023-2024) gross in ticket sales across its 149 shows?",
     "answer": 2077618725,
     "unit": "US$",
@@ -50,6 +55,7 @@
     "as_of": "2024"
   },
   {
+    "id": "culture-q7e53o",
     "question": "How many oil paintings did Vincent van Gogh produce in his lifetime?",
     "answer": 860,
     "unit": "paintings",
@@ -60,6 +66,7 @@
     "as_of": "stable"
   },
   {
+    "id": "culture-11z0q0i",
     "question": "How many episodes of The Simpsons had aired by the end of season 36 in May 2025?",
     "answer": 790,
     "unit": "episodes",
@@ -70,6 +77,7 @@
     "as_of": "2025-05"
   },
   {
+    "id": "culture-1503zea",
     "question": "How many years ago, as of 2026, was the Rosetta Stone carved?",
     "answer": 2221,
     "unit": "years",
@@ -80,6 +88,7 @@
     "as_of": "2026"
   },
   {
+    "id": "culture-1w2qdxi",
     "question": "How many performances did The Phantom of the Opera give on Broadway before it closed in April 2023?",
     "answer": 13981,
     "unit": "performances",
@@ -90,6 +99,7 @@
     "as_of": "2023"
   },
   {
+    "id": "culture-1wo5syi",
     "question": "How many lines of verse are there in Homer's Iliad?",
     "answer": 15693,
     "unit": "lines",
@@ -100,6 +110,7 @@
     "as_of": "stable"
   },
   {
+    "id": "culture-1a1y4go",
     "question": "How many words are in Tolstoy's War and Peace in English translation?",
     "answer": 587287,
     "unit": "words",
@@ -110,6 +121,7 @@
     "as_of": "stable"
   },
   {
+    "id": "culture-17xqu7n",
     "question": "How many visitors did the Louvre museum in Paris receive in 2024?",
     "answer": 8700000,
     "unit": "visitors",
@@ -120,6 +132,7 @@
     "as_of": "2024"
   },
   {
+    "id": "culture-7ngn7y",
     "question": "How many guests visited Magic Kingdom at Walt Disney World in Florida in 2023?",
     "answer": 17720000,
     "unit": "visitors",
@@ -130,6 +143,7 @@
     "as_of": "2023"
   },
   {
+    "id": "culture-68uftd",
     "question": "How many copies of the Harry Potter books had been sold worldwide as of 2023?",
     "answer": 600000000,
     "unit": "copies",
@@ -140,6 +154,7 @@
     "as_of": "2023"
   },
   {
+    "id": "culture-pv50nr",
     "question": "How much did James Cameron's Avatar (2009) gross at the worldwide box office, including re-releases?",
     "answer": 2923000000,
     "unit": "US$",
@@ -150,6 +165,7 @@
     "as_of": "2024"
   },
   {
+    "id": "culture-ktipww",
     "question": "How many views did the 'Baby Shark Dance' video have on YouTube by the end of 2024?",
     "answer": 15000000000,
     "unit": "views",
@@ -160,6 +176,7 @@
     "as_of": "2024-12"
   },
   {
+    "id": "culture-hl88rt",
     "question": "How much revenue did the global recorded music industry earn in 2024, according to IFPI?",
     "answer": 29600000000,
     "unit": "US$",
@@ -170,6 +187,7 @@
     "as_of": "2024"
   },
   {
+    "id": "culture-d8d7t3",
     "question": "How much did consumers spend on video games worldwide in 2024, according to Newzoo?",
     "answer": 182700000000,
     "unit": "US$",
@@ -180,6 +198,7 @@
     "as_of": "2024"
   },
   {
+    "id": "culture-9614il",
     "question": "How many on-demand audio streams were played worldwide in 2024 across all music streaming services (Luminate)?",
     "answer": 4800000000000,
     "unit": "streams",
@@ -190,6 +209,7 @@
     "as_of": "2024"
   },
   {
+    "id": "culture-hdhhu0",
     "question": "How many kanji characters are on Japan's official joyo list for general use?",
     "answer": 2136,
     "unit": "kanji",

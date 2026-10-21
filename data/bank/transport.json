@@ -1,5 +1,6 @@
 [
   {
+    "id": "transport-1bgxnia",
     "question": "How many Concorde supersonic airliners were built in total, including prototypes?",
     "answer": 20,
     "unit": "aircraft",
@@ -10,6 +11,7 @@
     "as_of": "stable"
   },
   {
+    "id": "transport-1h9hhui",
     "question": "How many runways does Chicago O'Hare International Airport have, as of 2024?",
     "answer": 8,
     "unit": "runways",
@@ -20,6 +22,7 @@
     "as_of": "2024"
   },
   {
+    "id": "transport-12rtz1k",
     "question": "How long is the Gotthard Base Tunnel in Switzerland, the world's longest railway tunnel, in km?",
     "answer": 57.1,
     "unit": "km",
@@ -30,6 +33,7 @@
     "as_of": "stable"
   },
   {
+    "id": "transport-156bavo",
     "question": "How many years old is New York's Brooklyn Bridge in 2026, counting from its opening?",
     "answer": 143,
     "unit": "years",
@@ -40,6 +44,7 @@
     "as_of": "2026"
   },
   {
+    "id": "transport-nfjo3e",
     "question": "What is the top speed in regular service of Japan's fastest Shinkansen trains, on the Tohoku line, in km/h?",
     "answer": 320,
     "unit": "km/h",
@@ -50,6 +55,7 @@
     "as_of": "2024"
   },
   {
+    "id": "transport-6mkvr5",
     "question": "What is the maximum takeoff weight of an Airbus A380, the world's largest passenger airliner, in tonnes?",
     "answer": 575,
     "unit": "tonnes",
@@ -60,6 +66,7 @@
     "as_of": "stable"
   },
   {
+    "id": "transport-1yroqgd",
     "question": "How high above the river is the deck of China's Huajiang Grand Canyon Bridge, the world's highest bridge, opened in 2025, in metres?",
     "answer": 625,
     "unit": "metres",
@@ -70,6 +77,7 @@
     "as_of": "2025"
   },
   {
+    "id": "transport-61lm5e",
     "question": "How long is the Trans-Alaska Pipeline, from Prudhoe Bay to the port of Valdez, in km?",
     "answer": 1288,
     "unit": "km",
@@ -80,6 +88,7 @@
     "as_of": "stable"
   },
   {
+    "id": "transport-1cqyrmp",
     "question": "How many Boeing 747s were built in total before production ended in 2023?",
     "answer": 1574,
     "unit": "aircraft",
@@ -90,6 +99,7 @@
     "as_of": "stable"
   },
   {
+    "id": "transport-1suwg9l",
     "question": "How long is the Trans-Siberian Railway from Moscow to Vladivostok, in km?",
     "answer": 9289,
     "unit": "km",
@@ -100,6 +110,7 @@
     "as_of": "stable"
   },
   {
+    "id": "transport-1md4nq5",
     "question": "What is the installed generating capacity of China's Three Gorges Dam, in megawatts?",
     "answer": 22500,
     "unit": "megawatts",
@@ -110,6 +121,7 @@
     "as_of": "stable"
   },
   {
+    "id": "transport-mdoycp",
     "question": "How many standard 20-foot containers (TEU) can the world's largest container ship, MSC Irina, carry, as of 2024?",
     "answer": 24346,
     "unit": "TEU",
@@ -120,6 +132,7 @@
     "as_of": "2024"
   },
   {
+    "id": "transport-1668kzv",
     "question": "How many ships transited the Suez Canal in 2023?",
     "answer": 26434,
     "unit": "ships",
@@ -130,6 +143,7 @@
     "as_of": "2023"
   },
   {
+    "id": "transport-1bmgs5g",
     "question": "How many km of high-speed railway did China have in operation at the end of 2024?",
     "answer": 48000,
     "unit": "km",
@@ -140,6 +154,7 @@
     "as_of": "2024-12-31"
   },
   {
+    "id": "transport-21xg2g",
     "question": "How many merchant ships of 100 gross tons or more made up the world's commercial fleet in January 2023?",
     "answer": 105493,
     "unit": "ships",
@@ -150,6 +165,7 @@
     "as_of": "2023-01-01"
   },
   {
+    "id": "transport-45mx36",
     "question": "How many km of public roads does the United States have, as of 2022?",
     "answer": 6700000,
     "unit": "km",
@@ -160,6 +176,7 @@
     "as_of": "2022"
   },
   {
+    "id": "transport-19cot3j",
     "question": "How many containers (TEU) did the Port of Shanghai, the world's busiest container port, handle in 2024?",
     "answer": 51500000,
     "unit": "TEU",
@@ -170,6 +187,7 @@
     "as_of": "2024"
   },
   {
+    "id": "transport-d69g02",
     "question": "How many passengers passed through London Heathrow Airport in 2024?",
     "answer": 83900000,
     "unit": "passengers",
@@ -180,6 +198,7 @@
     "as_of": "2024"
   },
   {
+    "id": "transport-111rybw",
     "question": "How many tonnes of cargo were shipped by sea worldwide in 2023?",
     "answer": 12300000000,
     "unit": "tonnes",
@@ -190,6 +209,7 @@
     "as_of": "2023"
   },
   {
+    "id": "transport-w9xqoc",
     "question": "How much did London's Crossrail, now the Elizabeth line, cost to build, in pounds sterling?",
     "answer": 18800000000,
     "unit": "£",
@@ -200,6 +220,7 @@
     "as_of": "2022"
   },
   {
+    "id": "transport-17tdqe8",
     "question": "How many miles did all motor vehicles drive on US roads in 2023?",
     "answer": 3260000000000,
     "unit": "miles",

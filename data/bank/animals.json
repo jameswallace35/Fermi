@@ -1,5 +1,6 @@
 [
   {
+    "id": "animals-bsq0yr",
     "question": "How many months does an African elephant's pregnancy last?",
     "answer": 22,
     "unit": "months",
@@ -10,6 +11,7 @@
     "as_of": "stable"
   },
   {
+    "id": "animals-20evac",
     "question": "How many centimetres can the fastest-growing bamboo grow in a single day, per Guinness World Records?",
     "answer": 91,
     "unit": "cm",
@@ -20,6 +22,7 @@
     "as_of": "stable"
   },
   {
+    "id": "animals-1peg4iq",
     "question": "How tall is Hyperion, the coast redwood in California that is the world's tallest known living tree, in metres?",
     "answer": 115.92,
     "unit": "metres",
@@ -30,6 +33,7 @@
     "as_of": "2019"
   },
   {
+    "id": "animals-1bwa6qb",
     "question": "How old was Jonathan, the Seychelles giant tortoise on St Helena and the oldest known living land animal, in 2025?",
     "answer": 193,
     "unit": "years",
@@ -40,6 +44,7 @@
     "as_of": "2025"
   },
   {
+    "id": "animals-nvzx2y",
     "question": "What is the fastest dive speed ever recorded for a peregrine falcon, in km/h?",
     "answer": 389,
     "unit": "km/h",
@@ -50,6 +55,7 @@
     "as_of": "stable"
   },
   {
+    "id": "animals-5rkaad",
     "question": "How many wild mountain gorillas were there in 2018, combining the latest Virunga and Bwindi census counts?",
     "answer": 1063,
     "unit": "gorillas",
@@ -60,6 +66,7 @@
     "as_of": "2018"
   },
   {
+    "id": "animals-jrnl3d",
     "question": "How much does an average ostrich egg weigh, in grams?",
     "answer": 1400,
     "unit": "grams",
@@ -70,6 +77,7 @@
     "as_of": "stable"
   },
   {
+    "id": "animals-1bj2y90",
     "question": "What is the trunk volume of General Sherman, the giant sequoia in California that is the largest tree on Earth, in cubic metres?",
     "answer": 1487,
     "unit": "cubic metres",
@@ -80,6 +88,7 @@
     "as_of": "stable"
   },
   {
+    "id": "animals-un2oqr",
     "question": "What is the deepest dive ever recorded for a Cuvier's beaked whale, the deepest-diving mammal, in metres?",
     "answer": 2992,
     "unit": "metres",
@@ -90,6 +99,7 @@
     "as_of": "stable"
   },
   {
+    "id": "animals-1rx6w1g",
     "question": "How old was Methuselah, the Great Basin bristlecone pine in California's White Mountains, in 2024?",
     "answer": 4856,
     "unit": "years",
@@ -100,6 +110,7 @@
     "as_of": "2024"
   },
   {
+    "id": "animals-1vui26",
     "question": "How many tonnes of honey were produced worldwide in 2022, according to FAO?",
     "answer": 1800000,
     "unit": "tonnes",
@@ -110,6 +121,7 @@
     "as_of": "2022"
   },
   {
+    "id": "animals-oobwko",
     "question": "How many living bird species were recognised on the IOC World Bird List as of 2024?",
     "answer": 11194,
     "unit": "species",
@@ -120,6 +132,7 @@
     "as_of": "2024"
   },
   {
+    "id": "animals-1ecvtvu",
     "question": "What is the longest non-stop flight recorded for a bird (a bar-tailed godwit tracked from Alaska to Tasmania in 2022), in km?",
     "answer": 13560,
     "unit": "km",
@@ -130,6 +143,7 @@
     "as_of": "2022"
   },
   {
+    "id": "animals-xr8eno",
     "question": "How many spider species had been scientifically described worldwide, per the World Spider Catalog, as of 2024?",
     "answer": 52000,
     "unit": "species",
@@ -140,6 +154,7 @@
     "as_of": "2024"
   },
   {
+    "id": "animals-1biuv8t",
     "question": "What is the area of Australia's Great Barrier Reef, in square kilometres?",
     "answer": 344400,
     "unit": "sq km",
@@ -150,6 +165,7 @@
     "as_of": "stable"
   },
   {
+    "id": "animals-s1dg90",
     "question": "How many African elephants (savanna and forest) were estimated to remain in the wild in 2016, per the IUCN status report?",
     "answer": 415000,
     "unit": "elephants",
@@ -160,6 +176,7 @@
     "as_of": "2016"
   },
   {
+    "id": "animals-mfuqg",
     "question": "How many tonnes did the world's wild-capture fisheries land in 2022, per FAO's State of World Fisheries report?",
     "answer": 92300000,
     "unit": "tonnes",
@@ -170,6 +187,7 @@
     "as_of": "2022"
   },
   {
+    "id": "animals-rnk10d",
     "question": "How many eggs can a single female ocean sunfish carry at one time?",
     "answer": 300000000,
     "unit": "eggs",
@@ -180,6 +198,7 @@
     "as_of": "stable"
   },
   {
+    "id": "animals-o9gkwf",
     "question": "How many yen did the top bluefin tuna fetch at Tokyo's first fish auction of 2019, a record price?",
     "answer": 333600000,
     "unit": "yen",
@@ -190,6 +209,7 @@
     "as_of": "2019"
   },
   {
+    "id": "animals-1ndhqo0",
     "question": "How many hectares of forest did the world have in 2020, per the FAO Global Forest Resources Assessment?",
     "answer": 4060000000,
     "unit": "hectares",
@@ -200,6 +220,7 @@
     "as_of": "2020"
   },
   {
+    "id": "animals-xsm16z",
     "question": "How many chickens were slaughtered for meat worldwide in 2022?",
     "answer": 75000000000,
     "unit": "chickens",
@@ -210,6 +231,7 @@
     "as_of": "2022"
   },
   {
+    "id": "animals-1yvvtbs",
     "question": "How much did Americans spend on their pets in 2024, in US$, per the American Pet Products Association?",
     "answer": 152000000000,
     "unit": "US$",
@@ -220,6 +242,7 @@
     "as_of": "2024"
   },
   {
+    "id": "animals-1dtwczq",
     "question": "How many trees are there on Earth, according to the 2015 global estimate published in Nature?",
     "answer": 3040000000000,
     "unit": "trees",
@@ -230,6 +253,7 @@
     "as_of": "2015"
   },
   {
+    "id": "animals-1xl5dcj",
     "question": "How many individual ants are estimated to live on Earth, per the 2022 study in PNAS?",
     "answer": 20000000000000000,
     "unit": "ants",

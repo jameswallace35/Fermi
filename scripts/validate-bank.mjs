@@ -1,27 +1,44 @@
 // Validate data/questions.json: schema, ids, duplicates, category coverage,
-// and that every day's selection has five distinct categories.
+// that every day's selection has five distinct categories and questions, and
+// that the file is exactly what data/bank/*.json would build (so a forgotten
+// `npm run build:bank` fails CI instead of shipping stale questions).
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { validateQuestion, questionId, isDuplicate } from './build-bank.mjs';
+import { validateQuestion, isDuplicate, buildBank, readBankFiles } from './build-bank.mjs';
 import { selectQuestions, firstRepeatDay, QUESTIONS_PER_DAY } from '../src/logic.js';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const file = path.join(root, 'data', 'questions.json');
-const bank = JSON.parse(fs.readFileSync(file, 'utf8'));
 const errors = [];
+
+let bank;
+try {
+  bank = JSON.parse(fs.readFileSync(file, 'utf8'));
+} catch (err) {
+  console.error(`error: cannot read data/questions.json: ${err.message}`);
+  process.exit(1);
+}
 
 if (!Array.isArray(bank.categories) || !bank.categories.length) errors.push('no categories');
 if (!Array.isArray(bank.questions) || !bank.questions.length) errors.push('no questions');
+if (errors.length) {
+  for (const e of errors) console.error(`error: ${e}`);
+  process.exit(1);
+}
 
+for (const c of bank.categories) {
+  if (typeof c.slug !== 'string' || typeof c.name !== 'string') errors.push(`category ${JSON.stringify(c)} needs a slug and a name`);
+}
 const slugs = new Set(bank.categories.map((c) => c.slug));
 const ids = new Set();
 bank.questions.forEach((q, i) => {
   errors.push(...validateQuestion(q, `questions[${i}]`));
+  if (!q || typeof q !== 'object') return;
+  if (typeof q.id !== 'string') errors.push(`questions[${i}]: missing id`);
   if (!slugs.has(q.category)) errors.push(`questions[${i}]: unknown category ${q.category}`);
   if (ids.has(q.id)) errors.push(`questions[${i}]: duplicate id ${q.id}`);
   ids.add(q.id);
-  if (q.id !== questionId(q.category, q.question)) errors.push(`questions[${i}]: id ${q.id} does not match its text (run npm run build:bank)`);
   for (let j = 0; j < i; j++) {
     if (isDuplicate(bank.questions[j], q)) errors.push(`questions[${i}] looks like a duplicate of questions[${j}]`);
   }
@@ -41,6 +58,18 @@ if (bank.categories.length < QUESTIONS_PER_DAY) {
     if (new Set(qs.map((q) => q.category)).size !== QUESTIONS_PER_DAY) errors.push(`day ${day}: repeated category`);
     if (new Set(qs.map((q) => q.id)).size !== QUESTIONS_PER_DAY) errors.push(`day ${day}: repeated question`);
   }
+}
+
+// The merged file must match what the source files build to.
+try {
+  const files = readBankFiles();
+  const rebuilt = buildBank({ files, existing: bank, allowRemove: true });
+  for (const e of rebuilt.errors) errors.push(`data/bank: ${e}`);
+  if (!rebuilt.errors.length && JSON.stringify(rebuilt.bank) !== JSON.stringify(bank)) {
+    errors.push('data/questions.json is out of date with data/bank/*.json: run npm run build:bank and commit the result');
+  }
+} catch (err) {
+  errors.push(err.message);
 }
 
 if (errors.length) {

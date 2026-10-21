@@ -1,5 +1,6 @@
 [
   {
+    "id": "everyday-1cu9v4a",
     "question": "How many minutes did the average US worker spend travelling to work, one way, in 2023?",
     "answer": 26.8,
     "unit": "minutes",
@@ -10,6 +11,7 @@
     "as_of": "2023"
   },
   {
+    "id": "everyday-ysjsij",
     "question": "What was the average age of cars and light trucks on US roads in 2024?",
     "answer": 12.6,
     "unit": "years",
@@ -20,6 +22,7 @@
     "as_of": "2024"
   },
   {
+    "id": "everyday-etr7oj",
     "question": "How many keys are on a standard full-size US PC keyboard, including the number pad?",
     "answer": 104,
     "unit": "keys",
@@ -30,6 +33,7 @@
     "as_of": "stable"
   },
   {
+    "id": "everyday-17ik38m",
     "question": "How many minutes per day did the average American aged 15 and over spend watching TV in 2023?",
     "answer": 156,
     "unit": "minutes",
@@ -40,6 +44,7 @@
     "as_of": "2023"
   },
   {
+    "id": "everyday-1980qge",
     "question": "How many litres of water does the average American family use at home per day, according to the EPA?",
     "answer": 1136,
     "unit": "litres",
@@ -50,6 +55,7 @@
     "as_of": "2024"
   },
   {
+    "id": "everyday-6i7gx5",
     "question": "How many steps do runners climb in the Empire State Building Run-Up, from the lobby to the 86th-floor observatory?",
     "answer": 1576,
     "unit": "steps",
@@ -60,6 +66,7 @@
     "as_of": "stable"
   },
   {
+    "id": "everyday-wcdo78",
     "question": "How many yellow taxi medallions (licences to operate a cab) exist in New York City, as of 2024?",
     "answer": 13587,
     "unit": "medallions",
@@ -70,6 +77,7 @@
     "as_of": "2024"
   },
   {
+    "id": "everyday-9omv74",
     "question": "How many different items does the average US supermarket carry, as of 2023?",
     "answer": 31704,
     "unit": "items",
@@ -80,6 +88,7 @@
     "as_of": "2023"
   },
   {
+    "id": "everyday-vlrnvt",
     "question": "How many post boxes does Royal Mail have across the UK?",
     "answer": 115000,
     "unit": "post boxes",
@@ -90,6 +99,7 @@
     "as_of": "2023"
   },
   {
+    "id": "everyday-1l1og3k",
     "question": "How many fire hydrants are there on the streets of New York City?",
     "answer": 109000,
     "unit": "hydrants",
@@ -100,6 +110,7 @@
     "as_of": "2024"
   },
   {
+    "id": "everyday-m43sjp",
     "question": "How many bridges are there in the United States, according to the National Bridge Inventory?",
     "answer": 623218,
     "unit": "bridges",
@@ -110,6 +121,7 @@
     "as_of": "2024"
   },
   {
+    "id": "everyday-1mfls6q",
     "question": "How many vending machines are there in Japan, as of the end of 2023?",
     "answer": 3920000,
     "unit": "vending machines",
@@ -120,6 +132,7 @@
     "as_of": "2023"
   },
   {
+    "id": "everyday-jsvdu3",
     "question": "How many bricks were used to build the Empire State Building?",
     "answer": 10000000,
     "unit": "bricks",
@@ -130,6 +143,7 @@
     "as_of": "stable"
   },
   {
+    "id": "everyday-131jqah",
     "question": "How many households were there in the United States in 2023?",
     "answer": 131400000,
     "unit": "households",
@@ -140,6 +154,7 @@
     "as_of": "2023"
   },
   {
+    "id": "everyday-1f70k08",
     "question": "How many motor vehicles (cars, trucks and buses) were produced worldwide in 2023?",
     "answer": 93546599,
     "unit": "vehicles",
@@ -150,6 +165,7 @@
     "as_of": "2023"
   },
   {
+    "id": "everyday-1pu1tah",
     "question": "How many rides were taken on the New York City Subway in 2023?",
     "answer": 1151998158,
     "unit": "rides",
@@ -160,6 +176,7 @@
     "as_of": "2023"
   },
   {
+    "id": "everyday-cubd3n",
     "question": "How many pieces of mail did the US Postal Service handle in fiscal year 2023?",
     "answer": 116100000000,
     "unit": "pieces of mail",
@@ -170,6 +187,7 @@
     "as_of": "2023"
   },
   {
+    "id": "everyday-155oby5",
     "question": "How many litres of water does an Olympic-size swimming pool (50 m long, 25 m wide, 2 m deep) hold?",
     "answer": 2500000,
     "unit": "litres",
@@ -180,6 +198,7 @@
     "as_of": "stable"
   },
   {
+    "id": "everyday-x9hz1w",
     "question": "How much did the average new vehicle sold in the US weigh in model year 2022?",
     "answer": 1964,
     "unit": "kg",

@@ -1,16 +1,21 @@
 // Merge data/bank/*.json (one file per category) into data/questions.json.
 //
-// - Category order comes from CATEGORIES below (that order drives the daily
-//   rotation, so append new categories at the end).
-// - Each question gets a stable id derived from its category and text, so
-//   editing an answer keeps the id while rewording a question changes it.
+// - Category order comes from CATEGORIES below. That order drives the daily
+//   rotation, so adding or removing a category re-rolls every puzzle that has
+//   not been played yet (players keep the days they already finished, because
+//   a finished day remembers its question ids). Do it rarely and deliberately.
+// - Every entry has a stable "id". Keep the id when you fix a typo or move an
+//   entry: it is what links a player's saved results to the question. An entry
+//   without an id gets one derived from its text.
 // - Existing question order in data/questions.json is preserved and new
 //   questions are appended in a deterministic shuffled order, so adding
-//   questions never changes puzzles that were already scheduled. (Removing
-//   or rewording one shifts the later questions in its category.)
-// - Near-duplicate questions (high word overlap) are dropped with a warning.
+//   questions never changes puzzles that are already scheduled.
+// - Removing a published question (or changing its id) is refused unless you
+//   pass --allow-remove, because players who finished that day lose the result.
+// - Entries whose wording and answer look like an existing question are
+//   refused; put "allow_similar": true on one of them if they really differ.
 //
-// Usage: node scripts/build-bank.mjs
+// Usage: node scripts/build-bank.mjs [--allow-remove] [--fresh]
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -38,6 +43,10 @@ export const CATEGORIES = [
 ];
 
 const REQUIRED = ['question', 'answer', 'unit', 'source_title', 'source_url', 'explainer', 'difficulty', 'as_of'];
+const ID_RE = /^[a-z0-9][a-z0-9-]*$/;
+
+/** Two questions are treated as duplicates at or above this Jaccard similarity (and similar answers). */
+export const SIMILAR_THRESHOLD = 0.7;
 
 export function hash32(str) {
   // FNV-1a
@@ -49,6 +58,8 @@ export function hash32(str) {
   return h >>> 0;
 }
 
+const STOP = new Set(['how', 'many', 'much', 'the', 'a', 'an', 'of', 'in', 'is', 'are', 'was', 'were', 'what', 'to', 'on', 'at', 'by', 'and', 'or', 'as', 'for', 'with', 'did', 'does', 'do', 'there', 'it', 'its', 'per', 'long', 'far', 'tall', 'high', 'big']);
+
 export function normalize(text) {
   return String(text)
     .toLowerCase()
@@ -57,10 +68,15 @@ export function normalize(text) {
     .filter((w) => w && !STOP.has(w));
 }
 
-const STOP = new Set(['how', 'many', 'much', 'the', 'a', 'an', 'of', 'in', 'is', 'are', 'was', 'were', 'what', 'to', 'on', 'at', 'by', 'and', 'or', 'as', 'for', 'with', 'did', 'does', 'do', 'there', 'it', 'its', 'per', 'long', 'far', 'tall', 'high', 'big']);
-
-/** Two questions are treated as duplicates at or above this Jaccard similarity. */
-export const SIMILAR_THRESHOLD = 0.7;
+/** Jaccard similarity of the two questions' word sets (stop words removed). */
+export function similarity(a, b) {
+  const sa = new Set(normalize(a));
+  const sb = new Set(normalize(b));
+  if (!sa.size || !sb.size) return 0;
+  let inter = 0;
+  for (const w of sa) if (sb.has(w)) inter++;
+  return inter / (sa.size + sb.size - inter);
+}
 
 /**
  * Two entries are duplicates when their wording overlaps heavily AND they
@@ -74,44 +90,57 @@ export function isDuplicate(a, b) {
   return !(ratio > 1.5);
 }
 
-/** Jaccard similarity of the two questions' word sets (stop words removed). */
-export function similarity(a, b) {
-  const sa = new Set(normalize(a));
-  const sb = new Set(normalize(b));
-  if (!sa.size || !sb.size) return 0;
-  let inter = 0;
-  for (const w of sa) if (sb.has(w)) inter++;
-  return inter / (sa.size + sb.size - inter);
-}
-
+/** Id derived from the text, used only for entries that do not carry one. */
 export function questionId(slug, question) {
   return `${slug}-${hash32(normalize(question).join(' ')).toString(36)}`;
 }
 
 export function validateQuestion(q, where) {
+  if (!q || typeof q !== 'object' || Array.isArray(q)) return [`${where}: entry must be a JSON object`];
   const problems = [];
   for (const k of REQUIRED) if (!(k in q)) problems.push(`missing ${k}`);
   if (typeof q.question !== 'string' || q.question.trim().length < 10) problems.push('question too short');
   if (typeof q.question === 'string' && q.question.length > 160) problems.push('question longer than 160 chars');
   if (typeof q.answer !== 'number' || !Number.isFinite(q.answer) || q.answer <= 0) problems.push('answer must be a positive number');
   if (typeof q.unit !== 'string' || !q.unit.trim()) problems.push('unit missing');
+  if (typeof q.source_title !== 'string' || !q.source_title.trim()) problems.push('source_title missing');
   if (typeof q.source_url !== 'string' || !/^https?:\/\//.test(q.source_url)) problems.push('source_url must be http(s)');
   if (!Number.isInteger(q.difficulty) || q.difficulty < 1 || q.difficulty > 3) problems.push('difficulty must be 1-3');
   if (typeof q.explainer !== 'string' || !q.explainer.trim()) problems.push('explainer missing');
   if (typeof q.as_of !== 'string' || !q.as_of.trim()) problems.push('as_of missing');
+  if ('id' in q && (typeof q.id !== 'string' || !ID_RE.test(q.id))) problems.push('id must be lowercase letters, digits and hyphens');
+  if ('allow_similar' in q && typeof q.allow_similar !== 'boolean') problems.push('allow_similar must be true or false');
   return problems.map((p) => `${where}: ${p}`);
 }
 
-export function buildBank({ files, existing }) {
+function sameContent(a, b) {
+  return a.question === b.question && a.answer === b.answer && a.unit === b.unit && a.source_url === b.source_url;
+}
+
+/**
+ * Build the merged bank. `files` maps category slug -> parsed array;
+ * `existing` is the previously published bank (or null). Returns
+ * { bank, errors, warnings, removed }; the bank is only usable when errors
+ * is empty.
+ */
+export function buildBank({ files, existing, allowRemove = false }) {
   const errors = [];
   const warnings = [];
   const all = [];
-  const seenIds = new Set();
+  const byId = new Map();
+
+  for (const slug of Object.keys(files)) {
+    if (!CATEGORIES.some((c) => c.slug === slug)) errors.push(`${slug}.json is not a known category; add it to CATEGORIES in scripts/build-bank.mjs (at the end)`);
+  }
 
   for (const cat of CATEGORIES) {
     const list = files[cat.slug];
-    if (!list) {
+    if (list === undefined) {
       warnings.push(`no file for category ${cat.slug}`);
+      continue;
+    }
+    if (!Array.isArray(list)) {
+      errors.push(`${cat.slug}.json must be a JSON array of questions`);
       continue;
     }
     list.forEach((raw, idx) => {
@@ -122,7 +151,7 @@ export function buildBank({ files, existing }) {
         return;
       }
       const q = {
-        id: questionId(cat.slug, raw.question),
+        id: raw.id || questionId(cat.slug, raw.question),
         category: cat.slug,
         question: raw.question.trim(),
         answer: raw.answer,
@@ -133,58 +162,81 @@ export function buildBank({ files, existing }) {
         as_of: raw.as_of.trim(),
         difficulty: raw.difficulty,
       };
-      if (seenIds.has(q.id)) {
-        warnings.push(`${where}: duplicate of an earlier question, skipped`);
+      const prev = byId.get(q.id);
+      if (prev) {
+        if (sameContent(prev, q)) warnings.push(`${where}: identical to ${prev.where}, skipped`);
+        else errors.push(`${where}: has the same id as ${prev.where} (${q.id}) but different content; edit the existing entry instead of adding a copy`);
         return;
       }
       const dup = all.find((o) => isDuplicate(o, q));
-      if (dup) {
-        warnings.push(`${where}: too similar to ${dup.id} ("${dup.question}"), skipped`);
+      if (dup && !raw.allow_similar && !dup.allowSimilar) {
+        errors.push(`${where}: looks like a duplicate of ${dup.id} ("${dup.question}"); remove one, or set "allow_similar": true on it if the two really differ`);
         return;
       }
-      seenIds.add(q.id);
-      all.push(q);
+      const entry = { ...q, where, allowSimilar: raw.allow_similar === true };
+      byId.set(q.id, entry);
+      all.push(entry);
     });
   }
 
-  // Preserve order of questions already in the merged file; append the rest
-  // in a deterministic shuffled order (sorted by hash of the id).
-  const existingOrder = new Map((existing?.questions || []).map((q, i) => [q.id, i]));
-  const byId = new Map(all.map((q) => [q.id, q]));
-  const kept = (existing?.questions || []).filter((q) => byId.has(q.id)).map((q) => byId.get(q.id));
-  const fresh = all.filter((q) => !existingOrder.has(q.id)).sort((a, b) => hash32('salt:' + a.id) - hash32('salt:' + b.id));
-  const removed = (existing?.questions || []).filter((q) => !byId.has(q.id));
-  if (removed.length) warnings.push(`${removed.length} previously published question(s) removed: ${removed.map((q) => q.id).join(', ')}`);
+  const strip = ({ where, allowSimilar, ...q }) => q;
+  const existingQuestions = Array.isArray(existing?.questions) ? existing.questions : [];
+  const existingIds = new Set(existingQuestions.map((q) => q.id));
+  const kept = existingQuestions.filter((q) => byId.has(q.id)).map((q) => strip(byId.get(q.id)));
+  const fresh = all.filter((q) => !existingIds.has(q.id)).sort((a, b) => hash32('salt:' + a.id) - hash32('salt:' + b.id)).map(strip);
+  const removed = existingQuestions.filter((q) => !byId.has(q.id)).map((q) => q.id);
+  if (removed.length) {
+    const msg = `${removed.length} previously published question(s) would be removed: ${removed.join(', ')}. Players who finished a day with one of these lose that day's result. Keep the entry's id when editing it, or pass --allow-remove to confirm the removal.`;
+    if (allowRemove) warnings.push(msg);
+    else errors.push(msg);
+  }
 
   const questions = [...kept, ...fresh];
   const categories = CATEGORIES.filter((c) => questions.some((q) => q.category === c.slug));
-  return { bank: { version: 1, categories, questions }, errors, warnings };
+  return { bank: { version: 1, categories, questions }, errors, warnings, removed };
+}
+
+/** Read data/bank/*.json. Throws with a clear message on unparsable files. */
+export function readBankFiles(dir = bankDir) {
+  const files = {};
+  if (!fs.existsSync(dir)) return files;
+  for (const f of fs.readdirSync(dir)) {
+    if (!f.endsWith('.json')) continue;
+    const slug = f.replace(/\.json$/, '');
+    try {
+      files[slug] = JSON.parse(fs.readFileSync(path.join(dir, f), 'utf8'));
+    } catch (err) {
+      throw new Error(`Cannot parse data/bank/${f}: ${err.message}`);
+    }
+  }
+  return files;
 }
 
 function main() {
-  const files = {};
-  if (fs.existsSync(bankDir)) {
-    for (const f of fs.readdirSync(bankDir)) {
-      if (!f.endsWith('.json')) continue;
-      const slug = f.replace(/\.json$/, '');
-      try {
-        files[slug] = JSON.parse(fs.readFileSync(path.join(bankDir, f), 'utf8'));
-      } catch (err) {
-        console.error(`Cannot parse ${f}: ${err.message}`);
-        process.exit(1);
-      }
-      if (!CATEGORIES.some((c) => c.slug === slug)) console.warn(`warning: ${f} is not a known category; add it to CATEGORIES in scripts/build-bank.mjs`);
-    }
+  const args = new Set(process.argv.slice(2));
+  const allowRemove = args.has('--allow-remove');
+  const fresh = args.has('--fresh');
+
+  let files;
+  try {
+    files = readBankFiles();
+  } catch (err) {
+    console.error(`error: ${err.message}`);
+    process.exit(1);
   }
+
   let existing = null;
-  if (fs.existsSync(outFile)) {
+  if (fs.existsSync(outFile) && !fresh) {
     try {
       existing = JSON.parse(fs.readFileSync(outFile, 'utf8'));
-    } catch {
-      existing = null;
+      if (!existing || !Array.isArray(existing.questions)) throw new Error('no "questions" array');
+    } catch (err) {
+      console.error(`error: data/questions.json exists but cannot be used as the previous bank (${err.message}). Fix it, or pass --fresh to rebuild from scratch (this re-rolls every puzzle).`);
+      process.exit(1);
     }
   }
-  const { bank, errors, warnings } = buildBank({ files, existing });
+
+  const { bank, errors, warnings } = buildBank({ files, existing, allowRemove });
   for (const w of warnings) console.warn(`warning: ${w}`);
   if (errors.length) {
     for (const e of errors) console.error(`error: ${e}`);

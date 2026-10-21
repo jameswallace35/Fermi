@@ -29,15 +29,21 @@ or `python3 -m http.server 8080`. Opening `index.html` directly from disk will n
 ## Tests
 
 ```bash
-npm test             # unit tests for scoring, dates, parsing, selection, calculator
-npm run validate     # checks data/questions.json (schema, duplicates, daily coverage)
-npm run e2e          # plays a full puzzle in headless Chromium (needs `playwright`)
+npm test             # unit tests for scoring, dates, parsing, selection, calculator, bank builder
+npm run validate     # checks data/questions.json and that it matches data/bank/*.json
+npm run e2e          # plays a full puzzle in headless Chromium
+```
+
+The end-to-end test needs Playwright and a Chromium build, which are not installed by default:
+
+```bash
+npm install playwright && npx playwright install chromium
 ```
 
 ## How a day's puzzle is chosen
 
 - Puzzle **No. 1** is 2026‑10‑21 and the number increases by one each local calendar day (`EPOCH_DATE_KEY` in `src/logic.js`).
-- Categories rotate in the order listed in `scripts/build-bank.mjs`; day *n* uses five consecutive categories from that cycle, so the five are always distinct.
+- Categories rotate in the order listed in `scripts/build-bank.mjs`; day *n* uses five consecutive categories from that cycle, so the five are always distinct. Adding or removing a category changes that cycle and therefore re-rolls every puzzle that has not been played yet, so treat the category list as fixed once the game is live.
 - Inside a category, questions are served in the order they appear in `data/questions.json`, cycling only when that category is exhausted. A question comes back only after every other question in its category has been played; `npm run validate` prints the first day on which anything repeats.
 - A finished puzzle remembers which question ids it used, so your history stays correct even if the bank is reordered later.
 
@@ -45,10 +51,11 @@ There is no server, so the same puzzle appears for everyone on the same calendar
 
 ## Adding questions
 
-1. Edit (or add) a file in `data/bank/<category>.json`. Each entry looks like:
+1. Edit a file in `data/bank/<category>.json` (new categories also need an entry at the end of `CATEGORIES` in `scripts/build-bank.mjs`). Each entry looks like:
 
    ```json
    {
+     "id": "transport-heathrow-2023",
      "question": "How many passengers used London Heathrow airport in 2023?",
      "answer": 79200000,
      "unit": "passengers",
@@ -60,11 +67,11 @@ There is no server, so the same puzzle appears for everyone on the same calendar
    }
    ```
 
-   `answer` is a plain number in `unit` (write `79200000`, never `79.2` with unit "million"). `difficulty` is 1 (easy) to 3 (hard). `as_of` is the year the figure refers to, or `"stable"`.
+   `id` is a stable handle (lowercase letters, digits, hyphens) that links players' saved results to the question, so keep it when you fix a typo or move the entry; an entry without one gets an id derived from its wording. `answer` is a plain number in `unit` (write `79200000`, never `79.2` with unit "million"). `difficulty` is 1 (easy) to 3 (hard). `as_of` is the year the figure refers to, or `"stable"`.
 
-2. Run `npm run build:bank`. It validates every entry, drops near-duplicates with a warning, keeps the order of questions that are already published (so past puzzles do not change) and appends the new ones.
+2. Run `npm run build:bank`. It validates every entry, keeps the order of questions that are already published (so scheduled puzzles do not change) and appends the new ones. It refuses to continue if an entry looks like a duplicate of another (set `"allow_similar": true` on one of them if they really are different facts) or if a published question would disappear (pass `--allow-remove` to confirm; players who finished that day lose the result).
 
-3. Run `npm run validate` and commit `data/bank/` together with `data/questions.json`.
+3. Run `npm run validate` and commit `data/bank/` together with `data/questions.json`. Validation fails if the merged file is out of date with the source files, so CI catches a forgotten build.
 
 New categories go at the **end** of `CATEGORIES` in `scripts/build-bank.mjs`.
 

@@ -1,5 +1,6 @@
 [
   {
+    "id": "history-bsrx41",
     "question": "How many days did Pony Express riders take to carry mail from St. Joseph, Missouri, to Sacramento, California, in 1860?",
     "answer": 10,
     "unit": "days",
@@ -10,6 +11,7 @@
     "as_of": "stable"
   },
   {
+    "id": "history-2ubst5",
     "question": "How many years did Louis XIV reign as King of France?",
     "answer": 72,
     "unit": "years",
@@ -20,6 +22,7 @@
     "as_of": "stable"
   },
   {
+    "id": "history-1ef6oj4",
     "question": "How many passengers were aboard the Mayflower when it sailed to America in 1620?",
     "answer": 102,
     "unit": "passengers",
@@ -30,6 +33,7 @@
     "as_of": "stable"
   },
   {
+    "id": "history-jl7rtx",
     "question": "How many ships made up the Spanish Armada that sailed against England in 1588?",
     "answer": 130,
     "unit": "ships",
@@ -40,6 +44,7 @@
     "as_of": "stable"
   },
   {
+    "id": "history-1q4wp6c",
     "question": "How many popes has the Catholic Church had in total, counting Pope Leo XIV elected in 2025?",
     "answer": 267,
     "unit": "popes",
@@ -50,6 +55,7 @@
     "as_of": "2025"
   },
   {
+    "id": "history-1kgzhim",
     "question": "How many years did the Ottoman Empire last, from its founding around 1299 to its abolition in 1922?",
     "answer": 623,
     "unit": "years",
@@ -60,6 +66,7 @@
     "as_of": "stable"
   },
   {
+    "id": "history-xth67h",
     "question": "How much does the Rosetta Stone in the British Museum weigh?",
     "answer": 760,
     "unit": "kg",
@@ -70,6 +77,7 @@
     "as_of": "stable"
   },
   {
+    "id": "history-15abm2p",
     "question": "How long is Hadrian's Wall, from Wallsend on the River Tyne to Bowness-on-Solway?",
     "answer": 117.5,
     "unit": "km",
@@ -80,6 +88,7 @@
     "as_of": "stable"
   },
   {
+    "id": "history-1jg2al8",
     "question": "How many days did World War I last, from Austria-Hungary's declaration of war on 28 July 1914 to the armistice on 11 November 1918?",
     "answer": 1568,
     "unit": "days",
@@ -90,6 +99,7 @@
     "as_of": "stable"
   },
   {
+    "id": "history-1nc070y",
     "question": "How many years ago did Ötzi the Iceman, found frozen in the Alps in 1991, die?",
     "answer": 5300,
     "unit": "years",
@@ -100,6 +110,7 @@
     "as_of": "stable"
   },
   {
+    "id": "history-1o0oszu",
     "question": "How many days did the Berlin Wall stand, from 13 August 1961 to 9 November 1989?",
     "answer": 10316,
     "unit": "days",
@@ -110,6 +121,7 @@
     "as_of": "stable"
   },
   {
+    "id": "history-k6bd9z",
     "question": "How many places (settlements) are recorded in the Domesday Book, England's great survey completed in 1086?",
     "answer": 13418,
     "unit": "places",
@@ -120,6 +132,7 @@
     "as_of": "stable"
   },
   {
+    "id": "history-kni2a3",
     "question": "What is the total length of all sections of the Great Wall of China, as measured in China's 2012 national survey?",
     "answer": 21196,
     "unit": "km",
@@ -130,6 +143,7 @@
     "as_of": "2012"
   },
   {
+    "id": "history-1ug8ykg",
     "question": "How many Allied troops landed on the Normandy beaches on D-Day, 6 June 1944?",
     "answer": 156000,
     "unit": "troops",
@@ -140,6 +154,7 @@
     "as_of": "stable"
   },
   {
+    "id": "history-kq6j2k",
     "question": "How many Allied soldiers were evacuated from Dunkirk between 26 May and 4 June 1940?",
     "answer": 338226,
     "unit": "soldiers",
@@ -150,6 +165,7 @@
     "as_of": "stable"
   },
   {
+    "id": "history-1avtm9d",
     "question": "How many stone blocks are estimated to make up the Great Pyramid of Giza?",
     "answer": 2300000,
     "unit": "blocks",
@@ -160,6 +176,7 @@
     "as_of": "stable"
   },
   {
+    "id": "history-1yjo5dj",
     "question": "What was the population of the United States in its first census, in 1790?",
     "answer": 3929214,
     "unit": "people",
@@ -170,6 +187,7 @@
     "as_of": "1790"
   },
   {
+    "id": "history-1e89yge",
     "question": "How many enslaved Africans were embarked on ships in the transatlantic slave trade between the 16th and 19th centuries?",
     "answer": 12500000,
     "unit": "people",
@@ -180,6 +198,7 @@
     "as_of": "stable"
   },
   {
+    "id": "history-16re4n4",
     "question": "How many US dollars did the United States pay France for the Louisiana Purchase in 1803?",
     "answer": 15000000,
     "unit": "US$",
@@ -190,6 +209,7 @@
     "as_of": "1803"
   },
   {
+    "id": "history-68qhxo",
     "question": "What was the land area of the Mongol Empire at its greatest extent, around 1309?",
     "answer": 24000000,
     "unit": "km²",
@@ -200,6 +220,7 @@
     "as_of": "stable"
   },
   {
+    "id": "history-1j44td9",
     "question": "How much did the Manhattan Project cost in total, in 1945 US dollars?",
     "answer": 2000000000,
     "unit": "US$",
@@ -210,6 +231,7 @@
     "as_of": "1945"
   },
   {
+    "id": "history-16gdqmc",
     "question": "How many US dollars did the United States transfer to Western Europe under the Marshall Plan between 1948 and 1952?",
     "answer": 13300000000,
     "unit": "US$",
@@ -220,6 +242,7 @@
     "as_of": "1952"
   },
   {
+    "id": "history-d58la4",
     "question": "How many gold marks did the 1921 London Schedule of Payments set as Germany's total World War I reparations bill?",
     "answer": 132000000000,
     "unit": "gold marks",
@@ -230,6 +253,7 @@
     "as_of": "1921"
   },
   {
+    "id": "history-1gyx6z9",
     "question": "How much did World War II cost the United States military, in constant FY2011 US dollars, per the Congressional Research Service?",
     "answer": 4104000000000,
     "unit": "US$",
