@@ -4,7 +4,7 @@ A daily estimation game in the spirit of [fermi.gg](https://fermi.gg), with **fi
 
 Every day the game asks five questions like *"How many kilometres of railway does India have?"* You get one guess per question. Your score for a question is **how many times off** you were: `1×` is exact, `2×` means you guessed double or half the real answer. Lower is better. Your daily score is the average of the five multiples, and you can share it as a line of emoji without spoiling the answers.
 
-It is a static site: plain HTML, CSS and JavaScript modules, no build step, no accounts, no server. Progress, streaks and statistics live in your browser's `localStorage`.
+It is a static site: plain HTML, CSS and JavaScript modules, no build step, no server. Progress, streaks and statistics live in your browser's `localStorage`; statistics are derived from the saved puzzles, so a backup code of those puzzles carries everything. There are no usernames or passwords (that would need a server), but the claude.ai artifact version saves results to the viewer's Claude account through the platform's per-viewer database (`src/sync.js`).
 
 ## Features
 
@@ -14,7 +14,8 @@ It is a static site: plain HTML, CSS and JavaScript modules, no build step, no a
 - **Unit switching**: answer in miles, feet, pounds, gallons, °F and so on; the unit menu in the guess box converts to the question's own unit for scoring and remembers your preference.
 - **Built-in calculator** with k / M / B keys that can drop its result straight into your guess.
 - **Reveal card** with your guess, the real answer, a log-scale "how far off" bar, a short explainer and the source.
-- **Share text**, streaks (puzzles finished on their own day), statistics with a tier histogram, and an **archive** of past puzzles.
+- **Share text**, streaks (puzzles finished on their own day), statistics with a tier histogram and a list of every finished puzzle, and an **archive** of past puzzles.
+- **Results that travel**: a backup code copies your whole history to another browser, and when the page runs on claude.ai (as a published artifact) results are also saved to your Claude account.
 - Light and dark themes, keyboard friendly, mobile first, works as a home-screen app.
 
 ## Run it locally

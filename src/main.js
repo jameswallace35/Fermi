@@ -4,6 +4,7 @@
 import * as L from './logic.js';
 import { tryEvaluate } from './calc.js';
 import * as S from './storage.js';
+import { connectSync } from './sync.js';
 
 const $ = (sel, root = document) => root.querySelector(sel);
 const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
@@ -34,6 +35,8 @@ let state = null;
 let view = { kind: 'play' };
 let lastCalcValue = NaN;
 let archiveShown = 0;
+let sync = null; // cloud sync handle when the page runs on claude.ai
+let syncState = 'off'; // off | connecting | on
 
 const ARCHIVE_PAGE = 60;
 
@@ -88,6 +91,26 @@ function countsForStreak(n) {
 
 function currentStreak() {
   return L.computeStreak(countsForStreak, todayNumber);
+}
+
+/** Every finished puzzle with its score, newest first. */
+function history() {
+  const out = [];
+  const stored = S.listPuzzleStates();
+  for (const [key, st] of Object.entries(stored)) {
+    const n = Number(key);
+    const current = n === puzzleNumber && state ? state : st;
+    if (current.guesses.length < L.QUESTIONS_PER_DAY) continue;
+    const qs = n === puzzleNumber && state ? questions : resolveQuestions(n, current);
+    if (!qs || qs.length < L.QUESTIONS_PER_DAY) continue;
+    const multiplesFor = current.guesses.slice(0, qs.length).map((g, i) => L.scoreMultiple(g, qs[i].answer));
+    out.push({ n, avg: L.dailyScore(multiplesFor), multiples: multiplesFor, onTime: L.finishedOnTime(current, n), completedAt: current.completedAt });
+  }
+  return out.sort((a, b) => b.n - a.n);
+}
+
+function stats() {
+  return L.summarizeHistory(history(), todayNumber);
 }
 
 function complete() {
@@ -193,17 +216,15 @@ function load(n) {
   state = S.loadPuzzleState(n);
   const resolved = resolveQuestions(n, state);
   if (resolved === null) {
-    // The stored guesses belong to questions that are no longer in the bank.
-    // Start the puzzle afresh, but keep the stats flag so the day is not
-    // counted twice, and persist the reset so the archive and streak agree.
-    state = { guesses: [], completedAt: null, recorded: state.recorded };
+    // The stored guesses belong to questions that are no longer in the bank:
+    // start the puzzle afresh and persist the reset so archive and streak agree.
+    state = S.freshPuzzleState();
     S.savePuzzleState(n, state);
     questions = L.selectQuestions(bank, n);
   } else {
     questions = resolved;
   }
   if (state.guesses.length > questions.length) state.guesses = state.guesses.slice(0, questions.length);
-  if (complete() && !state.recorded) recordStats(); // an earlier attempt failed before saving
   view = complete() ? { kind: 'summary' } : { kind: 'play' };
   render();
 }
@@ -216,18 +237,6 @@ function puzzleFromHash() {
   if (!Number.isFinite(n)) return todayNumber;
   if (n < 1) return 1;
   return Math.min(n, todayNumber);
-}
-
-/** Record a finished puzzle in the statistics, exactly once. Never lets a storage problem block the game. */
-function recordStats() {
-  try {
-    const avg = L.dailyScore(multiples());
-    S.saveStats(L.recordCompletion(S.loadStats(), avg, currentStreak()));
-  } catch (err) {
-    console.error('Could not record statistics', err);
-  }
-  state.recorded = true;
-  S.savePuzzleState(puzzleNumber, state);
 }
 
 function goTo(n) {
@@ -379,7 +388,7 @@ function lockIn(i, value, typedUnit) {
   state.ids = questions.map((q) => q.id);
   if (complete()) state.completedAt = Date.now();
   S.savePuzzleState(puzzleNumber, state);
-  if (complete() && !state.recorded) recordStats();
+  if (sync) sync.push(puzzleNumber, state).catch((err) => console.warn('Cloud save failed', err));
   view = { kind: 'result', index: i };
   render({ focus: true });
   const q = questions[i];
@@ -478,8 +487,7 @@ function renderSummary() {
   const ms = multiples();
   const avg = L.dailyScore(ms);
   const tier = L.tierFor(avg);
-  const stats = S.loadStats();
-  const streak = currentStreak();
+  const totals = stats();
   const isToday = puzzleNumber === todayNumber;
   const date = L.formatDateKey(L.dateKeyForPuzzle(puzzleNumber));
 
@@ -515,7 +523,7 @@ function renderSummary() {
       ${isToday
         ? `<p class="countdown">Next puzzle in <strong id="countdown">${L.formatCountdown(L.msUntilLocalMidnight())}</strong></p>`
         : `<p><button type="button" class="link-btn" id="link-today-summary">Play today's puzzle</button></p>`}
-      <p>🔥 Streak ${streak} · Played ${stats.played} · Best ${stats.best != null ? L.formatMultiple(stats.best) : '—'}</p>
+      <p>🔥 Streak ${totals.streak} · Played ${totals.played} · Best ${totals.best != null ? L.formatMultiple(totals.best) : '—'}</p>
     </div>`;
 
   $$('.row', els.summary).forEach((btn) => {
@@ -588,22 +596,132 @@ function openDialog(dlg) {
 }
 
 function renderStats() {
-  const stats = S.loadStats();
-  const streak = currentStreak();
-  const avg = stats.played ? stats.sumAvg / stats.played : null;
-  const tiers = stats.tiers || [0, 0, 0, 0, 0];
-  const max = Math.max(1, ...tiers);
+  const games = history();
+  const totals = L.summarizeHistory(games, todayNumber);
+  const max = Math.max(1, ...totals.tiers);
+  const syncNote =
+    syncState === 'on'
+      ? 'Results are saved to your Claude account and follow you across devices.'
+      : syncState === 'connecting'
+        ? 'Connecting to your Claude account…'
+        : 'Results are saved in this browser. Use a backup code to carry them to another device.';
   $('#stats-body').innerHTML = `
     <div class="stat-grid">
-      <div class="stat"><span class="stat-value">${stats.played}</span><span class="stat-label">Played</span></div>
-      <div class="stat"><span class="stat-value">${avg != null ? L.formatMultiple(avg) : '—'}</span><span class="stat-label">Average</span></div>
-      <div class="stat"><span class="stat-value">${streak}</span><span class="stat-label">Streak</span></div>
-      <div class="stat"><span class="stat-value">${stats.maxStreak || 0}</span><span class="stat-label">Best streak</span></div>
+      <div class="stat"><span class="stat-value">${totals.played}</span><span class="stat-label">Played</span></div>
+      <div class="stat"><span class="stat-value">${totals.average != null ? L.formatMultiple(totals.average) : '—'}</span><span class="stat-label">Average</span></div>
+      <div class="stat"><span class="stat-value">${totals.streak}</span><span class="stat-label">Streak</span></div>
+      <div class="stat"><span class="stat-value">${totals.maxStreak}</span><span class="stat-label">Best streak</span></div>
     </div>
-    <p class="small muted">Daily scores by tier${stats.best != null ? ` · best day ${L.formatMultiple(stats.best)}` : ''}</p>
+    <p class="small muted">Daily scores by tier${totals.best != null ? ` · best day ${L.formatMultiple(totals.best)}` : ''}</p>
     <ul class="hist">
-      ${L.TIERS.map((t, i) => `<li class="hist-tier-${i}"><span aria-hidden="true">${t.emoji}</span><span class="hist-bar" style="width:${Math.max(2, (100 * (tiers[i] || 0)) / max)}%"></span><span class="hist-count">${tiers[i] || 0}</span></li>`).join('')}
-    </ul>`;
+      ${L.TIERS.map((t, i) => `<li class="hist-tier-${i}"><span aria-hidden="true">${t.emoji}</span><span class="hist-bar" style="width:${Math.max(2, (100 * totals.tiers[i]) / max)}%"></span><span class="hist-count">${totals.tiers[i]}</span></li>`).join('')}
+    </ul>
+    <h3 class="section-title">Every puzzle you have finished</h3>
+    ${games.length
+      ? `<ol class="history">${games
+          .map((g) => {
+            const t = L.tierFor(g.avg);
+            return `<li><button type="button" class="row" data-n="${g.n}">
+              <span class="row-body">
+                <span class="row-cat">No. ${g.n} · ${esc(L.formatDateKey(L.dateKeyForPuzzle(g.n)))}${g.onTime ? '' : ' · archive'}</span>
+                <span class="row-q" aria-label="${esc(g.multiples.map((m) => L.formatMultiple(m)).join(', '))}">${g.multiples.map((m) => L.tierFor(m).emoji).join(' ')}</span>
+              </span>
+              <span class="row-mult ${t.cls}">${L.formatMultiple(g.avg)}</span>
+            </button></li>`;
+          })
+          .join('')}</ol>`
+      : '<p class="history-empty">Finish a puzzle and it will appear here.</p>'}
+    <h3 class="section-title">Saving</h3>
+    <p class="sync-note">${syncNote}</p>
+    <div class="backup-actions">
+      <button type="button" class="btn" id="btn-backup-copy">Copy backup code</button>
+      <button type="button" class="btn" id="btn-backup-restore">Restore a backup</button>
+    </div>
+    <form class="backup-restore" id="backup-form" hidden>
+      <label class="sr-only" for="backup-code">Backup code</label>
+      <textarea id="backup-code" placeholder="Paste a backup code here" spellcheck="false"></textarea>
+      <button type="submit" class="btn primary wide">Restore</button>
+    </form>`;
+
+  $$('.history .row', $('#stats-body')).forEach((btn) => {
+    btn.addEventListener('click', () => {
+      els.stats.close();
+      goTo(Number(btn.dataset.n));
+    });
+  });
+  $('#btn-backup-copy').addEventListener('click', async () => {
+    const code = S.exportBackup();
+    if (await copyText(code)) toast('Backup code copied. Paste it on another device to restore.');
+    else {
+      $('#backup-form').hidden = false;
+      $('#backup-code').value = code;
+      toast('Copy the code from the box below.');
+    }
+  });
+  $('#btn-backup-restore').addEventListener('click', () => {
+    const form = $('#backup-form');
+    form.hidden = !form.hidden;
+    if (!form.hidden) $('#backup-code').focus();
+  });
+  $('#backup-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    restoreBackup($('#backup-code').value);
+  });
+}
+
+/** Merge a backup code into local storage and refresh everything that shows results. */
+function restoreBackup(code) {
+  const backup = S.parseBackup(code);
+  if (!backup) {
+    toast('That is not a Fermi backup code.');
+    return;
+  }
+  const changed = S.mergePuzzleStates(backup.puzzles);
+  const prefs = S.loadPrefs();
+  S.savePrefs({ ...backup.prefs, ...prefs, units: { ...(backup.prefs.units || {}), ...(prefs.units || {}) } });
+  if (changed.includes(puzzleNumber)) load(puzzleNumber);
+  else if (state) render();
+  if (sync) for (const n of changed) sync.push(n, S.loadPuzzleState(n)).catch(() => {});
+  toast(changed.length ? `Restored ${changed.length} puzzle${changed.length === 1 ? '' : 's'}.` : 'Nothing new in that backup.');
+  renderStats();
+}
+
+// -------------------------------------------------------------- cloud sync
+
+/**
+ * On claude.ai, mirror finished puzzles to the viewer's private area of the
+ * artifact database and pull anything saved from another device. Elsewhere
+ * this resolves immediately and the game keeps using localStorage.
+ */
+async function startSync() {
+  syncState = 'connecting';
+  try {
+    sync = await connectSync();
+  } catch {
+    sync = null;
+  }
+  if (!sync) {
+    syncState = 'off';
+    return;
+  }
+  try {
+    const remote = await sync.pull();
+    const changed = S.mergePuzzleStates(remote);
+    const local = S.listPuzzleStates();
+    for (const [key, st] of Object.entries(local)) {
+      const n = Number(key);
+      const r = remote[n];
+      if (!r || st.guesses.length > r.guesses.length) await sync.push(n, st);
+    }
+    syncState = 'on';
+    if (changed.includes(puzzleNumber)) load(puzzleNumber);
+    else if (state && view.kind === 'summary') renderSummary();
+    if (changed.length) toast(`Loaded ${changed.length} puzzle${changed.length === 1 ? '' : 's'} from your Claude account.`);
+  } catch (err) {
+    console.warn('Cloud sync unavailable', err);
+    syncState = 'off';
+    sync = null;
+  }
 }
 
 function renderArchive(reset = true) {
@@ -836,6 +954,7 @@ async function init() {
   });
 
   load(puzzleFromHash() ?? todayNumber);
+  startSync();
   setInterval(tick, 1000);
   document.addEventListener('visibilitychange', () => {
     if (!document.hidden) tick();

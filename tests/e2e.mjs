@@ -232,14 +232,41 @@ try {
     await page.waitForSelector('#summary:not([hidden])');
   });
 
-  await step('stats dialog reflects the completed game', async () => {
+  await step('stats dialog reflects the completed game and lists it', async () => {
     await page.click('#btn-stats');
     await page.waitForSelector('#dlg-stats[open]');
     const text = await page.textContent('#stats-body');
     assert.match(text, /1\s*Played/);
+    assert.equal(await page.locator('#stats-body .history .row').count(), 1);
+    assert.match(await page.textContent('#stats-body .history .row'), /No\. \d+/);
     await page.screenshot({ path: path.join(shots, '06-stats.png') });
     await page.keyboard.press('Escape');
     await page.waitForSelector('#dlg-stats', { state: 'hidden' });
+  });
+
+  await step('backup code restores results in a fresh browser', async () => {
+    const code = await page.evaluate(async () => (await import('./src/storage.js')).exportBackup());
+    assert.match(code, /^FERMI1\./);
+    const fresh = await browser.newContext({ viewport: { width: 390, height: 844 } });
+    const p2 = await fresh.newPage();
+    await p2.goto(url);
+    await p2.waitForSelector('#dlg-help[open]');
+    await p2.click('#dlg-help .dialog-foot button');
+    await p2.waitForSelector('#guess');
+    await p2.click('#btn-stats');
+    await p2.waitForSelector('#dlg-stats[open]');
+    assert.match(await p2.textContent('#stats-body'), /0\s*Played/);
+    await p2.click('#btn-backup-restore');
+    await p2.fill('#backup-code', code);
+    await p2.click('#backup-form button[type="submit"]');
+    await p2.waitForSelector('#summary:not([hidden])');
+    // The dialog stays open and re-renders with the restored history.
+    await p2.waitForFunction(() => /1\s*Played/.test(document.querySelector('#stats-body').textContent));
+    assert.equal(await p2.locator('#stats-body .history .row').count(), 1);
+    await p2.keyboard.press('Escape');
+    await p2.waitForSelector('#dlg-stats', { state: 'hidden' });
+    assert.match(await p2.textContent('.big-mult'), /×/);
+    await fresh.close();
   });
 
   await step('archive lists today as completed', async () => {

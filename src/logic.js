@@ -308,30 +308,7 @@ export function firstRepeatDay(bank, perDay = QUESTIONS_PER_DAY) {
 }
 
 // ---------------------------------------------------------------------------
-// Stats
-
-export function defaultStats() {
-  return { played: 0, sumAvg: 0, best: null, maxStreak: 0, tiers: [0, 0, 0, 0, 0] };
-}
-
-function nonNegative(v, fallback) {
-  return typeof v === 'number' && Number.isFinite(v) && v >= 0 ? v : fallback;
-}
-
-/** Coerce whatever was in storage into a well-formed stats object. */
-export function normalizeStats(raw) {
-  const d = defaultStats();
-  if (!raw || typeof raw !== 'object' || Array.isArray(raw)) return d;
-  const tiers = Array.isArray(raw.tiers) ? raw.tiers.map((t) => Math.floor(nonNegative(t, 0))) : [];
-  while (tiers.length < TIERS.length) tiers.push(0);
-  return {
-    played: Math.floor(nonNegative(raw.played, 0)),
-    sumAvg: nonNegative(raw.sumAvg, 0),
-    best: typeof raw.best === 'number' && Number.isFinite(raw.best) && raw.best > 0 ? raw.best : null,
-    maxStreak: Math.floor(nonNegative(raw.maxStreak, 0)),
-    tiers: tiers.slice(0, TIERS.length),
-  };
-}
+// Stats, derived entirely from the history of finished puzzles
 
 /**
  * Current streak: consecutive puzzles ending at today (or at yesterday if
@@ -358,17 +335,38 @@ export function finishedOnTime(state, n) {
   return puzzleNumberForDate(localDateKey(new Date(state.completedAt))) <= n;
 }
 
-/** Returns a new stats object with a finished puzzle (average `avg`) recorded. */
-export function recordCompletion(stats, avg, streakNow) {
-  const s = normalizeStats(stats);
-  s.played += 1;
-  if (Number.isFinite(avg)) {
-    s.sumAvg += avg;
-    s.best = s.best == null ? avg : Math.min(s.best, avg);
+/**
+ * Aggregate statistics from finished puzzles.
+ * `entries`: [{ n, avg, onTime }] for every finished puzzle (any order).
+ * Returns played, average, best, tier histogram, current streak and the
+ * longest streak of consecutive on-time finishes.
+ */
+export function summarizeHistory(entries, todayNumber) {
+  const list = (entries || []).filter((e) => e && Number.isInteger(e.n) && Number.isFinite(e.avg));
+  const tiers = TIERS.map(() => 0);
+  let sum = 0;
+  let best = null;
+  for (const e of list) {
+    sum += e.avg;
+    best = best == null ? e.avg : Math.min(best, e.avg);
+    tiers[tierIndex(e.avg)] += 1;
   }
-  s.tiers[tierIndex(avg)] += 1;
-  s.maxStreak = Math.max(s.maxStreak, Math.floor(nonNegative(streakNow, 0)));
-  return s;
+  const onTime = new Set(list.filter((e) => e.onTime !== false).map((e) => e.n));
+  const streak = computeStreak((n) => onTime.has(n), todayNumber);
+  let maxStreak = 0;
+  let run = 0;
+  for (const n of [...onTime].sort((a, b) => a - b)) {
+    run = onTime.has(n - 1) ? run + 1 : 1;
+    maxStreak = Math.max(maxStreak, run);
+  }
+  return {
+    played: list.length,
+    average: list.length ? sum / list.length : null,
+    best,
+    tiers,
+    streak,
+    maxStreak,
+  };
 }
 
 // ---------------------------------------------------------------------------

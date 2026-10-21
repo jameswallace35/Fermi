@@ -971,6 +971,74 @@ button {
 .hist-tier-3 .hist-bar { background: var(--tier-3); }
 .hist-tier-4 .hist-bar { background: var(--tier-4); }
 
+/* history and backup */
+.history {
+  list-style: none;
+  margin: 14px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.history .row-q {
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+}
+.history-empty {
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+.section-title {
+  margin: 18px 0 6px;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  font-weight: 700;
+}
+.backup-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.backup-actions .btn {
+  flex: 1;
+  padding: 10px 12px;
+  font-size: 0.9rem;
+}
+.backup-restore {
+  margin-top: 10px;
+}
+.backup-restore[hidden] {
+  display: none;
+}
+.backup-restore textarea {
+  width: 100%;
+  min-height: 72px;
+  border: 2px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  font-size: 0.8rem;
+  font-family: var(--mono);
+  padding: 8px 10px;
+  resize: vertical;
+}
+.backup-restore textarea:focus {
+  outline: 0;
+  border-color: var(--accent);
+}
+.backup-restore .btn {
+  margin-top: 8px;
+}
+.sync-note {
+  margin: 6px 0 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
 /* archive */
 .archive-list {
   list-style: none;

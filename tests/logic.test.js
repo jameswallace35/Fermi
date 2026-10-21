@@ -21,13 +21,11 @@ import {
   selectQuestions,
   categoriesWithQuestions,
   computeStreak,
-  recordCompletion,
-  defaultStats,
+  summarizeHistory,
   shareText,
   canonicalDigits,
   firstRepeatDay,
   finishedOnTime,
-  normalizeStats,
   MAX_MULTIPLE,
   unitOptions,
   convertToCanonical,
@@ -321,38 +319,27 @@ test('finishedOnTime only accepts puzzles completed on their own day', () => {
   assert.equal(finishedOnTime(null, 7), false);
 });
 
-test('normalizeStats repairs corrupt storage', () => {
-  assert.deepEqual(normalizeStats(null), defaultStats());
-  assert.deepEqual(normalizeStats('junk'), defaultStats());
-  assert.deepEqual(normalizeStats({ played: '3', tiers: 5 }), defaultStats());
-  assert.deepEqual(normalizeStats({ played: 2.7, sumAvg: -1, best: 0, maxStreak: 3, tiers: [1, 'x', 2] }), {
-    played: 2, sumAvg: 0, best: null, maxStreak: 3, tiers: [1, 0, 2, 0, 0],
-  });
-  const s = recordCompletion({ played: 1, tiers: 5 }, 20, 0);
-  assert.equal(s.played, 2);
-  assert.deepEqual(s.tiers, [0, 0, 0, 0, 1]);
-});
-
-test('recordCompletion updates played, best, tiers and max streak', () => {
-  let s = recordCompletion(defaultStats(), 3.2, 1);
-  assert.equal(s.played, 1);
-  assert.equal(s.best, 3.2);
-  assert.equal(s.maxStreak, 1);
-  assert.deepEqual(s.tiers, [0, 0, 1, 0, 0]);
-  s = recordCompletion(s, 1.05, 2);
-  assert.equal(s.played, 2);
+test('summarizeHistory aggregates finished puzzles', () => {
+  const empty = summarizeHistory([], 10);
+  assert.deepEqual(empty, { played: 0, average: null, best: null, tiers: [0, 0, 0, 0, 0], streak: 0, maxStreak: 0 });
+  const entries = [
+    { n: 3, avg: 1.05, onTime: true },
+    { n: 4, avg: 3.2, onTime: true },
+    { n: 5, avg: 12, onTime: true },
+    { n: 7, avg: 1.8, onTime: false }, // played from the archive
+    { n: 9, avg: 2.5, onTime: true },
+    { n: 10, avg: 1.5, onTime: true },
+  ];
+  const s = summarizeHistory(entries, 10);
+  assert.equal(s.played, 6);
+  assert.ok(Math.abs(s.average - (1.05 + 3.2 + 12 + 1.8 + 2.5 + 1.5) / 6) < 1e-12);
   assert.equal(s.best, 1.05);
-  assert.equal(s.maxStreak, 2);
-  assert.deepEqual(s.tiers, [1, 0, 1, 0, 0]);
-  assert.equal(s.sumAvg, 4.25);
-  // tolerates missing/legacy fields and a non-finite average
-  s = recordCompletion({ played: 1 }, 20, 0);
-  assert.equal(s.played, 2);
-  assert.deepEqual(s.tiers, [0, 0, 0, 0, 1]);
-  s = recordCompletion(s, Infinity, 0);
-  assert.equal(s.played, 3);
-  assert.deepEqual(s.tiers, [0, 0, 0, 0, 2]);
-  assert.equal(s.sumAvg, 20);
+  assert.deepEqual(s.tiers, [1, 2, 2, 0, 1]);
+  assert.equal(s.streak, 2); // 9 and 10
+  assert.equal(s.maxStreak, 3); // 3, 4, 5
+  assert.equal(summarizeHistory(entries, 11).streak, 2); // today unplayed, streak alive
+  assert.equal(summarizeHistory(entries, 12).streak, 0);
+  assert.equal(summarizeHistory([{ n: 1, avg: Infinity }, { n: 'x', avg: 2 }], 1).played, 0);
 });
 
 // --- units -----------------------------------------------------------------
