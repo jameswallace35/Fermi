@@ -29,6 +29,10 @@ import {
   finishedOnTime,
   normalizeStats,
   MAX_MULTIPLE,
+  unitOptions,
+  convertToCanonical,
+  convertFromCanonical,
+  UNIT_ALTERNATIVES,
 } from '../src/logic.js';
 
 // --- dates -----------------------------------------------------------------
@@ -349,6 +353,35 @@ test('recordCompletion updates played, best, tiers and max streak', () => {
   assert.equal(s.played, 3);
   assert.deepEqual(s.tiers, [0, 0, 0, 0, 2]);
   assert.equal(s.sumAvg, 20);
+});
+
+// --- units -----------------------------------------------------------------
+
+test('unitOptions lists the canonical unit first', () => {
+  assert.deepEqual(unitOptions('km'), ['km', 'miles']);
+  assert.deepEqual(unitOptions('litres'), ['litres', 'US gallons', 'UK gallons']);
+  assert.deepEqual(unitOptions('people'), ['people']);
+  assert.deepEqual(unitOptions('constructor'), ['constructor']);
+});
+
+test('conversions round-trip and match known values', () => {
+  const close = (a, b) => assert.ok(Math.abs(a - b) / Math.max(1, Math.abs(b)) < 1e-9, `${a} vs ${b}`);
+  close(convertToCanonical(100, 'miles', 'km'), 160.9344);
+  close(convertFromCanonical(160.9344, 'miles', 'km'), 100);
+  close(convertToCanonical(1, 'US tons', 'tonnes'), 0.90718474);
+  close(convertToCanonical(212, '°F', '°C'), 100);
+  close(convertFromCanonical(100, '°F', '°C'), 212);
+  close(convertToCanonical(0, '°C', 'kelvin'), 273.15);
+  close(convertToCanonical(32, '°F', 'kelvin'), 273.15);
+  close(convertToCanonical(2, 'hours', 'minutes'), 120);
+  close(convertToCanonical(5, 'km', 'km'), 5);
+  assert.ok(Number.isNaN(convertToCanonical(5, 'furlongs', 'km')));
+  assert.ok(Number.isNaN(convertFromCanonical(5, 'furlongs', 'km')));
+  for (const [canonical, alts] of Object.entries(UNIT_ALTERNATIVES)) {
+    for (const alt of alts) {
+      close(convertFromCanonical(convertToCanonical(123.456, alt.unit, canonical), alt.unit, canonical), 123.456);
+    }
+  }
 });
 
 // --- share -----------------------------------------------------------------

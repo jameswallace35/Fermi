@@ -106,6 +106,26 @@ try {
     return bank.questions.map((q) => q.answer);
   });
 
+  await step('unit menu converts the guess when the question has one', async () => {
+    const select = page.locator('#unit');
+    if ((await select.count()) === 0) {
+      console.log('  (first question has no convertible unit today; skipped)');
+      return;
+    }
+    const canonical = await select.evaluate((el) => el.options[0].value);
+    const alt = await select.evaluate((el) => el.options[1].value);
+    await select.selectOption(alt);
+    await page.fill('#guess', '100');
+    const text = await page.textContent('#preview');
+    assert.ok(text.includes(`100 ${alt}`), `preview shows typed unit: ${text}`);
+    assert.ok(text.includes(canonical), `preview shows canonical unit: ${text}`);
+    await page.reload();
+    await page.waitForSelector('#unit');
+    assert.equal(await page.inputValue('#unit'), alt, 'unit preference persists');
+    await page.selectOption('#unit', canonical);
+    await page.fill('#guess', '');
+  });
+
   await step('calculator computes and fills the guess', async () => {
     await page.click('#btn-calc');
     await page.waitForSelector('#dlg-calc[open]');

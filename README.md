@@ -11,6 +11,7 @@ It is a static site: plain HTML, CSS and JavaScript modules, no build step, no a
 - **Five questions a day**, drawn from fourteen categories so no two questions in a day share a category.
 - **Scoring like fermi.gg**: times-off multiple per question, daily average, 🎯🟢🟡🟠🔴 tiers.
 - **Flexible input**: `1500`, `1.5k`, `2 million`, `3B`, `1e9`, or an expression such as `330M * 1.5 * 52`.
+- **Unit switching**: answer in miles, feet, pounds, gallons, °F and so on; the unit menu in the guess box converts to the question's own unit for scoring and remembers your preference.
 - **Built-in calculator** with k / M / B keys that can drop its result straight into your guess.
 - **Reveal card** with your guess, the real answer, a log-scale "how far off" bar, a short explainer and the source.
 - **Share text**, streaks (puzzles finished on their own day), statistics with a tier histogram, and an **archive** of past puzzles.

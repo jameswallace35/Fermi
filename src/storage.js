@@ -40,6 +40,7 @@ export function loadPuzzleState(n) {
     recorded: s.recorded === true,
   };
   if (Array.isArray(s.ids) && s.ids.every((id) => typeof id === 'string')) state.ids = s.ids;
+  if (Array.isArray(s.units)) state.units = s.units.map((u) => (typeof u === 'string' ? u : null));
   return state;
 }
 

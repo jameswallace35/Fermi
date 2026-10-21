@@ -117,12 +117,27 @@ function announce(message) {
   announce.timer = setTimeout(() => { els.announcer.textContent = message; }, 60);
 }
 
-/** Full number plus unit, with the compact form first when the digits would not fit a phone column. */
-function valueHtml(v, unit) {
+/**
+ * Full number plus unit, with the compact form first when the digits would not
+ * fit a phone column, and the same value in an alternative unit when given.
+ */
+function valueHtml(v, unit, alt = null) {
   const full = L.formatNumber(v);
   const compact = L.formatCompact(v);
-  if (compact && full.length > 15) return `${esc(compact)} <small>${esc(unit)}</small><span class="compact">${esc(full)}</span>`;
-  return `${esc(full)} <small>${esc(unit)}</small>${compact ? `<span class="compact">${esc(compact)}</span>` : ''}`;
+  const lines = [];
+  if (alt && alt.unit !== unit && Number.isFinite(alt.value)) {
+    const altCompact = L.formatCompact(alt.value);
+    lines.push(`${L.formatNumber(alt.value)} ${alt.unit}${altCompact ? ` (${altCompact})` : ''}`);
+  }
+  let primary;
+  if (compact && full.length > 15) {
+    primary = `${esc(compact)} <small>${esc(unit)}</small>`;
+    lines.unshift(full);
+  } else {
+    primary = `${esc(full)} <small>${esc(unit)}</small>`;
+    if (compact) lines.unshift(compact);
+  }
+  return primary + lines.map((l) => `<span class="compact">${esc(l)}</span>`).join('');
 }
 
 function rowNumber(v) {
@@ -130,7 +145,8 @@ function rowNumber(v) {
   return v >= 1e12 && compact ? compact : L.formatNumber(v);
 }
 
-function parseGuess(raw, unit) {
+/** The number typed in the box, in the unit the player chose (not yet converted). */
+function parseTyped(raw, unit) {
   if (String(raw).length > L.MAX_INPUT_LENGTH) return NaN;
   let v = L.parseNumber(raw, unit);
   if (Number.isNaN(v)) {
@@ -139,6 +155,29 @@ function parseGuess(raw, unit) {
     v = tryEvaluate(s);
   }
   return v;
+}
+
+/** Typed value and its equivalent in the question's own unit. */
+function parseGuess(raw, typedUnit, canonicalUnit) {
+  const typed = parseTyped(raw, typedUnit);
+  const canonical = Number.isFinite(typed) ? L.convertToCanonical(typed, typedUnit, canonicalUnit) : NaN;
+  return { typed, canonical };
+}
+
+/** The unit the player last chose for this canonical unit, if it is still valid. */
+function preferredUnit(canonical) {
+  const options = L.unitOptions(canonical);
+  const saved = (S.loadPrefs().units || {})[canonical];
+  return options.includes(saved) ? saved : canonical;
+}
+
+function unitFieldHtml(canonical) {
+  const options = L.unitOptions(canonical);
+  if (options.length === 1) return `<span class="unit" aria-hidden="true">${esc(canonical)}</span>`;
+  const chosen = preferredUnit(canonical);
+  return `<select id="unit" class="unit unit-select" aria-label="Unit for your estimate">${options
+    .map((u) => `<option value="${esc(u)}" ${u === chosen ? 'selected' : ''}>${esc(u)}</option>`)
+    .join('')}</select>`;
 }
 
 function plainNumber(v) {
@@ -263,7 +302,7 @@ function renderQuestion(i) {
       <label class="sr-only" for="guess">Your estimate in ${esc(q.unit)}</label>
       <div class="input-wrap">
         <input id="guess" type="text" inputmode="decimal" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Estimate" enterkeyhint="done" maxlength="${L.MAX_INPUT_LENGTH}">
-        <span class="unit" aria-hidden="true">${esc(q.unit)}</span>
+        ${unitFieldHtml(q.unit)}
       </div>
       <p id="preview" class="preview">&nbsp;</p>
       <button type="submit" id="lock" class="btn primary wide">Lock it in</button>
@@ -273,6 +312,8 @@ function renderQuestion(i) {
   const input = $('#guess');
   const preview = $('#preview');
   const wrap = $('.input-wrap', els.card);
+  const unitSelect = $('#unit');
+  const typedUnit = () => (unitSelect ? unitSelect.value : q.unit);
 
   const updatePreview = () => {
     wrap.classList.remove('shake');
@@ -282,22 +323,39 @@ function renderQuestion(i) {
       preview.className = 'preview';
       return;
     }
-    const v = parseGuess(raw, q.unit);
-    if (!Number.isFinite(v) || v <= 0) {
+    const unit = typedUnit();
+    const { typed, canonical } = parseGuess(raw, unit, q.unit);
+    if (!Number.isFinite(typed)) {
       preview.textContent = 'Enter a positive number: 1500, 1.5k, 2 million, 3B, 1e9 or a sum like 365*24';
       preview.className = 'preview warn';
       return;
     }
-    const compact = L.formatCompact(v);
-    preview.textContent = `= ${L.formatNumber(v)} ${q.unit}${compact ? ` (${compact})` : ''}`;
+    if (!(canonical > 0)) {
+      preview.textContent = unit === q.unit ? 'Enter a positive number.' : `That is ${L.formatNumber(canonical)} ${q.unit}; the answer is above 0 ${q.unit}.`;
+      preview.className = 'preview warn';
+      return;
+    }
+    const compact = L.formatCompact(typed);
+    let text = `= ${L.formatNumber(typed)} ${unit}${compact ? ` (${compact})` : ''}`;
+    if (unit !== q.unit) text += ` = ${L.formatNumber(canonical)} ${q.unit}`;
+    preview.textContent = text;
     preview.className = 'preview ok';
   };
   input.addEventListener('input', updatePreview);
+  if (unitSelect) {
+    unitSelect.addEventListener('change', () => {
+      const prefs = S.loadPrefs();
+      S.savePrefs({ ...prefs, units: { ...(prefs.units || {}), [q.unit]: unitSelect.value } });
+      updatePreview();
+      input.focus();
+    });
+  }
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
-    const v = parseGuess(input.value, q.unit);
-    if (!Number.isFinite(v) || v <= 0) {
+    const unit = typedUnit();
+    const { typed, canonical } = parseGuess(input.value, unit, q.unit);
+    if (!Number.isFinite(typed) || !(canonical > 0)) {
       updatePreview();
       if (!input.value.trim()) {
         preview.textContent = 'Type your estimate first.';
@@ -310,13 +368,14 @@ function renderQuestion(i) {
       input.focus();
       return;
     }
-    lockIn(i, v);
+    lockIn(i, canonical, unit);
   });
 }
 
-function lockIn(i, value) {
+function lockIn(i, value, typedUnit) {
   if (state.guesses.length !== i) return; // stale form
   state.guesses.push(value);
+  state.units = Array.from({ length: i + 1 }, (_, k) => (k === i ? (typedUnit !== questions[i].unit ? typedUnit : null) : (state.units || [])[k] ?? null));
   state.ids = questions.map((q) => q.id);
   if (complete()) state.completedAt = Date.now();
   S.savePuzzleState(puzzleNumber, state);
@@ -360,6 +419,8 @@ function renderResult(i) {
   const tier = L.tierFor(m);
   const isLast = i === questions.length - 1;
   const done = complete();
+  const storedUnit = (state.units || [])[i];
+  const typedUnit = storedUnit && L.unitOptions(q.unit).includes(storedUnit) && storedUnit !== q.unit ? storedUnit : null;
 
   let label;
   let next;
@@ -398,11 +459,11 @@ function renderResult(i) {
       <dl class="compare">
         <div>
           <dt>Your guess</dt>
-          <dd>${valueHtml(g, q.unit)}</dd>
+          <dd>${typedUnit ? valueHtml(L.convertFromCanonical(g, typedUnit, q.unit), typedUnit, { unit: q.unit, value: g }) : valueHtml(g, q.unit)}</dd>
         </div>
         <div>
           <dt>Answer</dt>
-          <dd>${valueHtml(q.answer, q.unit)}</dd>
+          <dd>${valueHtml(q.answer, q.unit, typedUnit ? { unit: typedUnit, value: L.convertFromCanonical(q.answer, typedUnit, q.unit) } : null)}</dd>
         </div>
       </dl>
       ${scaleHtml(g, q.answer)}

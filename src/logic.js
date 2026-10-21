@@ -384,3 +384,76 @@ export function shareText({ puzzleNumber, dateKey, multiples, url }) {
   if (url) lines.push(url);
   return lines.join('\n');
 }
+
+// ---------------------------------------------------------------------------
+// Unit conversion
+//
+// Every question is scored in the unit its answer was researched in (the
+// "canonical" unit). A player may type a guess in an alternative unit; it is
+// converted to the canonical unit before scoring.
+
+const factor = (unit, f) => ({ unit, toCanonical: (v) => v * f, fromCanonical: (v) => v / f });
+const C_PER_F = 5 / 9;
+
+export const UNIT_ALTERNATIVES = {
+  km: [factor('miles', 1.609344)],
+  miles: [factor('km', 1 / 1.609344)],
+  metres: [factor('feet', 0.3048)],
+  cm: [factor('inches', 2.54)],
+  mm: [factor('inches', 25.4)],
+  kg: [factor('pounds', 0.45359237)],
+  grams: [factor('ounces', 28.349523125)],
+  tonnes: [factor('US tons', 0.90718474), factor('pounds', 0.00045359237)],
+  'km/h': [factor('mph', 1.609344), factor('m/s', 3.6)],
+  'km²': [factor('sq miles', 2.589988110336)],
+  'sq km': [factor('sq miles', 2.589988110336)],
+  hectares: [factor('acres', 0.40468564224)],
+  litres: [factor('US gallons', 3.785411784), factor('UK gallons', 4.54609)],
+  'km³': [factor('cubic miles', 4.168181825440579)],
+  'cubic metres': [factor('cubic feet', 0.028316846592)],
+  'm³/s': [factor('cubic feet/s', 0.028316846592)],
+  '°C': [
+    { unit: '°F', toCanonical: (f) => (f - 32) * C_PER_F, fromCanonical: (c) => c / C_PER_F + 32 },
+    { unit: 'kelvin', toCanonical: (k) => k - 273.15, fromCanonical: (c) => c + 273.15 },
+  ],
+  kelvin: [
+    { unit: '°C', toCanonical: (c) => c + 273.15, fromCanonical: (k) => k - 273.15 },
+    { unit: '°F', toCanonical: (f) => (f - 32) * C_PER_F + 273.15, fromCanonical: (k) => (k - 273.15) / C_PER_F + 32 },
+  ],
+  kcal: [factor('kJ', 1 / 4.184)],
+  joules: [factor('kWh', 3.6e6)],
+  GWh: [factor('TWh', 1000)],
+  TWh: [factor('GWh', 0.001)],
+  megawatts: [factor('gigawatts', 1000)],
+  minutes: [factor('hours', 60), factor('seconds', 1 / 60)],
+  hours: [factor('minutes', 1 / 60), factor('days', 24)],
+  days: [factor('weeks', 7), factor('hours', 1 / 24), factor('years', 365.25)],
+  months: [factor('years', 12)],
+  volts: [factor('kilovolts', 1000)],
+  MHz: [factor('GHz', 1000)],
+};
+
+/** The canonical unit followed by its alternatives (just [unit] when there are none). */
+export function unitOptions(canonical) {
+  const alts = Object.hasOwn(UNIT_ALTERNATIVES, canonical) ? UNIT_ALTERNATIVES[canonical] : [];
+  return [canonical, ...alts.map((a) => a.unit)];
+}
+
+function alternative(canonical, unit) {
+  const alts = Object.hasOwn(UNIT_ALTERNATIVES, canonical) ? UNIT_ALTERNATIVES[canonical] : [];
+  return alts.find((a) => a.unit === unit) || null;
+}
+
+/** Convert a value typed in `unit` into the question's canonical unit. NaN if the unit is unknown. */
+export function convertToCanonical(value, unit, canonical) {
+  if (unit === canonical) return value;
+  const alt = alternative(canonical, unit);
+  return alt ? alt.toCanonical(value) : NaN;
+}
+
+/** Convert a canonical value into an alternative unit. NaN if the unit is unknown. */
+export function convertFromCanonical(value, unit, canonical) {
+  if (unit === canonical) return value;
+  const alt = alternative(canonical, unit);
+  return alt ? alt.fromCanonical(value) : NaN;
+}
