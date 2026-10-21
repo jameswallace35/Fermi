@@ -1,0 +1,242 @@
+[
+  {
+    "question": "How many months does an African elephant's pregnancy last?",
+    "answer": 22,
+    "unit": "months",
+    "source_title": "Elephant - Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Elephant",
+    "explainer": "At about 22 months it is the longest gestation of any land mammal, nearly two and a half times a human pregnancy.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "question": "How many centimetres can the fastest-growing bamboo grow in a single day, per Guinness World Records?",
+    "answer": 91,
+    "unit": "cm",
+    "source_title": "Fastest growing plant - Guinness World Records",
+    "source_url": "https://www.guinnessworldrecords.com/world-records/fastest-growing-plant",
+    "explainer": "Some bamboo species shoot up 91 cm in 24 hours, nearly 4 cm every hour, so you can see the difference between breakfast and dinner.",
+    "difficulty": 2,
+    "as_of": "stable"
+  },
+  {
+    "question": "How tall is Hyperion, the coast redwood in California that is the world's tallest known living tree, in metres?",
+    "answer": 115.92,
+    "unit": "metres",
+    "source_title": "Hyperion (tree) - Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Hyperion_(tree)",
+    "explainer": "At about 116 m Hyperion is taller than the Statue of Liberty including its pedestal (93 m); its exact location is kept secret to protect it.",
+    "difficulty": 1,
+    "as_of": "2019"
+  },
+  {
+    "question": "How old was Jonathan, the Seychelles giant tortoise on St Helena and the oldest known living land animal, in 2025?",
+    "answer": 193,
+    "unit": "years",
+    "source_title": "Jonathan (tortoise) - Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Jonathan_(tortoise)",
+    "explainer": "Jonathan is believed to have hatched around 1832, before the first photograph of a person was ever taken, and he is still grazing on the governor's lawn.",
+    "difficulty": 2,
+    "as_of": "2025"
+  },
+  {
+    "question": "What is the fastest dive speed ever recorded for a peregrine falcon, in km/h?",
+    "answer": 389,
+    "unit": "km/h",
+    "source_title": "Peregrine falcon - Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Peregrine_falcon",
+    "explainer": "At 389 km/h a stooping peregrine outpaces a Formula 1 car at full throttle, making it the fastest animal on Earth.",
+    "difficulty": 2,
+    "as_of": "stable"
+  },
+  {
+    "question": "How many wild mountain gorillas were there in 2018, combining the latest Virunga and Bwindi census counts?",
+    "answer": 1063,
+    "unit": "gorillas",
+    "source_title": "Mountain gorilla - Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Mountain_gorilla",
+    "explainer": "All of them live in just two forest regions of central Africa; the total combines the 2015-16 Virunga count (604) and the 2018 Bwindi-Sarambwe count (459), up from around 600 in the early 1980s.",
+    "difficulty": 2,
+    "as_of": "2018"
+  },
+  {
+    "question": "How much does an average ostrich egg weigh, in grams?",
+    "answer": 1400,
+    "unit": "grams",
+    "source_title": "Common ostrich - Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Common_ostrich",
+    "explainer": "At 1.4 kg a single ostrich egg holds about as much as two dozen chicken eggs and takes around an hour and a half to hard-boil.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "question": "What is the trunk volume of General Sherman, the giant sequoia in California that is the largest tree on Earth, in cubic metres?",
+    "answer": 1487,
+    "unit": "cubic metres",
+    "source_title": "General Sherman (tree) - Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/General_Sherman_(tree)",
+    "explainer": "About 1,487 cubic metres of wood in one trunk, enough to fill more than half an Olympic swimming pool.",
+    "difficulty": 3,
+    "as_of": "stable"
+  },
+  {
+    "question": "What is the deepest dive ever recorded for a Cuvier's beaked whale, the deepest-diving mammal, in metres?",
+    "answer": 2992,
+    "unit": "metres",
+    "source_title": "Cuvier's beaked whale - Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Cuvier%27s_beaked_whale",
+    "explainer": "Nearly 3 km straight down, close to seven Empire State Buildings stacked end to end; the same species has also been logged holding its breath for more than three hours.",
+    "difficulty": 2,
+    "as_of": "stable"
+  },
+  {
+    "question": "How old was Methuselah, the Great Basin bristlecone pine in California's White Mountains, in 2024?",
+    "answer": 4856,
+    "unit": "years",
+    "source_title": "Methuselah (pine tree) - Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Methuselah_(pine_tree)",
+    "explainer": "It germinated around 2833 BC, before the Great Pyramid of Giza was built, and is still alive today.",
+    "difficulty": 2,
+    "as_of": "2024"
+  },
+  {
+    "question": "How many tonnes of honey were produced worldwide in 2022, according to FAO?",
+    "answer": 1800000,
+    "unit": "tonnes",
+    "source_title": "FAOSTAT Crops and livestock products",
+    "source_url": "https://www.fao.org/faostat/en/#data/QCL",
+    "explainer": "Roughly 1.8 million tonnes a year, about 230 grams per person on Earth, with China by far the biggest producer.",
+    "difficulty": 3,
+    "as_of": "2022"
+  },
+  {
+    "question": "How many living bird species were recognised on the IOC World Bird List as of 2024?",
+    "answer": 11194,
+    "unit": "species",
+    "source_title": "IOC World Bird List",
+    "source_url": "https://www.worldbirdnames.org/",
+    "explainer": "Around 11,000 species, roughly 6,500 of them passerines (perching birds), and a handful of new species are still described every year.",
+    "difficulty": 2,
+    "as_of": "2024"
+  },
+  {
+    "question": "What is the longest non-stop flight recorded for a bird (a bar-tailed godwit tracked from Alaska to Tasmania in 2022), in km?",
+    "answer": 13560,
+    "unit": "km",
+    "source_title": "Bar-tailed godwit - Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Bar-tailed_godwit",
+    "explainer": "The five-month-old godwit flew 13,560 km in 11 days without stopping to eat, drink or rest, about a third of the way around the world.",
+    "difficulty": 2,
+    "as_of": "2022"
+  },
+  {
+    "question": "How many spider species had been scientifically described worldwide, per the World Spider Catalog, as of 2024?",
+    "answer": 52000,
+    "unit": "species",
+    "source_title": "World Spider Catalog",
+    "source_url": "https://wsc.nmbe.ch/",
+    "explainer": "Over 52,000 named species, with hundreds more added every year; taxonomists suspect the true number may be double that.",
+    "difficulty": 3,
+    "as_of": "2024"
+  },
+  {
+    "question": "What is the area of Australia's Great Barrier Reef, in square kilometres?",
+    "answer": 344400,
+    "unit": "sq km",
+    "source_title": "Great Barrier Reef - Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Great_Barrier_Reef",
+    "explainer": "About 344,400 sq km, larger than Italy and visible from orbit, it is the biggest structure on Earth built by living things.",
+    "difficulty": 2,
+    "as_of": "stable"
+  },
+  {
+    "question": "How many African elephants (savanna and forest) were estimated to remain in the wild in 2016, per the IUCN status report?",
+    "answer": 415000,
+    "unit": "elephants",
+    "source_title": "African elephant - Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/African_elephant",
+    "explainer": "About 415,000, down from several million a century ago; Botswana alone is home to roughly a third of them.",
+    "difficulty": 2,
+    "as_of": "2016"
+  },
+  {
+    "question": "How many tonnes did the world's wild-capture fisheries land in 2022, per FAO's State of World Fisheries report?",
+    "answer": 92300000,
+    "unit": "tonnes",
+    "source_title": "The State of World Fisheries and Aquaculture 2024 - FAO",
+    "source_url": "https://www.fao.org/publications/home/fao-flagship-publications/the-state-of-world-fisheries-and-aquaculture/en",
+    "explainer": "About 92 million tonnes, and for the first time farmed seafood (aquaculture) now outproduces the wild catch.",
+    "difficulty": 2,
+    "as_of": "2022"
+  },
+  {
+    "question": "How many eggs can a single female ocean sunfish carry at one time?",
+    "answer": 300000000,
+    "unit": "eggs",
+    "source_title": "Ocean sunfish - Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Ocean_sunfish",
+    "explainer": "Up to 300 million eggs, more than any other known vertebrate, each only about a millimetre across.",
+    "difficulty": 3,
+    "as_of": "stable"
+  },
+  {
+    "question": "How many yen did the top bluefin tuna fetch at Tokyo's first fish auction of 2019, a record price?",
+    "answer": 333600000,
+    "unit": "yen",
+    "source_title": "Kiyoshi Kimura - Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Kiyoshi_Kimura",
+    "explainer": "Sushi chain owner Kiyoshi Kimura paid 333.6 million yen (about US$3.1 million) for a 278 kg fish, over US$11,000 per kilogram.",
+    "difficulty": 3,
+    "as_of": "2019"
+  },
+  {
+    "question": "How many hectares of forest did the world have in 2020, per the FAO Global Forest Resources Assessment?",
+    "answer": 4060000000,
+    "unit": "hectares",
+    "source_title": "Global Forest Resources Assessment 2020 - FAO",
+    "source_url": "https://www.fao.org/forest-resources-assessment/2020/en/",
+    "explainer": "4.06 billion hectares, about 31% of all land, or roughly half a hectare of forest for every person alive.",
+    "difficulty": 2,
+    "as_of": "2020"
+  },
+  {
+    "question": "How many chickens were slaughtered for meat worldwide in 2022?",
+    "answer": 75000000000,
+    "unit": "chickens",
+    "source_title": "Number of animals slaughtered for meat - Our World in Data",
+    "source_url": "https://ourworldindata.org/grapher/animals-slaughtered-for-meat",
+    "explainer": "Around 75 billion, more than nine chickens per person on Earth every year, or about 200 million every single day.",
+    "difficulty": 2,
+    "as_of": "2022"
+  },
+  {
+    "question": "How much did Americans spend on their pets in 2024, in US$, per the American Pet Products Association?",
+    "answer": 152000000000,
+    "unit": "US$",
+    "source_title": "Industry Trends and Stats - American Pet Products Association",
+    "source_url": "https://www.americanpetproducts.org/research-insights/industry-trends-and-stats",
+    "explainer": "About $152 billion, or roughly $450 for every person in the United States, with food and treats the biggest slice of the bill.",
+    "difficulty": 2,
+    "as_of": "2024"
+  },
+  {
+    "question": "How many trees are there on Earth, according to the 2015 global estimate published in Nature?",
+    "answer": 3040000000000,
+    "unit": "trees",
+    "source_title": "Mapping tree density at a global scale - Nature (Crowther et al. 2015)",
+    "source_url": "https://www.nature.com/articles/nature14967",
+    "explainer": "About 3.04 trillion, roughly 400 trees per person, though the total has fallen by around 46% since the dawn of agriculture.",
+    "difficulty": 2,
+    "as_of": "2015"
+  },
+  {
+    "question": "How many individual ants are estimated to live on Earth, per the 2022 study in PNAS?",
+    "answer": 20000000000000000,
+    "unit": "ants",
+    "source_title": "The abundance, biomass, and distribution of ants on Earth - PNAS (Schultheiss et al. 2022)",
+    "source_url": "https://www.pnas.org/doi/10.1073/pnas.2201550119",
+    "explainer": "About 20 quadrillion, 2.5 million ants for every human, and together they outweigh all wild birds and mammals combined.",
+    "difficulty": 3,
+    "as_of": "2022"
+  }
+]

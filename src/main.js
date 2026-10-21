@@ -26,7 +26,7 @@ const els = {
 };
 
 let bank = null;
-let todayNumber = L.todayPuzzleNumber();
+let todayNumber = Math.max(1, L.todayPuzzleNumber());
 let puzzleNumber = todayNumber;
 let questions = [];
 let state = null;
@@ -56,6 +56,7 @@ function questionById(id) {
  * is reordered later. Falls back to a fresh selection.
  */
 function resolveQuestions(n, st) {
+  if (!bank) return null;
   const scheduled = L.selectQuestions(bank, n);
   if (st && Array.isArray(st.ids) && st.ids.length && st.guesses.length) {
     const byCat = new Map(bank.categories.map((c) => [c.slug, c.name]));
@@ -68,10 +69,24 @@ function resolveQuestions(n, st) {
   return scheduled;
 }
 
+function storedState(n) {
+  return n === puzzleNumber && state ? state : S.loadPuzzleState(n);
+}
+
+/** Finished, and its stored guesses still match questions in the bank. */
 function isComplete(n) {
   if (n === puzzleNumber && state) return complete();
   const st = S.loadPuzzleState(n);
-  return st.guesses.length >= L.QUESTIONS_PER_DAY;
+  return st.guesses.length >= L.QUESTIONS_PER_DAY && resolveQuestions(n, st) !== null;
+}
+
+/** Streaks only count puzzles finished on their own day. */
+function countsForStreak(n) {
+  return isComplete(n) && L.finishedOnTime(storedState(n), n);
+}
+
+function currentStreak() {
+  return L.computeStreak(countsForStreak, todayNumber);
 }
 
 function complete() {
@@ -83,7 +98,8 @@ function multiples() {
 }
 
 function puzzleUrl() {
-  return `${location.origin}${location.pathname}`;
+  const base = `${location.origin}${location.pathname}`;
+  return puzzleNumber === todayNumber ? base : `${base}#${puzzleNumber}`;
 }
 
 function toast(message) {
@@ -116,22 +132,41 @@ function load(n) {
   state = S.loadPuzzleState(n);
   const resolved = resolveQuestions(n, state);
   if (resolved === null) {
-    state = { guesses: [], completedAt: null, recorded: false };
+    // The stored guesses belong to questions that are no longer in the bank.
+    // Start the puzzle afresh, but keep the stats flag so the day is not
+    // counted twice, and persist the reset so the archive and streak agree.
+    state = { guesses: [], completedAt: null, recorded: state.recorded };
+    S.savePuzzleState(n, state);
     questions = L.selectQuestions(bank, n);
   } else {
     questions = resolved;
   }
   if (state.guesses.length > questions.length) state.guesses = state.guesses.slice(0, questions.length);
+  if (complete() && !state.recorded) recordStats(); // an earlier attempt failed before saving
   view = complete() ? { kind: 'summary' } : { kind: 'play' };
   render();
 }
 
+/** Puzzle number from a "#12" hash, clamped to [1, today]; null when the hash is not a puzzle link. */
 function puzzleFromHash() {
   const m = /^#(\d+)$/.exec(location.hash);
   if (!m) return null;
   const n = Number(m[1]);
-  if (!Number.isFinite(n) || n < 1) return 1;
+  if (!Number.isFinite(n)) return todayNumber;
+  if (n < 1) return 1;
   return Math.min(n, todayNumber);
+}
+
+/** Record a finished puzzle in the statistics, exactly once. Never lets a storage problem block the game. */
+function recordStats() {
+  try {
+    const avg = L.dailyScore(multiples());
+    S.saveStats(L.recordCompletion(S.loadStats(), avg, currentStreak()));
+  } catch (err) {
+    console.error('Could not record statistics', err);
+  }
+  state.recorded = true;
+  S.savePuzzleState(puzzleNumber, state);
 }
 
 function goTo(n) {
@@ -262,13 +297,7 @@ function lockIn(i, value) {
   state.ids = questions.map((q) => q.id);
   if (complete()) state.completedAt = Date.now();
   S.savePuzzleState(puzzleNumber, state);
-  if (complete() && !state.recorded) {
-    const avg = L.dailyScore(multiples());
-    const streak = L.computeStreak(isComplete, todayNumber);
-    S.saveStats(L.recordCompletion(S.loadStats(), avg, streak));
-    state.recorded = true;
-    S.savePuzzleState(puzzleNumber, state);
-  }
+  if (complete() && !state.recorded) recordStats();
   view = { kind: 'result', index: i };
   render();
   const btn = $('#continue');
@@ -363,8 +392,8 @@ function renderSummary() {
   const ms = multiples();
   const avg = L.dailyScore(ms);
   const tier = L.tierFor(avg);
-  const stats = S.loadStats() || L.defaultStats();
-  const streak = L.computeStreak(isComplete, todayNumber);
+  const stats = S.loadStats();
+  const streak = currentStreak();
   const isToday = puzzleNumber === todayNumber;
   const date = L.formatDateKey(L.dateKeyForPuzzle(puzzleNumber));
 
@@ -445,6 +474,7 @@ async function copyText(text) {
   } catch {
     // fall through to the legacy path
   }
+  const previous = document.activeElement;
   try {
     const ta = els.shareFallback;
     ta.value = text;
@@ -459,6 +489,8 @@ async function copyText(text) {
     return ok;
   } catch {
     return false;
+  } finally {
+    if (previous && typeof previous.focus === 'function') previous.focus();
   }
 }
 
@@ -470,8 +502,8 @@ function openDialog(dlg) {
 }
 
 function renderStats() {
-  const stats = S.loadStats() || L.defaultStats();
-  const streak = L.computeStreak(isComplete, todayNumber);
+  const stats = S.loadStats();
+  const streak = currentStreak();
   const avg = stats.played ? stats.sumAvg / stats.played : null;
   const tiers = stats.tiers || [0, 0, 0, 0, 0];
   const max = Math.max(1, ...tiers);
@@ -494,7 +526,7 @@ function renderArchive(reset = true) {
   const end = Math.min(todayNumber, archiveShown + ARCHIVE_PAGE);
   const items = [];
   for (let n = todayNumber - archiveShown; n > todayNumber - end; n--) {
-    const st = n === puzzleNumber ? state : S.loadPuzzleState(n);
+    const st = storedState(n);
     let status = 'Not played';
     let cls = '';
     if (st.guesses.length >= L.QUESTIONS_PER_DAY) {
@@ -633,10 +665,16 @@ function toggleTheme() {
 function tick() {
   const cd = $('#countdown');
   if (cd) cd.textContent = L.formatCountdown(L.msUntilLocalMidnight());
-  const nowNumber = L.todayPuzzleNumber();
+  const nowNumber = Math.max(1, L.todayPuzzleNumber());
   if (nowNumber !== todayNumber) {
     todayNumber = nowNumber;
     els.banner.hidden = false;
+    // The puzzle on screen is now an archive puzzle: refresh the parts that
+    // say so, without touching a question the player may be typing into.
+    if (bank && state) {
+      renderMeta();
+      if (view.kind === 'summary') renderSummary();
+    }
   }
 }
 
@@ -654,6 +692,10 @@ async function init() {
     openDialog(els.stats);
   });
   $('#btn-archive').addEventListener('click', () => {
+    if (!bank) {
+      toast('The questions have not loaded yet.');
+      return;
+    }
     renderArchive(true);
     openDialog(els.archive);
   });
@@ -683,8 +725,14 @@ async function init() {
 
   window.addEventListener('hashchange', () => {
     const n = puzzleFromHash();
-    if (n === null) load(todayNumber);
-    else if (n !== puzzleNumber) load(n);
+    if (n === null) {
+      // "#main" (the skip link) and other in-page anchors are not puzzle links.
+      if (location.hash && location.hash !== '#') return;
+      if (puzzleNumber !== todayNumber) load(todayNumber);
+      return;
+    }
+    if (n !== puzzleNumber) load(n);
+    else renderMeta();
   });
 
   load(puzzleFromHash() ?? todayNumber);

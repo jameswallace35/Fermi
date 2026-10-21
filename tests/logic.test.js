@@ -24,6 +24,11 @@ import {
   recordCompletion,
   defaultStats,
   shareText,
+  canonicalDigits,
+  firstRepeatDay,
+  finishedOnTime,
+  normalizeStats,
+  MAX_MULTIPLE,
 } from '../src/logic.js';
 
 // --- dates -----------------------------------------------------------------
@@ -67,15 +72,22 @@ test('countdown to local midnight', () => {
 
 // --- scoring ---------------------------------------------------------------
 
-test('scoreMultiple is symmetric, 1 when exact, Infinity when invalid', () => {
+test('scoreMultiple is symmetric, 1 when exact, capped when invalid or absurd', () => {
   assert.equal(scoreMultiple(100, 100), 1);
   assert.equal(scoreMultiple(200, 100), 2);
   assert.equal(scoreMultiple(50, 100), 2);
   assert.equal(scoreMultiple(1, 1e6), 1e6);
-  assert.equal(scoreMultiple(0, 10), Infinity);
-  assert.equal(scoreMultiple(-5, 10), Infinity);
-  assert.equal(scoreMultiple(NaN, 10), Infinity);
-  assert.equal(scoreMultiple(10, 0), Infinity);
+  assert.equal(scoreMultiple(0, 10), MAX_MULTIPLE);
+  assert.equal(scoreMultiple(-5, 10), MAX_MULTIPLE);
+  assert.equal(scoreMultiple(NaN, 10), MAX_MULTIPLE);
+  assert.equal(scoreMultiple(10, 0), MAX_MULTIPLE);
+  assert.equal(scoreMultiple(1e308, 0.5), MAX_MULTIPLE);
+  assert.equal(scoreMultiple(1e-320, 1), MAX_MULTIPLE);
+  assert.ok(Number.isFinite(dailyScore([scoreMultiple(1e308, 0.5), 1])));
+  // floating-point noise is tidied so display and tier agree
+  assert.equal(scoreMultiple(0.003, 0.0003), 10);
+  assert.equal(tierFor(scoreMultiple(0.003, 0.0003)).label, 'Off');
+  assert.equal(tierFor(scoreMultiple(0.0015, 0.0003)).label, 'Close');
 });
 
 test('dailyScore is the arithmetic mean', () => {
@@ -87,9 +99,12 @@ test('dailyScore is the arithmetic mean', () => {
 test('formatMultiple precision bands', () => {
   assert.equal(formatMultiple(1), '1.00×');
   assert.equal(formatMultiple(1.2345), '1.23×');
-  assert.equal(formatMultiple(9.999), '10.00×');
+  assert.equal(formatMultiple(9.994), '9.99×');
+  assert.equal(formatMultiple(9.999), '10.0×');
+  assert.equal(formatMultiple(10.000000000000002), '10.0×');
   assert.equal(formatMultiple(12.34), '12.3×');
-  assert.equal(formatMultiple(99.96), '100.0×');
+  assert.equal(formatMultiple(99.94), '99.9×');
+  assert.equal(formatMultiple(99.96), '100×');
   assert.equal(formatMultiple(123.4), '123×');
   assert.equal(formatMultiple(12345.6), '12,346×');
   assert.equal(formatMultiple(Infinity), '∞×');
@@ -133,6 +148,32 @@ test('parseNumber accepts human formats', () => {
   assert.equal(parseNumber(7), 7);
 });
 
+test('parseNumber reads a decimal comma but never a sloppy thousands group', () => {
+  assert.equal(parseNumber('1,5'), 1.5);
+  assert.equal(parseNumber('0,25'), 0.25);
+  assert.equal(parseNumber('2,5 million'), 2.5e6);
+  assert.equal(parseNumber('1 234,56'), 1234.56);
+  assert.equal(parseNumber('1,500.25'), 1500.25);
+  assert.equal(parseNumber('1,00'), 1);
+  for (const bad of ['1,0000', '1234,567', '1,000,00', '1,', '1,2,3']) {
+    assert.ok(Number.isNaN(parseNumber(bad)), `expected NaN for ${bad}`);
+  }
+});
+
+test('canonicalDigits', () => {
+  assert.equal(canonicalDigits('1,500'), '1500');
+  assert.equal(canonicalDigits('1 500 000'), '1500000');
+  assert.equal(canonicalDigits('1_000.5'), '1000.5');
+  assert.equal(canonicalDigits('.5'), '.5');
+  assert.equal(canonicalDigits('5.'), '5.');
+  assert.equal(canonicalDigits('1,5'), '1.5');
+  assert.equal(canonicalDigits('12,34'), '12.34');
+  assert.equal(canonicalDigits('1,,2'), null);
+  assert.equal(canonicalDigits(''), null);
+  assert.equal(canonicalDigits('abc'), null);
+  assert.equal(canonicalDigits('1.2.3'), null);
+});
+
 test('parseNumber strips the unit label when given', () => {
   assert.equal(parseNumber('5000 km', 'km'), 5000);
   assert.equal(parseNumber('5000km', 'km'), 5000);
@@ -141,7 +182,7 @@ test('parseNumber strips the unit label when given', () => {
 });
 
 test('parseNumber rejects non-numbers', () => {
-  for (const bad of ['', '   ', 'abc', '5 km', '1.2.3', '-5', '1e', '12x', '3 miles', null, undefined, '1,,2']) {
+  for (const bad of ['', '   ', 'abc', '5 km', '1.2.3', '-5', '1e', '12x', '3 miles', null, undefined, '1,,2', '5 constructor', '2 __proto__']) {
     assert.ok(Number.isNaN(parseNumber(bad)), `expected NaN for ${JSON.stringify(bad)}`);
   }
 });
@@ -160,6 +201,9 @@ test('formatNumber and formatCompact', () => {
   assert.equal(formatCompact(45000), '45 thousand');
   assert.equal(formatCompact(1234), null);
   assert.equal(formatCompact(NaN), null);
+  assert.equal(formatCompact(2e16), '20 quadrillion');
+  assert.equal(formatCompact(4.3252e19), '43.3 quintillion');
+  assert.equal(formatCompact(6.67e21), '6.67 sextillion');
 });
 
 test('scalePosition is centred and clamped', () => {
@@ -212,6 +256,26 @@ test('selectQuestions is deterministic and tolerates small banks', () => {
   assert.equal(a.length, 5);
   assert.deepEqual(selectQuestions({ categories: [], questions: [] }, 1), []);
   assert.deepEqual(selectQuestions(bank, NaN), []);
+  assert.deepEqual(selectQuestions(bank, 0), []);
+  assert.deepEqual(selectQuestions(bank, -3), []);
+});
+
+test('firstRepeatDay reports when the smallest category wraps', () => {
+  assert.equal(firstRepeatDay(fakeBank(14, 20)), 57);
+  const uneven = fakeBank(14, 20);
+  uneven.questions = uneven.questions.filter((q) => !(q.category === 'c0' && Number(q.id.split('-')[1]) >= 10));
+  assert.equal(firstRepeatDay(uneven), 29);
+  // confirm by brute force
+  const seen = new Set();
+  let firstRepeat = null;
+  for (let n = 1; n <= 100 && firstRepeat === null; n++) {
+    for (const q of selectQuestions(uneven, n)) {
+      if (seen.has(q.id)) { firstRepeat = n; break; }
+      seen.add(q.id);
+    }
+  }
+  assert.equal(firstRepeat, 29);
+  assert.equal(firstRepeatDay({ categories: [], questions: [] }), 0);
 });
 
 test('categoriesWithQuestions skips empty categories and keeps order', () => {
@@ -233,6 +297,32 @@ test('computeStreak counts back from today or yesterday', () => {
   assert.equal(computeStreak((n) => n === 1, 1), 1);
 });
 
+test('finishedOnTime only accepts puzzles completed on their own day', () => {
+  const dayOf = (n, hour = 12) => {
+    const [y, m, d] = dateKeyForPuzzle(n).split('-').map(Number);
+    return new Date(y, m - 1, d, hour).getTime();
+  };
+  const done = (n, at) => ({ guesses: [1, 1, 1, 1, 1], completedAt: at });
+  assert.equal(finishedOnTime(done(7, dayOf(7)), 7), true);
+  assert.equal(finishedOnTime(done(7, dayOf(7, 23)), 7), true);
+  assert.equal(finishedOnTime(done(7, dayOf(8)), 7), false); // played from the archive
+  assert.equal(finishedOnTime({ guesses: [1, 1, 1, 1, 1] }, 7), true); // legacy record
+  assert.equal(finishedOnTime({ guesses: [1, 1] }, 7), false);
+  assert.equal(finishedOnTime(null, 7), false);
+});
+
+test('normalizeStats repairs corrupt storage', () => {
+  assert.deepEqual(normalizeStats(null), defaultStats());
+  assert.deepEqual(normalizeStats('junk'), defaultStats());
+  assert.deepEqual(normalizeStats({ played: '3', tiers: 5 }), defaultStats());
+  assert.deepEqual(normalizeStats({ played: 2.7, sumAvg: -1, best: 0, maxStreak: 3, tiers: [1, 'x', 2] }), {
+    played: 2, sumAvg: 0, best: null, maxStreak: 3, tiers: [1, 0, 2, 0, 0],
+  });
+  const s = recordCompletion({ played: 1, tiers: 5 }, 20, 0);
+  assert.equal(s.played, 2);
+  assert.deepEqual(s.tiers, [0, 0, 0, 0, 1]);
+});
+
 test('recordCompletion updates played, best, tiers and max streak', () => {
   let s = recordCompletion(defaultStats(), 3.2, 1);
   assert.equal(s.played, 1);
@@ -245,10 +335,14 @@ test('recordCompletion updates played, best, tiers and max streak', () => {
   assert.equal(s.maxStreak, 2);
   assert.deepEqual(s.tiers, [1, 0, 1, 0, 0]);
   assert.equal(s.sumAvg, 4.25);
-  // tolerates missing/legacy fields
+  // tolerates missing/legacy fields and a non-finite average
   s = recordCompletion({ played: 1 }, 20, 0);
   assert.equal(s.played, 2);
   assert.deepEqual(s.tiers, [0, 0, 0, 0, 1]);
+  s = recordCompletion(s, Infinity, 0);
+  assert.equal(s.played, 3);
+  assert.deepEqual(s.tiers, [0, 0, 0, 0, 2]);
+  assert.equal(s.sumAvg, 20);
 });
 
 // --- share -----------------------------------------------------------------

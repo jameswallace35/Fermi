@@ -1,0 +1,212 @@
+[
+  {
+    "question": "How many Concorde supersonic airliners were built in total, including prototypes?",
+    "answer": 20,
+    "unit": "aircraft",
+    "source_title": "Concorde - Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Concorde",
+    "explainer": "Just 20 Concordes were built: two prototypes, two pre-production aircraft and 16 production models, 14 of which flew passengers for British Airways and Air France.",
+    "difficulty": 2,
+    "as_of": "stable"
+  },
+  {
+    "question": "How many runways does Chicago O'Hare International Airport have, as of 2024?",
+    "answer": 8,
+    "unit": "runways",
+    "source_title": "O'Hare International Airport - Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/O%27Hare_International_Airport",
+    "explainer": "After a 2021 expansion O'Hare has eight runways, six of them parallel east-west, which helps make it one of the world's busiest airfields by takeoffs and landings.",
+    "difficulty": 2,
+    "as_of": "2024"
+  },
+  {
+    "question": "How long is the Gotthard Base Tunnel in Switzerland, the world's longest railway tunnel, in km?",
+    "answer": 57.1,
+    "unit": "km",
+    "source_title": "Gotthard Base Tunnel - Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Gotthard_Base_Tunnel",
+    "explainer": "At 57 km the Gotthard Base Tunnel runs almost flat beneath the Alps, letting trains cross the mountains at full speed and cutting about an hour from Zurich-Milan journeys.",
+    "difficulty": 2,
+    "as_of": "stable"
+  },
+  {
+    "question": "How many years old is New York's Brooklyn Bridge in 2026, counting from its opening?",
+    "answer": 143,
+    "unit": "years",
+    "source_title": "Brooklyn Bridge - Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Brooklyn_Bridge",
+    "explainer": "The bridge opened on 24 May 1883 as the longest suspension bridge in the world, and more than 140 years later it still carries cars, cyclists and walkers across the East River.",
+    "difficulty": 1,
+    "as_of": "2026"
+  },
+  {
+    "question": "What is the top speed in regular service of Japan's fastest Shinkansen trains, on the Tohoku line, in km/h?",
+    "answer": 320,
+    "unit": "km/h",
+    "source_title": "Shinkansen - Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Shinkansen",
+    "explainer": "The E5 and H5 trains run at 320 km/h in service, about 89 metres every second, enough to cover a football pitch in just over a second.",
+    "difficulty": 1,
+    "as_of": "2024"
+  },
+  {
+    "question": "What is the maximum takeoff weight of an Airbus A380, the world's largest passenger airliner, in tonnes?",
+    "answer": 575,
+    "unit": "tonnes",
+    "source_title": "Airbus A380 - Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Airbus_A380",
+    "explainer": "A fully loaded A380 can weigh 575 tonnes at takeoff, roughly the weight of 100 adult African elephants, with fuel making up a large share of that.",
+    "difficulty": 2,
+    "as_of": "stable"
+  },
+  {
+    "question": "How high above the river is the deck of China's Huajiang Grand Canyon Bridge, the world's highest bridge, opened in 2025, in metres?",
+    "answer": 625,
+    "unit": "metres",
+    "source_title": "Huajiang Grand Canyon Bridge - Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Huajiang_Grand_Canyon_Bridge",
+    "explainer": "Opened in September 2025 in Guizhou province, its deck hangs 625 m above the Beipan River, nearly twice the height of the Eiffel Tower.",
+    "difficulty": 2,
+    "as_of": "2025"
+  },
+  {
+    "question": "How long is the Trans-Alaska Pipeline, from Prudhoe Bay to the port of Valdez, in km?",
+    "answer": 1288,
+    "unit": "km",
+    "source_title": "Trans-Alaska Pipeline System - Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Trans-Alaska_Pipeline_System",
+    "explainer": "The pipeline runs 1,288 km (800 miles) from the Arctic coast to Valdez; about half of it is raised on supports so the warm oil does not thaw the permafrost beneath.",
+    "difficulty": 2,
+    "as_of": "stable"
+  },
+  {
+    "question": "How many Boeing 747s were built in total before production ended in 2023?",
+    "answer": 1574,
+    "unit": "aircraft",
+    "source_title": "Boeing 747 - Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Boeing_747",
+    "explainer": "Boeing built 1,574 jumbo jets between 1968 and 2023, when the final one, a 747-8 freighter, was delivered to Atlas Air.",
+    "difficulty": 2,
+    "as_of": "stable"
+  },
+  {
+    "question": "How long is the Trans-Siberian Railway from Moscow to Vladivostok, in km?",
+    "answer": 9289,
+    "unit": "km",
+    "source_title": "Trans-Siberian Railway - Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Trans-Siberian_Railway",
+    "explainer": "The Moscow-Vladivostok line is 9,289 km long and crosses eight time zones; the through train takes about a week from end to end.",
+    "difficulty": 2,
+    "as_of": "stable"
+  },
+  {
+    "question": "What is the installed generating capacity of China's Three Gorges Dam, in megawatts?",
+    "answer": 22500,
+    "unit": "megawatts",
+    "source_title": "Three Gorges Dam - Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Three_Gorges_Dam",
+    "explainer": "Its 34 generators add up to 22,500 MW, the largest power station on Earth, equivalent to roughly 20 big nuclear reactors.",
+    "difficulty": 3,
+    "as_of": "stable"
+  },
+  {
+    "question": "How many standard 20-foot containers (TEU) can the world's largest container ship, MSC Irina, carry, as of 2024?",
+    "answer": 24346,
+    "unit": "TEU",
+    "source_title": "List of largest container ships - Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/List_of_largest_container_ships",
+    "explainer": "MSC Irina and her sister ships are rated at 24,346 TEU; laid end to end, that many twenty-foot boxes would stretch about 150 km.",
+    "difficulty": 2,
+    "as_of": "2024"
+  },
+  {
+    "question": "How many ships transited the Suez Canal in 2023?",
+    "answer": 26434,
+    "unit": "ships",
+    "source_title": "Suez Canal Authority - Navigation Statistics",
+    "source_url": "https://www.suezcanal.gov.eg/English/Navigation/Pages/NavigationStatistics.aspx",
+    "explainer": "A record 26,434 ships, about 72 a day, used the canal in 2023, before attacks on shipping in the Red Sea diverted much of the traffic around Africa in 2024.",
+    "difficulty": 2,
+    "as_of": "2023"
+  },
+  {
+    "question": "How many km of high-speed railway did China have in operation at the end of 2024?",
+    "answer": 48000,
+    "unit": "km",
+    "source_title": "High-speed rail in China - Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/High-speed_rail_in_China",
+    "explainer": "China's high-speed network reached about 48,000 km by the end of 2024, well over half of all high-speed track in the world and longer than the Equator.",
+    "difficulty": 2,
+    "as_of": "2024-12-31"
+  },
+  {
+    "question": "How many merchant ships of 100 gross tons or more made up the world's commercial fleet in January 2023?",
+    "answer": 105493,
+    "unit": "ships",
+    "source_title": "Review of Maritime Transport 2023 - UNCTAD",
+    "source_url": "https://unctad.org/publication/review-maritime-transport-2023",
+    "explainer": "UNCTAD counted 105,493 commercial ships of 100 gross tons and above at the start of 2023; bulk carriers, tankers and container ships provide most of the carrying capacity.",
+    "difficulty": 3,
+    "as_of": "2023-01-01"
+  },
+  {
+    "question": "How many km of public roads does the United States have, as of 2022?",
+    "answer": 6700000,
+    "unit": "km",
+    "source_title": "Highway Statistics 2022, Table HM-20 - FHWA",
+    "source_url": "https://www.fhwa.dot.gov/policyinformation/statistics/2022/hm20.cfm",
+    "explainer": "The US has about 6.7 million km (4.2 million miles) of public roads, enough to drive to the Moon and back more than eight times.",
+    "difficulty": 3,
+    "as_of": "2022"
+  },
+  {
+    "question": "How many containers (TEU) did the Port of Shanghai, the world's busiest container port, handle in 2024?",
+    "answer": 51500000,
+    "unit": "TEU",
+    "source_title": "Port of Shanghai - Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Port_of_Shanghai",
+    "explainer": "Shanghai handled 51.5 million TEU in 2024, the first port ever to pass 50 million, which works out to nearly 6,000 containers every hour around the clock.",
+    "difficulty": 3,
+    "as_of": "2024"
+  },
+  {
+    "question": "How many passengers passed through London Heathrow Airport in 2024?",
+    "answer": 83900000,
+    "unit": "passengers",
+    "source_title": "Heathrow Airport - Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Heathrow_Airport",
+    "explainer": "Heathrow's record 83.9 million passengers in 2024 is about 230,000 a day, all handled on just two runways.",
+    "difficulty": 1,
+    "as_of": "2024"
+  },
+  {
+    "question": "How many tonnes of cargo were shipped by sea worldwide in 2023?",
+    "answer": 12300000000,
+    "unit": "tonnes",
+    "source_title": "Review of Maritime Transport 2024 - UNCTAD",
+    "source_url": "https://unctad.org/publication/review-maritime-transport-2024",
+    "explainer": "Ships carried about 12.3 billion tonnes of goods in 2023, roughly 1.5 tonnes for every person on Earth; oil, iron ore, coal and grain make up most of it.",
+    "difficulty": 3,
+    "as_of": "2023"
+  },
+  {
+    "question": "How much did London's Crossrail, now the Elizabeth line, cost to build, in pounds sterling?",
+    "answer": 18800000000,
+    "unit": "£",
+    "source_title": "Crossrail - Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Crossrail",
+    "explainer": "The Elizabeth line opened in 2022 at a final cost of about £18.8 billion, around £160 million for every kilometre of its 118 km route.",
+    "difficulty": 2,
+    "as_of": "2022"
+  },
+  {
+    "question": "How many miles did all motor vehicles drive on US roads in 2023?",
+    "answer": 3260000000000,
+    "unit": "miles",
+    "source_title": "Traffic Volume Trends - FHWA",
+    "source_url": "https://www.fhwa.dot.gov/policyinformation/travel_monitoring/tvt.cfm",
+    "explainer": "Americans drove about 3.26 trillion miles in 2023, close to 9,700 miles per person, or roughly 17,500 return trips between the Earth and the Sun.",
+    "difficulty": 2,
+    "as_of": "2023"
+  }
+]

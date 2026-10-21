@@ -1,0 +1,232 @@
+[
+  {
+    "question": "How many grams of pure gold are in a Paris 2024 Olympic gold medal?",
+    "answer": 6,
+    "unit": "grams",
+    "source_title": "Here's how much the Paris 2024 Olympic gold medal is actually worth (Forbes Australia)",
+    "source_url": "https://www.forbes.com.au/news/sport/paris-olympics-how-much-is-gold-medal-worth/",
+    "explainer": "The 'gold' medal is 95% silver with just 6 g of gold plating, worth roughly US$1,000 in raw metal at 2024 prices. It also contains 18 g of iron taken from the Eiffel Tower.",
+    "difficulty": 2,
+    "as_of": "2024"
+  },
+  {
+    "question": "How many minutes did the longest professional tennis match ever (Isner v Mahut, Wimbledon 2010) last?",
+    "answer": 665,
+    "unit": "minutes",
+    "source_title": "Isner–Mahut match at the 2010 Wimbledon Championships (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Isner%E2%80%93Mahut_match_at_the_2010_Wimbledon_Championships",
+    "explainer": "11 hours 5 minutes spread over three days. The fifth set alone finished 70–68 and took 8 h 11 min, longer than any other complete match in history.",
+    "difficulty": 2,
+    "as_of": "stable"
+  },
+  {
+    "question": "How fast was the fastest badminton smash ever recorded (Guinness World Record, 2023), in km/h?",
+    "answer": 565,
+    "unit": "km/h",
+    "source_title": "Indian shuttler Satwiksairaj Rankireddy sets Guinness world record for fastest badminton shot (All India Radio News)",
+    "source_url": "https://newsonair.gov.in/indian-shuttler-satwiksairaj-rankireddy-sets-guinness-world-record-for-fastest-badminton-shot",
+    "explainer": "Satwiksairaj Rankireddy's 565 km/h shot, measured in a controlled test, is faster than a Formula 1 car at full speed and more than twice the fastest tennis serve, though a shuttlecock slows down almost instantly.",
+    "difficulty": 2,
+    "as_of": "2023"
+  },
+  {
+    "question": "How much does a Paris 2024 Olympic gold medal weigh, in grams?",
+    "answer": 529,
+    "unit": "grams",
+    "source_title": "Olympic and Paralympic medals for Paris 2024 revealed (ITF)",
+    "source_url": "https://www.itftennis.com/en/news-and-media/articles/olympic-and-paralympic-medals-for-paris-2024-revealed/",
+    "explainer": "About the weight of a can of soup: 505 g of silver, 18 g of Eiffel Tower iron and a thin gold plating. The silver medal weighs 525 g and the bronze 455 g.",
+    "difficulty": 1,
+    "as_of": "2024"
+  },
+  {
+    "question": "How long was the complete route of the 2024 Tour de France, in km?",
+    "answer": 3498,
+    "unit": "km",
+    "source_title": "2024 Tour de France (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/2024_Tour_de_France",
+    "explainer": "21 stages over 23 days, averaging about 167 km a day. That is close to 90% of the straight-line distance from New York to Los Angeles.",
+    "difficulty": 1,
+    "as_of": "2024"
+  },
+  {
+    "question": "How many entrants played the 2024 World Series of Poker Main Event in Las Vegas?",
+    "answer": 10112,
+    "unit": "players",
+    "source_title": "World Series of Poker Main Event sets another all-time record with 10,112 entries (Asia Gaming Brief)",
+    "source_url": "https://asgam.com/2024/07/09/world-series-of-poker-main-event-sets-another-all-time-record-with-10112-entries/",
+    "explainer": "A record field. At a US$10,000 buy-in it created a US$94 million prize pool, with US$10 million going to the winner.",
+    "difficulty": 2,
+    "as_of": "2024"
+  },
+  {
+    "question": "How much play money is in the bank of a standard US Monopoly set (2008 edition onward)?",
+    "answer": 20580,
+    "unit": "Monopoly $",
+    "source_title": "Monopoly (game) (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Monopoly_(game)",
+    "explainer": "30 bills of each of the seven denominations from $1 to $500. Each player starts with only $1,500, so most of the cash stays in the bank. Pre-2008 sets held $15,140.",
+    "difficulty": 2,
+    "as_of": "stable"
+  },
+  {
+    "question": "How many golf courses were there worldwide according to the R&A's 2019 'Golf Around the World' report?",
+    "answer": 38864,
+    "unit": "courses",
+    "source_title": "R&A's Golf Around the World Report (National Golf Foundation)",
+    "source_url": "https://www.ngf.org/?p=26503",
+    "explainer": "Spread across 209 countries. The United States alone has more than 16,500 courses, over 40% of the world total, followed by Japan with around 3,200.",
+    "difficulty": 2,
+    "as_of": "2019"
+  },
+  {
+    "question": "How many runners finished the 2024 New York City Marathon?",
+    "answer": 55646,
+    "unit": "runners",
+    "source_title": "2024 New York City Marathon (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/2024_New_York_City_Marathon",
+    "explainer": "At the time a world record for any marathon, beating Berlin's 54,280 set just five weeks earlier. The very first NYC Marathon in 1970 had just 55 finishers.",
+    "difficulty": 2,
+    "as_of": "2024"
+  },
+  {
+    "question": "What is the official seating capacity of Michigan Stadium ('The Big House') in Ann Arbor?",
+    "answer": 107601,
+    "unit": "seats",
+    "source_title": "Michigan Stadium (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Michigan_Stadium",
+    "explainer": "The largest stadium in the Western Hemisphere. It has squeezed in more than 115,000 people for a 2013 game against Notre Dame.",
+    "difficulty": 2,
+    "as_of": "2024"
+  },
+  {
+    "question": "What was the official attendance at the deciding match of the 1950 World Cup, Brazil v Uruguay, at the Maracanã?",
+    "answer": 173850,
+    "unit": "people",
+    "source_title": "Largest attendance at a FIFA World Cup match (Guinness World Records)",
+    "source_url": "https://www.guinnessworldrecords.com/world-records/101615-largest-attendance-at-a-football-soccer-fifa-world-cup-match",
+    "explainer": "Still the largest official crowd at any World Cup match; unofficial counts put it near 200,000. Uruguay's 2–1 win is remembered in Brazil as the 'Maracanazo'.",
+    "difficulty": 2,
+    "as_of": "stable"
+  },
+  {
+    "question": "How many words are valid in Collins Scrabble Words 2019, the list used in tournaments outside North America?",
+    "answer": 279496,
+    "unit": "words",
+    "source_title": "Collins Scrabble Words (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Collins_Scrabble_Words",
+    "explainer": "Every inflected form counts separately, so RUN, RUNS, RAN and RUNNING are four entries. The next edition, CSW21, trimmed about 400 offensive words from the list.",
+    "difficulty": 2,
+    "as_of": "2019"
+  },
+  {
+    "question": "How many different 5-card hands can be dealt from a standard 52-card deck?",
+    "answer": 2598960,
+    "unit": "hands",
+    "source_title": "Poker probability (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Poker_probability",
+    "explainer": "That is 52 choose 5. Only 4 of those hands are royal flushes, so the odds of being dealt one are about 1 in 650,000.",
+    "difficulty": 3,
+    "as_of": "stable"
+  },
+  {
+    "question": "What was the total prize pool of The International 2021, the Dota 2 world championship, in US$?",
+    "answer": 40018195,
+    "unit": "US$",
+    "source_title": "Largest eSports prize pool for a single tournament (Guinness World Records)",
+    "source_url": "https://www.guinnessworldrecords.com/world-records/111053-largest-esports-prize-pool-for-a-single-tournament.html",
+    "explainer": "Still the biggest prize pool for a single esports tournament, crowdfunded by Dota 2 players buying the in-game Battle Pass. Winners Team Spirit took home about US$18 million.",
+    "difficulty": 2,
+    "as_of": "2021"
+  },
+  {
+    "question": "How much prize money did FIFA pay Argentina for winning the 2022 World Cup, in US$?",
+    "answer": 42000000,
+    "unit": "US$",
+    "source_title": "2022 World Cup Prize Money (Associated Press via WTOP)",
+    "source_url": "https://wtop.com/sports/2022/05/2022-world-cup-prize-money/",
+    "explainer": "Taken from a total prize pot of US$440 million. Even teams knocked out in the group stage collected US$9 million each.",
+    "difficulty": 2,
+    "as_of": "2022"
+  },
+  {
+    "question": "In chess, how many different move sequences are possible in the first three moves by each player (six half-moves)?",
+    "answer": 119060324,
+    "unit": "sequences",
+    "source_title": "Shannon number (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Shannon_number",
+    "explainer": "White has 20 possible first moves, there are 400 positions after Black replies, and the tree explodes from there: after four moves each it is about 85 billion.",
+    "difficulty": 3,
+    "as_of": "stable"
+  },
+  {
+    "question": "How many people watched Super Bowl LIX (February 2025) on average, according to Nielsen?",
+    "answer": 127700000,
+    "unit": "viewers",
+    "source_title": "Super Bowl LIX makes TV history with over 127 million viewers (Nielsen)",
+    "source_url": "https://www.nielsen.com/news-center/2025/super-bowl-lix-makes-tv-history-with-over-127-million-viewers/",
+    "explainer": "At the time a record for any US telecast, roughly 38% of the entire US population. The audience peaked at 137.7 million in the second quarter.",
+    "difficulty": 1,
+    "as_of": "2025"
+  },
+  {
+    "question": "What was Real Madrid's total revenue in the 2023/24 season, in euros (Deloitte Football Money League)?",
+    "answer": 1045500000,
+    "unit": "euros",
+    "source_title": "Deloitte Football Money League 2025",
+    "source_url": "https://www.deloitte.com/tr/en/Industries/tmt/perspectives/deloitte-football-money-league-2025.html",
+    "explainer": "The first football club ever to pass €1 billion in a season: €248m matchday, €316m broadcast and €482m commercial. Manchester City was second at €838m.",
+    "difficulty": 2,
+    "as_of": "2024"
+  },
+  {
+    "question": "How much did SoFi Stadium in Los Angeles, opened in 2020, cost to build, in US$?",
+    "answer": 5500000000,
+    "unit": "US$",
+    "source_title": "New report ranks the 30 most expensive sports venues (Construction Dive)",
+    "source_url": "https://www.constructiondive.com/news/new-report-ranks-the-30-most-expensive-sports-venues/595739/",
+    "explainer": "The most expensive stadium ever built, privately financed by Rams owner Stan Kroenke. It cost more than twice as much as any other NFL stadium.",
+    "difficulty": 2,
+    "as_of": "2020"
+  },
+  {
+    "question": "What is the total value of the NBA's 11-year media-rights deals with Disney, NBC and Amazon starting in 2025-26, in US$?",
+    "answer": 76000000000,
+    "unit": "US$",
+    "source_title": "NBA: New 11-year media rights deal with Disney, NBC and Amazon worth $76B (Indianapolis Business Journal)",
+    "source_url": "https://www.ibj.com/articles/nba-new-11-year-media-rights-deal-with-disney-nbc-and-amazon-worth-76b",
+    "explainer": "About US$6.9 billion per season, nearly triple the previous deal. NBC alone pays around US$2.5 billion a year, and TNT lost the NBA after almost four decades.",
+    "difficulty": 2,
+    "as_of": "2024"
+  },
+  {
+    "question": "How many Pokémon trading cards had been produced worldwide in total by the end of March 2024?",
+    "answer": 64800000000,
+    "unit": "cards",
+    "source_title": "Pokémon in Figures (The Pokémon Company)",
+    "source_url": "https://corporate.pokemon.co.jp/en/aboutus/figures",
+    "explainer": "About eight cards for every person on Earth. Almost 12 billion of them were printed in that single fiscal year alone.",
+    "difficulty": 3,
+    "as_of": "2024-03-31"
+  },
+  {
+    "question": "How many different positions can a standard 3x3 Rubik's Cube be scrambled into?",
+    "answer": 43252003274489860000,
+    "unit": "positions",
+    "source_title": "Rubik's Cube (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Rubik%27s_Cube",
+    "explainer": "About 43 quintillion. Visiting one position per second would take 1.4 trillion years, 100 times the age of the universe, yet any position can be solved in 20 moves or fewer.",
+    "difficulty": 3,
+    "as_of": "stable"
+  },
+  {
+    "question": "How many different completed 9x9 Sudoku grids exist?",
+    "answer": 6.670903752021073e+21,
+    "unit": "grids",
+    "source_title": "Mathematics of Sudoku (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Mathematics_of_Sudoku",
+    "explainer": "About 6.7 sextillion, computed by Felgenhauer and Jarvis in 2005. Strip out rotations, reflections and relabelings and 'only' 5.47 billion essentially different grids remain.",
+    "difficulty": 3,
+    "as_of": "stable"
+  }
+]

@@ -1,0 +1,232 @@
+[
+  {
+    "question": "How many kilocalories are in one level teaspoon (4 g) of white granulated sugar?",
+    "answer": 16,
+    "unit": "kcal",
+    "source_title": "USDA FoodData Central - Sugars, granulated",
+    "source_url": "https://fdc.nal.usda.gov/fdc-app.html#/food-details/169655/nutrients",
+    "explainer": "A teaspoon of sugar weighs about 4 g and every gram of sugar carries 4 kcal, so each spoonful in your tea adds roughly 16 kcal.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "question": "How many grams of sugar are in a 330 ml can of Coca-Cola Original Taste sold in the UK?",
+    "answer": 35,
+    "unit": "grams",
+    "source_title": "Coca-Cola Great Britain - Coca-Cola Original Taste nutrition",
+    "source_url": "https://www.coca-cola.com/gb/en/brands/coca-cola/coca-cola-original-taste",
+    "explainer": "That is almost nine teaspoons of sugar in one can, more than the 30 g of free sugars per day the UK NHS recommends as an adult's maximum.",
+    "difficulty": 1,
+    "as_of": "2024"
+  },
+  {
+    "question": "How many hot dogs and buns did Joey Chestnut eat in 10 minutes to set the Nathan's Famous Fourth of July contest record in 2021?",
+    "answer": 76,
+    "unit": "hot dogs",
+    "source_title": "Wikipedia - Joey Chestnut",
+    "source_url": "https://en.wikipedia.org/wiki/Joey_Chestnut",
+    "explainer": "That is one hot dog every eight seconds for ten minutes; at a 2024 exhibition against Takeru Kobayashi he pushed the all-time mark to 83.",
+    "difficulty": 2,
+    "as_of": "2021"
+  },
+  {
+    "question": "How many milligrams of caffeine are in a standard 8 oz (240 ml) cup of brewed coffee, per the Mayo Clinic?",
+    "answer": 96,
+    "unit": "mg",
+    "source_title": "Mayo Clinic - Caffeine content for coffee, tea, soda and more",
+    "source_url": "https://www.mayoclinic.org/healthy-lifestyle/nutrition-and-healthy-eating/in-depth/caffeine/art-20049372",
+    "explainer": "A single shot of espresso has about 64 mg, and the US FDA considers up to 400 mg a day safe for most healthy adults, so about four cups of drip coffee.",
+    "difficulty": 2,
+    "as_of": "stable"
+  },
+  {
+    "question": "How many kilocalories are in a McDonald's Big Mac in the US, according to McDonald's own nutrition facts?",
+    "answer": 590,
+    "unit": "kcal",
+    "source_title": "McDonald's USA - Big Mac nutrition",
+    "source_url": "https://www.mcdonalds.com/us/en-us/product/big-mac.html",
+    "explainer": "Add a medium fries (about 320 kcal) and a medium Coke (about 200 kcal) and the meal passes 1,100 kcal, roughly half of an adult's daily energy needs.",
+    "difficulty": 1,
+    "as_of": "2024"
+  },
+  {
+    "question": "As of 2025, how many years has Sobrino de Botín in Madrid, the world's oldest continuously operating restaurant, been open?",
+    "answer": 300,
+    "unit": "years",
+    "source_title": "Wikipedia - Sobrino de Botín",
+    "source_url": "https://en.wikipedia.org/wiki/Sobrino_de_Bot%C3%ADn",
+    "explainer": "Botín opened in 1725 and still roasts suckling pig in its original wood-fired oven; Guinness World Records lists it as the oldest restaurant in continuous operation.",
+    "difficulty": 2,
+    "as_of": "2025"
+  },
+  {
+    "question": "How many metres long was the longest pizza ever made, baked in Fontana, California in 2017 (Guinness World Record)?",
+    "answer": 1930,
+    "unit": "metres",
+    "source_title": "Guinness World Records - Longest pizza",
+    "source_url": "https://www.guinnessworldrecords.com/world-records/longest-pizza",
+    "explainer": "The pizza stretched almost 2 km, about 18 football pitches end to end, and was baked by ovens rolling along a conveyor before being donated to food banks.",
+    "difficulty": 2,
+    "as_of": "2017"
+  },
+  {
+    "question": "How many litres of water does it take on average worldwide to produce 1 kg of beef, counting feed, drinking and processing?",
+    "answer": 15415,
+    "unit": "litres",
+    "source_title": "Water Footprint Network - Product water footprint gallery (Mekonnen & Hoekstra)",
+    "source_url": "https://www.waterfootprint.org/resources/interactive-tools/product-gallery/",
+    "explainer": "Almost all of that water goes into growing cattle feed; by the same method 1 kg of chicken needs about 4,300 litres and 1 kg of wheat about 1,800 litres.",
+    "difficulty": 3,
+    "as_of": "stable"
+  },
+  {
+    "question": "How many McDonald's restaurants were operating worldwide at the end of 2024?",
+    "answer": 43477,
+    "unit": "restaurants",
+    "source_title": "McDonald's Corporation 2024 Annual Report (Form 10-K)",
+    "source_url": "https://corporate.mcdonalds.com/corpmcd/investors/financial-information.html",
+    "explainer": "Roughly 95% of them are run by franchisees across more than 100 countries; the United States alone has around 13,500 McDonald's.",
+    "difficulty": 2,
+    "as_of": "2024-12-31"
+  },
+  {
+    "question": "How many Starbucks stores were open worldwide at the end of fiscal year 2024 (September 2024)?",
+    "answer": 40199,
+    "unit": "stores",
+    "source_title": "Starbucks Q4 Fiscal Year 2024 Results press release",
+    "source_url": "https://investor.starbucks.com/press-releases/",
+    "explainer": "Starbucks passed 40,000 stores for the first time in 2024; about 17,000 are in the US and nearly 8,000 in China, its second-largest market.",
+    "difficulty": 2,
+    "as_of": "2024-09-29"
+  },
+  {
+    "question": "What record price in US dollars did a single bottle of 1945 Romanée-Conti wine fetch at Sotheby's in 2018, the most ever paid?",
+    "answer": 558000,
+    "unit": "US$",
+    "source_title": "Wikipedia - Romanée-Conti",
+    "source_url": "https://en.wikipedia.org/wiki/Roman%C3%A9e-Conti",
+    "explainer": "Only about 600 bottles of the 1945 vintage were made before the old vines were pulled out and replanted, which is why one bottle sold for the price of a house.",
+    "difficulty": 3,
+    "as_of": "2018"
+  },
+  {
+    "question": "How many Scoville heat units does Pepper X, certified the world's hottest chili pepper by Guinness in 2023, average?",
+    "answer": 2693000,
+    "unit": "SHU",
+    "source_title": "Guinness World Records - Hottest chili pepper",
+    "source_url": "https://www.guinnessworldrecords.com/world-records/hottest-chili",
+    "explainer": "That is several hundred times hotter than a jalapeño (2,500-8,000 SHU) and in the same league as police pepper spray.",
+    "difficulty": 3,
+    "as_of": "2023"
+  },
+  {
+    "question": "How many hectares of vineyards were planted worldwide in 2023, according to the OIV?",
+    "answer": 7200000,
+    "unit": "hectares",
+    "source_title": "OIV - State of the World Vine and Wine Sector in 2023",
+    "source_url": "https://www.oiv.int/what-we-do/statistics",
+    "explainer": "That is about the land area of Ireland; Spain, France and China each have roughly 750,000-950,000 hectares under vine.",
+    "difficulty": 3,
+    "as_of": "2023"
+  },
+  {
+    "question": "How many tonnes of green coffee beans were produced worldwide in the 2023/24 coffee year, per the ICO?",
+    "answer": 10700000,
+    "unit": "tonnes",
+    "source_title": "International Coffee Organization - Coffee Report and Outlook, December 2023",
+    "source_url": "https://icocoffee.org/documents/cy2023-24/Coffee_Report_and_Outlook_December_2023.pdf",
+    "explainer": "That is about 178 million standard 60 kg bags; Brazil grows roughly a third of the world's coffee and Vietnam about a sixth.",
+    "difficulty": 2,
+    "as_of": "2023/24"
+  },
+  {
+    "question": "How many tonnes of wheat were harvested worldwide in the 2023/24 season?",
+    "answer": 790000000,
+    "unit": "tonnes",
+    "source_title": "USDA Foreign Agricultural Service - Grain: World Markets and Trade",
+    "source_url": "https://www.fas.usda.gov/data/grain-world-markets-and-trade",
+    "explainer": "That works out to almost 100 kg of wheat for every person on Earth; China, India, Russia and the EU together grow about half of it.",
+    "difficulty": 2,
+    "as_of": "2023/24"
+  },
+  {
+    "question": "How many hot dogs do Americans eat on the Fourth of July, according to the National Hot Dog and Sausage Council?",
+    "answer": 150000000,
+    "unit": "hot dogs",
+    "source_title": "National Hot Dog and Sausage Council - Hot dog consumption statistics",
+    "source_url": "https://www.hot-dog.org/media/consumption-stats",
+    "explainer": "Laid end to end, 150 million hot dogs would stretch from Washington, DC to Los Angeles more than five times over.",
+    "difficulty": 2,
+    "as_of": "2024"
+  },
+  {
+    "question": "How many tonnes of food did households, food service and retail waste worldwide in 2022, per the UNEP Food Waste Index?",
+    "answer": 1050000000,
+    "unit": "tonnes",
+    "source_title": "UNEP Food Waste Index Report 2024",
+    "source_url": "https://www.unep.org/resources/publication/food-waste-index-report-2024",
+    "explainer": "That is about 132 kg per person per year, roughly a fifth of all food available to consumers; households alone account for about 60% of it.",
+    "difficulty": 3,
+    "as_of": "2022"
+  },
+  {
+    "question": "What was McDonald's Corporation's total revenue in 2024, in US dollars?",
+    "answer": 25920000000,
+    "unit": "US$",
+    "source_title": "McDonald's Corporation 2024 Annual Report (Form 10-K)",
+    "source_url": "https://corporate.mcdonalds.com/corpmcd/investors/financial-information.html",
+    "explainer": "Most of that is rent and royalties from franchisees rather than burger sales; systemwide sales across all McDonald's restaurants were about US$130 billion.",
+    "difficulty": 2,
+    "as_of": "2024"
+  },
+  {
+    "question": "How many litres of wine were produced worldwide in 2023, according to the OIV?",
+    "answer": 23700000000,
+    "unit": "litres",
+    "source_title": "OIV - State of the World Vine and Wine Sector in 2023",
+    "source_url": "https://www.oiv.int/what-we-do/statistics",
+    "explainer": "At 237 million hectolitres it was the smallest harvest since 1961, hit by drought and frost, yet still enough for about 32 billion 750 ml bottles.",
+    "difficulty": 3,
+    "as_of": "2023"
+  },
+  {
+    "question": "How many litres of beer were brewed worldwide in 2023, according to the BarthHaas hop report?",
+    "answer": 188000000000,
+    "unit": "litres",
+    "source_title": "BarthHaas Report Hops 2023/2024",
+    "source_url": "https://www.barthhaas.com/en/hops-academy/barthhaas-report",
+    "explainer": "That is 1.88 billion hectolitres, around 23 litres for every person alive; China, the United States and Brazil are the three biggest brewing nations.",
+    "difficulty": 2,
+    "as_of": "2023"
+  },
+  {
+    "question": "How many servings of instant noodles were eaten worldwide in 2023, according to the World Instant Noodles Association?",
+    "answer": 120200000000,
+    "unit": "servings",
+    "source_title": "World Instant Noodles Association - Global demand for instant noodles",
+    "source_url": "https://instantnoodles.org/en/noodles/demand/table/",
+    "explainer": "China and Hong Kong alone account for about 42 billion servings; worldwide it works out to roughly 15 packets per person per year.",
+    "difficulty": 3,
+    "as_of": "2023"
+  },
+  {
+    "question": "How much was spent on food in the United States in 2023, at home and away from home combined, in US dollars (USDA ERS)?",
+    "answer": 2600000000000,
+    "unit": "US$",
+    "source_title": "USDA Economic Research Service - Food Prices and Spending",
+    "source_url": "https://www.ers.usda.gov/data-products/ag-and-food-statistics-charting-the-essentials/food-prices-and-spending/",
+    "explainer": "More than half of it went to food away from home, meaning restaurants, takeaway and cafeterias, rather than groceries; that is roughly US$7,700 per American.",
+    "difficulty": 3,
+    "as_of": "2023"
+  },
+  {
+    "question": "How many servings of Coca-Cola Company beverages are consumed worldwide every day, according to the company (as of 2024)?",
+    "answer": 2200000000,
+    "unit": "servings",
+    "source_title": "The Coca-Cola Company - About us",
+    "source_url": "https://www.coca-colacompany.com/about-us",
+    "explainer": "That is more than one serving a day for every four people on Earth, spread across the company's 200-plus brands from Coke to Fanta, Sprite and bottled water.",
+    "difficulty": 2,
+    "as_of": "2024"
+  }
+]

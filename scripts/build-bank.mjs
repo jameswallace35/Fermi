@@ -6,13 +6,15 @@
 //   editing an answer keeps the id while rewording a question changes it.
 // - Existing question order in data/questions.json is preserved and new
 //   questions are appended in a deterministic shuffled order, so adding
-//   questions never changes puzzles that were already scheduled.
+//   questions never changes puzzles that were already scheduled. (Removing
+//   or rewording one shifts the later questions in its category.)
 // - Near-duplicate questions (high word overlap) are dropped with a warning.
 //
 // Usage: node scripts/build-bank.mjs
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { firstRepeatDay } from '../src/logic.js';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const bankDir = path.join(root, 'data', 'bank');
@@ -57,13 +59,29 @@ export function normalize(text) {
 
 const STOP = new Set(['how', 'many', 'much', 'the', 'a', 'an', 'of', 'in', 'is', 'are', 'was', 'were', 'what', 'to', 'on', 'at', 'by', 'and', 'or', 'as', 'for', 'with', 'did', 'does', 'do', 'there', 'it', 'its', 'per', 'long', 'far', 'tall', 'high', 'big']);
 
+/** Two questions are treated as duplicates at or above this Jaccard similarity. */
+export const SIMILAR_THRESHOLD = 0.7;
+
+/**
+ * Two entries are duplicates when their wording overlaps heavily AND they
+ * carry (nearly) the same answer. Wording alone is not enough: "deaths from
+ * malaria in 2023" and "deaths from tuberculosis in 2023" share most words
+ * but are different facts with very different numbers.
+ */
+export function isDuplicate(a, b) {
+  if (similarity(a.question, b.question) < SIMILAR_THRESHOLD) return false;
+  const ratio = Math.max(a.answer / b.answer, b.answer / a.answer);
+  return !(ratio > 1.5);
+}
+
+/** Jaccard similarity of the two questions' word sets (stop words removed). */
 export function similarity(a, b) {
   const sa = new Set(normalize(a));
   const sb = new Set(normalize(b));
   if (!sa.size || !sb.size) return 0;
   let inter = 0;
   for (const w of sa) if (sb.has(w)) inter++;
-  return inter / Math.min(sa.size, sb.size);
+  return inter / (sa.size + sb.size - inter);
 }
 
 export function questionId(slug, question) {
@@ -119,7 +137,7 @@ export function buildBank({ files, existing }) {
         warnings.push(`${where}: duplicate of an earlier question, skipped`);
         return;
       }
-      const dup = all.find((o) => similarity(o.question, q.question) >= 0.75);
+      const dup = all.find((o) => isDuplicate(o, q));
       if (dup) {
         warnings.push(`${where}: too similar to ${dup.id} ("${dup.question}"), skipped`);
         return;
@@ -175,7 +193,7 @@ function main() {
   fs.writeFileSync(outFile, JSON.stringify(bank, null, 1) + '\n');
   const perCat = bank.categories.map((c) => `${c.slug}=${bank.questions.filter((q) => q.category === c.slug).length}`).join(', ');
   console.log(`Wrote ${bank.questions.length} questions in ${bank.categories.length} categories to data/questions.json (${perCat})`);
-  console.log(`That covers ${Math.floor(bank.questions.length / 5)} days before any question repeats.`);
+  console.log(`The first repeated question appears on day ${firstRepeatDay(bank)}.`);
 }
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) main();

@@ -1,12 +1,17 @@
-// localStorage wrapper. Every call is guarded: private browsing modes and
-// blocked storage must never break the game.
+// localStorage wrapper. Every call is guarded and every value is validated:
+// private browsing modes, blocked storage or hand-edited data must never break
+// the game.
+
+import { normalizeStats } from './logic.js';
 
 const PREFIX = 'fermi5:';
 
 function read(key, fallback) {
   try {
     const raw = localStorage.getItem(PREFIX + key);
-    return raw ? JSON.parse(raw) : fallback;
+    if (raw == null) return fallback;
+    const value = JSON.parse(raw);
+    return value == null ? fallback : value;
   } catch {
     return fallback;
   }
@@ -21,26 +26,40 @@ function write(key, value) {
   }
 }
 
+function freshPuzzleState() {
+  return { guesses: [], completedAt: null, recorded: false };
+}
+
 export function loadPuzzleState(n) {
   const s = read(`puzzle:${n}`, null);
-  if (!s || !Array.isArray(s.guesses)) return { guesses: [], completedAt: null, recorded: false };
-  return { completedAt: null, recorded: false, ...s };
+  if (!s || typeof s !== 'object' || !Array.isArray(s.guesses)) return freshPuzzleState();
+  if (!s.guesses.every((g) => typeof g === 'number' && Number.isFinite(g) && g > 0)) return freshPuzzleState();
+  const state = {
+    guesses: s.guesses,
+    completedAt: typeof s.completedAt === 'number' ? s.completedAt : null,
+    recorded: s.recorded === true,
+  };
+  if (Array.isArray(s.ids) && s.ids.every((id) => typeof id === 'string')) state.ids = s.ids;
+  return state;
 }
 
 export function savePuzzleState(n, state) {
   return write(`puzzle:${n}`, state);
 }
 
+/** Always returns a well-formed stats object. */
 export function loadStats() {
-  return read('stats', null);
+  return normalizeStats(read('stats', null));
 }
 
 export function saveStats(stats) {
-  return write('stats', stats);
+  return write('stats', normalizeStats(stats));
 }
 
+/** Always returns a plain object. */
 export function loadPrefs() {
-  return read('prefs', {});
+  const p = read('prefs', {});
+  return p && typeof p === 'object' && !Array.isArray(p) ? p : {};
 }
 
 export function savePrefs(prefs) {

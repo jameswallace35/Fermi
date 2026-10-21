@@ -1,0 +1,232 @@
+[
+  {
+    "question": "How many cases of wild poliovirus were reported worldwide in 2023?",
+    "answer": 12,
+    "unit": "cases",
+    "source_title": "Progress Toward Poliomyelitis Eradication — Worldwide, January 2022–December 2023 (CDC MMWR)",
+    "source_url": "https://www.cdc.gov/mmwr/volumes/73/wr/mm7319a4.htm",
+    "explainer": "All 12 cases were in Afghanistan and Pakistan, the last two countries where wild polio still circulates. In 1988 there were an estimated 350,000 cases a year.",
+    "difficulty": 3,
+    "as_of": "2023"
+  },
+  {
+    "question": "How many novel drugs did the US FDA's Center for Drug Evaluation and Research approve in 2023?",
+    "answer": 55,
+    "unit": "drugs",
+    "source_title": "Novel Drug Approvals for 2023 (US Food and Drug Administration)",
+    "source_url": "https://www.fda.gov/drugs/novel-drug-approvals-fda/novel-drug-approvals-2023",
+    "explainer": "That made 2023 one of the busiest years on record for brand-new medicines; 2022 saw only 37 approvals.",
+    "difficulty": 3,
+    "as_of": "2023"
+  },
+  {
+    "question": "How many centimetres does human scalp hair grow in one year, on average?",
+    "answer": 15,
+    "unit": "cm",
+    "source_title": "Human hair growth (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Human_hair_growth",
+    "explainer": "Scalp hair grows about 1.25 cm a month, so a hair that was never cut would take six to seven years to reach your waist.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "question": "How many days does a human red blood cell circulate before it is broken down and recycled?",
+    "answer": 120,
+    "unit": "days",
+    "source_title": "Red blood cell (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Red_blood_cell",
+    "explainer": "Your bone marrow makes about 2 million new red blood cells every second to keep the supply of roughly 25 trillion steady.",
+    "difficulty": 2,
+    "as_of": "stable"
+  },
+  {
+    "question": "How many litres of fluid do a healthy adult's kidneys filter from the blood each day?",
+    "answer": 180,
+    "unit": "litres",
+    "source_title": "Renal function (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Renal_function",
+    "explainer": "Nearly all of it is reabsorbed: only about 1.5 litres leaves the body as urine, so the kidneys reclaim over 99% of what they filter.",
+    "difficulty": 3,
+    "as_of": "stable"
+  },
+  {
+    "question": "How many hours did Randy Gardner stay awake in his record-setting 1964 sleep-deprivation experiment?",
+    "answer": 264,
+    "unit": "hours",
+    "source_title": "Randy Gardner sleep deprivation experiment (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Randy_Gardner_sleep_deprivation_experiment",
+    "explainer": "That is 11 days and 25 minutes without sleep, done as a high-school science project. Guinness no longer tracks the record because of the health risks.",
+    "difficulty": 2,
+    "as_of": "1964"
+  },
+  {
+    "question": "How tall, in centimetres, was Robert Wadlow, the tallest person in recorded history, at his last measurement in 1940?",
+    "answer": 272,
+    "unit": "cm",
+    "source_title": "Robert Wadlow (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Robert_Wadlow",
+    "explainer": "That is 8 feet 11 inches. Wadlow was still growing when he died at 22 from an infected blister caused by a leg brace.",
+    "difficulty": 2,
+    "as_of": "1940"
+  },
+  {
+    "question": "What was the peak weight in kilograms of Jon Brower Minnoch, the heaviest person ever recorded, in 1978?",
+    "answer": 635,
+    "unit": "kg",
+    "source_title": "Jon Brower Minnoch (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Jon_Brower_Minnoch",
+    "explainer": "That is about 1,400 pounds, roughly the weight of a small car. Much of it was fluid retained because of heart failure.",
+    "difficulty": 2,
+    "as_of": "1978"
+  },
+  {
+    "question": "How many kilocalories of energy are stored in one kilogram of human body fat?",
+    "answer": 7700,
+    "unit": "kcal",
+    "source_title": "What is the required energy deficit per unit weight loss? (Hall, International Journal of Obesity, 2008)",
+    "source_url": "https://www.nature.com/articles/0803720",
+    "explainer": "This is the famous '3,500 calories per pound' rule: a 500 kcal daily deficit would, in principle, burn off a kilogram of fat in about two weeks.",
+    "difficulty": 2,
+    "as_of": "stable"
+  },
+  {
+    "question": "How many organ transplants were performed in the United States in 2023?",
+    "answer": 46632,
+    "unit": "transplants",
+    "source_title": "Continued increase in organ donation drives new records in 2023 (OPTN / UNOS)",
+    "source_url": "https://optn.transplant.hrsa.gov/news/continued-increase-in-organ-donation-drives-new-records-in-2023-new-milestones-exceeded/",
+    "explainer": "Kidneys make up well over half of these. The annual total has set a new record every year since 2012, even so about 100,000 Americans remain on the waiting list.",
+    "difficulty": 2,
+    "as_of": "2023"
+  },
+  {
+    "question": "How many people died of drug overdoses in the United States in 2023?",
+    "answer": 105007,
+    "unit": "deaths",
+    "source_title": "Drug Overdose Deaths in the United States, 2003–2023 (CDC NCHS Data Brief No. 522)",
+    "source_url": "https://www.cdc.gov/nchs/products/databriefs/db522.htm",
+    "explainer": "That is nearly 290 people a day, with most deaths involving synthetic opioids such as fentanyl. It was the first slight drop after years of steep increases.",
+    "difficulty": 2,
+    "as_of": "2023"
+  },
+  {
+    "question": "How many people died of malaria worldwide in 2023?",
+    "answer": 597000,
+    "unit": "deaths",
+    "source_title": "Malaria fact sheet (World Health Organization)",
+    "source_url": "https://www.who.int/news-room/fact-sheets/detail/malaria",
+    "explainer": "There were about 263 million malaria cases that year. Roughly three-quarters of the deaths were children under five in sub-Saharan Africa.",
+    "difficulty": 2,
+    "as_of": "2023"
+  },
+  {
+    "question": "How many people died of tuberculosis worldwide in 2023?",
+    "answer": 1250000,
+    "unit": "deaths",
+    "source_title": "Tuberculosis fact sheet (World Health Organization)",
+    "source_url": "https://www.who.int/news-room/fact-sheets/detail/tuberculosis",
+    "explainer": "That made TB the world's deadliest infectious disease again after COVID-19 briefly took the top spot. About 10.8 million people fell ill with it that year.",
+    "difficulty": 2,
+    "as_of": "2023"
+  },
+  {
+    "question": "How many children worldwide died before their fifth birthday in 2023?",
+    "answer": 4800000,
+    "unit": "children",
+    "source_title": "Levels and Trends in Child Mortality: Report 2024 (UN IGME / UNICEF)",
+    "source_url": "https://data.unicef.org/resources/levels-and-trends-in-child-mortality-2024/",
+    "explainer": "That is about 13,000 young children a day, but it is down from 12.8 million a year in 1990, one of the biggest public-health wins in history.",
+    "difficulty": 2,
+    "as_of": "2023"
+  },
+  {
+    "question": "How many nurses were working worldwide in 2023, according to the WHO?",
+    "answer": 29800000,
+    "unit": "nurses",
+    "source_title": "Nursing and midwifery fact sheet (World Health Organization)",
+    "source_url": "https://www.who.int/news-room/fact-sheets/detail/nursing-and-midwifery",
+    "explainer": "Nurses are the largest group of health workers, roughly two for every doctor on Earth, yet the WHO still projects a shortfall of about 4.1 million nurses by 2030.",
+    "difficulty": 3,
+    "as_of": "2023"
+  },
+  {
+    "question": "How many people worldwide were living with HIV at the end of 2023?",
+    "answer": 39900000,
+    "unit": "people",
+    "source_title": "Global HIV & AIDS statistics — Fact sheet (UNAIDS)",
+    "source_url": "https://www.unaids.org/en/resources/fact-sheet",
+    "explainer": "About 1.3 million people were newly infected and 630,000 died of AIDS-related illnesses that year, while roughly 77% of people with HIV were on treatment.",
+    "difficulty": 2,
+    "as_of": "2023"
+  },
+  {
+    "question": "How many adults worldwide were living with obesity in 2022?",
+    "answer": 890000000,
+    "unit": "adults",
+    "source_title": "Obesity and overweight fact sheet (World Health Organization)",
+    "source_url": "https://www.who.int/news-room/fact-sheets/detail/obesity-and-overweight",
+    "explainer": "That is about one in eight people on the planet. Worldwide adult obesity has more than doubled since 1990.",
+    "difficulty": 2,
+    "as_of": "2022"
+  },
+  {
+    "question": "How many base pairs of DNA are in a single copy (haploid set) of the human genome?",
+    "answer": 3100000000,
+    "unit": "base pairs",
+    "source_title": "Human genome (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Human_genome",
+    "explainer": "Stretched out, the DNA in one cell would be about 2 metres long, yet only around 1-2% of it codes for the roughly 20,000 proteins.",
+    "difficulty": 2,
+    "as_of": "stable"
+  },
+  {
+    "question": "How many doses of COVID-19 vaccine had been administered worldwide by August 2024?",
+    "answer": 13580000000,
+    "unit": "doses",
+    "source_title": "Coronavirus (COVID-19) Vaccinations (Our World in Data)",
+    "source_url": "https://ourworldindata.org/covid-vaccinations",
+    "explainer": "That is about 1.7 doses for every person on Earth; roughly 70% of the world's population received at least one dose.",
+    "difficulty": 2,
+    "as_of": "2024-08-14"
+  },
+  {
+    "question": "How many neurons are in an adult human brain?",
+    "answer": 86000000000,
+    "unit": "neurons",
+    "source_title": "List of animals by number of neurons (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/List_of_animals_by_number_of_neurons",
+    "explainer": "The older '100 billion' figure was a rough guess; a 2009 cell count found 86 billion neurons, plus a similar number of non-neuronal glial cells.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "question": "How much did the United States spend on health care in total in 2023?",
+    "answer": 4900000000000,
+    "unit": "US$",
+    "source_title": "NHE Fact Sheet (Centers for Medicare & Medicaid Services)",
+    "source_url": "https://www.cms.gov/data-research/statistics-trends-and-reports/national-health-expenditure-data/nhe-fact-sheet",
+    "explainer": "That is about $14,570 per person and 17.6% of US GDP, far more per head than any other country spends.",
+    "difficulty": 2,
+    "as_of": "2023"
+  },
+  {
+    "question": "How many bacterial cells live in or on the body of a typical 70 kg adult?",
+    "answer": 38000000000000,
+    "unit": "bacteria",
+    "source_title": "Revised Estimates for the Number of Human and Bacteria Cells in the Body (Sender, Fuchs & Milo, PLOS Biology 2016)",
+    "source_url": "https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002533",
+    "explainer": "That is close to the 30 trillion human cells in the same body, so the old '10 bacteria for every human cell' claim is really about one to one. Most of them live in the colon.",
+    "difficulty": 3,
+    "as_of": "stable"
+  },
+  {
+    "question": "What top speed in km/h did Usain Bolt reach during his 9.58-second 100 m world record in 2009?",
+    "answer": 44.72,
+    "unit": "km/h",
+    "source_title": "Usain Bolt (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Usain_Bolt",
+    "explainer": "That is 12.4 metres per second, reached between the 60 m and 80 m marks. Over the whole race he averaged 37.6 km/h.",
+    "difficulty": 2,
+    "as_of": "2009"
+  }
+]

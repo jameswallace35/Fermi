@@ -2,26 +2,30 @@
 // guess box. No eval(): the expression is tokenised and parsed by hand.
 //
 // Supports: + - * / ^ (right-associative), unary minus, parentheses,
-// numbers with thousands separators and scientific notation, magnitude
-// suffixes (2k, 3.5M, 1B, 2 million), the constants pi and e, and the
-// functions sqrt, log (base 10), ln, abs, round, floor, ceil.
+// numbers with thousands separators, decimal commas and scientific notation,
+// magnitude suffixes (2k, 3.5M, 1B, 2 million), the constants pi and e, and
+// the functions sqrt, log/log10 (base 10), ln, abs, round, floor, ceil.
 
-import { SUFFIXES } from './logic.js';
+import { canonicalDigits, suffixValue } from './logic.js';
 
-const FUNCTIONS = {
-  sqrt: Math.sqrt,
-  log: Math.log10,
-  log10: Math.log10,
-  ln: Math.log,
-  abs: Math.abs,
-  round: Math.round,
-  floor: Math.floor,
-  ceil: Math.ceil,
-};
+const FUNCTIONS = Object.freeze(
+  Object.assign(Object.create(null), {
+    sqrt: Math.sqrt,
+    log: Math.log10,
+    log10: Math.log10,
+    ln: Math.log,
+    abs: Math.abs,
+    round: Math.round,
+    floor: Math.floor,
+    ceil: Math.ceil,
+  }),
+);
 
-const CONSTANTS = { pi: Math.PI, e: Math.E };
+const CONSTANTS = Object.freeze(Object.assign(Object.create(null), { pi: Math.PI, e: Math.E }));
 
 const NUMBER_RE = /^(\d[\d,_]*(?:\.\d*)?|\.\d+)(?:[eE]([+-]?\d+))?/;
+const WORD_RE = /^[a-zA-Z][a-zA-Z0-9]*/;
+const MAX_LENGTH = 500;
 
 export class CalcError extends Error {}
 
@@ -31,6 +35,7 @@ export function tokenize(input) {
     .replace(/÷/g, '/')
     .replace(/−/g, '-')
     .replace(/\*\*/g, '^');
+  if (src.length > MAX_LENGTH) throw new CalcError('Expression is too long');
   const tokens = [];
   let i = 0;
   while (i < src.length) {
@@ -39,9 +44,8 @@ export function tokenize(input) {
     const rest = src.slice(i);
     const num = NUMBER_RE.exec(rest);
     if (num) {
-      if (!/^(\d+(?:[,_]\d+)*(?:\.\d*)?|\.\d+)$/.test(num[1])) throw new CalcError('Bad number');
-      const digits = num[1].replace(/[,_]/g, '');
-      if (digits === '.' || digits === '') throw new CalcError('Bad number');
+      const digits = canonicalDigits(num[1]);
+      if (digits === null) throw new CalcError('Bad number');
       let value = Number(digits);
       if (num[2] !== undefined) value *= Math.pow(10, Number(num[2]));
       tokens.push({ t: 'num', v: value });
@@ -49,15 +53,15 @@ export function tokenize(input) {
       continue;
     }
     if (/[a-zA-Z]/.test(ch)) {
-      const word = /^[a-zA-Z]+/.exec(rest)[0];
+      const word = WORD_RE.exec(rest)[0];
       const lower = word.toLowerCase();
-      if (SUFFIXES[lower] !== undefined && tokens.length && tokens[tokens.length - 1].t === 'num') {
-        tokens.push({ t: 'suffix', v: SUFFIXES[lower] });
-      } else if (SUFFIXES[lower] !== undefined && tokens.length && tokens[tokens.length - 1].t === ')') {
-        tokens.push({ t: 'suffix', v: SUFFIXES[lower] });
-      } else if (FUNCTIONS[lower]) {
+      const prev = tokens[tokens.length - 1];
+      const suffix = suffixValue(lower);
+      if (suffix !== undefined && prev && (prev.t === 'num' || prev.t === ')' || prev.t === 'suffix')) {
+        tokens.push({ t: 'suffix', v: suffix });
+      } else if (Object.hasOwn(FUNCTIONS, lower)) {
         tokens.push({ t: 'fn', v: lower });
-      } else if (CONSTANTS[lower] !== undefined) {
+      } else if (Object.hasOwn(CONSTANTS, lower)) {
         tokens.push({ t: 'num', v: CONSTANTS[lower] });
       } else {
         throw new CalcError(`Unknown word "${word}"`);

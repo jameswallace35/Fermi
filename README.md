@@ -13,7 +13,7 @@ It is a static site: plain HTML, CSS and JavaScript modules, no build step, no a
 - **Flexible input**: `1500`, `1.5k`, `2 million`, `3B`, `1e9`, or an expression such as `330M * 1.5 * 52`.
 - **Built-in calculator** with k / M / B keys that can drop its result straight into your guess.
 - **Reveal card** with your guess, the real answer, a log-scale "how far off" bar, a short explainer and the source.
-- **Share text**, streaks, statistics with a tier histogram, and an **archive** of past puzzles.
+- **Share text**, streaks (puzzles finished on their own day), statistics with a tier histogram, and an **archive** of past puzzles.
 - Light and dark themes, keyboard friendly, mobile first, works as a home-screen app.
 
 ## Run it locally
@@ -38,7 +38,7 @@ npm run e2e          # plays a full puzzle in headless Chromium (needs `playwrig
 
 - Puzzle **No. 1** is 2026‑10‑21 and the number increases by one each local calendar day (`EPOCH_DATE_KEY` in `src/logic.js`).
 - Categories rotate in the order listed in `scripts/build-bank.mjs`; day *n* uses five consecutive categories from that cycle, so the five are always distinct.
-- Inside a category, questions are served in the order they appear in `data/questions.json`, cycling only when the category is exhausted. Nothing repeats until the whole bank has been played.
+- Inside a category, questions are served in the order they appear in `data/questions.json`, cycling only when that category is exhausted. A question comes back only after every other question in its category has been played; `npm run validate` prints the first day on which anything repeats.
 - A finished puzzle remembers which question ids it used, so your history stays correct even if the bank is reordered later.
 
 There is no server, so the same puzzle appears for everyone on the same calendar date, which is what makes sharing scores fun.

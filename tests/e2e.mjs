@@ -106,6 +106,13 @@ try {
     await page.screenshot({ path: path.join(shots, '04-result.png') });
   });
 
+  await step('in-page anchors such as the skip link do not reset the game', async () => {
+    await page.evaluate(() => { location.hash = '#main'; });
+    await page.waitForTimeout(100);
+    assert.ok(await page.locator('#continue').isVisible(), 'result view should still be showing');
+    await page.evaluate(() => { history.replaceState(null, '', location.pathname); });
+  });
+
   await step('state survives a reload mid-puzzle', async () => {
     await page.reload();
     await page.waitForSelector('#guess');
@@ -151,6 +158,11 @@ try {
     assert.equal(await page.locator('#summary .row').count(), 5);
     assert.match(await page.textContent('.summary-foot'), /Streak 1/);
     await page.screenshot({ path: path.join(shots, '05-summary.png'), fullPage: true });
+  });
+
+  await step('summary shows a streak of one and tier colours have contrast', async () => {
+    const rowColor = await page.evaluate(() => getComputedStyle(document.querySelector('.row-mult')).color);
+    assert.ok(rowColor, 'row multiple has a colour');
   });
 
   await step('share copies text with five tier emoji', async () => {

@@ -1,0 +1,242 @@
+[
+  {
+    "question": "How many days did Pony Express riders take to carry mail from St. Joseph, Missouri, to Sacramento, California, in 1860?",
+    "answer": 10,
+    "unit": "days",
+    "source_title": "Pony Express - Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Pony_Express",
+    "explainer": "Relay riders covered roughly 1,900 miles in about 10 days, swapping horses every 10 to 15 miles. The telegraph killed the service after just 18 months.",
+    "difficulty": 2,
+    "as_of": "stable"
+  },
+  {
+    "question": "How many years did Louis XIV reign as King of France?",
+    "answer": 72,
+    "unit": "years",
+    "source_title": "Louis XIV - Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Louis_XIV",
+    "explainer": "The Sun King ruled from May 1643 to September 1715, 72 years and 110 days, the longest verified reign of any sovereign monarch in history. He outlived his son and grandson.",
+    "difficulty": 2,
+    "as_of": "stable"
+  },
+  {
+    "question": "How many passengers were aboard the Mayflower when it sailed to America in 1620?",
+    "answer": 102,
+    "unit": "passengers",
+    "source_title": "Mayflower - Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Mayflower",
+    "explainer": "102 passengers plus around 30 crew spent 66 days crammed into a ship about 30 metres long. Roughly half the colonists died during the first winter.",
+    "difficulty": 2,
+    "as_of": "stable"
+  },
+  {
+    "question": "How many ships made up the Spanish Armada that sailed against England in 1588?",
+    "answer": 130,
+    "unit": "ships",
+    "source_title": "Spanish Armada - Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Spanish_Armada",
+    "explainer": "The fleet of 130 ships carried about 8,000 sailors and 18,000 soldiers. Storms around Scotland and Ireland sank more of them than English guns did.",
+    "difficulty": 2,
+    "as_of": "stable"
+  },
+  {
+    "question": "How many popes has the Catholic Church had in total, counting Pope Leo XIV elected in 2025?",
+    "answer": 267,
+    "unit": "popes",
+    "source_title": "List of popes - Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/List_of_popes",
+    "explainer": "Leo XIV is counted as the 267th pope in a line that starts with Saint Peter. That works out to an average reign of a little over seven years.",
+    "difficulty": 2,
+    "as_of": "2025"
+  },
+  {
+    "question": "How many years did the Ottoman Empire last, from its founding around 1299 to its abolition in 1922?",
+    "answer": 623,
+    "unit": "years",
+    "source_title": "Ottoman Empire - Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Ottoman_Empire",
+    "explainer": "Founded by Osman I around 1299 and ended when the sultanate was abolished in November 1922, the empire spanned 623 years and 36 sultans. The United States has existed for less than half that time.",
+    "difficulty": 2,
+    "as_of": "stable"
+  },
+  {
+    "question": "How much does the Rosetta Stone in the British Museum weigh?",
+    "answer": 760,
+    "unit": "kg",
+    "source_title": "Rosetta Stone - Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Rosetta_Stone",
+    "explainer": "The granodiorite slab is about 112 cm tall, 76 cm wide and 28 cm thick and weighs around 760 kg, roughly the weight of a small car. Its three-script decree from 196 BC unlocked Egyptian hieroglyphs.",
+    "difficulty": 2,
+    "as_of": "stable"
+  },
+  {
+    "question": "How long is Hadrian's Wall, from Wallsend on the River Tyne to Bowness-on-Solway?",
+    "answer": 117.5,
+    "unit": "km",
+    "source_title": "Hadrian's Wall - Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Hadrian%27s_Wall",
+    "explainer": "The wall ran 73 Roman-era miles (117.5 km) coast to coast across northern England and was built in about six years starting in AD 122. That is roughly the distance from London to Birmingham.",
+    "difficulty": 2,
+    "as_of": "stable"
+  },
+  {
+    "question": "How many days did World War I last, from Austria-Hungary's declaration of war on 28 July 1914 to the armistice on 11 November 1918?",
+    "answer": 1568,
+    "unit": "days",
+    "source_title": "World War I - Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/World_War_I",
+    "explainer": "The war ran for 4 years, 3 months and 2 weeks, about 1,568 days. Averaged over that span, roughly 6,000 soldiers died every single day.",
+    "difficulty": 2,
+    "as_of": "stable"
+  },
+  {
+    "question": "How many years ago did Ötzi the Iceman, found frozen in the Alps in 1991, die?",
+    "answer": 5300,
+    "unit": "years",
+    "source_title": "Ötzi - Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/%C3%96tzi",
+    "explainer": "Ötzi lived between about 3350 and 3105 BC, roughly 5,300 years ago, centuries before the Great Pyramid or Stonehenge's sarsen circle. He still had an arrowhead in his shoulder.",
+    "difficulty": 2,
+    "as_of": "stable"
+  },
+  {
+    "question": "How many days did the Berlin Wall stand, from 13 August 1961 to 9 November 1989?",
+    "answer": 10316,
+    "unit": "days",
+    "source_title": "Berlin Wall - Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Berlin_Wall",
+    "explainer": "The wall divided Berlin for 28 years, 2 months and 27 days, about 10,316 days. On 5 February 2018 it had been gone for exactly as long as it had stood.",
+    "difficulty": 2,
+    "as_of": "stable"
+  },
+  {
+    "question": "How many places (settlements) are recorded in the Domesday Book, England's great survey completed in 1086?",
+    "answer": 13418,
+    "unit": "places",
+    "source_title": "Domesday Book - Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Domesday_Book",
+    "explainer": "William the Conqueror's surveyors recorded 13,418 places in under a year, nearly every town and village in England south of the Tees. Most of those settlements still exist today.",
+    "difficulty": 3,
+    "as_of": "stable"
+  },
+  {
+    "question": "What is the total length of all sections of the Great Wall of China, as measured in China's 2012 national survey?",
+    "answer": 21196,
+    "unit": "km",
+    "source_title": "Great Wall of China - Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Great_Wall_of_China",
+    "explainer": "Counting every dynasty's walls, trenches and natural barriers, the 2012 survey came to 21,196 km, more than half the circumference of the Earth. The Ming-era wall alone is about 8,850 km.",
+    "difficulty": 2,
+    "as_of": "2012"
+  },
+  {
+    "question": "How many Allied troops landed on the Normandy beaches on D-Day, 6 June 1944?",
+    "answer": 156000,
+    "unit": "troops",
+    "source_title": "Normandy landings - Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Normandy_landings",
+    "explainer": "About 156,000 American, British and Canadian troops came ashore on the first day, backed by nearly 7,000 ships and more than 11,000 aircraft. It remains the largest seaborne invasion in history.",
+    "difficulty": 2,
+    "as_of": "stable"
+  },
+  {
+    "question": "How many Allied soldiers were evacuated from Dunkirk between 26 May and 4 June 1940?",
+    "answer": 338226,
+    "unit": "soldiers",
+    "source_title": "Dunkirk evacuation - Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Dunkirk_evacuation",
+    "explainer": "Operation Dynamo brought 338,226 British and French soldiers home in nine days using over 800 vessels, from destroyers to fishing boats. Churchill had hoped to save perhaps 30,000.",
+    "difficulty": 2,
+    "as_of": "stable"
+  },
+  {
+    "question": "How many stone blocks are estimated to make up the Great Pyramid of Giza?",
+    "answer": 2300000,
+    "unit": "blocks",
+    "source_title": "Great Pyramid of Giza - Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Great_Pyramid_of_Giza",
+    "explainer": "Roughly 2.3 million blocks averaging over two tonnes each were laid in about 20 years, which works out to a block set every few minutes, day and night. It was the tallest structure on Earth for 3,800 years.",
+    "difficulty": 2,
+    "as_of": "stable"
+  },
+  {
+    "question": "What was the population of the United States in its first census, in 1790?",
+    "answer": 3929214,
+    "unit": "people",
+    "source_title": "1790 United States census - Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/1790_United_States_census",
+    "explainer": "The first census counted 3,929,214 people, fewer than live in Los Angeles today. Virginia was the most populous state and about one in five residents was enslaved.",
+    "difficulty": 2,
+    "as_of": "1790"
+  },
+  {
+    "question": "How many enslaved Africans were embarked on ships in the transatlantic slave trade between the 16th and 19th centuries?",
+    "answer": 12500000,
+    "unit": "people",
+    "source_title": "Atlantic slave trade - Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Atlantic_slave_trade",
+    "explainer": "The Trans-Atlantic Slave Trade Database documents about 12.5 million people embarked, of whom roughly 10.7 million survived the Middle Passage. Brazil alone received nearly 5 million.",
+    "difficulty": 2,
+    "as_of": "stable"
+  },
+  {
+    "question": "How many US dollars did the United States pay France for the Louisiana Purchase in 1803?",
+    "answer": 15000000,
+    "unit": "US$",
+    "source_title": "Louisiana Purchase - Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Louisiana_Purchase",
+    "explainer": "For $15 million the US gained about 828,000 square miles, doubling its size at under 3 cents an acre. Napoleon used the money to fund his wars in Europe.",
+    "difficulty": 2,
+    "as_of": "1803"
+  },
+  {
+    "question": "What was the land area of the Mongol Empire at its greatest extent, around 1309?",
+    "answer": 24000000,
+    "unit": "km²",
+    "source_title": "Mongol Empire - Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Mongol_Empire",
+    "explainer": "At its peak the empire covered about 24 million square kilometres, roughly 16% of Earth's land, stretching from Korea to Hungary. Only the British Empire has ever been larger.",
+    "difficulty": 2,
+    "as_of": "stable"
+  },
+  {
+    "question": "How much did the Manhattan Project cost in total, in 1945 US dollars?",
+    "answer": 2000000000,
+    "unit": "US$",
+    "source_title": "Manhattan Project - Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Manhattan_Project",
+    "explainer": "The project cost nearly $2 billion in 1940s money, about $27 billion today, and employed over 130,000 people at its peak. Around 90% of the cost went to building factories and producing fissile material, not to the bombs themselves.",
+    "difficulty": 2,
+    "as_of": "1945"
+  },
+  {
+    "question": "How many US dollars did the United States transfer to Western Europe under the Marshall Plan between 1948 and 1952?",
+    "answer": 13300000000,
+    "unit": "US$",
+    "source_title": "Marshall Plan - Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Marshall_Plan",
+    "explainer": "The $13.3 billion sent over four years equals roughly $130 billion today and was around 5% of US GDP in 1948. The UK and France were the biggest recipients.",
+    "difficulty": 2,
+    "as_of": "1952"
+  },
+  {
+    "question": "How many gold marks did the 1921 London Schedule of Payments set as Germany's total World War I reparations bill?",
+    "answer": 132000000000,
+    "unit": "gold marks",
+    "source_title": "World War I reparations - Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/World_War_I_reparations",
+    "explainer": "The headline figure of 132 billion gold marks was about US$33 billion at the time, though only 50 billion was ever seriously expected to be paid. Germany made its final payment in 2010.",
+    "difficulty": 3,
+    "as_of": "1921"
+  },
+  {
+    "question": "How much did World War II cost the United States military, in constant FY2011 US dollars, per the Congressional Research Service?",
+    "answer": 4104000000000,
+    "unit": "US$",
+    "source_title": "Costs of Major U.S. Wars (CRS report RS22926)",
+    "source_url": "https://sgp.fas.org/crs/natsec/RS22926.pdf",
+    "explainer": "CRS puts the bill at about $296 billion in 1940s dollars, or $4.1 trillion in FY2011 dollars. At its peak in 1945, war spending was nearly 36% of US GDP.",
+    "difficulty": 3,
+    "as_of": "2010"
+  }
+]

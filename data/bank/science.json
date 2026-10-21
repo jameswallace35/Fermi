@@ -1,0 +1,222 @@
+[
+  {
+    "question": "At what temperature in kelvin does liquid nitrogen boil at normal atmospheric pressure?",
+    "answer": 77,
+    "unit": "kelvin",
+    "source_title": "Liquid nitrogen - Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Liquid_nitrogen",
+    "explainer": "Liquid nitrogen boils at about 77 K, which is -196 °C: cold enough to shatter a rose, yet still some 75 degrees warmer than the LHC's superconducting magnets at 1.9 K.",
+    "difficulty": 2,
+    "as_of": "stable"
+  },
+  {
+    "question": "Roughly how many lumens of light does a standard 60-watt incandescent light bulb give out?",
+    "answer": 800,
+    "unit": "lumens",
+    "source_title": "Lumens and the Lighting Facts Label - U.S. Department of Energy",
+    "source_url": "https://www.energy.gov/energysaver/lumens-and-lighting-facts-label",
+    "explainer": "A classic 60 W bulb produces about 800 lumens, which is why LED bulbs sold as '60 W equivalent' are rated at 800 lumens while drawing only 8 to 10 watts.",
+    "difficulty": 2,
+    "as_of": "stable"
+  },
+  {
+    "question": "According to the IAEA, how many nuclear power reactors were in operation worldwide at the end of 2024?",
+    "answer": 417,
+    "unit": "reactors",
+    "source_title": "Nuclear Power Reactors in the World, 2025 Edition - IAEA",
+    "source_url": "https://www-pub.iaea.org/MTCD/Publications/PDF/RDS-2-45_web.pdf",
+    "explainer": "The IAEA counted 417 operating reactors with a combined capacity of about 377 GW at the end of 2024; counting Japanese units in long-term suspension pushes the figure to around 440.",
+    "difficulty": 2,
+    "as_of": "2024-12-31"
+  },
+  {
+    "question": "How many main superconducting dipole magnets steer the beams around CERN's Large Hadron Collider ring?",
+    "answer": 1232,
+    "unit": "magnets",
+    "source_title": "Facts and figures about the LHC - CERN",
+    "source_url": "https://home.cern/resources/faqs/facts-and-figures-about-lhc",
+    "explainer": "The LHC uses 1,232 dipole magnets, each 15 metres long and weighing about 35 tonnes, chilled to 1.9 K so they can bend protons around the 27 km ring with an 8.3 tesla field.",
+    "difficulty": 3,
+    "as_of": "stable"
+  },
+  {
+    "question": "How many gigawatt-hours of electricity did CERN consume in 2022?",
+    "answer": 1215,
+    "unit": "GWh",
+    "source_title": "CERN Environment Report 2021-2022: Energy",
+    "source_url": "https://hse.cern/environment-report-2021-2022/energy",
+    "explainer": "CERN used about 1,215 GWh in 2022, roughly what a mid-sized European city uses in a year, with demand peaking near 200 MW while the accelerators run.",
+    "difficulty": 3,
+    "as_of": "2022"
+  },
+  {
+    "question": "How many optical sensors (DOMs) are frozen into the Antarctic ice at the IceCube Neutrino Observatory?",
+    "answer": 5160,
+    "unit": "sensors",
+    "source_title": "IceCube Detector - IceCube Neutrino Observatory",
+    "source_url": "https://icecube.wisc.edu/science/icecube/detector",
+    "explainer": "IceCube's 5,160 digital optical modules hang on 86 strings between 1,450 and 2,450 metres deep, turning a cubic kilometre of South Pole ice into a neutrino telescope.",
+    "difficulty": 3,
+    "as_of": "stable"
+  },
+  {
+    "question": "At what temperature in degrees Celsius does tungsten, the metal with the highest melting point, melt?",
+    "answer": 3422,
+    "unit": "°C",
+    "source_title": "Tungsten - Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Tungsten",
+    "explainer": "Tungsten melts at 3,422 °C, more than three times the melting point of gold (1,064 °C), which is why it was the filament of choice in incandescent bulbs for a century.",
+    "difficulty": 2,
+    "as_of": "stable"
+  },
+  {
+    "question": "At what frequency, in megahertz, does a standard domestic microwave oven heat food?",
+    "answer": 2450,
+    "unit": "MHz",
+    "source_title": "Microwave oven - Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Microwave_oven",
+    "explainer": "Home microwave ovens run at 2,450 MHz, giving a wavelength of about 12 cm, in the same 2.4 GHz band shared by Wi-Fi and Bluetooth.",
+    "difficulty": 2,
+    "as_of": "stable"
+  },
+  {
+    "question": "How many laps of the 27 km Large Hadron Collider ring does a proton complete every second?",
+    "answer": 11245,
+    "unit": "laps per second",
+    "source_title": "Facts and figures about the LHC - CERN",
+    "source_url": "https://home.cern/resources/faqs/facts-and-figures-about-lhc",
+    "explainer": "Travelling at 99.9999991% of the speed of light, each proton circles the 26.7 km ring 11,245 times a second, covering a distance equal to seven and a half trips around the Earth.",
+    "difficulty": 2,
+    "as_of": "stable"
+  },
+  {
+    "question": "How much will the ITER tokamak fusion machine being built in France weigh when complete, in tonnes?",
+    "answer": 23000,
+    "unit": "tonnes",
+    "source_title": "Facts & Figures - ITER",
+    "source_url": "https://www.iter.org/node/18506",
+    "explainer": "The ITER tokamak will weigh 23,000 tonnes, about three times the mass of the Eiffel Tower, with its vacuum vessel alone accounting for roughly 5,000 tonnes.",
+    "difficulty": 3,
+    "as_of": "stable"
+  },
+  {
+    "question": "How many tonnes of ultra-pure water fill the Super-Kamiokande neutrino detector in Japan?",
+    "answer": 50000,
+    "unit": "tonnes",
+    "source_title": "Super-Kamiokande - Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Super-Kamiokande",
+    "explainer": "Super-K's stainless-steel tank, 39 m across and 41 m tall, holds 50,000 tonnes of ultra-pure water watched by about 11,000 photomultiplier tubes, a kilometre underground in a mine.",
+    "difficulty": 3,
+    "as_of": "stable"
+  },
+  {
+    "question": "What is the density of osmium, the densest naturally occurring element, in kilograms per cubic metre?",
+    "answer": 22590,
+    "unit": "kg/m³",
+    "source_title": "Osmium - Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Osmium",
+    "explainer": "Osmium packs 22,590 kg into a cubic metre, more than 22 times the density of water and about twice that of lead; a one-litre bottle of it would weigh 22.6 kg, as much as a six-year-old child.",
+    "difficulty": 2,
+    "as_of": "stable"
+  },
+  {
+    "question": "How much did the Hubble Space Telescope weigh at its launch in 1990, in kilograms?",
+    "answer": 11110,
+    "unit": "kg",
+    "source_title": "Hubble fact sheet - ESA",
+    "source_url": "https://sci.esa.int/web/hubble/-/47358-fact-sheet",
+    "explainer": "Hubble weighed 11,110 kg at launch, roughly the mass of two adult African elephants, and gained about 1,000 kg of new instruments over five servicing missions.",
+    "difficulty": 2,
+    "as_of": "1990"
+  },
+  {
+    "question": "How fast does Earth travel along its orbit around the Sun, in kilometres per hour?",
+    "answer": 107208,
+    "unit": "km/h",
+    "source_title": "Earth's orbit - Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Earth%27s_orbit",
+    "explainer": "Earth orbits the Sun at about 29.8 km/s, or 107,000 km/h, covering its own diameter every seven minutes and a full 940-million-kilometre loop each year.",
+    "difficulty": 2,
+    "as_of": "stable"
+  },
+  {
+    "question": "How many tonnes of gold have been mined in all of human history, as of the end of 2025?",
+    "answer": 220000,
+    "unit": "tonnes",
+    "source_title": "How much gold has been mined? - World Gold Council",
+    "source_url": "https://www.gold.org/goldhub/data/how-much-gold",
+    "explainer": "Roughly 220,000 tonnes of gold have ever been mined, which would form a cube only about 22 metres on each side, and about two-thirds of it was dug up after 1950.",
+    "difficulty": 2,
+    "as_of": "2025"
+  },
+  {
+    "question": "What is the voltage, in volts, of the world's highest-voltage power transmission line (China's Changji-Guquan link)?",
+    "answer": 1100000,
+    "unit": "volts",
+    "source_title": "Changji-Guquan UHVDC link - Hitachi Energy",
+    "source_url": "https://www.hitachienergy.com/about-us/case-studies/changji-guquan-uhvdc-link",
+    "explainer": "The 1,100 kV DC line carries 12,000 MW over 3,300 km from Xinjiang to eastern China, nearly 5,000 times the 230 V of a European household socket.",
+    "difficulty": 3,
+    "as_of": "2019"
+  },
+  {
+    "question": "What plasma temperature, in degrees Celsius, is the ITER fusion reactor designed to reach?",
+    "answer": 150000000,
+    "unit": "°C",
+    "source_title": "Facts & Figures - ITER",
+    "source_url": "https://www.iter.org/node/18506",
+    "explainer": "ITER aims for 150 million °C, about ten times hotter than the core of the Sun, because without the Sun's crushing gravity fusion needs far higher temperatures to work.",
+    "difficulty": 2,
+    "as_of": "stable"
+  },
+  {
+    "question": "How many tonnes of crude steel were produced worldwide in 2024?",
+    "answer": 1882600000,
+    "unit": "tonnes",
+    "source_title": "December 2024 crude steel production and 2024 global totals - worldsteel",
+    "source_url": "https://worldsteel.org/media/press-releases/2025/december-2024-crude-steel-production-and-2024-global-totals/",
+    "explainer": "The world made 1.88 billion tonnes of steel in 2024, over half of it in China, which is about 230 kg for every person on Earth.",
+    "difficulty": 2,
+    "as_of": "2024"
+  },
+  {
+    "question": "What is the half-life of uranium-238, in years?",
+    "answer": 4468000000,
+    "unit": "years",
+    "source_title": "Uranium-238 - Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Uranium-238",
+    "explainer": "U-238's half-life of 4.47 billion years is almost exactly the age of the Earth, so about half of the uranium-238 present when the planet formed is still here.",
+    "difficulty": 2,
+    "as_of": "stable"
+  },
+  {
+    "question": "How many pixels does the LSST camera at the Vera C. Rubin Observatory capture in a single image?",
+    "answer": 3200000000,
+    "unit": "pixels",
+    "source_title": "Largest camera ever built arrives at Rubin Observatory in Chile - NSF",
+    "source_url": "https://www.nsf.gov/news/largest-camera-ever-built-arrives-rubin-observatory-chile",
+    "explainer": "The 3,200-megapixel LSST camera is the largest digital camera ever built; displaying one of its images at full resolution would take about 400 ultra-HD TV screens.",
+    "difficulty": 2,
+    "as_of": "stable"
+  },
+  {
+    "question": "How many neutrinos from the Sun pass through each square centimetre of Earth every second?",
+    "answer": 65000000000,
+    "unit": "neutrinos",
+    "source_title": "Neutrino - Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Neutrino",
+    "explainer": "About 65 billion solar neutrinos cross every square centimetre of your body each second, day and night, yet on average only one will interact with you in your whole lifetime.",
+    "difficulty": 3,
+    "as_of": "stable"
+  },
+  {
+    "question": "How many joules of energy are released by the complete fission of 1 kilogram of uranium-235?",
+    "answer": 82000000000000,
+    "unit": "joules",
+    "source_title": "Uranium-235 - Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Uranium-235",
+    "explainer": "One kilogram of fully fissioned U-235 yields about 82 terajoules, roughly 23 million kWh, the same energy as burning around 2,700 tonnes of coal.",
+    "difficulty": 3,
+    "as_of": "stable"
+  }
+]

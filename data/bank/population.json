@@ -1,0 +1,242 @@
+[
+  {
+    "question": "What is the life expectancy at birth for women in Japan, according to the 2023 official life table?",
+    "answer": 87.14,
+    "unit": "years",
+    "source_title": "Ministry of Health, Labour and Welfare (Japan) – Abridged Life Tables for Japan 2023",
+    "source_url": "https://www.mhlw.go.jp/english/database/db-hw/lifetb23/index.html",
+    "explainer": "Japanese women have the longest life expectancy of any large population; Japanese men come in at about 81 years, a gap of roughly six years.",
+    "difficulty": 1,
+    "as_of": "2023"
+  },
+  {
+    "question": "What was the median age at first marriage for men in the United States in 2023?",
+    "answer": 30.2,
+    "unit": "years",
+    "source_title": "U.S. Census Bureau – Historical Marital Status Tables (Table MS-2)",
+    "source_url": "https://www.census.gov/data/tables/time-series/demo/families/marital.html",
+    "explainer": "American men now marry about seven years later than in 1960, when the median was 22.8; women's median in 2023 was 28.4.",
+    "difficulty": 1,
+    "as_of": "2023"
+  },
+  {
+    "question": "How many official languages does the European Union have?",
+    "answer": 24,
+    "unit": "languages",
+    "source_title": "European Union – Languages",
+    "source_url": "https://european-union.europa.eu/principles-countries-history/languages_en",
+    "explainer": "With 27 member states but 24 languages, every EU law is translated into all of them, and the European Parliament runs one of the largest interpreting services in the world.",
+    "difficulty": 2,
+    "as_of": "2024"
+  },
+  {
+    "question": "What share of the world's population lived in urban areas in 2023?",
+    "answer": 57,
+    "unit": "percent",
+    "source_title": "World Bank – Urban population (% of total population)",
+    "source_url": "https://data.worldbank.org/indicator/SP.URB.TOTL.IN.ZS",
+    "explainer": "Humanity crossed the 50% urban mark around 2007; the UN expects more than two-thirds of people to live in cities by 2050.",
+    "difficulty": 1,
+    "as_of": "2023"
+  },
+  {
+    "question": "How many living languages are spoken in Papua New Guinea?",
+    "answer": 840,
+    "unit": "languages",
+    "source_title": "Ethnologue – Papua New Guinea",
+    "source_url": "https://www.ethnologue.com/country/PG/",
+    "explainer": "With under 10 million people, Papua New Guinea has more languages than any other country, roughly one in every nine languages on Earth.",
+    "difficulty": 2,
+    "as_of": "2024"
+  },
+  {
+    "question": "On an average day in 2023, how many babies were born in Ireland?",
+    "answer": 150,
+    "unit": "babies",
+    "source_title": "Central Statistics Office (Ireland) – Vital Statistics Annual Report 2023",
+    "source_url": "https://www.cso.ie/en/releasesandpublications/ep/p-vsar/vitalstatisticsannualreport2023/",
+    "explainer": "Ireland registered about 54,700 births in 2023, down from a peak of around 75,000 in 2009, so each day brings roughly 150 newborns.",
+    "difficulty": 2,
+    "as_of": "2023"
+  },
+  {
+    "question": "How many living languages are there in the world, as counted by Ethnologue in 2024?",
+    "answer": 7164,
+    "unit": "languages",
+    "source_title": "Ethnologue – How many languages are there in the world?",
+    "source_url": "https://www.ethnologue.com/insights/how-many-languages/",
+    "explainer": "About 40% of those languages are endangered, while just 23 languages are spoken by more than half of the world's population.",
+    "difficulty": 2,
+    "as_of": "2024"
+  },
+  {
+    "question": "On an average day in 2023, how many people died in Japan?",
+    "answer": 4318,
+    "unit": "people",
+    "source_title": "Wikipedia – Demographics of Japan (vital statistics)",
+    "source_url": "https://en.wikipedia.org/wiki/Demographics_of_Japan",
+    "explainer": "Japan recorded about 1.58 million deaths in 2023 against only 727,000 births, so the population shrinks by more than 2,000 people every day.",
+    "difficulty": 2,
+    "as_of": "2023"
+  },
+  {
+    "question": "How many baby boys born in the US in 2023 were named Liam, the year's most popular name?",
+    "answer": 20802,
+    "unit": "babies",
+    "source_title": "Social Security Administration – Popular Baby Names",
+    "source_url": "https://www.ssa.gov/oact/babynames/",
+    "explainer": "Liam has topped the US boys' list every year since 2017, yet it accounts for barely 1% of boys born, a sign of how much more varied naming has become since the 1950s.",
+    "difficulty": 3,
+    "as_of": "2023"
+  },
+  {
+    "question": "What was the population of Greenland on 1 January 2024?",
+    "answer": 56865,
+    "unit": "people",
+    "source_title": "Statistics Greenland – Population",
+    "source_url": "https://stat.gl/",
+    "explainer": "The world's largest island has fewer residents than a mid-sized town; about a third of them live in the capital, Nuuk.",
+    "difficulty": 2,
+    "as_of": "2024-01-01"
+  },
+  {
+    "question": "On an average day in 2023, how many babies were born worldwide?",
+    "answer": 360000,
+    "unit": "babies",
+    "source_title": "United Nations – World Population Prospects 2024",
+    "source_url": "https://population.un.org/wpp/",
+    "explainer": "That is about 132 million births a year, or roughly 250 every minute, against about 61 million deaths.",
+    "difficulty": 2,
+    "as_of": "2023"
+  },
+  {
+    "question": "How many people became naturalized US citizens in fiscal year 2023?",
+    "answer": 878500,
+    "unit": "people",
+    "source_title": "USCIS – Naturalization Statistics",
+    "source_url": "https://www.uscis.gov/citizenship-resource-center/naturalization-statistics",
+    "explainer": "FY2023 was one of the busiest years for naturalizations in US history; Mexico, India and the Philippines were the top countries of origin.",
+    "difficulty": 2,
+    "as_of": "FY2023"
+  },
+  {
+    "question": "What was the population of the Republic of Ireland in April 2024?",
+    "answer": 5380300,
+    "unit": "people",
+    "source_title": "Central Statistics Office (Ireland) – Population and Migration Estimates, April 2024",
+    "source_url": "https://www.cso.ie/en/releasesandpublications/ep/p-pme/populationandmigrationestimatesapril2024/",
+    "explainer": "Ireland's population passed 5 million in 2021 for the first time since the Great Famine of the 1840s, driven mostly by immigration.",
+    "difficulty": 1,
+    "as_of": "2024-04"
+  },
+  {
+    "question": "How many international students were enrolled at US colleges and universities in the 2023/24 academic year?",
+    "answer": 1126690,
+    "unit": "students",
+    "source_title": "Open Doors 2024 – International Students",
+    "source_url": "https://opendoorsdata.org/annual-release/international-students/",
+    "explainer": "A record year: India overtook China as the top sending country, and international students made up about 6% of all US higher-education enrolment.",
+    "difficulty": 2,
+    "as_of": "2023/24"
+  },
+  {
+    "question": "What was Australia's population on 30 June 2024?",
+    "answer": 27204809,
+    "unit": "people",
+    "source_title": "Australian Bureau of Statistics – National, state and territory population, June 2024",
+    "source_url": "https://www.abs.gov.au/statistics/people/population/national-state-and-territory-population/jun-2024",
+    "explainer": "Australia's population grew by about half a million in a single year, the bulk of it from overseas migration, on a landmass the size of the contiguous US.",
+    "difficulty": 1,
+    "as_of": "2024-06-30"
+  },
+  {
+    "question": "How many Jews were there in the world in 2023 (core Jewish population)?",
+    "answer": 15700000,
+    "unit": "people",
+    "source_title": "Wikipedia – Jewish population by country (Jewish Agency / DellaPergola estimates)",
+    "source_url": "https://en.wikipedia.org/wiki/Jewish_population_by_country",
+    "explainer": "The world Jewish population still has not regained its 1939 level of about 16.6 million; Israel and the United States account for roughly 85% of the total.",
+    "difficulty": 2,
+    "as_of": "2023"
+  },
+  {
+    "question": "How many international migrants (people living outside the country they were born in) were there worldwide in 2024?",
+    "answer": 304000000,
+    "unit": "people",
+    "source_title": "UN DESA – International Migrant Stock 2024",
+    "source_url": "https://www.un.org/development/desa/pd/content/international-migrant-stock",
+    "explainer": "Migrants are about 3.7% of humanity; if they formed one country it would be the fourth most populous on Earth.",
+    "difficulty": 2,
+    "as_of": "2024"
+  },
+  {
+    "question": "What was the population of Indonesia in mid-2023?",
+    "answer": 278700000,
+    "unit": "people",
+    "source_title": "Wikipedia – Demographics of Indonesia (Statistics Indonesia / BPS estimates)",
+    "source_url": "https://en.wikipedia.org/wiki/Demographics_of_Indonesia",
+    "explainer": "Indonesia is the world's fourth most populous country, and more than half its people live on the single island of Java.",
+    "difficulty": 1,
+    "as_of": "2023"
+  },
+  {
+    "question": "How many children and youth worldwide were out of school in 2023, according to UNESCO?",
+    "answer": 250000000,
+    "unit": "children",
+    "source_title": "UNESCO – 250 million children out-of-school: What you need to know about UNESCO's latest education data",
+    "source_url": "https://www.unesco.org/en/articles/250-million-children-out-school-what-you-need-know-about-unescos-latest-education-data",
+    "explainer": "That is roughly one in six school-age children and youth; sub-Saharan Africa accounts for about 30% of them.",
+    "difficulty": 2,
+    "as_of": "2023"
+  },
+  {
+    "question": "How many Muslims were there in the world in 2020?",
+    "answer": 2000000000,
+    "unit": "people",
+    "source_title": "Pew Research Center – How the Global Religious Landscape Changed from 2010 to 2020",
+    "source_url": "https://www.pewresearch.org/religion/2025/06/09/how-the-global-religious-landscape-changed-from-2010-to-2020/",
+    "explainer": "Muslims were about a quarter of humanity in 2020 and the fastest-growing major religious group; Indonesia, Pakistan and India have the largest Muslim populations.",
+    "difficulty": 1,
+    "as_of": "2020"
+  },
+  {
+    "question": "How many people worldwide spoke English as a first or second language in 2024?",
+    "answer": 1515000000,
+    "unit": "people",
+    "source_title": "Ethnologue – What are the top 200 most spoken languages?",
+    "source_url": "https://www.ethnologue.com/insights/most-spoken-language/",
+    "explainer": "Only about 380 million of them are native speakers; the rest learned English as an additional language, which is why it edges out Mandarin as the most spoken language overall.",
+    "difficulty": 2,
+    "as_of": "2024"
+  },
+  {
+    "question": "How many humans have ever been born in all of history, up to 2022?",
+    "answer": 117000000000,
+    "unit": "people",
+    "source_title": "Population Reference Bureau – How Many People Have Ever Lived on Earth?",
+    "source_url": "https://www.prb.org/articles/how-many-people-have-ever-lived-on-earth/",
+    "explainer": "About 7% of everyone who has ever lived is alive today, so the claim that the living outnumber the dead is a myth.",
+    "difficulty": 3,
+    "as_of": "2022"
+  },
+  {
+    "question": "How much money did migrants send home in remittances to low- and middle-income countries in 2023?",
+    "answer": 656000000000,
+    "unit": "US$",
+    "source_title": "World Bank – Remittances Slowed in 2023, Expected to Grow Faster in 2024",
+    "source_url": "https://www.worldbank.org/en/news/press-release/2024/06/26/remittances-slowed-in-2023-expected-to-grow-faster-in-2024",
+    "explainer": "Remittances now exceed foreign direct investment and official aid to developing countries; India alone received about US$120 billion.",
+    "difficulty": 2,
+    "as_of": "2023"
+  },
+  {
+    "question": "What was the total outstanding student loan debt in the United States at the end of 2023?",
+    "answer": 1600000000000,
+    "unit": "US$",
+    "source_title": "Federal Reserve Bank of New York – Quarterly Report on Household Debt and Credit, Q4 2023",
+    "source_url": "https://www.newyorkfed.org/microeconomics/hhdc",
+    "explainer": "Student loans are the second-largest category of US household debt after mortgages, spread across roughly 43 million borrowers, about US$37,000 each.",
+    "difficulty": 2,
+    "as_of": "2023-12-31"
+  }
+]

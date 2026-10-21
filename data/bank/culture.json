@@ -1,0 +1,202 @@
+[
+  {
+    "question": "How much does an Oscar statuette weigh?",
+    "answer": 3.86,
+    "unit": "kg",
+    "source_title": "Oscar Statuette - Academy of Motion Picture Arts and Sciences",
+    "source_url": "https://www.oscars.org/oscars/statuette",
+    "explainer": "The Academy says the gold-plated bronze figure stands 13.5 inches (34 cm) tall and weighs 8.5 pounds, roughly the weight of a newborn baby.",
+    "difficulty": 2,
+    "as_of": "stable"
+  },
+  {
+    "question": "How tall is Michelangelo's marble statue of David, not counting its pedestal?",
+    "answer": 5.17,
+    "unit": "metres",
+    "source_title": "David (Michelangelo) - Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/David_(Michelangelo)",
+    "explainer": "At 5.17 metres, David is about three times the height of an adult man. It stood outdoors in Florence's Piazza della Signoria for 369 years before moving indoors in 1873.",
+    "difficulty": 2,
+    "as_of": "stable"
+  },
+  {
+    "question": "How tall is the Mona Lisa painting itself, excluding its frame?",
+    "answer": 77,
+    "unit": "cm",
+    "source_title": "Mona Lisa - Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Mona_Lisa",
+    "explainer": "The Mona Lisa measures just 77 by 53 cm, a little smaller than an A1 poster. Many Louvre visitors are surprised by how small it is.",
+    "difficulty": 2,
+    "as_of": "stable"
+  },
+  {
+    "question": "How long is the Bayeux Tapestry, the embroidered cloth depicting the Norman conquest of 1066?",
+    "answer": 68.38,
+    "unit": "metres",
+    "source_title": "The Bayeux Tapestry - Bayeux Museum",
+    "source_url": "https://www.bayeuxmuseum.com/en/the-bayeux-tapestry/",
+    "explainer": "The tapestry is almost 70 metres long but only 50 cm tall, about the length of three tennis courts laid end to end.",
+    "difficulty": 2,
+    "as_of": "stable"
+  },
+  {
+    "question": "How much did Taylor Swift's Eras Tour (2023-2024) gross in ticket sales across its 149 shows?",
+    "answer": 2077618725,
+    "unit": "US$",
+    "source_title": "The Eras Tour - Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/The_Eras_Tour",
+    "explainer": "The Eras Tour was the first tour ever to gross more than US$1 billion and finished at about US$2.08 billion from roughly 10.2 million tickets, an average of about US$200 a ticket.",
+    "difficulty": 2,
+    "as_of": "2024"
+  },
+  {
+    "question": "How many oil paintings did Vincent van Gogh produce in his lifetime?",
+    "answer": 860,
+    "unit": "paintings",
+    "source_title": "Vincent van Gogh - Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Vincent_van_Gogh",
+    "explainer": "Van Gogh painted around 860 oil paintings, almost all in the last ten years of his life, close to two a week, and sold only a handful before he died in 1890.",
+    "difficulty": 2,
+    "as_of": "stable"
+  },
+  {
+    "question": "How many episodes of The Simpsons had aired by the end of season 36 in May 2025?",
+    "answer": 790,
+    "unit": "episodes",
+    "source_title": "List of The Simpsons episodes - Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/List_of_The_Simpsons_episodes",
+    "explainer": "Watching all 790 episodes back to back would take about 12 days. The show has averaged roughly 22 episodes a year since it began in 1989.",
+    "difficulty": 2,
+    "as_of": "2025-05"
+  },
+  {
+    "question": "How many years ago, as of 2026, was the Rosetta Stone carved?",
+    "answer": 2221,
+    "unit": "years",
+    "source_title": "The Rosetta Stone - British Museum",
+    "source_url": "https://www.britishmuseum.org/collection/object/Y_EA24",
+    "explainer": "The stone records a decree issued in 196 BC under Ptolemy V. Its three scripts let scholars finally decipher Egyptian hieroglyphs in 1822.",
+    "difficulty": 2,
+    "as_of": "2026"
+  },
+  {
+    "question": "How many performances did The Phantom of the Opera give on Broadway before it closed in April 2023?",
+    "answer": 13981,
+    "unit": "performances",
+    "source_title": "The Phantom of the Opera (1986 musical) - Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/The_Phantom_of_the_Opera_(1986_musical)",
+    "explainer": "Phantom opened in January 1988 and ran for 35 years at about eight shows a week, making it by far the longest-running show in Broadway history.",
+    "difficulty": 2,
+    "as_of": "2023"
+  },
+  {
+    "question": "How many lines of verse are there in Homer's Iliad?",
+    "answer": 15693,
+    "unit": "lines",
+    "source_title": "Iliad - Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Iliad",
+    "explainer": "The Iliad's 15,693 lines are divided into 24 books. Recited aloud at a storyteller's pace, the whole poem takes roughly 20 hours.",
+    "difficulty": 3,
+    "as_of": "stable"
+  },
+  {
+    "question": "How many words are in Tolstoy's War and Peace in English translation?",
+    "answer": 587287,
+    "unit": "words",
+    "source_title": "List of longest novels - Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/List_of_longest_novels",
+    "explainer": "At about 587,000 words, War and Peace is roughly six typical novels in one. A reader managing 250 words a minute would need about 39 hours.",
+    "difficulty": 2,
+    "as_of": "stable"
+  },
+  {
+    "question": "How many visitors did the Louvre museum in Paris receive in 2024?",
+    "answer": 8700000,
+    "unit": "visitors",
+    "source_title": "Louvre - Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Louvre",
+    "explainer": "The Louvre is the world's most visited museum. 8.7 million visitors a year is about 24,000 a day, most of them from abroad.",
+    "difficulty": 1,
+    "as_of": "2024"
+  },
+  {
+    "question": "How many guests visited Magic Kingdom at Walt Disney World in Florida in 2023?",
+    "answer": 17720000,
+    "unit": "visitors",
+    "source_title": "Magic Kingdom - Wikipedia (TEA/AECOM attendance figures)",
+    "source_url": "https://en.wikipedia.org/wiki/Magic_Kingdom",
+    "explainer": "Magic Kingdom has been the world's most visited theme park for decades. 17.7 million guests a year works out to nearly 50,000 every day.",
+    "difficulty": 2,
+    "as_of": "2023"
+  },
+  {
+    "question": "How many copies of the Harry Potter books had been sold worldwide as of 2023?",
+    "answer": 600000000,
+    "unit": "copies",
+    "source_title": "Harry Potter - Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Harry_Potter",
+    "explainer": "More than 600 million Harry Potter books have been sold in over 80 languages, the best-selling book series ever: enough for one copy for every 13 people alive.",
+    "difficulty": 2,
+    "as_of": "2023"
+  },
+  {
+    "question": "How much did James Cameron's Avatar (2009) gross at the worldwide box office, including re-releases?",
+    "answer": 2923000000,
+    "unit": "US$",
+    "source_title": "Avatar (2009 film) - Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Avatar_(2009_film)",
+    "explainer": "Avatar's US$2.92 billion makes it the highest-grossing film ever. Avengers: Endgame briefly took the crown in 2019 until a 2021 re-release in China put Avatar back on top.",
+    "difficulty": 1,
+    "as_of": "2024"
+  },
+  {
+    "question": "How many views did the 'Baby Shark Dance' video have on YouTube by the end of 2024?",
+    "answer": 15000000000,
+    "unit": "views",
+    "source_title": "List of most-viewed YouTube videos - Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/List_of_most-viewed_YouTube_videos",
+    "explainer": "Baby Shark Dance has been YouTube's most-viewed video since 2020 and was the first to pass 10 billion views in January 2022. 15 billion views is nearly two for every person on Earth.",
+    "difficulty": 2,
+    "as_of": "2024-12"
+  },
+  {
+    "question": "How much revenue did the global recorded music industry earn in 2024, according to IFPI?",
+    "answer": 29600000000,
+    "unit": "US$",
+    "source_title": "IFPI Global Music Report 2025",
+    "source_url": "https://globalmusicreport.ifpi.org/",
+    "explainer": "Recorded music earned US$29.6 billion in 2024, its tenth straight year of growth, with streaming providing about two-thirds of the total.",
+    "difficulty": 3,
+    "as_of": "2024"
+  },
+  {
+    "question": "How much did consumers spend on video games worldwide in 2024, according to Newzoo?",
+    "answer": 187700000000,
+    "unit": "US$",
+    "source_title": "Newzoo Global Games Market Report 2024",
+    "source_url": "https://newzoo.com/resources/trend-reports/newzoo-global-games-market-report-2024-free-version",
+    "explainer": "At about US$188 billion, the games market is roughly three times the global box office and recorded music industries combined; mobile games make up about half of it.",
+    "difficulty": 3,
+    "as_of": "2024"
+  },
+  {
+    "question": "How many on-demand audio streams were played worldwide in 2024 across all music streaming services (Luminate)?",
+    "answer": 4800000000000,
+    "unit": "streams",
+    "source_title": "Luminate 2024 Year-End Music Report",
+    "source_url": "https://luminatedata.com/reports/2024-year-end-music-report/",
+    "explainer": "Luminate counted about 4.8 trillion on-demand audio streams in 2024: roughly 13 billion a day, or about 600 streams for every person on Earth.",
+    "difficulty": 3,
+    "as_of": "2024"
+  },
+  {
+    "question": "How many kanji characters are on Japan's official joyo list for general use?",
+    "answer": 2136,
+    "unit": "kanji",
+    "source_title": "Joyo kanji - Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/J%C5%8Dy%C5%8D_kanji",
+    "explainer": "The joyo kanji list, last revised in 2010, holds 2,136 characters that Japanese pupils learn by the end of secondary school; newspapers mostly keep to it.",
+    "difficulty": 3,
+    "as_of": "stable"
+  }
+]

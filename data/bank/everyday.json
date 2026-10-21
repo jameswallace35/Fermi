@@ -1,0 +1,192 @@
+[
+  {
+    "question": "How many minutes did the average US worker spend travelling to work, one way, in 2023?",
+    "answer": 26.8,
+    "unit": "minutes",
+    "source_title": "U.S. Census Bureau, American Community Survey 2023 1-Year Estimates, Table S0801 Commuting Characteristics",
+    "source_url": "https://data.census.gov/table/ACSST1Y2023.S0801",
+    "explainer": "Round trip, that is nearly an hour a day - roughly 220 hours a year, or more than five full working weeks spent getting to and from work.",
+    "difficulty": 1,
+    "as_of": "2023"
+  },
+  {
+    "question": "What was the average age of cars and light trucks on US roads in 2024?",
+    "answer": 12.6,
+    "unit": "years",
+    "source_title": "Bureau of Transportation Statistics: Average Age of Automobiles and Trucks in Operation in the United States",
+    "source_url": "https://www.bts.gov/content/average-age-automobiles-and-trucks-operation-united-states",
+    "explainer": "US vehicles keep getting older: the average was about 9.6 years in 2002. Better build quality and high new-car prices keep old cars on the road longer.",
+    "difficulty": 1,
+    "as_of": "2024"
+  },
+  {
+    "question": "How many keys are on a standard full-size US PC keyboard, including the number pad?",
+    "answer": 104,
+    "unit": "keys",
+    "source_title": "Wikipedia: Computer keyboard",
+    "source_url": "https://en.wikipedia.org/wiki/Computer_keyboard",
+    "explainer": "The US ANSI full-size layout has 104 keys: 26 letters, 10 digits, 12 function keys, the number pad, plus modifiers and navigation keys. The European ISO layout has 105.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "question": "How many minutes per day did the average American aged 15 and over spend watching TV in 2023?",
+    "answer": 156,
+    "unit": "minutes",
+    "source_title": "U.S. Bureau of Labor Statistics: American Time Use Survey - 2023 Results",
+    "source_url": "https://www.bls.gov/news.release/archives/atus_06272024.htm",
+    "explainer": "About 2.6 hours a day, which is more than half of all leisure time. Socialising and communicating, by comparison, gets roughly 35 minutes a day.",
+    "difficulty": 2,
+    "as_of": "2023"
+  },
+  {
+    "question": "How many litres of water does the average American family use at home per day, according to the EPA?",
+    "answer": 1136,
+    "unit": "litres",
+    "source_title": "U.S. EPA WaterSense: How We Use Water",
+    "source_url": "https://www.epa.gov/watersense/how-we-use-water",
+    "explainer": "That is more than 300 US gallons, and roughly 70% of it is used indoors - toilets, showers and taps are the big three.",
+    "difficulty": 2,
+    "as_of": "2024"
+  },
+  {
+    "question": "How many steps do runners climb in the Empire State Building Run-Up, from the lobby to the 86th-floor observatory?",
+    "answer": 1576,
+    "unit": "steps",
+    "source_title": "Wikipedia: Empire State Building Run-Up",
+    "source_url": "https://en.wikipedia.org/wiki/Empire_State_Building_Run-Up",
+    "explainer": "That is about 18 steps per floor. The fastest runners climb all 86 floors in roughly 10 minutes.",
+    "difficulty": 2,
+    "as_of": "stable"
+  },
+  {
+    "question": "How many yellow taxi medallions (licences to operate a cab) exist in New York City, as of 2024?",
+    "answer": 13587,
+    "unit": "medallions",
+    "source_title": "Wikipedia: Taxis of New York City",
+    "source_url": "https://en.wikipedia.org/wiki/Taxis_of_New_York_City",
+    "explainer": "The number has been capped at 13,587 since 2014. At the 2014 peak a single medallion sold for over US$1 million; prices later collapsed to under $200,000.",
+    "difficulty": 2,
+    "as_of": "2024"
+  },
+  {
+    "question": "How many different items does the average US supermarket carry, as of 2023?",
+    "answer": 31704,
+    "unit": "items",
+    "source_title": "FMI - The Food Industry Association: Supermarket Facts",
+    "source_url": "https://www.fmi.org/our-research/supermarket-facts",
+    "explainer": "The average store stocks almost 32,000 distinct products, yet a typical weekly shop touches only a few dozen of them.",
+    "difficulty": 2,
+    "as_of": "2023"
+  },
+  {
+    "question": "How many post boxes does Royal Mail have across the UK?",
+    "answer": 115000,
+    "unit": "post boxes",
+    "source_title": "Wikipedia: Pillar box",
+    "source_url": "https://en.wikipedia.org/wiki/Pillar_box",
+    "explainer": "Royal Mail aims to keep a post box within half a mile of 98% of addresses. Some boxes still in use date from the 1850s and carry Queen Victoria's cypher.",
+    "difficulty": 2,
+    "as_of": "2023"
+  },
+  {
+    "question": "How many fire hydrants are there on the streets of New York City?",
+    "answer": 109000,
+    "unit": "hydrants",
+    "source_title": "NYC Department of Environmental Protection: Fire Hydrants",
+    "source_url": "https://www.nyc.gov/site/dep/water/fire-hydrants.page",
+    "explainer": "That is roughly one hydrant every 100 metres along the city's 6,000-plus miles of streets, all fed by the water mains DEP maintains.",
+    "difficulty": 2,
+    "as_of": "2024"
+  },
+  {
+    "question": "How many bridges are there in the United States, according to the National Bridge Inventory?",
+    "answer": 623218,
+    "unit": "bridges",
+    "source_title": "ASCE 2025 Infrastructure Report Card: Bridges",
+    "source_url": "https://infrastructurereportcard.org/cat-item/bridges-infrastructure/",
+    "explainer": "Almost half are more than 50 years old, and roughly 7% are rated in poor condition - yet they carry well over 100 million crossings a day.",
+    "difficulty": 2,
+    "as_of": "2024"
+  },
+  {
+    "question": "How many vending machines are there in Japan, as of the end of 2023?",
+    "answer": 3920000,
+    "unit": "vending machines",
+    "source_title": "Japan Vending Machine Manufacturers Association: Number of Vending Machines",
+    "source_url": "https://www.jvma.or.jp/information/information_3.html",
+    "explainer": "Roughly one machine for every 32 people - the highest density in the world. More than half of them sell drinks.",
+    "difficulty": 2,
+    "as_of": "2023"
+  },
+  {
+    "question": "How many bricks were used to build the Empire State Building?",
+    "answer": 10000000,
+    "unit": "bricks",
+    "source_title": "Wikipedia: Empire State Building",
+    "source_url": "https://en.wikipedia.org/wiki/Empire_State_Building",
+    "explainer": "The 102-storey tower also used about 57,000 tonnes of steel and went up in just 410 days. Ten million bricks would build around 1,000 ordinary houses.",
+    "difficulty": 3,
+    "as_of": "stable"
+  },
+  {
+    "question": "How many households were there in the United States in 2023?",
+    "answer": 131400000,
+    "unit": "households",
+    "source_title": "U.S. Census Bureau: America's Families and Living Arrangements: 2023 (Table H1)",
+    "source_url": "https://www.census.gov/data/tables/2023/demo/families/cps-2023.html",
+    "explainer": "With about 335 million residents, that works out to roughly 2.5 people per household. Nearly 29% of households are one person living alone.",
+    "difficulty": 1,
+    "as_of": "2023"
+  },
+  {
+    "question": "How many motor vehicles (cars, trucks and buses) were produced worldwide in 2023?",
+    "answer": 93546599,
+    "unit": "vehicles",
+    "source_title": "OICA: 2023 Production Statistics",
+    "source_url": "https://www.oica.net/category/production-statistics/2023-statistics/",
+    "explainer": "China built about 30 million of them, nearly a third of the total. Worldwide that is roughly 180 vehicles rolling off a production line every minute.",
+    "difficulty": 2,
+    "as_of": "2023"
+  },
+  {
+    "question": "How many rides were taken on the New York City Subway in 2023?",
+    "answer": 1151998158,
+    "unit": "rides",
+    "source_title": "MTA: Subway and bus ridership for 2023",
+    "source_url": "https://new.mta.info/agency/new-york-city-transit/subway-bus-ridership-2023",
+    "explainer": "About 3.2 million rides on an average day across 472 stations - still only around two-thirds of the 1.7 billion rides of 2019.",
+    "difficulty": 2,
+    "as_of": "2023"
+  },
+  {
+    "question": "How many pieces of mail did the US Postal Service handle in fiscal year 2023?",
+    "answer": 116100000000,
+    "unit": "pieces of mail",
+    "source_title": "USPS Postal Facts: Size and Scope",
+    "source_url": "https://facts.usps.com/",
+    "explainer": "That is about 318 million pieces every day, delivered to roughly 167 million addresses - and still close to half of all the mail sent in the world.",
+    "difficulty": 2,
+    "as_of": "2023"
+  },
+  {
+    "question": "How many litres of water does an Olympic-size swimming pool (50 m long, 25 m wide, 2 m deep) hold?",
+    "answer": 2500000,
+    "unit": "litres",
+    "source_title": "Wikipedia: Olympic-size swimming pool",
+    "source_url": "https://en.wikipedia.org/wiki/Olympic-size_swimming_pool",
+    "explainer": "That is 2,500 cubic metres, or about 2,500 tonnes of water - enough to fill roughly 16,000 bathtubs or supply a US family's home for about six years.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "question": "How much did the average new vehicle sold in the US weigh in model year 2022?",
+    "answer": 1964,
+    "unit": "kg",
+    "source_title": "U.S. EPA: The 2023 Automotive Trends Report - Highlights",
+    "source_url": "https://www.epa.gov/automotive-trends/highlights-automotive-trends-report",
+    "explainer": "A record 4,329 lb. The shift from sedans to SUVs and pickups has pushed the average up steadily since the early 1990s.",
+    "difficulty": 2,
+    "as_of": "2022"
+  }
+]

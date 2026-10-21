@@ -45,6 +45,13 @@ test('functions and constants', () => {
   assert.equal(evaluate('round(2.5)'), 3);
   assert.equal(evaluate('floor(2.9) + ceil(2.1)'), 5);
   assert.equal(evaluate('SQRT(9)'), 3);
+  assert.equal(evaluate('log10(100)'), 2);
+});
+
+test('decimal commas and suffix chains', () => {
+  assert.equal(evaluate('1,5 * 2'), 3);
+  assert.equal(evaluate('round(1,2)'), 1);
+  assert.equal(evaluate('2k k'), 2e6);
 });
 
 test('a typical fermi chain', () => {
@@ -55,7 +62,7 @@ test('a typical fermi chain', () => {
 });
 
 test('invalid expressions throw CalcError', () => {
-  for (const bad of ['', '   ', '1 +', '(1 + 2', '1 + 2)', 'foo', '2 3', '1 / 0', 'alert(1)', '1..2', '2 km', '1,,2', '$5']) {
+  for (const bad of ['', '   ', '1 +', '(1 + 2', '1 + 2)', 'foo', '2 3', '1 / 0', 'alert(1)', '1..2', '2 km', '1,,2', '$5', 'constructor(1)', '2 constructor', '__proto__', 'toString(1)', 'hasOwnProperty(1)', '1,0000', '('.repeat(600) + '1' + ')'.repeat(600)]) {
     assert.throws(() => evaluate(bad), CalcError, `expected CalcError for ${JSON.stringify(bad)}`);
     assert.ok(Number.isNaN(tryEvaluate(bad)));
   }
