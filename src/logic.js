@@ -95,13 +95,24 @@ export function dailyScore(multiples) {
   return multiples.reduce((a, b) => a + b, 0) / multiples.length;
 }
 
+const MULTIPLE_UNITS = [
+  [1e12, 'T'],
+  [1e9, 'B'],
+  [1e6, 'M'],
+];
+
+/** "1.00×", "12.3×", "2,166×", "246M×": lower is better. */
 export function formatMultiple(m) {
   if (!Number.isFinite(m)) return '∞×';
   const v = tidy(m);
   let s;
   if (v < 9.995) s = v.toFixed(2);
   else if (v < 99.95) s = v.toFixed(1);
-  else s = Math.round(v).toLocaleString('en-US');
+  else if (v < 999_500) s = Math.round(v).toLocaleString('en-US');
+  else {
+    const [unit, letter] = MULTIPLE_UNITS.find(([u]) => v >= u * 0.9995) || MULTIPLE_UNITS[MULTIPLE_UNITS.length - 1];
+    s = `${Number((v / unit).toPrecision(3)).toLocaleString('en-US')}${letter}`;
+  }
   return `${s}×`;
 }
 

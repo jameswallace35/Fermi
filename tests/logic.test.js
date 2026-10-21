@@ -107,6 +107,12 @@ test('formatMultiple precision bands', () => {
   assert.equal(formatMultiple(99.96), '100×');
   assert.equal(formatMultiple(123.4), '123×');
   assert.equal(formatMultiple(12345.6), '12,346×');
+  assert.equal(formatMultiple(999_499), '999,499×');
+  assert.equal(formatMultiple(999_600), '1M×');
+  assert.equal(formatMultiple(2.4625e8), '246M×');
+  assert.equal(formatMultiple(49_251_815), '49.3M×');
+  assert.equal(formatMultiple(3.04e12), '3.04T×');
+  assert.equal(formatMultiple(MAX_MULTIPLE), '1,000T×');
   assert.equal(formatMultiple(Infinity), '∞×');
 });
 
