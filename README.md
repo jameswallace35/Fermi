@@ -1,0 +1,92 @@
+# Fermi — five estimation questions a day
+
+A daily estimation game in the spirit of [fermi.gg](https://fermi.gg), with **five questions per day** instead of three.
+
+Every day the game asks five questions like *"How many kilometres of railway does India have?"* You get one guess per question. Your score for a question is **how many times off** you were: `1×` is exact, `2×` means you guessed double or half the real answer. Lower is better. Your daily score is the average of the five multiples, and you can share it as a line of emoji without spoiling the answers.
+
+It is a static site: plain HTML, CSS and JavaScript modules, no build step, no accounts, no server. Progress, streaks and statistics live in your browser's `localStorage`.
+
+## Features
+
+- **Five questions a day**, drawn from fourteen categories so no two questions in a day share a category.
+- **Scoring like fermi.gg**: times-off multiple per question, daily average, 🎯🟢🟡🟠🔴 tiers.
+- **Flexible input**: `1500`, `1.5k`, `2 million`, `3B`, `1e9`, or an expression such as `330M * 1.5 * 52`.
+- **Built-in calculator** with k / M / B keys that can drop its result straight into your guess.
+- **Reveal card** with your guess, the real answer, a log-scale "how far off" bar, a short explainer and the source.
+- **Share text**, streaks, statistics with a tier histogram, and an **archive** of past puzzles.
+- Light and dark themes, keyboard friendly, mobile first, works as a home-screen app.
+
+## Run it locally
+
+Any static file server works. With Node 20+:
+
+```bash
+npm start            # serves http://127.0.0.1:8080/
+```
+
+or `python3 -m http.server 8080`. Opening `index.html` directly from disk will not work because the page loads its modules and `data/questions.json` over HTTP.
+
+## Tests
+
+```bash
+npm test             # unit tests for scoring, dates, parsing, selection, calculator
+npm run validate     # checks data/questions.json (schema, duplicates, daily coverage)
+npm run e2e          # plays a full puzzle in headless Chromium (needs `playwright`)
+```
+
+## How a day's puzzle is chosen
+
+- Puzzle **No. 1** is 2026‑10‑21 and the number increases by one each local calendar day (`EPOCH_DATE_KEY` in `src/logic.js`).
+- Categories rotate in the order listed in `scripts/build-bank.mjs`; day *n* uses five consecutive categories from that cycle, so the five are always distinct.
+- Inside a category, questions are served in the order they appear in `data/questions.json`, cycling only when the category is exhausted. Nothing repeats until the whole bank has been played.
+- A finished puzzle remembers which question ids it used, so your history stays correct even if the bank is reordered later.
+
+There is no server, so the same puzzle appears for everyone on the same calendar date, which is what makes sharing scores fun.
+
+## Adding questions
+
+1. Edit (or add) a file in `data/bank/<category>.json`. Each entry looks like:
+
+   ```json
+   {
+     "question": "How many passengers used London Heathrow airport in 2023?",
+     "answer": 79200000,
+     "unit": "passengers",
+     "source_title": "Heathrow Airport — Wikipedia",
+     "source_url": "https://en.wikipedia.org/wiki/Heathrow_Airport",
+     "explainer": "Roughly 217,000 people a day, making it Europe's busiest airport.",
+     "difficulty": 2,
+     "as_of": "2023"
+   }
+   ```
+
+   `answer` is a plain number in `unit` (write `79200000`, never `79.2` with unit "million"). `difficulty` is 1 (easy) to 3 (hard). `as_of` is the year the figure refers to, or `"stable"`.
+
+2. Run `npm run build:bank`. It validates every entry, drops near-duplicates with a warning, keeps the order of questions that are already published (so past puzzles do not change) and appends the new ones.
+
+3. Run `npm run validate` and commit `data/bank/` together with `data/questions.json`.
+
+New categories go at the **end** of `CATEGORIES` in `scripts/build-bank.mjs`.
+
+## Deploying
+
+The repository includes a GitHub Pages workflow (`.github/workflows/pages.yml`). In the repository settings, set **Pages → Source** to **GitHub Actions**; every push to `main` then publishes the site.
+
+## Project layout
+
+```
+index.html              page shell and dialogs
+styles.css              theme tokens, layout, components
+src/logic.js            pure game rules: dates, scoring, parsing, selection, stats, share text
+src/calc.js             safe expression evaluator
+src/storage.js          localStorage wrapper
+src/main.js             UI controller
+data/bank/*.json        question sources, one file per category
+data/questions.json     merged bank served to the game (generated)
+scripts/                dev server, bank build and validation
+tests/                  unit tests (node --test) and the Playwright smoke test
+```
+
+## Credits
+
+Game design inspired by fermi.gg. Named after Enrico Fermi, patron saint of back-of-the-envelope estimates.

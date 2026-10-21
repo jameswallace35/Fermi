@@ -1,0 +1,4 @@
+node_modules/
+.e2e-shots/
+.DS_Store
+*.log

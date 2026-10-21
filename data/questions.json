@@ -1,0 +1,203 @@
+{
+ "version": 1,
+ "categories": [
+  {
+   "slug": "geography",
+   "name": "Geography & Earth"
+  },
+  {
+   "slug": "space",
+   "name": "Space & Astronomy"
+  },
+  {
+   "slug": "science",
+   "name": "Science & Physics"
+  },
+  {
+   "slug": "body",
+   "name": "Human Body & Health"
+  },
+  {
+   "slug": "animals",
+   "name": "Animals & Nature"
+  },
+  {
+   "slug": "history",
+   "name": "History"
+  },
+  {
+   "slug": "population",
+   "name": "People & Society"
+  }
+ ],
+ "questions": [
+  {
+   "id": "geography-sample0",
+   "category": "geography",
+   "question": "Sample question 1 for Geography & Earth: how many widgets are there?",
+   "answer": 100,
+   "unit": "widgets",
+   "explainer": "This is a placeholder explainer.",
+   "source_title": "Example",
+   "source_url": "https://example.com/",
+   "as_of": "2024",
+   "difficulty": 2
+  },
+  {
+   "id": "geography-sample1",
+   "category": "geography",
+   "question": "Sample question 2 for Geography & Earth: how many widgets are there?",
+   "answer": 1000,
+   "unit": "widgets",
+   "explainer": "This is a placeholder explainer.",
+   "source_title": "Example",
+   "source_url": "https://example.com/",
+   "as_of": "2024",
+   "difficulty": 2
+  },
+  {
+   "id": "space-sample0",
+   "category": "space",
+   "question": "Sample question 3 for Space & Astronomy: how many widgets are there?",
+   "answer": 10000,
+   "unit": "widgets",
+   "explainer": "This is a placeholder explainer.",
+   "source_title": "Example",
+   "source_url": "https://example.com/",
+   "as_of": "2024",
+   "difficulty": 2
+  },
+  {
+   "id": "space-sample1",
+   "category": "space",
+   "question": "Sample question 4 for Space & Astronomy: how many widgets are there?",
+   "answer": 100000,
+   "unit": "widgets",
+   "explainer": "This is a placeholder explainer.",
+   "source_title": "Example",
+   "source_url": "https://example.com/",
+   "as_of": "2024",
+   "difficulty": 2
+  },
+  {
+   "id": "science-sample0",
+   "category": "science",
+   "question": "Sample question 5 for Science & Physics: how many widgets are there?",
+   "answer": 1000000,
+   "unit": "widgets",
+   "explainer": "This is a placeholder explainer.",
+   "source_title": "Example",
+   "source_url": "https://example.com/",
+   "as_of": "2024",
+   "difficulty": 2
+  },
+  {
+   "id": "science-sample1",
+   "category": "science",
+   "question": "Sample question 6 for Science & Physics: how many widgets are there?",
+   "answer": 10000000,
+   "unit": "widgets",
+   "explainer": "This is a placeholder explainer.",
+   "source_title": "Example",
+   "source_url": "https://example.com/",
+   "as_of": "2024",
+   "difficulty": 2
+  },
+  {
+   "id": "body-sample0",
+   "category": "body",
+   "question": "Sample question 7 for Human Body & Health: how many widgets are there?",
+   "answer": 100000000,
+   "unit": "widgets",
+   "explainer": "This is a placeholder explainer.",
+   "source_title": "Example",
+   "source_url": "https://example.com/",
+   "as_of": "2024",
+   "difficulty": 2
+  },
+  {
+   "id": "body-sample1",
+   "category": "body",
+   "question": "Sample question 8 for Human Body & Health: how many widgets are there?",
+   "answer": 1000000000,
+   "unit": "widgets",
+   "explainer": "This is a placeholder explainer.",
+   "source_title": "Example",
+   "source_url": "https://example.com/",
+   "as_of": "2024",
+   "difficulty": 2
+  },
+  {
+   "id": "animals-sample0",
+   "category": "animals",
+   "question": "Sample question 9 for Animals & Nature: how many widgets are there?",
+   "answer": 10,
+   "unit": "widgets",
+   "explainer": "This is a placeholder explainer.",
+   "source_title": "Example",
+   "source_url": "https://example.com/",
+   "as_of": "2024",
+   "difficulty": 2
+  },
+  {
+   "id": "animals-sample1",
+   "category": "animals",
+   "question": "Sample question 10 for Animals & Nature: how many widgets are there?",
+   "answer": 100,
+   "unit": "widgets",
+   "explainer": "This is a placeholder explainer.",
+   "source_title": "Example",
+   "source_url": "https://example.com/",
+   "as_of": "2024",
+   "difficulty": 2
+  },
+  {
+   "id": "history-sample0",
+   "category": "history",
+   "question": "Sample question 11 for History: how many widgets are there?",
+   "answer": 1000,
+   "unit": "widgets",
+   "explainer": "This is a placeholder explainer.",
+   "source_title": "Example",
+   "source_url": "https://example.com/",
+   "as_of": "2024",
+   "difficulty": 2
+  },
+  {
+   "id": "history-sample1",
+   "category": "history",
+   "question": "Sample question 12 for History: how many widgets are there?",
+   "answer": 10000,
+   "unit": "widgets",
+   "explainer": "This is a placeholder explainer.",
+   "source_title": "Example",
+   "source_url": "https://example.com/",
+   "as_of": "2024",
+   "difficulty": 2
+  },
+  {
+   "id": "population-sample0",
+   "category": "population",
+   "question": "Sample question 13 for People & Society: how many widgets are there?",
+   "answer": 100000,
+   "unit": "widgets",
+   "explainer": "This is a placeholder explainer.",
+   "source_title": "Example",
+   "source_url": "https://example.com/",
+   "as_of": "2024",
+   "difficulty": 2
+  },
+  {
+   "id": "population-sample1",
+   "category": "population",
+   "question": "Sample question 14 for People & Society: how many widgets are there?",
+   "answer": 1000000,
+   "unit": "widgets",
+   "explainer": "This is a placeholder explainer.",
+   "source_title": "Example",
+   "source_url": "https://example.com/",
+   "as_of": "2024",
+   "difficulty": 2
+  }
+ ]
+}
