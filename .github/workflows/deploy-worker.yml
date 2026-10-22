@@ -3,7 +3,7 @@ name: Deploy accounts API
 # Deploys worker/ to Cloudflare Workers with a D1 database. Needs two
 # repository secrets (Settings -> Secrets and variables -> Actions):
 #   CLOUDFLARE_API_TOKEN   an API token with Workers Scripts: Edit and D1: Edit
-#   CLOUDFLARE_ACCOUNT_ID  the account id shown on the Workers overview page
+#   CLOUDFLARE_ACCOUNT_ID  the account id (optional when the token can see only one account)
 
 on:
   push:
@@ -23,35 +23,84 @@ jobs:
       CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
       CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
         with:
           node-version: 22
-      - name: Check the secrets are set
+      - name: Check the token and find the account
+        id: account
         run: |
-          if [ -z "$CLOUDFLARE_API_TOKEN" ] || [ -z "$CLOUDFLARE_ACCOUNT_ID" ]; then
-            echo "::error::Add CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID to this repository's Actions secrets."
+          if [ -z "$CLOUDFLARE_API_TOKEN" ]; then
+            echo "::error::Add CLOUDFLARE_API_TOKEN to this repository's Actions secrets (Settings -> Secrets and variables -> Actions)."
             exit 1
           fi
+          VERIFY=$(curl -sS -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" https://api.cloudflare.com/client/v4/user/tokens/verify)
+          if ! echo "$VERIFY" | node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>{const r=JSON.parse(s);process.exit(r.success&&r.result&&r.result.status==="active"?0:1)})'; then
+            echo "::error::Cloudflare did not accept CLOUDFLARE_API_TOKEN. Create a token from the 'Edit Cloudflare Workers' template (plus D1: Edit) and paste the token itself, not the curl command or the account id."
+            echo "$VERIFY" | head -c 600; echo
+            exit 1
+          fi
+          ACCOUNTS=$(curl -sS -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" "https://api.cloudflare.com/client/v4/accounts?per_page=50")
+          CHOSEN=$(echo "$ACCOUNTS" | WANT="$CLOUDFLARE_ACCOUNT_ID" node -e '
+            let s = ""; process.stdin.on("data", (d) => (s += d)).on("end", () => {
+              const r = JSON.parse(s);
+              const list = (r.result || []).map((a) => ({ id: a.id, name: a.name }));
+              const want = (process.env.WANT || "").trim();
+              if (want && list.some((a) => a.id === want)) { console.log(want); return; }
+              if (list.length === 1) {
+                console.error(want ? `CLOUDFLARE_ACCOUNT_ID (${want}) is not an account this token can see; using the token's only account instead: ${list[0].name} (${list[0].id})` : `Using the token's only account: ${list[0].name} (${list[0].id})`);
+                console.log(list[0].id); return;
+              }
+              console.error("Accounts this token can see:"); for (const a of list) console.error(`  ${a.name}: ${a.id}`);
+              console.error(want ? `CLOUDFLARE_ACCOUNT_ID (${want}) is not one of them.` : "Set CLOUDFLARE_ACCOUNT_ID to one of these ids.");
+              process.exit(1);
+            });')
+          if [ -z "$CHOSEN" ]; then
+            echo "::error::Could not determine the Cloudflare account. See the lines above and set the CLOUDFLARE_ACCOUNT_ID secret to the right id."
+            exit 1
+          fi
+          echo "Deploying to Cloudflare account $CHOSEN"
+          echo "id=$CHOSEN" >> "$GITHUB_OUTPUT"
       - name: Run the API tests
         run: npm test
       - name: Create the D1 database if it does not exist
         working-directory: worker
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ steps.account.outputs.id }}
         run: |
-          npx --yes wrangler@4 d1 create fermi >/dev/null 2>&1 || true
-          ID=$(npx --yes wrangler@4 d1 list --json | node -e '
+          set -o pipefail
+          npx --yes wrangler@4 d1 create fermi 2>&1 | tail -n 3 || true
+          if ! LIST=$(npx --yes wrangler@4 d1 list --json 2>&1); then
+            echo "$LIST" | tail -n 20
+            echo "::error::wrangler could not list D1 databases. The token probably lacks the D1: Edit permission."
+            exit 1
+          fi
+          ID=$(echo "$LIST" | node -e '
             let s = ""; process.stdin.on("data", (d) => (s += d)).on("end", () => {
-              const db = JSON.parse(s).find((d) => d.name === "fermi");
-              if (!db) { console.error("D1 database \"fermi\" not found"); process.exit(1); }
+              let list; try { list = JSON.parse(s); } catch { console.error("Unexpected output from wrangler d1 list:\n" + s); process.exit(1); }
+              const db = list.find((d) => d.name === "fermi");
+              if (!db) { console.error("D1 database \"fermi\" not found; creation may have failed:\n" + s); process.exit(1); }
               console.log(db.uuid);
             });')
           echo "Using D1 database $ID"
           sed -i "s/^database_id = \".*\"/database_id = \"$ID\"/" wrangler.toml
       - name: Apply database migrations
         working-directory: worker
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ steps.account.outputs.id }}
         run: npx --yes wrangler@4 d1 migrations apply fermi --remote
       - name: Deploy the Worker
         working-directory: worker
-        run: npx --yes wrangler@4 deploy
-      - name: Where it lives
-        run: echo "Deployed. Copy the https://fermi-api.<subdomain>.workers.dev URL printed by the deploy step into config.js (apiUrl)."
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ steps.account.outputs.id }}
+        run: npx --yes wrangler@4 deploy 2>&1 | tee deploy.log
+      - name: API address
+        working-directory: worker
+        run: |
+          URL=$(grep -oE 'https://[a-z0-9.-]+\.workers\.dev' deploy.log | head -n 1)
+          echo "api_url=$URL" >> "$GITHUB_OUTPUT"
+          echo "### Fermi accounts API deployed" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "URL: ${URL:-see the deploy step above}" >> "$GITHUB_STEP_SUMMARY"
+          echo "Put it into config.js as apiUrl." >> "$GITHUB_STEP_SUMMARY"
+          echo "Deployed to ${URL:-(see above)}"
