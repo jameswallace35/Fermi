@@ -1602,3 +1602,39 @@ button {
 .dot:not(:disabled) {
   cursor: pointer;
 }
+
+/* ----------------------------------------------- calculator side panels */
+
+/* On wide screens the calculator docks to the right of the game and the notes
+   to the left, as non-modal panels, so the guess box stays usable. */
+@media (min-width: 1240px) {
+  #dlg-calc.side {
+    position: fixed;
+    inset: auto;
+    top: 76px;
+    right: 24px;
+    width: 320px;
+    max-height: calc(100vh - 100px);
+    margin: 0;
+    z-index: 20;
+  }
+  #dlg-calc.side .notes {
+    position: fixed;
+    top: 76px;
+    left: 24px;
+    width: 320px;
+    max-height: calc(100vh - 100px);
+    overflow: auto;
+    margin: 0;
+    padding: 16px 20px;
+    border: 1px solid var(--border);
+    border-top: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--surface);
+    box-shadow: var(--shadow);
+    box-sizing: border-box;
+  }
+  #dlg-calc.side #calc-notes {
+    min-height: 320px;
+  }
+}

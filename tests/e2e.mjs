@@ -259,6 +259,9 @@ try {
     await page.click('#btn-calc');
     await page.waitForSelector('#dlg-calc[open]');
     assert.match(await page.textContent('#notes-for'), /puzzle No\. \d+/);
+    await page.fill('#calc-expr', '330M*1.5');
+    await page.keyboard.press('Enter');
+    assert.match(await page.inputValue('#calc-notes'), /330M\*1\.5 = 495,000,000/, 'pressing = records the calculation in the notes');
     await page.fill('#calc-notes', 'Q1: 330M people x 1.5 = 500M');
     await page.waitForFunction(() => document.querySelector('#notes-status').textContent === 'Saved');
     await page.keyboard.press('Escape');
@@ -549,13 +552,32 @@ try {
     assert.deepEqual(errors, []);
   });
 
-  await step('desktop layout renders', async () => {
+  await step('desktop layout docks the calculator and notes beside the game', async () => {
     const desk = await browser.newPage({ viewport: { width: 1280, height: 900 } });
     await desk.goto(url);
     await desk.waitForSelector('#dlg-help[open]');
     await desk.click('#dlg-help .dialog-foot button');
     await desk.waitForSelector('#guess');
+    await desk.waitForSelector('#dlg-calc.side[open]');
+    const calcBox = await desk.locator('#dlg-calc').boundingBox();
+    const notesBox = await desk.locator('#dlg-calc .notes').boundingBox();
+    const cardBox = await desk.locator('#question-card').boundingBox();
+    assert.ok(calcBox.x > cardBox.x + cardBox.width, 'calculator sits to the right of the game');
+    assert.ok(notesBox.x + notesBox.width < cardBox.x, 'notes sit to the left of the game');
+    // the guess box stays usable while the panels are open
+    await desk.fill('#guess', '42');
+    assert.equal(await desk.inputValue('#guess'), '42');
+    await desk.fill('#calc-expr', '6*7');
+    await desk.click('#calc-use');
+    assert.equal(await desk.inputValue('#guess'), '42');
+    assert.ok(await desk.locator('#dlg-calc[open]').isVisible(), 'using a result keeps the docked panel open');
+    assert.match(await desk.inputValue('#calc-notes'), /6\*7 = 42/);
     await desk.screenshot({ path: path.join(shots, '09-desktop.png') });
+    await desk.click('#dlg-calc .dialog-head button');
+    await desk.waitForSelector('#dlg-calc', { state: 'hidden' });
+    await desk.reload();
+    await desk.waitForSelector('#guess');
+    assert.ok(await desk.locator('#dlg-calc').isHidden(), 'closing the panels is remembered');
     await desk.close();
   });
 } finally {

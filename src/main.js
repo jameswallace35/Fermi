@@ -244,6 +244,7 @@ function formatClock(ms) {
 // ----------------------------------------------------------------- loading
 
 function load(n) {
+  if (notesSaveTimer) saveNotesNow();
   puzzleNumber = n;
   state = S.loadPuzzleState(n);
   const resolved = resolveQuestions(n, state);
@@ -259,6 +260,7 @@ function load(n) {
   if (state.guesses.length > questions.length) state.guesses = state.guesses.slice(0, questions.length);
   view = complete() ? { kind: 'summary' } : { kind: 'play', index: Math.max(0, L.firstUnanswered(state, questions.length)) };
   render();
+  refreshNotesBox();
 }
 
 /** Puzzle number from a "#12" hash, clamped to [1, today]; null when the hash is not a puzzle link. */
@@ -294,6 +296,7 @@ function renderModeTabs() {
 /** Switch between the daily puzzle and the unlimited or timed games. */
 function setMode(next, { silent = false } = {}) {
   if (next === mode) return;
+  if (notesSaveTimer) saveNotesNow();
   if (arena && arena.mode === 'timed') endRun({ quiet: true }); // a run that is cut short still counts locally
   mode = next;
   arena = null;
@@ -305,6 +308,7 @@ function setMode(next, { silent = false } = {}) {
   if (mode === 'daily') {
     els.progress.hidden = false;
     if (state) render({ focus: true });
+    refreshNotesBox();
     return;
   }
   els.progress.hidden = true;
@@ -312,6 +316,7 @@ function setMode(next, { silent = false } = {}) {
   els.card.hidden = false;
   arena = mode === 'unlimited' ? newArena('unlimited', 'ask') : newArena('timed', 'idle');
   renderArena({ focus: true });
+  refreshNotesBox();
 }
 
 function newArena(m, status) {
@@ -362,6 +367,7 @@ function arenaStatsHtml() {
 
 function renderArena({ focus = false } = {}) {
   els.meta.innerHTML = `<span class="arena-stats">${arenaStatsHtml()}</span>`;
+  queueMicrotask(syncCalcUse);
   if (arena.status === 'idle') {
     const best = S.loadModeStats('timed').best;
     els.card.innerHTML = `
@@ -502,6 +508,7 @@ function render({ focus = false } = {}) {
   if (view.kind === 'play') renderQuestion(view.index);
   else if (view.kind === 'result') renderResult(view.index);
   else renderSummary();
+  syncCalcUse();
   if (!focus) return;
   // Keep keyboard and screen-reader users oriented after a view change.
   const target = view.kind === 'play' ? $('#guess') : view.kind === 'result' ? $('#continue') : els.summary;
@@ -1532,15 +1539,63 @@ function saveNotesNow() {
   els.notesStatus.textContent = 'Saved';
 }
 
-function openCalculator({ notes = false } = {}) {
+/** Wide screens dock the calculator and notes beside the game instead of a pop-up. */
+function sidePanels() {
+  return !!(window.matchMedia && window.matchMedia('(min-width: 1240px)').matches);
+}
+
+let relayoutingCalc = false;
+
+function openCalculator({ notes = false, focus = true } = {}) {
+  refreshNotesBox();
+  els.notesStatus.innerHTML = '&nbsp;';
+  if (sidePanels()) {
+    els.calc.classList.add('side');
+    if (!els.calc.open) els.calc.show();
+    S.savePrefs({ ...S.loadPrefs(), sidePanels: true });
+  } else {
+    els.calc.classList.remove('side');
+    if (!els.calc.open) openDialog(els.calc);
+  }
+  syncCalcUse();
+  if (!focus) return;
+  if (notes) els.calcNotes.focus();
+  else els.calcExpr.focus();
+}
+
+/** Put the current puzzle's (or mode's) notes into the box; harmless when the calculator is closed. */
+function refreshNotesBox() {
   const target = notesTarget();
   els.calcNotes.value = target.get();
   els.notesFor.textContent = target.label;
-  els.notesStatus.innerHTML = '&nbsp;';
-  openDialog(els.calc);
+}
+
+function syncCalcUse() {
   els.calcUse.disabled = !$('#guess');
-  if (notes) els.calcNotes.focus();
-  else els.calcExpr.focus();
+}
+
+/** Every calculation is kept as a line of the notes, so the working is saved with the puzzle. */
+function recordCalculation(expr, value) {
+  const text = String(expr).trim();
+  if (!text || !Number.isFinite(value)) return;
+  const line = `${text} = ${L.formatNumber(value)}`;
+  const current = els.calcNotes.value;
+  const lines = current.split('\n');
+  if (lines[lines.length - 1].trim() === line) return;
+  if (/^[\d.,]+$/.test(text)) return; // a bare number is not a calculation worth keeping
+  els.calcNotes.value = (current.trim() ? current.replace(/\s+$/, '') + '\n' : '') + line;
+  saveNotesNow();
+}
+
+/** Re-open the calculator in the layout that fits the window after a resize across the breakpoint. */
+function relayoutCalculator() {
+  if (!els.calc.open) return;
+  const wantSide = sidePanels();
+  if (wantSide === els.calc.classList.contains('side')) return;
+  relayoutingCalc = true;
+  els.calc.close();
+  relayoutingCalc = false;
+  openCalculator({ focus: false });
 }
 
 function setupCalculator() {
@@ -1579,9 +1634,10 @@ function setupCalculator() {
       toast('No question is waiting for a guess');
       return;
     }
+    recordCalculation(els.calcExpr.value, lastCalcValue);
     guess.value = plainNumber(lastCalcValue);
     guess.dispatchEvent(new Event('input', { bubbles: true }));
-    els.calc.close();
+    if (!els.calc.classList.contains('side')) els.calc.close();
     guess.focus();
   });
   els.calcNotes.addEventListener('input', () => {
@@ -1591,11 +1647,15 @@ function setupCalculator() {
   });
   els.calc.addEventListener('close', () => {
     if (notesSaveTimer) saveNotesNow();
+    // Closing the docked panels with X keeps them closed on later visits.
+    if (!relayoutingCalc && els.calc.classList.contains('side')) S.savePrefs({ ...S.loadPrefs(), sidePanels: false });
   });
+  window.addEventListener('resize', relayoutCalculator);
 }
 
 function calcEquals() {
   if (!Number.isFinite(lastCalcValue)) return;
+  recordCalculation(els.calcExpr.value, lastCalcValue);
   els.calcExpr.value = plainNumber(lastCalcValue);
   els.calcExpr.focus();
   updateCalc();
@@ -1714,7 +1774,7 @@ async function init() {
   // Close dialogs when the backdrop is clicked.
   for (const dlg of [els.help, els.calc, els.stats, els.archive, els.board]) {
     dlg.addEventListener('click', (e) => {
-      if (e.target === dlg) dlg.close();
+      if (e.target === dlg && !dlg.classList.contains('side')) dlg.close();
     });
   }
 
@@ -1733,6 +1793,7 @@ async function init() {
   load(puzzleFromHash() ?? todayNumber);
   const startMode = modeFromHash();
   if (startMode) setMode(startMode, { silent: true });
+  if (sidePanels() && S.loadPrefs().sidePanels !== false) openCalculator({ focus: false });
   startSync();
   setInterval(tick, 1000);
   document.addEventListener('visibilitychange', () => {
