@@ -60,7 +60,7 @@ jobs:
               const want = (process.env.WANT || "").trim();
               if (want && list.some((a) => a.id === want)) { console.log(want); return; }
               if (list.length === 1) {
-                console.error(want ? `CLOUDFLARE_ACCOUNT_ID (${want}) is not an account this token can see; using the token's only account instead: ${list[0].name} (${list[0].id})` : `Using the token's only account: ${list[0].name} (${list[0].id})`);
+                console.error(want ? `CLOUDFLARE_ACCOUNT_ID (${want}) is not an account this token can see; using the only account the token can see instead: ${list[0].name} (${list[0].id})` : `Using the only account the token can see: ${list[0].name} (${list[0].id})`);
                 console.log(list[0].id); return;
               }
               console.error("Accounts this token can see:"); for (const a of list) console.error(`  ${a.name}: ${a.id}`);
