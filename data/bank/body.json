@@ -1,14 +1,14 @@
 [
   {
-    "id": "body-11s2lyd",
-    "question": "How many people worldwide were living with HIV at the end of 2023?",
-    "answer": 39900000,
-    "unit": "people",
-    "explainer": "About 1.3 million people were newly infected and 630,000 died of AIDS-related illnesses that year, while roughly 77% of people with HIV were on treatment.",
-    "source_title": "Global HIV & AIDS statistics — Fact sheet (UNAIDS)",
-    "source_url": "https://www.unaids.org/en/resources/fact-sheet",
-    "as_of": "2023",
-    "difficulty": 2,
+    "id": "body-cy6h41",
+    "question": "How many litres of blood does your heart pump in a day?",
+    "answer": 7200,
+    "unit": "litres",
+    "explainer": "The heart pumps about 5 litres a minute at rest, which is 300 litres an hour and about 7,200 litres a day.",
+    "source_title": "Cardiac output (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Cardiac_output",
+    "as_of": "stable",
+    "difficulty": 1,
     "retired": true
   },
   {
@@ -100,17 +100,6 @@
     "as_of": "stable"
   },
   {
-    "id": "body-cy6h41",
-    "question": "How many litres of blood does your heart pump in a day?",
-    "answer": 7200,
-    "unit": "litres",
-    "source_title": "Cardiac output (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Cardiac_output",
-    "explainer": "The heart pumps about 5 litres a minute at rest, which is 300 litres an hour and about 7,200 litres a day.",
-    "difficulty": 1,
-    "as_of": "stable"
-  },
-  {
     "id": "body-2w0hdm",
     "question": "How many bananas would you have to eat to get a whole year's worth of calories?",
     "answer": 7000,
@@ -184,6 +173,72 @@
     "source_title": "Meal (Wikipedia)",
     "source_url": "https://en.wikipedia.org/wiki/Meal",
     "explainer": "About an hour and a half a day at the table, times 365 days, times 80 years, is about 44,000 hours: five solid years of eating.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "body-1etzws0",
+    "question": "How many litres of air do you breathe in a day?",
+    "answer": 12000,
+    "unit": "litres",
+    "source_title": "Tidal volume (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Tidal_volume",
+    "explainer": "Each resting breath is about half a litre, 16 times a minute: 8 litres a minute, about 12,000 litres a day.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "body-5j0yr2",
+    "question": "How many bathtubs would a person's lifetime of urine fill?",
+    "answer": 146,
+    "unit": "bathtubs",
+    "source_title": "Urine (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Urine",
+    "explainer": "Adults pass about 1.5 litres a day. Over 80 years that is 43,800 litres, which fills about 150 bathtubs of 300 litres.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "body-2xv19p",
+    "question": "How many meals does a person eat in an 80-year life, at three a day?",
+    "answer": 88000,
+    "unit": "meals",
+    "source_title": "Meal (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Meal",
+    "explainer": "Three meals a day for 80 years is 3 × 365 × 80, about 88,000 meals.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "body-1aj750n",
+    "question": "How many 250 ml glasses of water does a person drink in an 80-year life, at two litres a day?",
+    "answer": 230000,
+    "unit": "glasses",
+    "source_title": "Drinking water (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Drinking_water",
+    "explainer": "Two litres a day is eight glasses. Over 80 years that is about 230,000 glasses.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "body-15gemh7",
+    "question": "How many times does a resting heart beat during a 90-minute football match?",
+    "answer": 6300,
+    "unit": "beats",
+    "source_title": "Heart rate (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Heart_rate",
+    "explainer": "At 70 beats a minute, 90 minutes is 6,300 beats, before the penalties start.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "body-3ygbgl",
+    "question": "How many times does a person blink in an 80-year life?",
+    "answer": 420000000,
+    "unit": "blinks",
+    "source_title": "Blinking (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Blinking",
+    "explainer": "About 15 blinks a minute for 16 waking hours is 14,400 a day. Over 80 years that is about 420 million blinks.",
     "difficulty": 1,
     "as_of": "stable"
   }

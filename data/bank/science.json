@@ -1,14 +1,14 @@
 [
   {
-    "id": "science-r9it1j",
-    "question": "How many tonnes of gold have been mined in all of human history, as of the end of 2025?",
-    "answer": 220000,
-    "unit": "tonnes",
-    "explainer": "Roughly 220,000 tonnes of gold have ever been mined, which would form a cube only about 22 metres on each side, and about two-thirds of it was dug up after 1950.",
-    "source_title": "How much gold has been mined? - World Gold Council",
-    "source_url": "https://www.gold.org/goldhub/data/how-much-gold",
-    "as_of": "2025",
-    "difficulty": 2,
+    "id": "science-1ijc40k",
+    "question": "How many drops of water are in an Olympic swimming pool?",
+    "answer": 50000000000,
+    "unit": "drops",
+    "explainer": "An Olympic pool holds 2.5 million litres, which is 2.5 billion millilitres. A drop is about 0.05 ml, so about 50 billion drops.",
+    "source_title": "Olympic-size swimming pool (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Olympic-size_swimming_pool",
+    "as_of": "stable",
+    "difficulty": 1,
     "retired": true
   },
   {
@@ -42,17 +42,6 @@
     "source_url": "https://en.wikipedia.org/wiki/Lunar_distance",
     "explainer": "Each fold doubles the thickness. Starting from 0.1 mm, after 42 folds the stack is 0.0001 m × 2⁴² = 440,000 km, past the Moon's 384,400 km.",
     "difficulty": 2,
-    "as_of": "stable"
-  },
-  {
-    "id": "science-1ijc40k",
-    "question": "How many drops of water are in an Olympic swimming pool?",
-    "answer": 50000000000,
-    "unit": "drops",
-    "source_title": "Olympic-size swimming pool (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Olympic-size_swimming_pool",
-    "explainer": "An Olympic pool holds 2.5 million litres, which is 2.5 billion millilitres. A drop is about 0.05 ml, so about 50 billion drops.",
-    "difficulty": 1,
     "as_of": "stable"
   },
   {
@@ -196,6 +185,83 @@
     "source_url": "https://en.wikipedia.org/wiki/Paper_size",
     "explainer": "A sheet of 80 gsm A4 paper weighs 5 g. An elephant of 6 tonnes is 6 million grams, so 1.2 million sheets.",
     "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "science-pqhjoc",
+    "question": "How many standard 1.6 cm dice would fit inside a one-metre cube?",
+    "answer": 240000,
+    "unit": "dice",
+    "source_title": "Dice (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Dice",
+    "explainer": "A die is 1.6 cm on a side, so 62.5 dice fit along each metre. 62.5 cubed is about 240,000 dice.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "science-ouaz87",
+    "question": "How many human hairs thick is a credit card?",
+    "answer": 10.9,
+    "unit": "hairs",
+    "source_title": "ISO/IEC 7810 (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/ISO/IEC_7810",
+    "explainer": "A credit card is 0.76 mm thick and a hair about 0.07 mm, so a card is about 11 hairs thick.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "science-15m2sdv",
+    "question": "How many grains of rice would weigh the same as a family car?",
+    "answer": 60000000,
+    "unit": "grains",
+    "source_title": "Rice (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Rice",
+    "explainer": "A car weighs about 1,500 kg and a grain of rice about 25 mg (0.000025 kg), so about 60 million grains.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "science-14qw9nc",
+    "question": "How many drops of water does it take to fill a 2-litre bottle?",
+    "answer": 40000,
+    "unit": "drops",
+    "source_title": "Drop (liquid) (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Drop_(liquid)",
+    "explainer": "Two litres is 2,000 ml and a drop is about 0.05 ml, so about 40,000 drops.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "science-145x6il",
+    "question": "How many sheets of A4 paper, laid flat, would it take to carpet a football pitch?",
+    "answer": 110000,
+    "unit": "sheets",
+    "source_title": "Paper size (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Paper_size",
+    "explainer": "A4 is 21 cm by 29.7 cm, 0.0624 m². A pitch is about 7,140 m², so about 110,000 sheets.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "science-ou130u",
+    "question": "How many one-litre bottles of water would it take to fill an Olympic swimming pool?",
+    "answer": 2500000,
+    "unit": "bottles",
+    "source_title": "Olympic-size swimming pool (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Olympic-size_swimming_pool",
+    "explainer": "An Olympic pool holds 2,500 m³, and each cubic metre is 1,000 litres: 2.5 million bottles.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "science-17pic8p",
+    "question": "How many ping-pong balls would fit in a bathtub?",
+    "answer": 5700,
+    "unit": "balls",
+    "source_title": "Table tennis (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Table_tennis",
+    "explainer": "A bath holds about 300 litres (0.3 m³). A 4 cm ping-pong ball is 33.5 ml, and balls pack to about 64% of the space, so about 5,700 balls.",
+    "difficulty": 2,
     "as_of": "stable"
   }
 ]

@@ -1,14 +1,14 @@
 [
   {
-    "id": "history-1nc070y",
-    "question": "How many years ago did Ötzi the Iceman, found frozen in the Alps in 1991, die?",
-    "answer": 5300,
+    "id": "history-18tnmhg",
+    "question": "If a medieval monk copied one page a day, how many years would it take to copy the whole Bible by hand?",
+    "answer": 3.3,
     "unit": "years",
-    "explainer": "Ötzi lived between about 3350 and 3105 BC, roughly 5,300 years ago, centuries before the Great Pyramid or Stonehenge's sarsen circle. He still had an arrowhead in his shoulder.",
-    "source_title": "Ötzi - Wikipedia",
-    "source_url": "https://en.wikipedia.org/wiki/%C3%96tzi",
+    "explainer": "A full Bible runs to about 1,200 printed pages. One page a day, every day, is about 3.3 years for a single copy.",
+    "source_title": "Bible (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Bible",
     "as_of": "stable",
-    "difficulty": 2,
+    "difficulty": 1,
     "retired": true
   },
   {
@@ -100,17 +100,6 @@
     "as_of": "stable"
   },
   {
-    "id": "history-18tnmhg",
-    "question": "If a medieval monk copied one page a day, how many years would it take to copy the whole Bible by hand?",
-    "answer": 3.3,
-    "unit": "years",
-    "source_title": "Bible (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Bible",
-    "explainer": "A full Bible runs to about 1,200 printed pages. One page a day, every day, is about 3.3 years for a single copy.",
-    "difficulty": 1,
-    "as_of": "stable"
-  },
-  {
     "id": "history-30prkx",
     "question": "Counting out loud at one person a second, how many years would it take to count everyone who has ever lived?",
     "answer": 3700,
@@ -173,6 +162,83 @@
     "source_title": "Louisiana Purchase (Wikipedia)",
     "source_url": "https://en.wikipedia.org/wiki/Louisiana_Purchase",
     "explainer": "In 1803 the US paid $15 million for the Louisiana territory. At $1,000 a day that is 15,000 days, about 41 years.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "history-1p7x00y",
+    "question": "How many 75-year lifetimes have passed since Rome was founded in 753 BC?",
+    "answer": 37.1,
+    "unit": "lifetimes",
+    "source_title": "Founding of Rome (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Founding_of_Rome",
+    "explainer": "From 753 BC to 2026 is 2,779 years. Divided by 75, that is about 37 lifetimes end to end.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "history-1fg590u",
+    "question": "How many 25-year generations separate you from the first modern humans to leave Africa, about 60,000 years ago?",
+    "answer": 2400,
+    "unit": "generations",
+    "source_title": "Early human migrations (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Early_human_migrations",
+    "explainer": "60,000 years divided by 25 years a generation is about 2,400 generations of parents and children.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "history-192ehp6",
+    "question": "If the Great Pyramid's stone blocks were laid in a single line, how many kilometres would it stretch?",
+    "answer": 3000,
+    "unit": "km",
+    "source_title": "Great Pyramid of Giza (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Great_Pyramid_of_Giza",
+    "explainer": "The pyramid has about 2.3 million blocks averaging about 1.3 m across. In a line that is 3 million metres, about 3,000 km: Cairo to London.",
+    "difficulty": 2,
+    "as_of": "stable"
+  },
+  {
+    "id": "history-1turj4h",
+    "question": "Building one kilometre a week, how many years would it take to build every section of the Great Wall of China?",
+    "answer": 406,
+    "unit": "years",
+    "source_title": "Great Wall of China (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Great_Wall_of_China",
+    "explainer": "There are 21,196 km of wall and 52 weeks in a year, so about 410 years at a kilometre a week.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "history-1ime1p8",
+    "question": "If you spent one minute in every year since the Great Pyramid was built, how many days would that take?",
+    "answer": 3.2,
+    "unit": "days",
+    "source_title": "Great Pyramid of Giza (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Great_Pyramid_of_Giza",
+    "explainer": "The pyramid is about 4,570 years old. 4,570 minutes is 76 hours, about 3.2 days.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "history-fmgw55",
+    "question": "How many Londons of the year 1600 would fit into today's London, by population?",
+    "answer": 44.5,
+    "unit": "Londons",
+    "source_title": "Demography of London (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Demography_of_London",
+    "explainer": "London had about 200,000 people in 1600 and about 8.9 million today, so today's city is about 45 Shakespeare-era Londons.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "history-177oi7i",
+    "question": "How many 75-year lifetimes have passed since Leonardo painted the Mona Lisa in 1503?",
+    "answer": 7,
+    "unit": "lifetimes",
+    "source_title": "Mona Lisa (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Mona_Lisa",
+    "explainer": "From 1503 to 2026 is 523 years, which is about seven lifetimes laid end to end.",
     "difficulty": 1,
     "as_of": "stable"
   }

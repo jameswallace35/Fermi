@@ -1,14 +1,14 @@
 [
   {
-    "id": "population-c04grp",
-    "question": "How many international migrants (people living outside the country they were born in) were there worldwide in 2024?",
-    "answer": 304000000,
-    "unit": "people",
-    "explainer": "Migrants are about 3.7% of humanity; if they formed one country it would be the fourth most populous on Earth.",
-    "source_title": "UN DESA – International Migrant Stock 2024",
-    "source_url": "https://www.un.org/development/desa/pd/content/international-migrant-stock",
+    "id": "population-b1h0wt",
+    "question": "How many times more people are alive today than in the year AD 1?",
+    "answer": 27,
+    "unit": "times",
+    "explainer": "Estimates put the world's population in AD 1 at about 300 million. Today's 8.1 billion is about 27 times more.",
+    "source_title": "Estimates of historical world population (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Estimates_of_historical_world_population",
     "as_of": "2024",
-    "difficulty": 2,
+    "difficulty": 1,
     "retired": true
   },
   {
@@ -133,17 +133,6 @@
     "as_of": "2024"
   },
   {
-    "id": "population-b1h0wt",
-    "question": "How many times more people are alive today than in the year AD 1?",
-    "answer": 27,
-    "unit": "times",
-    "source_title": "Estimates of historical world population (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Estimates_of_historical_world_population",
-    "explainer": "Estimates put the world's population in AD 1 at about 300 million. Today's 8.1 billion is about 27 times more.",
-    "difficulty": 1,
-    "as_of": "2024"
-  },
-  {
     "id": "population-fp1uuj",
     "question": "If every person on Earth chipped in one dollar, how many brand-new Boeing 747s could you buy?",
     "answer": 20.3,
@@ -163,6 +152,83 @@
     "source_url": "https://ourworldindata.org/births-and-deaths",
     "explainer": "About 360,000 babies are born a day while a resting heart beats about 100,800 times, so roughly 3.6 babies per heartbeat.",
     "difficulty": 2,
+    "as_of": "2023"
+  },
+  {
+    "id": "population-11kfb8e",
+    "question": "How many people are alive today for every person who lived in the Roman Empire at its peak?",
+    "answer": 135,
+    "unit": "people",
+    "source_title": "Demography of the Roman Empire (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Demography_of_the_Roman_Empire",
+    "explainer": "The Roman Empire peaked at roughly 60 million people. Today's 8.1 billion is about 140 times that.",
+    "difficulty": 1,
+    "as_of": "2024"
+  },
+  {
+    "id": "population-hfdboo",
+    "question": "How many people could stand on the island of Manhattan at four to a square metre?",
+    "answer": 240000000,
+    "unit": "people",
+    "source_title": "Manhattan (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Manhattan",
+    "explainer": "Manhattan is 59.1 km², or 59.1 million m². At four per square metre that is about 240 million people, more than live in Brazil.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "population-1axf1og",
+    "question": "If everyone on Earth walked past you in single file, one metre apart at 5 km/h, how many years would the parade last?",
+    "answer": 185,
+    "unit": "years",
+    "source_title": "World population (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/World_population",
+    "explainer": "8.1 billion people one metre apart is an 8.1-million-km line. At 5 km/h it takes 1.6 million hours to pass, about 180 years.",
+    "difficulty": 2,
+    "as_of": "2024"
+  },
+  {
+    "id": "population-108m3q2",
+    "question": "If everyone in China held hands in one line, how many times would it wrap around the equator?",
+    "answer": 52.8,
+    "unit": "times",
+    "source_title": "Demographics of China (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Demographics_of_China",
+    "explainer": "1.41 billion people at 1.5 m each is 2.1 million km. The equator is 40,075 km, so about 53 times around.",
+    "difficulty": 1,
+    "as_of": "2024"
+  },
+  {
+    "id": "population-epn2ko",
+    "question": "How many people are there on Earth for every Starbucks store?",
+    "answer": 200000,
+    "unit": "people",
+    "source_title": "Starbucks (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Starbucks",
+    "explainer": "Starbucks had 40,199 stores at the end of 2024 and the world has 8.1 billion people, about 200,000 people per store.",
+    "difficulty": 1,
+    "as_of": "2024"
+  },
+  {
+    "id": "population-mncqlp",
+    "question": "If everyone on Earth were a 4 cm LEGO minifigure lying head to toe, how many kilometres long would the line be?",
+    "answer": 320000,
+    "unit": "km",
+    "source_title": "World population (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/World_population",
+    "explainer": "8.1 billion minifigures at 4 cm each is 324 million metres, about 320,000 km: most of the way to the Moon.",
+    "difficulty": 1,
+    "as_of": "2024"
+  },
+  {
+    "id": "population-191ztpc",
+    "question": "How many babies are born around the world during a two-hour film?",
+    "answer": 30000,
+    "unit": "babies",
+    "source_title": "Births and deaths (Our World in Data)",
+    "source_url": "https://ourworldindata.org/births-and-deaths",
+    "explainer": "About 250 babies are born every minute, so a 120-minute film sees about 30,000 new arrivals.",
+    "difficulty": 1,
     "as_of": "2023"
   }
 ]

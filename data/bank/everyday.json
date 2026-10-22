@@ -1,14 +1,14 @@
 [
   {
-    "id": "everyday-9omv74",
-    "question": "How many different items does the average US supermarket carry, as of 2023?",
-    "answer": 31704,
-    "unit": "items",
-    "explainer": "The average store stocks almost 32,000 distinct products, yet a typical weekly shop touches only a few dozen of them.",
-    "source_title": "FMI - The Food Industry Association: Supermarket Facts",
-    "source_url": "https://www.fmi.org/our-research/supermarket-facts",
-    "as_of": "2023",
-    "difficulty": 2,
+    "id": "everyday-1an44e7",
+    "question": "At four minutes a day, how many full days of an 80-year life are spent brushing teeth?",
+    "answer": 81.2,
+    "unit": "days",
+    "explainer": "Four minutes a day for 80 years is 116,880 minutes. Divided by 1,440 minutes in a day that is about 81 days of brushing.",
+    "source_title": "Toothbrush (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Toothbrush",
+    "as_of": "stable",
+    "difficulty": 1,
     "retired": true
   },
   {
@@ -42,17 +42,6 @@
     "source_url": "https://en.wikipedia.org/wiki/Toilet_paper",
     "explainer": "Americans use about 140 rolls a year, each around 30 m long. Over 80 years that is 336,000 m, about 340 km: London to Manchester.",
     "difficulty": 2,
-    "as_of": "stable"
-  },
-  {
-    "id": "everyday-1an44e7",
-    "question": "At four minutes a day, how many full days of an 80-year life are spent brushing teeth?",
-    "answer": 81.2,
-    "unit": "days",
-    "source_title": "Toothbrush (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Toothbrush",
-    "explainer": "Four minutes a day for 80 years is 116,880 minutes. Divided by 1,440 minutes in a day that is about 81 days of brushing.",
-    "difficulty": 1,
     "as_of": "stable"
   },
   {
@@ -175,5 +164,115 @@
     "explainer": "Five hours a day is 5/24 of each day. Over 80 years that is about 17 years of scrolling.",
     "difficulty": 1,
     "as_of": "2024"
+  },
+  {
+    "id": "everyday-gey4jp",
+    "question": "How many times would a lifetime of walking climb the Empire State Building's 1,576 steps?",
+    "answer": 130000,
+    "unit": "climbs",
+    "source_title": "Empire State Building Run-Up (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Empire_State_Building_Run-Up",
+    "explainer": "7,000 steps a day for 80 years is about 204 million steps. Divided by 1,576 steps that is about 130,000 trips to the observation deck.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "everyday-zkh5md",
+    "question": "How many litres of water run down the drain if you leave the tap on while brushing your teeth for two minutes?",
+    "answer": 12,
+    "unit": "litres",
+    "source_title": "Tap (valve) (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Tap_(valve)",
+    "explainer": "A bathroom tap runs at about 6 litres a minute, so two minutes wastes about 12 litres: a bucketful.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "everyday-ehaw73",
+    "question": "How many times does a person wash their hands in an 80-year life, at eight times a day?",
+    "answer": 230000,
+    "unit": "washes",
+    "source_title": "Hand washing (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Hand_washing",
+    "explainer": "Eight washes a day for 80 years is 8 × 365 × 80, about 230,000 hand washes.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "everyday-1bcacc5",
+    "question": "How many BIC Cristal pens would it take to draw a line all the way around the equator?",
+    "answer": 13000,
+    "unit": "pens",
+    "source_title": "Bic Cristal (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Bic_Cristal",
+    "explainer": "One BIC Cristal writes about 3 km of line and the equator is 40,075 km, so about 13,000 pens.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "everyday-1374pwi",
+    "question": "How many full days a year does an eight-minute daily shower add up to?",
+    "answer": 2,
+    "unit": "days",
+    "source_title": "Shower (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Shower",
+    "explainer": "Eight minutes a day is 2,922 minutes a year, about 49 hours: two full days under the water.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "everyday-1aeb07",
+    "question": "How many paper clips laid end to end would it take to span the length of a football pitch?",
+    "answer": 3300,
+    "unit": "paper clips",
+    "source_title": "Paper clip (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Paper_clip",
+    "explainer": "A standard paper clip is about 3.2 cm long and a pitch is 105 m, so about 3,300 paper clips.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "everyday-sc7s2i",
+    "question": "How many pencils laid end to end would it take to reach the height of Mount Everest?",
+    "answer": 47000,
+    "unit": "pencils",
+    "source_title": "Pencil (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Pencil",
+    "explainer": "A new pencil is about 19 cm long and Everest is 8,849 m tall, so about 47,000 pencils.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "everyday-iec8xp",
+    "question": "How many LEGO pieces are moulded every minute, worldwide?",
+    "answer": 38000,
+    "unit": "pieces",
+    "source_title": "5 things you should know about how LEGO is made (SBS)",
+    "source_url": "https://www.sbs.com.au/whats-on/article/5-things-you-should-know-about-how-lego-is-made/7vszv7v3e",
+    "explainer": "LEGO makes about 20 billion pieces a year. A year has 525,960 minutes, so about 38,000 pieces every minute.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "everyday-hm2yz9",
+    "question": "How many Hot Wheels cars roll off the production line every second?",
+    "answer": 16.4,
+    "unit": "cars",
+    "source_title": "Hot Wheels turns 50 (Car and Driver via Yahoo)",
+    "source_url": "https://autos.yahoo.com/hot-wheels-turns-50-design-140200129.html",
+    "explainer": "Mattel makes about 519 million Hot Wheels a year. Divided by 31.6 million seconds, that is about 16 cars a second.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "everyday-18ft76m",
+    "question": "How many LEGO bricks laid flat side by side would it take to carpet a tennis court?",
+    "answer": 510000,
+    "unit": "bricks",
+    "source_title": "Lego (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Lego",
+    "explainer": "A 2x4 brick is 3.2 cm by 1.6 cm, 5.12 cm². A tennis court is 261 m², or 2.61 million cm², so about 510,000 bricks.",
+    "difficulty": 1,
+    "as_of": "stable"
   }
 ]

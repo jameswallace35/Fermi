@@ -1,14 +1,14 @@
 [
   {
-    "id": "culture-68uftd",
-    "question": "How many copies of the Harry Potter books had been sold worldwide as of 2023?",
-    "answer": 600000000,
-    "unit": "copies",
-    "explainer": "More than 600 million Harry Potter books have been sold in over 80 languages, the best-selling book series ever: enough for one copy for every 13 people alive.",
-    "source_title": "Harry Potter - Wikipedia",
-    "source_url": "https://en.wikipedia.org/wiki/Harry_Potter",
-    "as_of": "2023",
-    "difficulty": 2,
+    "id": "culture-1f097ae",
+    "question": "How many days would it take to watch all 236 episodes of Friends back to back?",
+    "answer": 3.6,
+    "unit": "days",
+    "explainer": "236 episodes of about 22 minutes is 5,192 minutes, 87 hours: about three and a half days.",
+    "source_title": "List of Friends episodes (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/List_of_Friends_episodes",
+    "as_of": "stable",
+    "difficulty": 1,
     "retired": true
   },
   {
@@ -76,17 +76,6 @@
     "explainer": "The Pokémon Company had shipped 64.8 billion cards by March 2024. With 8.1 billion people, that is eight cards each.",
     "difficulty": 1,
     "as_of": "2024"
-  },
-  {
-    "id": "culture-1f097ae",
-    "question": "How many days would it take to watch all 236 episodes of Friends back to back?",
-    "answer": 3.6,
-    "unit": "days",
-    "source_title": "List of Friends episodes (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/List_of_Friends_episodes",
-    "explainer": "236 episodes of about 22 minutes is 5,192 minutes, 87 hours: about three and a half days.",
-    "difficulty": 1,
-    "as_of": "stable"
   },
   {
     "id": "culture-16tqzyq",
@@ -186,5 +175,93 @@
     "explainer": "790 episodes of 22 minutes is 17,380 minutes, which is about 290 hours: twelve full days of Springfield spread over 36 years.",
     "difficulty": 1,
     "as_of": "2025"
+  },
+  {
+    "id": "culture-1wtxpcc",
+    "question": "If every Harry Potter book ever sold were stacked in one pile, how many kilometres tall would it be?",
+    "answer": 18000,
+    "unit": "km",
+    "source_title": "Harry Potter (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Harry_Potter",
+    "explainer": "More than 600 million copies have been sold, each about 3 cm thick: 18 million metres, about 18,000 km, more than the Earth's diameter.",
+    "difficulty": 1,
+    "as_of": "2023"
+  },
+  {
+    "id": "culture-2nzqs4",
+    "question": "How many $10 cinema tickets does Avatar's worldwide box office add up to?",
+    "answer": 290000000,
+    "unit": "tickets",
+    "source_title": "Avatar (2009 film) (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Avatar_(2009_film)",
+    "explainer": "Avatar (2009) has grossed about $2.92 billion worldwide. At $10 a ticket that is about 290 million tickets.",
+    "difficulty": 1,
+    "as_of": "2023"
+  },
+  {
+    "id": "culture-3i8y4c",
+    "question": "How many days of music are added to Spotify every single day?",
+    "answer": 146,
+    "unit": "days",
+    "source_title": "Over 60,000 tracks are now uploaded to Spotify daily (Music Business Worldwide)",
+    "source_url": "https://www.musicbusinessworldwide.com/over-60000-tracks-are-now-uploaded-to-spotify-daily-thats-nearly-one-per-second/",
+    "explainer": "About 60,000 tracks are uploaded a day. At 3.5 minutes each that is 3,500 hours, about 150 days of music arriving every day.",
+    "difficulty": 1,
+    "as_of": "2021"
+  },
+  {
+    "id": "culture-918bed",
+    "question": "How many episodes of The Simpsons could you watch in the time it takes to watch the extended Lord of the Rings trilogy?",
+    "answer": 31.1,
+    "unit": "episodes",
+    "source_title": "The Lord of the Rings (film series) (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/The_Lord_of_the_Rings_(film_series)",
+    "explainer": "The extended trilogy runs about 11.4 hours, 684 minutes. At 22 minutes an episode that is about 31 episodes.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "culture-yu7s89",
+    "question": "How many sold-out Wembley Stadium concerts would it take to equal the Eras Tour's total attendance?",
+    "answer": 113,
+    "unit": "concerts",
+    "source_title": "The Eras Tour (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/The_Eras_Tour",
+    "explainer": "The Eras Tour drew 10,168,008 people over 149 shows. Wembley holds about 90,000, so about 110 sell-outs.",
+    "difficulty": 1,
+    "as_of": "2024"
+  },
+  {
+    "id": "culture-1uc4v2o",
+    "question": "How many times has 'Baby Shark' been played on YouTube every second since it was uploaded in 2016?",
+    "answer": 59.4,
+    "unit": "plays",
+    "source_title": "Baby Shark (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Baby_Shark",
+    "explainer": "The video passed 15 billion views in about eight years, which is 252 million seconds: about 59 plays every second, day and night.",
+    "difficulty": 2,
+    "as_of": "2024"
+  },
+  {
+    "id": "culture-1te46t1",
+    "question": "How many Barbie dolls laid head to toe would it take to stretch from Los Angeles to New York?",
+    "answer": 14000000,
+    "unit": "Barbies",
+    "source_title": "Barbie (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Barbie",
+    "explainer": "Los Angeles to New York is about 3,944 km in a straight line, and a Barbie is 29 cm tall: about 14 million dolls.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "culture-dncmay",
+    "question": "How many Mount Everests tall would a single stack of every Pokémon card ever printed be?",
+    "answer": 2200,
+    "unit": "Everests",
+    "source_title": "The Pokémon Company business summary",
+    "source_url": "https://corporate.pokemon.co.jp/en/",
+    "explainer": "64.8 billion cards at 0.3 mm each is 19.4 million metres. Everest is 8,849 m, so about 2,200 Everests.",
+    "difficulty": 2,
+    "as_of": "2024"
   }
 ]

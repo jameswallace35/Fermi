@@ -1,14 +1,14 @@
 [
   {
-    "id": "transport-1bgxnia",
-    "question": "How many Concorde supersonic airliners were built in total, including prototypes?",
-    "answer": 20,
-    "unit": "aircraft",
-    "explainer": "Just 20 Concordes were built: two prototypes, two pre-production aircraft and 16 production models, 14 of which flew passengers for British Airways and Air France.",
-    "source_title": "Concorde - Wikipedia",
-    "source_url": "https://en.wikipedia.org/wiki/Concorde",
-    "as_of": "stable",
-    "difficulty": 2,
+    "id": "transport-1xibdfi",
+    "question": "Driving eight hours a day at 60 km/h, how many years would it take to drive every road in the United States?",
+    "answer": 38.2,
+    "unit": "years",
+    "explainer": "The US has about 6.7 million km of public roads. At 480 km a day that is 14,000 days, about 38 years.",
+    "source_title": "Public road length (FHWA)",
+    "source_url": "https://www.fhwa.dot.gov/policyinformation/statistics.cfm",
+    "as_of": "2022",
+    "difficulty": 1,
     "retired": true
   },
   {
@@ -54,17 +54,6 @@
     "explainer": "Icon of the Seas measures 250,800 gross tons; the Titanic measured 46,328. That is about 5.4 Titanics.",
     "difficulty": 1,
     "as_of": "2024"
-  },
-  {
-    "id": "transport-1xibdfi",
-    "question": "Driving eight hours a day at 60 km/h, how many years would it take to drive every road in the United States?",
-    "answer": 38.2,
-    "unit": "years",
-    "source_title": "Public road length (FHWA)",
-    "source_url": "https://www.fhwa.dot.gov/policyinformation/statistics.cfm",
-    "explainer": "The US has about 6.7 million km of public roads. At 480 km a day that is 14,000 days, about 38 years.",
-    "difficulty": 1,
-    "as_of": "2022"
   },
   {
     "id": "transport-1lwphr",
@@ -175,5 +164,104 @@
     "explainer": "A well-kept car covers about 300,000 km before it is scrapped. The equator is 40,075 km, so about seven and a half laps of the planet.",
     "difficulty": 1,
     "as_of": "stable"
+  },
+  {
+    "id": "transport-1owpumz",
+    "question": "Flying non-stop at 900 km/h, how many days would it take to fly once around the equator?",
+    "answer": 1.9,
+    "unit": "days",
+    "source_title": "Earth's circumference (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Earth%27s_circumference",
+    "explainer": "40,075 km at 900 km/h is 44.5 hours, which is about 1.9 days in the air.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "transport-fiv6kk",
+    "question": "How many cars are built around the world every minute?",
+    "answer": 178,
+    "unit": "cars",
+    "source_title": "Motor vehicle production (OICA)",
+    "source_url": "https://www.oica.net/production-statistics/",
+    "explainer": "About 93.5 million motor vehicles were produced in 2023. A year has 525,960 minutes, so about 180 vehicles a minute.",
+    "difficulty": 1,
+    "as_of": "2023"
+  },
+  {
+    "id": "transport-neuhm3",
+    "question": "How many New York City subway rides begin every second?",
+    "answer": 36.4,
+    "unit": "rides",
+    "source_title": "New York City Subway (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/New_York_City_Subway",
+    "explainer": "The subway carried about 1.15 billion riders in 2023. Divided by 31.6 million seconds, that is about 36 rides starting every second.",
+    "difficulty": 1,
+    "as_of": "2023"
+  },
+  {
+    "id": "transport-fybfvx",
+    "question": "Cycling eight hours a day at 20 km/h, how many days would it take to ride around the equator?",
+    "answer": 250,
+    "unit": "days",
+    "source_title": "Earth's circumference (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Earth%27s_circumference",
+    "explainer": "40,075 km at 160 km a day is about 250 days of pedalling.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "transport-18b452w",
+    "question": "How many airline passengers board a flight somewhere in the world every second?",
+    "answer": 136,
+    "unit": "passengers",
+    "source_title": "The World of Air Transport in 2023 (ICAO)",
+    "source_url": "https://www.icao.int/world-air-transport-2023",
+    "explainer": "Airlines carried about 4.3 billion passengers in 2023. Divided by 31.6 million seconds, that is about 140 boardings a second.",
+    "difficulty": 1,
+    "as_of": "2023"
+  },
+  {
+    "id": "transport-15s76k3",
+    "question": "How many Eiffel Towers stacked on top of each other would reach a cruising airliner?",
+    "answer": 33.3,
+    "unit": "Eiffel Towers",
+    "source_title": "Eiffel Tower (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Eiffel_Tower",
+    "explainer": "Jets cruise at about 11,000 m and the Eiffel Tower is 330 m tall, so about 33 towers.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "transport-7a6wud",
+    "question": "How many round trips to the Moon do all the miles Americans drive in a year add up to?",
+    "answer": 6800000,
+    "unit": "round trips",
+    "source_title": "Vehicle miles traveled (FHWA)",
+    "source_url": "https://www.fhwa.dot.gov/policyinformation/travel_monitoring/tvt.cfm",
+    "explainer": "Americans drove about 3.26 trillion miles in 2023, 5.2 trillion km. A round trip to the Moon is 768,800 km, so about 6.8 million round trips.",
+    "difficulty": 2,
+    "as_of": "2023"
+  },
+  {
+    "id": "transport-x7z6jc",
+    "question": "How many Uber rides start every second around the world?",
+    "answer": 301,
+    "unit": "rides",
+    "source_title": "Uber announces results for fourth quarter and full year 2023 (Uber)",
+    "source_url": "https://investor.uber.com/news-events/news/press-release-details/2024/Uber-Announces-Results-for-Fourth-Quarter-and-Full-Year-2023/default.aspx",
+    "explainer": "Uber averaged about 26 million trips a day in 2023. Divided by 86,400 seconds, that is about 300 rides a second.",
+    "difficulty": 1,
+    "as_of": "2023"
+  },
+  {
+    "id": "transport-1vxnczb",
+    "question": "How many Toyotas roll off production lines every minute?",
+    "answer": 19.6,
+    "unit": "cars",
+    "source_title": "Toyota (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Toyota",
+    "explainer": "Toyota built about 10.3 million vehicles in 2023. A year has 525,960 minutes, so about 20 Toyotas a minute.",
+    "difficulty": 1,
+    "as_of": "2023"
   }
 ]

@@ -1,13 +1,13 @@
 [
   {
-    "id": "money-1t0kq9m",
-    "question": "What was the average price of a Big Mac in the United States in July 2024, according to The Economist's Big Mac index?",
-    "answer": 5.69,
+    "id": "money-ny3pep",
+    "question": "How much money is a one-tonne pile of US pennies worth?",
+    "answer": 4000,
     "unit": "US$",
-    "explainer": "The Economist has tracked burger prices since 1986 as a light-hearted guide to currency values. The US Big Mac passed $6 in 2025.",
-    "source_title": "The Economist - Big Mac index data (big-mac-raw-index.csv, USA, 2024-07-01)",
-    "source_url": "https://github.com/TheEconomist/big-mac-data",
-    "as_of": "2024-07",
+    "explainer": "A penny weighs 2.5 g, so a tonne (1,000,000 g) is 400,000 pennies, worth $4,000.",
+    "source_title": "Penny (U.S. Mint)",
+    "source_url": "https://www.usmint.gov/coins/coin-medal-programs/circulating-coins/penny",
+    "as_of": "stable",
     "difficulty": 1,
     "retired": true
   },
@@ -133,17 +133,6 @@
     "as_of": "2024"
   },
   {
-    "id": "money-ny3pep",
-    "question": "How much money is a one-tonne pile of US pennies worth?",
-    "answer": 4000,
-    "unit": "US$",
-    "source_title": "Penny (U.S. Mint)",
-    "source_url": "https://www.usmint.gov/coins/coin-medal-programs/circulating-coins/penny",
-    "explainer": "A penny weighs 2.5 g, so a tonne (1,000,000 g) is 400,000 pennies, worth $4,000.",
-    "difficulty": 1,
-    "as_of": "stable"
-  },
-  {
     "id": "money-ih4xx2",
     "question": "How many kilograms does a million dollars in $100 bills weigh?",
     "answer": 10,
@@ -186,5 +175,82 @@
     "explainer": "Forbes put Bezos at about $215 billion in 2025. At $1,000 a second that is 215 million seconds, about 6.8 years.",
     "difficulty": 1,
     "as_of": "2025"
+  },
+  {
+    "id": "money-w4jxjk",
+    "question": "How much money, in one-dollar bills laid end to end, would it take to circle the equator?",
+    "answer": 260000000,
+    "unit": "US$",
+    "source_title": "$1 note (U.S. Currency Education Program)",
+    "source_url": "https://www.uscurrency.gov/denominations/1",
+    "explainer": "A dollar bill is 15.6 cm long and the equator is 40,075 km, 40 million metres. That is about 260 million bills, so $260 million.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "money-eiflu2",
+    "question": "How much is a bathtub full of US pennies worth?",
+    "answer": 4200,
+    "unit": "US$",
+    "source_title": "Penny (U.S. Mint)",
+    "source_url": "https://www.usmint.gov/coins/coin-medal-programs/circulating-coins/penny",
+    "explainer": "A penny is 19.05 mm across and 1.52 mm thick, about 0.43 cm³. A 300-litre tub is 300,000 cm³ and coins pack to about 60%, so about 415,000 pennies: roughly $4,200.",
+    "difficulty": 2,
+    "as_of": "stable"
+  },
+  {
+    "id": "money-pxz002",
+    "question": "Working full time on the UK National Living Wage, how many years would it take to earn a million pounds?",
+    "answer": 44.8,
+    "unit": "years",
+    "source_title": "National Minimum Wage and National Living Wage rates (GOV.UK)",
+    "source_url": "https://www.gov.uk/national-minimum-wage-rates",
+    "explainer": "£11.44 an hour for 37.5 hours a week is £22,300 a year. A million pounds takes about 45 years.",
+    "difficulty": 1,
+    "as_of": "2024"
+  },
+  {
+    "id": "money-1tfxexg",
+    "question": "With a million dollars earning 4% a year, how many $5 lattes a day could you buy on the interest alone?",
+    "answer": 21.9,
+    "unit": "lattes",
+    "source_title": "Interest (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Interest",
+    "explainer": "4% of a million is $40,000 a year, about $110 a day, which buys about 22 lattes a day forever.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "money-aksvfi",
+    "question": "How many trips to the Moon would a stack of the US national debt in one-dollar bills make?",
+    "answer": 10.4,
+    "unit": "trips",
+    "source_title": "U.S. national debt (Treasury Fiscal Data)",
+    "source_url": "https://fiscaldata.treasury.gov/americas-finance-guide/national-debt/",
+    "explainer": "The debt was about $36.2 trillion at the end of 2024. At 0.11 mm a bill the stack is 4 million km tall, about 10 trips to the Moon.",
+    "difficulty": 2,
+    "as_of": "2024"
+  },
+  {
+    "id": "money-lbtr27",
+    "question": "Spending a million dollars every day, how many years would it take to spend a trillion dollars?",
+    "answer": 2700,
+    "unit": "years",
+    "source_title": "1,000,000,000,000 (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/1,000,000,000,000",
+    "explainer": "A trillion divided by a million is a million days, which is about 2,700 years.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "money-h96i22",
+    "question": "How many Big Macs could you buy for the price of one iPhone 16?",
+    "answer": 140,
+    "unit": "Big Macs",
+    "source_title": "iPhone 16 (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/IPhone_16",
+    "explainer": "An iPhone 16 costs $799 and a Big Mac about $5.69, so about 140 burgers.",
+    "difficulty": 1,
+    "as_of": "2024"
   }
 ]

@@ -1,14 +1,14 @@
 [
   {
-    "id": "food-rzk8qt",
-    "question": "How many Scoville heat units does Pepper X, certified the world's hottest chili pepper by Guinness in 2023, average?",
-    "answer": 2693000,
-    "unit": "SHU",
-    "explainer": "That is several hundred times hotter than a jalapeño (2,500-8,000 SHU) and in the same league as police pepper spray.",
-    "source_title": "Guinness World Records - Hottest chili pepper",
-    "source_url": "https://www.guinnessworldrecords.com/world-records/hottest-chili",
-    "as_of": "2023",
-    "difficulty": 3,
+    "id": "food-1e0p07z",
+    "question": "How many sugar cubes are dissolved in a 2-litre bottle of Coca-Cola?",
+    "answer": 53,
+    "unit": "sugar cubes",
+    "explainer": "Classic Coke has 10.6 g of sugar per 100 ml, so 212 g in 2 litres. At 4 g a cube that is about 53 sugar cubes.",
+    "source_title": "Coca-Cola Original Taste nutrition (Coca-Cola GB)",
+    "source_url": "https://www.coca-cola.com/gb/en/brands/coca-cola",
+    "as_of": "stable",
+    "difficulty": 1,
     "retired": true
   },
   {
@@ -133,17 +133,6 @@
     "as_of": "2022"
   },
   {
-    "id": "food-1e0p07z",
-    "question": "How many sugar cubes are dissolved in a 2-litre bottle of Coca-Cola?",
-    "answer": 53,
-    "unit": "sugar cubes",
-    "source_title": "Coca-Cola Original Taste nutrition (Coca-Cola GB)",
-    "source_url": "https://www.coca-cola.com/gb/en/brands/coca-cola",
-    "explainer": "Classic Coke has 10.6 g of sugar per 100 ml, so 212 g in 2 litres. At 4 g a cube that is about 53 sugar cubes.",
-    "difficulty": 1,
-    "as_of": "stable"
-  },
-  {
     "id": "food-xewppk",
     "question": "How many potatoes go into McDonald's fries worldwide in a year?",
     "answer": 9100000000,
@@ -186,5 +175,126 @@
     "explainer": "The world produces about 1.6 trillion eggs a year. Divided by 31.6 million seconds, that is about 51,000 eggs a second.",
     "difficulty": 2,
     "as_of": "2022"
+  },
+  {
+    "id": "food-10d9o81",
+    "question": "How many eggs does the average American eat in an 80-year life?",
+    "answer": 22000,
+    "unit": "eggs",
+    "source_title": "Egg consumption (USDA ERS)",
+    "source_url": "https://www.ers.usda.gov/data-products/food-availability-per-capita-data-system/",
+    "explainer": "Americans eat about 280 eggs a year each. Over 80 years that is about 22,000 eggs.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "food-nm9atq",
+    "question": "How many kilograms of chocolate does the average Swiss person eat in an 80-year life?",
+    "answer": 880,
+    "unit": "kg",
+    "source_title": "Chocolate consumption (Chocosuisse)",
+    "source_url": "https://www.chocosuisse.ch/en/",
+    "explainer": "The Swiss eat about 11 kg of chocolate a year each, the most in the world. Over 80 years that is about 880 kg, nearly a tonne.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "food-u5bzg8",
+    "question": "How many bananas does the world eat every second?",
+    "answer": 33000,
+    "unit": "bananas",
+    "source_title": "Banana (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Banana",
+    "explainer": "The world grows about 125 million tonnes of bananas a year, and a banana weighs about 120 g: a trillion bananas, about 33,000 every second.",
+    "difficulty": 2,
+    "as_of": "2022"
+  },
+  {
+    "id": "food-29aymw",
+    "question": "How many pints of beer does the average Czech drink in a year?",
+    "answer": 225,
+    "unit": "pints",
+    "source_title": "Beer consumption in Czechia hits record low (Radio Prague)",
+    "source_url": "https://english.radio.cz/node/8820630",
+    "explainer": "Czechs drink about 128 litres of beer a year each, the most in the world. A pint is 0.568 litres, so about 225 pints.",
+    "difficulty": 1,
+    "as_of": "2023"
+  },
+  {
+    "id": "food-i50xdg",
+    "question": "How many kilograms of added sugar does the average American eat in a year, at 17 teaspoons a day?",
+    "answer": 24.8,
+    "unit": "kg",
+    "source_title": "Added sugars (American Heart Association)",
+    "source_url": "https://www.heart.org/en/healthy-living/healthy-eating/eat-smart/sugar/added-sugars",
+    "explainer": "17 teaspoons of sugar is about 68 g a day. Over a year that is about 25 kg, a full suitcase of sugar.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "food-67egls",
+    "question": "Eating one apple a day, how many years would it take to eat a tonne of apples?",
+    "answer": 15.2,
+    "unit": "years",
+    "source_title": "Apple (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Apple",
+    "explainer": "A tonne is a million grams and an apple about 180 g, so about 5,600 apples: a little over 15 years of an apple a day.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "food-7zy4vn",
+    "question": "If all the meatballs IKEA serves in a year were lined up end to end, how many kilometres would they stretch?",
+    "answer": 30000,
+    "unit": "km",
+    "source_title": "Plenty of food for thought at IKEA (Ingka Group)",
+    "source_url": "https://www.ingka.com/newsroom/plenty-of-food-for-thought-at-ikea/",
+    "explainer": "IKEA serves about a billion meatballs a year. At about 3 cm each that is 30 million metres, about 30,000 km: three-quarters of the way around the Earth.",
+    "difficulty": 1,
+    "as_of": "2020"
+  },
+  {
+    "id": "food-5n73tz",
+    "question": "How many Costco hot dogs are sold every minute?",
+    "answer": 380,
+    "unit": "hot dogs",
+    "source_title": "Hot dogs and chickens by the millions (Anchorage Daily News)",
+    "source_url": "https://www.adn.com/nation-world/2024/01/19/hot-dogs-and-chickens-by-the-millions-just-how-big-was-costcos-2023/",
+    "explainer": "Costco sells about 200 million of its $1.50 hot dogs a year. A year has 525,960 minutes, so about 380 a minute.",
+    "difficulty": 1,
+    "as_of": "2023"
+  },
+  {
+    "id": "food-17oi80l",
+    "question": "How many Starbucks coffees are poured every second, worldwide?",
+    "answer": 127,
+    "unit": "coffees",
+    "source_title": "How many cups of coffee does Starbucks sell a day? (Coffee Explore)",
+    "source_url": "https://coffeexplore.com/how-many-cups-of-coffee-does-starbucks-sell-a-day",
+    "explainer": "Starbucks says it serves about 4 billion cups a year. Divided by 31.6 million seconds, that is about 130 cups a second.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "food-1xi1nzj",
+    "question": "How many Domino's pizzas are sold every second, worldwide?",
+    "answer": 34.7,
+    "unit": "pizzas",
+    "source_title": "Domino's Pizza (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Domino%27s",
+    "explainer": "Domino's sells more than 3 million pizzas a day. Divided by 86,400 seconds, that is about 35 pizzas a second.",
+    "difficulty": 1,
+    "as_of": "2023"
+  },
+  {
+    "id": "food-i1657",
+    "question": "How many M&M's are made every second in the United States?",
+    "answer": 4600,
+    "unit": "M&M's",
+    "source_title": "M&M's (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/M%26M%27s",
+    "explainer": "Mars makes about 400 million M&M's a day in the US. Divided by 86,400 seconds, that is about 4,600 a second.",
+    "difficulty": 1,
+    "as_of": "stable"
   }
 ]

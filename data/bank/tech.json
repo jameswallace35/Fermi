@@ -1,14 +1,14 @@
 [
   {
-    "id": "tech-1mq4p4a",
-    "question": "How many characters are encoded in version 16.0 of the Unicode Standard, released in September 2024?",
-    "answer": 154998,
-    "unit": "characters",
-    "explainer": "Unicode 16.0 added 5,185 characters, including 3,995 Egyptian hieroglyphs; emoji make up fewer than 4,000 of the total, while CJK ideographs account for nearly 100,000.",
-    "source_title": "Announcing The Unicode Standard, Version 16.0 (Unicode Blog)",
-    "source_url": "https://blog.unicode.org/2024/09/announcing-unicode-standard-version-160.html",
-    "as_of": "2024-09-10",
-    "difficulty": 3,
+    "id": "tech-ijoez2",
+    "question": "How many times could the world's undersea internet cables wrap around the Earth?",
+    "answer": 34.9,
+    "unit": "times",
+    "explainer": "There are about 1.4 million km of submarine cable in service. The equator is 40,075 km, so about 35 times around.",
+    "source_title": "Submarine cable FAQs (TeleGeography)",
+    "source_url": "https://www2.telegeography.com/submarine-cable-faqs-frequently-asked-questions",
+    "as_of": "2024",
+    "difficulty": 1,
     "retired": true
   },
   {
@@ -100,17 +100,6 @@
     "as_of": "stable"
   },
   {
-    "id": "tech-ijoez2",
-    "question": "How many times could the world's undersea internet cables wrap around the Earth?",
-    "answer": 34.9,
-    "unit": "times",
-    "source_title": "Submarine cable FAQs (TeleGeography)",
-    "source_url": "https://www2.telegeography.com/submarine-cable-faqs-frequently-asked-questions",
-    "explainer": "There are about 1.4 million km of submarine cable in service. The equator is 40,075 km, so about 35 times around.",
-    "difficulty": 1,
-    "as_of": "2024"
-  },
-  {
     "id": "tech-9a73w9",
     "question": "How many smartphones are sold worldwide every second?",
     "answer": 39.3,
@@ -175,5 +164,93 @@
     "explainer": "WhatsApp carries about 100 billion messages a day. Divided by 86,400 seconds, that is about 1.2 million messages a second.",
     "difficulty": 1,
     "as_of": "2020"
+  },
+  {
+    "id": "tech-86l64u",
+    "question": "How many Google searches does the average person on Earth make a day?",
+    "answer": 1.7,
+    "unit": "searches",
+    "source_title": "Google now sees more than 5 trillion searches per year (Search Engine Land)",
+    "source_url": "https://searchengineland.com/google-5-trillion-searches-per-year-452928",
+    "explainer": "About 14 billion searches a day divided by 8.1 billion people is about 1.7 searches each, every day.",
+    "difficulty": 1,
+    "as_of": "2025"
+  },
+  {
+    "id": "tech-rzuej3",
+    "question": "Typing non-stop at 40 words a minute, how many years would it take to retype all of English Wikipedia?",
+    "answer": 219,
+    "unit": "years",
+    "source_title": "Size in volumes (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Wikipedia:Size_in_volumes",
+    "explainer": "English Wikipedia holds about 4.6 billion words. At 40 words a minute that is 115 million minutes, about 220 years of typing.",
+    "difficulty": 1,
+    "as_of": "2024"
+  },
+  {
+    "id": "tech-hzsq7f",
+    "question": "If all the smartphones shipped in 2024 were laid end to end, how many times would they wrap around the equator?",
+    "answer": 4.6,
+    "unit": "times",
+    "source_title": "Smartphone shipments 2024 (IDC)",
+    "source_url": "https://www.idc.com/",
+    "explainer": "1.24 billion phones about 15 cm long is 186,000 km. The equator is 40,075 km, so about 4.6 times around.",
+    "difficulty": 1,
+    "as_of": "2024"
+  },
+  {
+    "id": "tech-dqb0fi",
+    "question": "How many full days a year does the average American spend looking at their phone?",
+    "answer": 76.1,
+    "unit": "days",
+    "source_title": "Study finds the average American spent 2.5 months on their phone in 2024 (Reviews.org)",
+    "source_url": "https://www.reviews.org/mobile/cell-phone-addiction/",
+    "explainer": "About five hours a day on the phone is 1,826 hours a year, which is about 76 full days.",
+    "difficulty": 1,
+    "as_of": "2024"
+  },
+  {
+    "id": "tech-1dgfi13",
+    "question": "How many 128 GB phones would it take to store everything the Internet Archive keeps?",
+    "answer": 1400000,
+    "unit": "phones",
+    "source_title": "Internet Archive storage update 2024 (Library of Congress DSA slides)",
+    "source_url": "https://digitalpreservation.gov/meetings/DSA2025/010601_edwards_DSA_Slides_2025.pdf",
+    "explainer": "The Internet Archive held about 175 petabytes of unique data in 2024. Divided by 128 GB that is about 1.4 million phones.",
+    "difficulty": 1,
+    "as_of": "2024"
+  },
+  {
+    "id": "tech-1pth24c",
+    "question": "How many Google searches happen during a 90-minute football match?",
+    "answer": 880000000,
+    "unit": "searches",
+    "source_title": "Google now sees more than 5 trillion searches per year (Search Engine Land)",
+    "source_url": "https://searchengineland.com/google-5-trillion-searches-per-year-452928",
+    "explainer": "About 160,000 searches a second times 5,400 seconds is about 870 million searches during the match.",
+    "difficulty": 1,
+    "as_of": "2025"
+  },
+  {
+    "id": "tech-xd3xuo",
+    "question": "How many PlayStation home consoles have been sold for every person in Japan?",
+    "answer": 4,
+    "unit": "consoles",
+    "source_title": "PlayStation consoles have sold over 500 million units (VGChartz)",
+    "source_url": "https://www.vgchartz.com/article/457050/playstation-consoles-have-sold-over-500-million-units/",
+    "explainer": "About 500 million PlayStation home consoles have been sold since 1994, and Japan has about 124 million people: four consoles each.",
+    "difficulty": 1,
+    "as_of": "2023"
+  },
+  {
+    "id": "tech-1bp54i6",
+    "question": "How many emails are sent worldwide during a three-minute pop song?",
+    "answer": 750000000,
+    "unit": "emails",
+    "source_title": "Daily number of e-mails worldwide (Statista)",
+    "source_url": "https://www.statista.com/statistics/456500/daily-number-of-e-mails-worldwide/",
+    "explainer": "About 4.2 million emails a second times 180 seconds is about 750 million emails per song.",
+    "difficulty": 1,
+    "as_of": "2024"
   }
 ]

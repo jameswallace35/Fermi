@@ -1,14 +1,14 @@
 [
   {
-    "id": "animals-1dtwczq",
-    "question": "How many trees are there on Earth, according to the 2015 global estimate published in Nature?",
-    "answer": 3040000000000,
-    "unit": "trees",
-    "explainer": "About 3.04 trillion, roughly 400 trees per person, though the total has fallen by around 46% since the dawn of agriculture.",
-    "source_title": "Mapping tree density at a global scale - Nature (Crowther et al. 2015)",
-    "source_url": "https://www.nature.com/articles/nature14967",
-    "as_of": "2015",
-    "difficulty": 2,
+    "id": "animals-1aearji",
+    "question": "How many people could a blue whale's 150 tonnes feed, at 500 g of meat each?",
+    "answer": 300000,
+    "unit": "people",
+    "explainer": "150 tonnes is 150,000 kg. At half a kilo per plate that is 300,000 servings, a whole city's dinner.",
+    "source_title": "Blue whale (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Blue_whale",
+    "as_of": "stable",
+    "difficulty": 1,
     "retired": true
   },
   {
@@ -177,13 +177,79 @@
     "as_of": "stable"
   },
   {
-    "id": "animals-1aearji",
-    "question": "How many people could a blue whale's 150 tonnes feed, at 500 g of meat each?",
+    "id": "animals-1xsrxu5",
+    "question": "How many house mice would weigh the same as an African elephant?",
     "answer": 300000,
-    "unit": "people",
-    "source_title": "Blue whale (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Blue_whale",
-    "explainer": "150 tonnes is 150,000 kg. At half a kilo per plate that is 300,000 servings, a whole city's dinner.",
+    "unit": "mice",
+    "source_title": "House mouse (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/House_mouse",
+    "explainer": "A mouse weighs about 20 g and a big elephant about 6,000 kg, so about 300,000 mice.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "animals-1d2esmi",
+    "question": "How many honeybee trips does it take to carry home the nectar for one 450 g jar of honey?",
+    "answer": 28000,
+    "unit": "trips",
+    "source_title": "Honey bee (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Honey_bee",
+    "explainer": "A bee carries about 40 mg of nectar per trip, and it takes roughly 2.5 kg of nectar to make 1 kg of honey. So a 450 g jar needs about 1.1 kg of nectar, about 28,000 trips.",
+    "difficulty": 3,
+    "as_of": "stable"
+  },
+  {
+    "id": "animals-asn2pq",
+    "question": "How many hummingbirds would weigh the same as one chicken?",
+    "answer": 667,
+    "unit": "hummingbirds",
+    "source_title": "Hummingbird (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Hummingbird",
+    "explainer": "A ruby-throated hummingbird weighs about 3 g and a chicken about 2 kg, so about 670 hummingbirds.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "animals-1593hkm",
+    "question": "How many years of a 15-year-old cat's life has it spent asleep?",
+    "answer": 8.8,
+    "unit": "years",
+    "source_title": "Cat (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Cat",
+    "explainer": "Cats sleep about 14 hours a day, which is 14/24 of their lives. Over 15 years that is about 8.8 years asleep.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "animals-73yr0s",
+    "question": "How many giraffes standing on each other's heads would reach the torch of the Statue of Liberty?",
+    "answer": 16.9,
+    "unit": "giraffes",
+    "source_title": "Statue of Liberty (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Statue_of_Liberty",
+    "explainer": "The statue is 93 m from the ground to the torch and a giraffe is about 5.5 m tall, so about 17 giraffes.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "animals-7suvxi",
+    "question": "How many blue whales nose to tail would it take to span the main span of the Golden Gate Bridge?",
+    "answer": 42.7,
+    "unit": "whales",
+    "source_title": "Golden Gate Bridge (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Golden_Gate_Bridge",
+    "explainer": "The main span is 1,280 m and a big blue whale is about 30 m long, so about 43 whales.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "animals-1pdkdm1",
+    "question": "At a giant tortoise's walking pace, how many years would it take to cross Australia from Sydney to Perth?",
+    "answer": 1.3,
+    "unit": "years",
+    "source_title": "Galápagos tortoise (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Gal%C3%A1pagos_tortoise",
+    "explainer": "Sydney to Perth is about 3,300 km in a straight line and a giant tortoise walks about 0.3 km/h, so 11,000 hours: about 1.3 years without stopping.",
     "difficulty": 1,
     "as_of": "stable"
   }

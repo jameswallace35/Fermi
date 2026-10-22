@@ -1,26 +1,26 @@
 [
   {
-    "id": "geography-1v5ydnq",
-    "question": "What is the total area of Greenland, the world's largest island?",
-    "answer": 2166086,
-    "unit": "km²",
-    "explainer": "Greenland is about three times the size of Texas, but roughly 80% of it is buried under an ice sheet up to 3 km thick.",
-    "source_title": "Geography of Greenland - Wikipedia",
-    "source_url": "https://en.wikipedia.org/wiki/Geography_of_Greenland",
+    "id": "geography-tpfxtx",
+    "question": "How many times would all the walls of the Great Wall of China stretch from New York to Los Angeles?",
+    "answer": 5.4,
+    "unit": "times",
+    "explainer": "China's 2012 survey measured 21,196 km of wall. New York to Los Angeles is about 3,944 km as the crow flies, so the Wall would make the trip about 5.4 times.",
+    "source_title": "Great Wall of China (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Great_Wall_of_China",
     "as_of": "stable",
     "difficulty": 2,
     "retired": true
   },
   {
-    "id": "geography-1h1sg46",
-    "question": "How many metres below sea level is the surface of the Dead Sea, as of 2025?",
-    "answer": 440,
-    "unit": "metres",
-    "explainer": "The Dead Sea's shores are the lowest land on Earth, and the lake is still dropping by more than a metre a year as the Jordan River's inflow is diverted upstream.",
-    "source_title": "Dead Sea - Wikipedia",
-    "source_url": "https://en.wikipedia.org/wiki/Dead_Sea",
-    "as_of": "2025",
-    "difficulty": 2,
+    "id": "geography-qv8aei",
+    "question": "How many Greater Londons would fit inside Australia?",
+    "answer": 4900,
+    "unit": "Londons",
+    "explainer": "Australia covers about 7,692,000 km² and Greater London about 1,572 km², so Australia could swallow roughly 4,900 Londons.",
+    "source_title": "Australia (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Australia",
+    "as_of": "stable",
+    "difficulty": 1,
     "retired": true
   },
   {
@@ -123,28 +123,6 @@
     "as_of": "stable"
   },
   {
-    "id": "geography-tpfxtx",
-    "question": "How many times would all the walls of the Great Wall of China stretch from New York to Los Angeles?",
-    "answer": 5.4,
-    "unit": "times",
-    "source_title": "Great Wall of China (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Great_Wall_of_China",
-    "explainer": "China's 2012 survey measured 21,196 km of wall. New York to Los Angeles is about 3,944 km as the crow flies, so the Wall would make the trip about 5.4 times.",
-    "difficulty": 2,
-    "as_of": "stable"
-  },
-  {
-    "id": "geography-qv8aei",
-    "question": "How many Greater Londons would fit inside Australia?",
-    "answer": 4900,
-    "unit": "Londons",
-    "source_title": "Australia (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Australia",
-    "explainer": "Australia covers about 7,692,000 km² and Greater London about 1,572 km², so Australia could swallow roughly 4,900 Londons.",
-    "difficulty": 1,
-    "as_of": "stable"
-  },
-  {
     "id": "geography-40o34d",
     "question": "If all the ice in Antarctica were cut into Olympic swimming pool-sized blocks, how many blocks would there be?",
     "answer": 11000000000000,
@@ -208,6 +186,83 @@
     "source_url": "https://en.wikipedia.org/wiki/Climate_of_London",
     "explainer": "Greater London is 1,572 km² and gets about 600 mm of rain a year, so 1.572 billion m² × 0.6 m is 943 million m³ of water. At 300 litres a tub, that is about 3.1 billion bathtubs.",
     "difficulty": 2,
+    "as_of": "stable"
+  },
+  {
+    "id": "geography-l5ek04",
+    "question": "How many Olympic swimming pools of water does the Mississippi pour into the Gulf of Mexico every minute?",
+    "answer": 403,
+    "unit": "pools",
+    "source_title": "Mississippi River (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Mississippi_River",
+    "explainer": "The Mississippi discharges about 16,800 m³ a second, roughly a million m³ a minute. An Olympic pool is 2,500 m³, so about 400 pools a minute.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "geography-1n695fs",
+    "question": "How many New York Cities would fit inside the Amazon rainforest?",
+    "answer": 7100,
+    "unit": "New York Cities",
+    "source_title": "Amazon rainforest (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Amazon_rainforest",
+    "explainer": "The Amazon rainforest covers about 5.5 million km² and New York City about 778 km², so roughly 7,100 New Yorks.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "geography-1f6l0po",
+    "question": "How many Empire State Buildings stacked on top of each other would reach a cruising airliner?",
+    "answer": 24.8,
+    "unit": "Empire State Buildings",
+    "source_title": "Empire State Building (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Empire_State_Building",
+    "explainer": "Jets cruise at about 11,000 m and the Empire State Building is 443 m to its tip, so about 25 of them.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "geography-ih6dkt",
+    "question": "How many tennis courts would fit on the island of Manhattan?",
+    "answer": 230000,
+    "unit": "tennis courts",
+    "source_title": "Manhattan (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Manhattan",
+    "explainer": "Manhattan is 59.1 km², or 59.1 million m². A tennis court is 23.77 m by 10.97 m, about 261 m², so roughly 230,000 courts.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "geography-1qy6t31",
+    "question": "Walking 30 km a day, how many years would it take to walk the entire coastline of mainland Australia?",
+    "answer": 3.3,
+    "unit": "years",
+    "source_title": "Coastline of Australia (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Coastline_of_Australia",
+    "explainer": "Australia's mainland coastline is about 35,900 km. At 30 km a day that is 1,196 days, about 3.3 years.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "geography-fps4v5",
+    "question": "How many Olympic swimming pools would it take to hold all the water in Lake Superior?",
+    "answer": 4800000000,
+    "unit": "pools",
+    "source_title": "Lake Superior (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Lake_Superior",
+    "explainer": "Lake Superior holds about 12,100 km³, which is 1.21 × 10¹³ m³. Divided by a 2,500 m³ pool, that is about 4.8 billion pools.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "geography-q4w9vb",
+    "question": "How many times could the Nile be laid across Texas from east to west?",
+    "answer": 5.3,
+    "unit": "times",
+    "source_title": "Nile (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Nile",
+    "explainer": "The Nile is about 6,650 km long and Texas is about 1,244 km wide, so the river would cross it about five times.",
+    "difficulty": 1,
     "as_of": "stable"
   }
 ]

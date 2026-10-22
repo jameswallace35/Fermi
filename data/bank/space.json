@@ -1,14 +1,14 @@
 [
   {
-    "id": "space-zbebn0",
-    "question": "How many minutes did Yuri Gagarin's 1961 spaceflight last, from launch to landing?",
-    "answer": 108,
-    "unit": "minutes",
-    "explainer": "The first human spaceflight was a single orbit of Earth lasting about 108 minutes, shorter than most feature films.",
-    "source_title": "Vostok 1 (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Vostok_1",
+    "id": "space-x2qo4l",
+    "question": "How many Moons lined up side by side would it take to reach from the Earth to the Sun?",
+    "answer": 43000,
+    "unit": "Moons",
+    "explainer": "The Sun is 149.6 million km away and the Moon is 3,474 km across, so about 43,000 Moons would bridge the gap.",
+    "source_title": "Moon (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Moon",
     "as_of": "stable",
-    "difficulty": 2,
+    "difficulty": 1,
     "retired": true
   },
   {
@@ -111,17 +111,6 @@
     "as_of": "stable"
   },
   {
-    "id": "space-x2qo4l",
-    "question": "How many Moons lined up side by side would it take to reach from the Earth to the Sun?",
-    "answer": 43000,
-    "unit": "Moons",
-    "source_title": "Moon (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Moon",
-    "explainer": "The Sun is 149.6 million km away and the Moon is 3,474 km across, so about 43,000 Moons would bridge the gap.",
-    "difficulty": 1,
-    "as_of": "stable"
-  },
-  {
     "id": "space-ynzoxa",
     "question": "How many apples would it take to equal the weight of the International Space Station?",
     "answer": 2300000,
@@ -195,6 +184,83 @@
     "source_title": "Shinkansen (Wikipedia)",
     "source_url": "https://en.wikipedia.org/wiki/Shinkansen",
     "explainer": "The Moon is 384,400 km away. At 320 km/h that is 1,201 hours, or about 50 days.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "space-z15263",
+    "question": "How many Earths placed side by side would it take to reach the Moon?",
+    "answer": 30.2,
+    "unit": "Earths",
+    "source_title": "Lunar distance (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Lunar_distance",
+    "explainer": "The Moon is on average 384,400 km away and the Earth is 12,742 km across, so about 30 Earths would fill the gap.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "space-1n5awki",
+    "question": "How many ten-hour jumbo jet flights, back to back, would it take to cover the distance to the Moon?",
+    "answer": 42.7,
+    "unit": "flights",
+    "source_title": "Lunar distance (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Lunar_distance",
+    "explainer": "At 900 km/h a jet covers 9,000 km in ten hours. The Moon is 384,400 km away, so about 43 long-haul flights in a row.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "space-194g826",
+    "question": "If the Earth were shrunk to a tennis ball, how many metres away would the Moon be?",
+    "answer": 2,
+    "unit": "metres",
+    "source_title": "Lunar distance (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Lunar_distance",
+    "explainer": "The Moon is about 30 Earth-widths away. A tennis ball is 6.7 cm across, so the Moon would sit about 2 metres from it, the size of a peppercorn.",
+    "difficulty": 2,
+    "as_of": "stable"
+  },
+  {
+    "id": "space-ekbmbr",
+    "question": "How many Saturn V rockets stacked nose to tail would reach the International Space Station?",
+    "answer": 3600,
+    "unit": "rockets",
+    "source_title": "Saturn V (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Saturn_V",
+    "explainer": "A Saturn V was 110.6 m tall and the ISS orbits about 400 km up, so about 3,600 rockets.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "space-o6yttm",
+    "question": "At a garden snail's top speed of one metre an hour, how many years would it take a snail to reach the Moon?",
+    "answer": 44000,
+    "unit": "years",
+    "source_title": "Lunar distance (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Lunar_distance",
+    "explainer": "The Moon is 384.4 million metres away. At one metre an hour that is 384 million hours, about 44,000 years.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "space-gzx0ox",
+    "question": "How many footballs laid in a straight line would it take to reach the Moon?",
+    "answer": 1700000000,
+    "unit": "footballs",
+    "source_title": "Lunar distance (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Lunar_distance",
+    "explainer": "The Moon is 384.4 million metres away and a football is 22 cm across, so about 1.7 billion footballs.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "space-1aykwag",
+    "question": "How many Coca-Cola cans stacked on top of each other would reach the International Space Station?",
+    "answer": 3300000,
+    "unit": "cans",
+    "source_title": "International Space Station (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/International_Space_Station",
+    "explainer": "A 330 ml can is 12.2 cm tall and the ISS orbits about 400 km up, so about 3.3 million cans.",
     "difficulty": 1,
     "as_of": "stable"
   }
