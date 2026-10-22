@@ -77,6 +77,23 @@ There is no server, so the same puzzle appears for everyone on the same calendar
 
 New categories go at the **end** of `CATEGORIES` in `scripts/build-bank.mjs`.
 
+## Accounts (optional)
+
+The game works without accounts. If you want players to create a username and password so their history follows them between devices, deploy the small API in `worker/` to Cloudflare Workers (free tier) and point the game at it.
+
+What it is: one Worker (`worker/src/index.js`) and a D1 database. Passwords are hashed with PBKDF2-SHA256 and a per-user salt; sessions are random bearer tokens stored hashed and valid for 90 days; sign-in attempts are rate limited; every endpoint is covered by `tests/worker.test.js`, which runs the real Worker against an in-memory SQLite database.
+
+To deploy it:
+
+1. In Cloudflare, create an API token (My Profile → API Tokens → Create Token → use the "Edit Cloudflare Workers" template, then add **D1 → Edit** under Account permissions).
+2. In this repository on GitHub, go to Settings → Secrets and variables → Actions and add `CLOUDFLARE_API_TOKEN` (the token) and `CLOUDFLARE_ACCOUNT_ID` (shown on the Workers overview page).
+3. Run the **Deploy accounts API** workflow (Actions tab → Run workflow). It creates the database, applies the schema and deploys. The log ends with the API's URL, something like `https://fermi-api.<your-subdomain>.workers.dev`.
+4. Put that URL into `config.js` as `apiUrl`, commit, and the Statistics page gains Sign in / Create account.
+
+Optional hardening: in `worker/wrangler.toml` set `ALLOWED_ORIGINS` to your site's origin (for example `https://jameswallace35.github.io`) so only your page can call the API.
+
+For local development, `npm run dev:api` starts the same Worker on http://127.0.0.1:8787 with an in-memory database; set `apiUrl` to that address.
+
 ## Deploying
 
 The repository includes a GitHub Pages workflow (`.github/workflows/pages.yml`). In the repository settings, set **Pages → Source** to **GitHub Actions**; every push to `main` then publishes the site.
@@ -85,10 +102,14 @@ The repository includes a GitHub Pages workflow (`.github/workflows/pages.yml`).
 
 ```
 index.html              page shell and dialogs
+config.js               deployment settings (accounts API URL)
 styles.css              theme tokens, layout, components
 src/logic.js            pure game rules: dates, scoring, parsing, selection, stats, share text
 src/calc.js             safe expression evaluator
-src/storage.js          localStorage wrapper
+src/storage.js          localStorage wrapper and backup codes
+src/sync.js             claude.ai per-account sync (no-op elsewhere)
+src/account.js          username/password accounts client
+worker/                 Cloudflare Worker + D1 accounts API
 src/main.js             UI controller
 data/bank/*.json        question sources, one file per category
 data/questions.json     merged bank served to the game (generated)

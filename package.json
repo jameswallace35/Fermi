@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "start": "node scripts/serve.mjs",
-    "test": "node --test tests/logic.test.js tests/calc.test.js tests/bank.test.js",
+    "dev:api": "node scripts/dev-api.mjs",
+    "test": "node --test tests/logic.test.js tests/calc.test.js tests/bank.test.js tests/worker.test.js",
     "build:bank": "node scripts/build-bank.mjs",
     "validate": "node scripts/validate-bank.mjs",
     "e2e": "node tests/e2e.mjs"

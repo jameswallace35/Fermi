@@ -1,0 +1,57 @@
+name: Deploy accounts API
+
+# Deploys worker/ to Cloudflare Workers with a D1 database. Needs two
+# repository secrets (Settings -> Secrets and variables -> Actions):
+#   CLOUDFLARE_API_TOKEN   an API token with Workers Scripts: Edit and D1: Edit
+#   CLOUDFLARE_ACCOUNT_ID  the account id shown on the Workers overview page
+
+on:
+  push:
+    branches: [main, claude/fermi-estimation-game-6fmn3p]
+    paths:
+      - "worker/**"
+      - ".github/workflows/deploy-worker.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Check the secrets are set
+        run: |
+          if [ -z "$CLOUDFLARE_API_TOKEN" ] || [ -z "$CLOUDFLARE_ACCOUNT_ID" ]; then
+            echo "::error::Add CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID to this repository's Actions secrets."
+            exit 1
+          fi
+      - name: Run the API tests
+        run: npm test
+      - name: Create the D1 database if it does not exist
+        working-directory: worker
+        run: |
+          npx --yes wrangler@4 d1 create fermi >/dev/null 2>&1 || true
+          ID=$(npx --yes wrangler@4 d1 list --json | node -e '
+            let s = ""; process.stdin.on("data", (d) => (s += d)).on("end", () => {
+              const db = JSON.parse(s).find((d) => d.name === "fermi");
+              if (!db) { console.error("D1 database \"fermi\" not found"); process.exit(1); }
+              console.log(db.uuid);
+            });')
+          echo "Using D1 database $ID"
+          sed -i "s/^database_id = \".*\"/database_id = \"$ID\"/" wrangler.toml
+      - name: Apply database migrations
+        working-directory: worker
+        run: npx --yes wrangler@4 d1 migrations apply fermi --remote
+      - name: Deploy the Worker
+        working-directory: worker
+        run: npx --yes wrangler@4 deploy
+      - name: Where it lives
+        run: echo "Deployed. Copy the https://fermi-api.<subdomain>.workers.dev URL printed by the deploy step into config.js (apiUrl)."

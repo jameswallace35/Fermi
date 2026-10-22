@@ -1039,6 +1039,43 @@ button {
   color: var(--muted);
 }
 
+/* account */
+.account-form {
+  display: grid;
+  gap: 8px;
+  margin-top: 8px;
+}
+.account-form input {
+  width: 100%;
+  border: 2px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  padding: 10px 12px;
+}
+.account-form input:focus {
+  outline: 0;
+  border-color: var(--accent);
+}
+.account-form .backup-actions {
+  margin-top: 2px;
+}
+.account-error {
+  margin: 0;
+  color: var(--warn);
+  font-size: 0.9rem;
+  min-height: 1.2em;
+}
+.account-signed-in {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
 /* archive */
 .archive-list {
   list-style: none;

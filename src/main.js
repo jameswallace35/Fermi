@@ -5,6 +5,7 @@ import * as L from './logic.js';
 import { tryEvaluate } from './calc.js';
 import * as S from './storage.js';
 import { connectSync } from './sync.js';
+import * as A from './account.js';
 
 const $ = (sel, root = document) => root.querySelector(sel);
 const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
@@ -35,8 +36,9 @@ let state = null;
 let view = { kind: 'play' };
 let lastCalcValue = NaN;
 let archiveShown = 0;
-let sync = null; // cloud sync handle when the page runs on claude.ai
+let sync = null; // cloud sync handle: claude.ai artifact database or the accounts API
 let syncState = 'off'; // off | connecting | on
+let syncKind = 'none'; // none | claude | account
 
 const ARCHIVE_PAGE = 60;
 
@@ -388,7 +390,18 @@ function lockIn(i, value, typedUnit) {
   state.ids = questions.map((q) => q.id);
   if (complete()) state.completedAt = Date.now();
   S.savePuzzleState(puzzleNumber, state);
-  if (sync) sync.push(puzzleNumber, state).catch((err) => console.warn('Cloud save failed', err));
+  if (sync) {
+    sync.push(puzzleNumber, state).catch((err) => {
+      console.warn('Cloud save failed', err);
+      if (syncKind === 'account' && err && err.status === 401) {
+        A.forgetSession();
+        sync = null;
+        syncState = 'off';
+        syncKind = 'none';
+        toast('Your session has expired. Sign in again from Statistics to keep saving.');
+      }
+    });
+  }
   view = { kind: 'result', index: i };
   render({ focus: true });
   const q = questions[i];
@@ -599,12 +612,28 @@ function renderStats() {
   const games = history();
   const totals = L.summarizeHistory(games, todayNumber);
   const max = Math.max(1, ...totals.tiers);
-  const syncNote =
-    syncState === 'on'
-      ? 'Results are saved to your Claude account and follow you across devices.'
-      : syncState === 'connecting'
-        ? 'Connecting to your Claude account…'
-        : 'Results are saved in this browser. Use a backup code to carry them to another device.';
+  const account = A.available() ? A.session() : null;
+  let syncNote;
+  if (syncState === 'on' && syncKind === 'claude') syncNote = 'Results are saved to your Claude account and follow you across devices.';
+  else if (syncState === 'on' && syncKind === 'account') syncNote = `Signed in as <strong>${esc(account ? account.username : '')}</strong>. Results follow you across devices.`;
+  else if (syncState === 'connecting') syncNote = 'Connecting…';
+  else if (A.available()) syncNote = 'Sign in to keep your results across devices, or use a backup code.';
+  else syncNote = 'Results are saved in this browser. Use a backup code to carry them to another device.';
+  const accountHtml = !A.available() || syncKind === 'claude'
+    ? ''
+    : account
+      ? `<div class="account-signed-in"><span>Account: <strong>${esc(account.username)}</strong></span><button type="button" class="btn" id="btn-signout">Sign out</button></div>`
+      : `<form class="account-form" id="account-form" autocomplete="on">
+          <label class="sr-only" for="account-user">Username</label>
+          <input id="account-user" name="username" placeholder="Username" autocomplete="username" autocapitalize="off" spellcheck="false" maxlength="24" required>
+          <label class="sr-only" for="account-pass">Password</label>
+          <input id="account-pass" name="password" type="password" placeholder="Password (8+ characters)" autocomplete="current-password" minlength="8" maxlength="200" required>
+          <p class="account-error" id="account-error" aria-live="polite"></p>
+          <div class="backup-actions">
+            <button type="submit" class="btn primary" data-mode="login">Sign in</button>
+            <button type="submit" class="btn" data-mode="signup">Create account</button>
+          </div>
+        </form>`;
   $('#stats-body').innerHTML = `
     <div class="stat-grid">
       <div class="stat"><span class="stat-value">${totals.played}</span><span class="stat-label">Played</span></div>
@@ -633,6 +662,7 @@ function renderStats() {
       : '<p class="history-empty">Finish a puzzle and it will appear here.</p>'}
     <h3 class="section-title">Saving</h3>
     <p class="sync-note">${syncNote}</p>
+    ${accountHtml}
     <div class="backup-actions">
       <button type="button" class="btn" id="btn-backup-copy">Copy backup code</button>
       <button type="button" class="btn" id="btn-backup-restore">Restore a backup</button>
@@ -649,6 +679,40 @@ function renderStats() {
       goTo(Number(btn.dataset.n));
     });
   });
+  const accountForm = $('#account-form');
+  if (accountForm) {
+    let mode = 'login';
+    $$('button[type="submit"]', accountForm).forEach((b) => b.addEventListener('click', () => { mode = b.dataset.mode; }));
+    accountForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const username = $('#account-user').value.trim();
+      const password = $('#account-pass').value;
+      const error = $('#account-error');
+      error.textContent = '';
+      $$('button', accountForm).forEach((b) => { b.disabled = true; });
+      try {
+        const name = mode === 'signup' ? await A.signup(username, password) : await A.login(username, password);
+        toast(mode === 'signup' ? `Welcome, ${name}! Your results will be saved to your account.` : `Signed in as ${name}.`);
+        await startSync();
+        renderStats();
+      } catch (err) {
+        error.textContent = err && err.message ? err.message : 'Something went wrong';
+        $$('button', accountForm).forEach((b) => { b.disabled = false; });
+      }
+    });
+  }
+  const signOut = $('#btn-signout');
+  if (signOut) {
+    signOut.addEventListener('click', async () => {
+      signOut.disabled = true;
+      await A.logout();
+      sync = null;
+      syncState = 'off';
+      syncKind = 'none';
+      toast('Signed out. Your results stay in this browser.');
+      renderStats();
+    });
+  }
   $('#btn-backup-copy').addEventListener('click', async () => {
     const code = S.exportBackup();
     if (await copyText(code)) toast('Backup code copied. Paste it on another device to restore.');
@@ -695,10 +759,16 @@ function restoreBackup(code) {
  */
 async function startSync() {
   syncState = 'connecting';
+  syncKind = 'none';
   try {
     sync = await connectSync();
+    if (sync) syncKind = 'claude';
   } catch {
     sync = null;
+  }
+  if (!sync && A.available()) {
+    sync = A.connectAccountSync();
+    if (sync) syncKind = 'account';
   }
   if (!sync) {
     syncState = 'off';
@@ -716,10 +786,15 @@ async function startSync() {
     syncState = 'on';
     if (changed.includes(puzzleNumber)) load(puzzleNumber);
     else if (state && view.kind === 'summary') renderSummary();
-    if (changed.length) toast(`Loaded ${changed.length} puzzle${changed.length === 1 ? '' : 's'} from your Claude account.`);
+    if (changed.length) toast(`Loaded ${changed.length} puzzle${changed.length === 1 ? '' : 's'} from your ${syncKind === 'account' ? 'account' : 'Claude account'}.`);
   } catch (err) {
     console.warn('Cloud sync unavailable', err);
+    if (syncKind === 'account' && err && err.status === 401) {
+      A.forgetSession();
+      toast('Your session has expired. Please sign in again.');
+    }
     syncState = 'off';
+    syncKind = 'none';
     sync = null;
   }
 }

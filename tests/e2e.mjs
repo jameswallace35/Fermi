@@ -15,6 +15,8 @@ const port = 8123 + Math.floor(Math.random() * 1000);
 const shots = process.env.SHOTS_DIR || path.join(root, '.e2e-shots');
 fs.mkdirSync(shots, { recursive: true });
 
+const apiPort = port + 1;
+const api = spawn(process.execPath, [path.join(root, 'scripts', 'dev-api.mjs'), String(apiPort)], { stdio: ['ignore', 'ignore', 'pipe'], env: { ...process.env, PBKDF2_ITERATIONS: '2000' } });
 const server = spawn(process.execPath, [path.join(root, 'scripts', 'serve.mjs'), String(port)], { stdio: ['ignore', 'ignore', 'pipe'] });
 let serverExit = null;
 let serverStderr = '';
@@ -38,6 +40,7 @@ async function waitForServer(url, ms = 15000) {
 
 try {
   await waitForServer(`http://127.0.0.1:${port}/`);
+  await waitForServer(`http://127.0.0.1:${apiPort}/api/health`);
 } catch (err) {
   console.log(`not ok - dev server starts\n  ${err.message}`);
   server.kill();
@@ -59,6 +62,8 @@ async function step(name, fn) {
 
 try {
   const context = await browser.newContext({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 2 });
+  const apiUrl = `http://127.0.0.1:${apiPort}`;
+  await context.addInitScript((u) => { window.FERMI_CONFIG = { apiUrl: u }; }, apiUrl);
   const page = await context.newPage();
   const errors = [];
   page.on('pageerror', (e) => errors.push(String(e)));
@@ -269,6 +274,42 @@ try {
     await fresh.close();
   });
 
+  await step('an account saves results and signs in from a fresh browser', async () => {
+    const username = `player_${Math.floor(Math.random() * 1e6)}`;
+    await page.click('#btn-stats');
+    await page.waitForSelector('#dlg-stats[open]');
+    await page.fill('#account-user', username);
+    await page.fill('#account-pass', 'estimate123');
+    await page.click('#account-form button[data-mode="signup"]');
+    await page.waitForFunction(() => /Signed in as/.test(document.querySelector('#stats-body').textContent));
+    await page.waitForTimeout(300); // let the first push finish
+    await page.keyboard.press('Escape');
+    await page.waitForSelector('#dlg-stats', { state: 'hidden' });
+
+    const fresh = await browser.newContext({ viewport: { width: 390, height: 844 } });
+    await fresh.addInitScript((u) => { window.FERMI_CONFIG = { apiUrl: u }; }, apiUrl);
+    const p2 = await fresh.newPage();
+    await p2.goto(url);
+    await p2.waitForSelector('#dlg-help[open]');
+    await p2.click('#dlg-help .dialog-foot button');
+    await p2.waitForSelector('#guess');
+    await p2.click('#btn-stats');
+    await p2.waitForSelector('#dlg-stats[open]');
+    await p2.fill('#account-user', username);
+    await p2.fill('#account-pass', 'wrong-password');
+    await p2.click('#account-form button[data-mode="login"]');
+    await p2.waitForFunction(() => document.querySelector('#account-error').textContent.length > 0);
+    await p2.fill('#account-pass', 'estimate123');
+    await p2.click('#account-form button[data-mode="login"]');
+    await p2.waitForFunction(() => /Signed in as/.test(document.querySelector('#stats-body').textContent));
+    await p2.waitForFunction(() => /1\s*Played/.test(document.querySelector('#stats-body').textContent));
+    await p2.click('#btn-signout');
+    await p2.waitForFunction(() => /Sign in to keep/.test(document.querySelector('#stats-body').textContent));
+    await p2.keyboard.press('Escape');
+    await p2.waitForSelector('#summary:not([hidden])');
+    await fresh.close();
+  });
+
   await step('archive lists today as completed', async () => {
     await page.click('#btn-archive');
     await page.waitForSelector('#dlg-archive[open]');
@@ -320,6 +361,7 @@ try {
 } finally {
   await browser.close();
   server.kill();
+  api.kill();
 }
 
 if (failures.length) {
