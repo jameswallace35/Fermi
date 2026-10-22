@@ -1,6 +1,6 @@
-// Pure game logic for Fermi: no DOM, no storage. Everything here is unit-tested.
+// Pure game logic for Ballpark: no DOM, no storage. Everything here is unit-tested.
 
-export const GAME_NAME = 'Fermi';
+export const GAME_NAME = 'Ballpark';
 export const EPOCH_DATE_KEY = '2026-10-21'; // Puzzle No. 1
 export const QUESTIONS_PER_DAY = 5;
 

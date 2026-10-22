@@ -377,7 +377,7 @@ test('shareText format', () => {
   const text = shareText({ puzzleNumber: 12, dateKey: '2026-11-01', multiples: [1, 1.8, 3.2, 14, 1.3], url: 'https://example.com/' });
   assert.equal(
     text,
-    ['Fermi No. 12 · 1 Nov 2026', '🎯 1.00×  🟢 1.80×  🟡 3.20×  🔴 14.0×  🟢 1.30×', 'Average 4.26×', 'https://example.com/'].join('\n'),
+    ['Ballpark No. 12 · 1 Nov 2026', '🎯 1.00×  🟢 1.80×  🟡 3.20×  🔴 14.0×  🟢 1.30×', 'Average 4.26×', 'https://example.com/'].join('\n'),
   );
   const noUrl = shareText({ puzzleNumber: 1, dateKey: '2026-10-21', multiples: [1] });
   assert.equal(noUrl.split('\n').length, 3);

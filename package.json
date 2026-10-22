@@ -1,8 +1,8 @@
 {
-  "name": "fermi-daily",
+  "name": "ballpark-daily",
   "version": "1.0.0",
   "private": true,
-  "description": "Fermi: a daily estimation game with five questions a day",
+  "description": "Ballpark: a daily estimation game with five questions a day",
   "type": "module",
   "scripts": {
     "start": "node scripts/serve.mjs",

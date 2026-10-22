@@ -1,7 +1,7 @@
 {
-  "name": "Fermi — five estimation questions a day",
-  "short_name": "Fermi",
-  "description": "Five Fermi estimation questions every day. One guess each.",
+  "name": "Ballpark — five estimation questions a day",
+  "short_name": "Ballpark",
+  "description": "Five estimation questions every day. One guess each.",
   "start_url": "./",
   "display": "standalone",
   "background_color": "#f6f5f2",

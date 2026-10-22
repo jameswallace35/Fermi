@@ -1,4 +1,4 @@
-// UI controller for Fermi. Game rules live in logic.js; this file only
+// UI controller for Ballpark. Game rules live in logic.js; this file only
 // renders state and reacts to input.
 
 import * as L from './logic.js';
@@ -737,7 +737,7 @@ function renderStats() {
 function restoreBackup(code) {
   const backup = S.parseBackup(code);
   if (!backup) {
-    toast('That is not a Fermi backup code.');
+    toast('That is not a Ballpark backup code.');
     return;
   }
   const changed = S.mergePuzzleStates(backup.puzzles);

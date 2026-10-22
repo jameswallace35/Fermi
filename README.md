@@ -1,6 +1,6 @@
-# Fermi — five estimation questions a day
+# Ballpark — five estimation questions a day
 
-A daily estimation game in the spirit of [fermi.gg](https://fermi.gg), with **five questions per day** instead of three.
+**Ballpark** is a daily estimation game in the spirit of [fermi.gg](https://fermi.gg), with **five questions per day** instead of three. Every question is a Fermi problem; the game asks whether your answer is in the ballpark.
 
 Every day the game asks five questions like *"How many kilometres of railway does India have?"* You get one guess per question. Your score for a question is **how many times off** you were: `1×` is exact, `2×` means you guessed double or half the real answer. Lower is better. Your daily score is the average of the five multiples, and you can share it as a line of emoji without spoiling the answers.
 
@@ -119,4 +119,4 @@ tests/                  unit tests (node --test) and the Playwright smoke test
 
 ## Credits
 
-Game design inspired by fermi.gg. Named after Enrico Fermi, patron saint of back-of-the-envelope estimates.
+Game design inspired by fermi.gg. The questions are Fermi problems, after Enrico Fermi, patron saint of back-of-the-envelope estimates.

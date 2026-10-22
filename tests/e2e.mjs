@@ -223,7 +223,7 @@ try {
     await page.waitForSelector('#toast.show');
     const text = await page.evaluate(() => navigator.clipboard.readText());
     const lines = text.split('\n');
-    assert.match(lines[0], /^Fermi No\. \d+ · /);
+    assert.match(lines[0], /^Ballpark No\. \d+ · /);
     assert.equal((lines[1].match(/[🎯🟢🟡🟠🔴]/gu) || []).length, 5);
     assert.match(lines[2], /^Average .*×$/);
     assert.equal(lines[3], url);
