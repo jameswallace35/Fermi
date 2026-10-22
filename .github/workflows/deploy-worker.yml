@@ -106,6 +106,27 @@ jobs:
         env:
           CLOUDFLARE_ACCOUNT_ID: ${{ steps.account.outputs.id }}
         run: npx --yes wrangler@4 deploy 2>&1 | tee deploy.log
+      - name: Smoke test the live API
+        working-directory: worker
+        run: |
+          URL=$(grep -oE 'https://[a-z0-9.-]+\.workers\.dev' deploy.log | head -n 1)
+          if [ -z "$URL" ]; then echo "::warning::Could not find the deployed URL in the wrangler output; skipping the smoke test"; exit 0; fi
+          sleep 5
+          curl -fsS "$URL/api/health" | grep -q '"ok":true' || { echo "::error::$URL/api/health did not answer ok"; exit 1; }
+          U="smoke_$RANDOM$RANDOM"; P="smoke-pass-$RANDOM$RANDOM"
+          BODY=$(printf '{"username":"%s","password":"%s"}' "$U" "$P")
+          SIGNUP=$(curl -sS -w '\n%{http_code}' -X POST -H 'content-type: application/json' -d "$BODY" "$URL/api/signup")
+          CODE=$(echo "$SIGNUP" | tail -n 1)
+          if [ "$CODE" != "201" ]; then echo "::error::Signup on the live API failed with HTTP $CODE: $(echo "$SIGNUP" | head -n 1 | head -c 300)"; exit 1; fi
+          TOKEN=$(echo "$SIGNUP" | head -n 1 | node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>console.log(JSON.parse(s).token))')
+          echo "::add-mask::$TOKEN"
+          LOGIN=$(curl -sS -o /dev/null -w '%{http_code}' -X POST -H 'content-type: application/json' -d "$BODY" "$URL/api/login")
+          [ "$LOGIN" = "200" ] || { echo "::error::Login on the live API failed with HTTP $LOGIN"; exit 1; }
+          PUT=$(curl -sS -o /dev/null -w '%{http_code}' -X PUT -H 'content-type: application/json' -H "Authorization: Bearer $TOKEN" -d '{"puzzles":{"1":{"guesses":[1,2,3,4,5]}}}' "$URL/api/puzzles")
+          [ "$PUT" = "200" ] || { echo "::error::Saving puzzles on the live API failed with HTTP $PUT"; exit 1; }
+          DEL=$(curl -sS -o /dev/null -w '%{http_code}' -X DELETE -H 'content-type: application/json' -H "Authorization: Bearer $TOKEN" -d "$(printf '{"password":"%s"}' "$P")" "$URL/api/account")
+          [ "$DEL" = "204" ] || { echo "::error::Deleting the smoke-test account failed with HTTP $DEL"; exit 1; }
+          echo "Smoke test passed: signup, login, save and delete all worked on $URL"
       - name: API address
         working-directory: worker
         run: |
