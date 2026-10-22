@@ -23,10 +23,16 @@ export function available() {
 export function session() {
   try {
     const s = JSON.parse(localStorage.getItem(KEY) || 'null');
-    return s && typeof s.token === 'string' && typeof s.username === 'string' ? s : null;
+    return s && typeof s.token === 'string' && typeof s.username === 'string' ? { token: s.token, username: s.username, admin: s.admin === true } : null;
   } catch {
     return null;
   }
+}
+
+/** True when the signed-in account is the game's owner (the special "owner" login). */
+export function isOwner() {
+  const s = session();
+  return !!s && s.admin;
 }
 
 function saveSession(s) {
@@ -59,16 +65,33 @@ async function request(method, path, { body, token } = {}) {
   return data;
 }
 
-export async function signup(username, password) {
-  const d = await request('POST', '/api/signup', { body: { username, password } });
-  saveSession({ token: d.token, username: d.username });
+/** A request on behalf of the signed-in player; throws 401 when signed out. */
+function authed(method, path, body) {
+  const s = session();
+  if (!s) throw new ApiError(401, 'Sign in first');
+  return request(method, path, { body, token: s.token });
+}
+
+/** `anonymousId` hands this browser's guest guesses and suggestions to the account. */
+export async function signup(username, password, anonymousId) {
+  const d = await request('POST', '/api/signup', { body: { username, password, player: anonymousId } });
+  saveSession({ token: d.token, username: d.username, admin: d.admin === true });
   return d.username;
 }
 
-export async function login(username, password) {
-  const d = await request('POST', '/api/login', { body: { username, password } });
-  saveSession({ token: d.token, username: d.username });
+export async function login(username, password, anonymousId) {
+  const d = await request('POST', '/api/login', { body: { username, password, player: anonymousId } });
+  saveSession({ token: d.token, username: d.username, admin: d.admin === true });
   return d.username;
+}
+
+/** Re-read the account from the server (keeps the owner flag current). Returns null when signed out. */
+export async function refresh() {
+  const s = session();
+  if (!s) return null;
+  const d = await request('GET', '/api/me', { token: s.token });
+  saveSession({ token: s.token, username: d.username, admin: d.admin === true });
+  return session();
 }
 
 /** Forget the session locally and tell the server; never throws. */
@@ -88,7 +111,7 @@ export function forgetSession() {
   saveSession(null);
 }
 
-/** Record a guess and get the community statistics for that question. */
+/** Record a daily guess and get the community statistics for that question. */
 export async function submitGuess({ questionId, guess, answer, anonymousId }) {
   const s = session();
   const body = { question_id: questionId, guess, answer };
@@ -103,13 +126,48 @@ export async function fetchStats({ questionId, answer, guess }) {
   return request('GET', `/api/stats?${params}`);
 }
 
-/** The leaderboard for one puzzle (`{ n }`) or all time (`{ scope: 'all' }`). Needs a session. */
+/** Start a timed run on the server (signed in only). Returns { id, startedAt, durationMs }. */
+export function createRun() {
+  return authed('POST', '/api/runs', { mode: 'timed' });
+}
+
+/** Record an unlimited or timed answer; returns { multiple, ballpark, run, stats }. */
+export async function submitPlay({ mode, runId, questionId, guess, answer, anonymousId }) {
+  const s = session();
+  const body = { mode, question_id: questionId, guess, answer };
+  if (mode === 'timed' && runId) body.run_id = runId;
+  if (!s) body.player = anonymousId;
+  return request('POST', '/api/plays', { body, token: s ? s.token : undefined });
+}
+
+/** Send a suggestion to the game's owner. */
+export async function sendSuggestion(text, anonymousId) {
+  const s = session();
+  const body = { text };
+  if (!s) body.player = anonymousId;
+  return request('POST', '/api/suggestions', { body, token: s ? s.token : undefined });
+}
+
+/**
+ * A leaderboard: `{ n }` for one puzzle, or `{ scope }` with 'all',
+ * 'unlimited' or 'timed'. Needs a session.
+ */
 export async function fetchLeaderboard({ scope, n }) {
   const s = session();
   if (!s) throw new ApiError(401, 'Sign in to see the leaderboard');
-  const params = scope === 'all' ? new URLSearchParams({ scope: 'all' }) : new URLSearchParams({ n: String(n) });
+  const params = scope && scope !== 'daily' ? new URLSearchParams({ scope }) : new URLSearchParams({ n: String(n) });
   return request('GET', `/api/leaderboard?${params}`, { token: s.token });
 }
+
+// Owner only
+export const admin = {
+  players: () => authed('GET', '/api/admin/players'),
+  answersForUser: (id) => authed('GET', `/api/admin/answers?user=${encodeURIComponent(id)}`),
+  answersForQuestions: (ids) => authed('GET', `/api/admin/answers?question_ids=${encodeURIComponent(ids.join(','))}`),
+  setPassword: (userId, password) => authed('POST', '/api/admin/password', { user_id: userId, password }),
+  suggestions: () => authed('GET', '/api/admin/suggestions'),
+  updateSuggestion: (id, patch) => authed('POST', '/api/admin/suggestion', { id, ...patch }),
+};
 
 /** A sync handle with the same shape as the claude.ai one, or null when signed out. */
 export function connectAccountSync() {

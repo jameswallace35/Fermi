@@ -1,30 +1,53 @@
-// Fermi accounts API: a Cloudflare Worker backed by a D1 (SQLite) database.
+// Ballpark accounts API: a Cloudflare Worker backed by a D1 (SQLite) database.
 //
 // Sessions are bearer tokens (random, stored hashed), so the game page can
 // call this from any origin without cookies. Passwords are hashed with
-// PBKDF2-SHA256 and a per-user salt via WebCrypto.
+// PBKDF2-SHA256 and a per-user salt via WebCrypto; they are never stored or
+// shown in clear, not even to the game's owner.
 //
 // Endpoints (JSON in and out):
-//   GET    /api/health                                   -> { ok: true }
-//   POST   /api/signup   { username, password }          -> 201 { token, username }
-//   POST   /api/login    { username, password }          -> 200 { token, username }
-//   POST   /api/logout   (Bearer)                        -> 204
-//   GET    /api/me       (Bearer)                        -> { username, createdAt }
-//   GET    /api/puzzles  (Bearer)                        -> { puzzles: { [n]: state } }
-//   PUT    /api/puzzles  (Bearer) { puzzles: {...} }     -> { puzzles: merged }
-//   DELETE /api/account  (Bearer) { password }           -> 204
+//   GET    /api/health                                    -> { ok: true }
+//   POST   /api/signup   { username, password, player? }  -> 201 { token, username, admin }
+//   POST   /api/login    { username, password, player? }  -> 200 { token, username, admin }
+//            player is the browser's anonymous id: guesses and suggestions made before
+//            signing in are re-attributed to the account.
+//            Signing in as the reserved username "owner" with the owner key (ADMIN_KEY_HASH in
+//            wrangler.toml holds its SHA-256) creates or opens the owner account, admin: true.
+//   POST   /api/logout   (Bearer)                         -> 204
+//   GET    /api/me       (Bearer)                         -> { username, createdAt, admin }
+//   GET    /api/puzzles  (Bearer)                         -> { puzzles: { [n]: state } }
+//   PUT    /api/puzzles  (Bearer) { puzzles: {...} }      -> { puzzles: merged }
+//   DELETE /api/account  (Bearer) { password }            -> 204
 //   POST   /api/guesses  { question_id, guess, answer, player? } (Bearer optional)
-//                                                        -> stats for that question, including you
-//   GET    /api/stats?question_id=..&answer=..&guess=..  -> stats for that question
-//   GET    /api/leaderboard?n=<puzzle>  (Bearer)         -> players who finished puzzle n, best first
-//   GET    /api/leaderboard?scope=all   (Bearer)         -> all-time standings
+//                                                         -> stats for that question, including you
+//   GET    /api/stats?question_id=..&answer=..&guess=..   -> stats for that question
+//   POST   /api/runs     (Bearer) { mode: 'timed' }       -> 201 { id, startedAt, durationMs }
+//   POST   /api/plays    { mode, run_id?, question_id, guess, answer?, player? } (Bearer optional)
+//                                                         -> { multiple, ballpark, run, stats }
+//   POST   /api/suggestions { text, player? } (Bearer optional) -> 201 { ok: true }
+//   GET    /api/leaderboard?n=<puzzle>  (Bearer)          -> players who finished puzzle n, best first
+//   GET    /api/leaderboard?scope=all   (Bearer)          -> all-time standings
+//   GET    /api/leaderboard?scope=unlimited | timed       -> unlimited-mode and timed-mode standings
+//   Owner only (the "owner" login):
+//   GET    /api/admin/players                             -> every account with totals
+//   GET    /api/admin/answers?user=<id>                   -> one player's every answer
+//   GET    /api/admin/answers?question_ids=a,b,c          -> everyone's answers to those questions
+//   POST   /api/admin/password { user_id, password }      -> 204 (sets a player's password)
+//   GET    /api/admin/suggestions                         -> every suggestion sent in
+//   POST   /api/admin/suggestion { id, done? , delete? }  -> 204
 
 import bank from './bank.js';
 
 export const USERNAME_RE = /^[a-z0-9_]{3,24}$/;
+export const OWNER_USERNAME = 'owner';
 export const PASSWORD_MIN = 8;
 export const PASSWORD_MAX = 200;
 export const QUESTIONS_PER_DAY = 5;
+export const NOTES_MAX = 4000;
+export const SUGGESTION_MAX = 1000;
+export const TIMED_DURATION_MS = 5 * 60 * 1000;
+export const TIMED_GRACE_MS = 20 * 1000;
+export const BALLPARK_MAX = 10;
 export const ANSWERS = bank.answers || {};
 const MAX_MULTIPLE = 1e15;
 const RANKED_MIN_PLAYED = 3;
@@ -36,6 +59,8 @@ const MAX_PUZZLES_PER_REQUEST = 500;
 const MAX_PUZZLE_NUMBER = 100000;
 const DEFAULT_ITERATIONS = 100000;
 const GUESS_LIMIT_PER_IP = 200;
+const PLAY_LIMIT_PER_IP = 600;
+const SUGGEST_LIMIT_PER_IP = 10;
 const STATS_SAMPLE = 5000;
 const QUESTION_ID_RE = /^[a-z0-9][a-z0-9-]{0,63}$/;
 const ANON_ID_RE = /^[A-Za-z0-9_-]{16,64}$/;
@@ -43,6 +68,9 @@ const LOGIN_LIMIT_PER_IP = 30;
 const LOGIN_LIMIT_PER_USER = 10;
 const SIGNUP_LIMIT_PER_IP = 10;
 const LIMIT_WINDOW_MS = 15 * 60 * 1000;
+const ADMIN_LIST_LIMIT = 2000;
+const ADMIN_ROWS_LIMIT = 2000;
+const ADMIN_QUESTIONS_MAX = 10;
 
 export class HttpError extends Error {
   constructor(status, message) {
@@ -127,15 +155,35 @@ export function validatePassword(raw) {
   return raw;
 }
 
-/** Same rules as the game's storage: returns a clean puzzle state or null. */
+/** Number of questions answered in a puzzle state (questions can be answered in any order, so gaps are null). */
+export function answeredCount(state) {
+  return state && Array.isArray(state.guesses) ? state.guesses.filter((g) => g !== null && g !== undefined).length : 0;
+}
+
+export function isFinished(state) {
+  return !!state && Array.isArray(state.guesses) && state.guesses.length === QUESTIONS_PER_DAY && answeredCount(state) === QUESTIONS_PER_DAY;
+}
+
+/**
+ * Same rules as the game's storage: returns a clean puzzle state or null.
+ * `guesses` holds a positive number per answered question and null for a
+ * question not answered yet; trailing nulls are dropped.
+ */
 export function sanitizePuzzle(raw) {
   if (!raw || typeof raw !== 'object' || Array.isArray(raw) || !Array.isArray(raw.guesses)) return null;
-  const guesses = raw.guesses;
-  if (!guesses.length || guesses.length > QUESTIONS_PER_DAY) return null;
-  if (!guesses.every((g) => typeof g === 'number' && Number.isFinite(g) && g > 0)) return null;
-  const state = { guesses: guesses.slice(), completedAt: typeof raw.completedAt === 'number' && Number.isFinite(raw.completedAt) ? raw.completedAt : null };
+  if (raw.guesses.length > QUESTIONS_PER_DAY) return null;
+  const guesses = [];
+  for (const g of raw.guesses) {
+    if (g === null || g === undefined) guesses.push(null);
+    else if (typeof g === 'number' && Number.isFinite(g) && g > 0) guesses.push(g);
+    else return null;
+  }
+  while (guesses.length && guesses[guesses.length - 1] === null) guesses.pop();
+  if (!guesses.some((g) => g !== null)) return null;
+  const state = { guesses, completedAt: typeof raw.completedAt === 'number' && Number.isFinite(raw.completedAt) ? raw.completedAt : null };
   if (Array.isArray(raw.ids) && raw.ids.length <= QUESTIONS_PER_DAY && raw.ids.every((id) => typeof id === 'string' && id.length <= 64)) state.ids = raw.ids.slice();
   if (Array.isArray(raw.units) && raw.units.length <= QUESTIONS_PER_DAY) state.units = raw.units.map((u) => (typeof u === 'string' && u.length <= 32 ? u : null));
+  if (typeof raw.notes === 'string') state.notes = raw.notes.slice(0, NOTES_MAX);
   return state;
 }
 
@@ -201,7 +249,7 @@ export function scoreMultiple(guess, answer) {
  */
 export function scorePuzzle(state, answers = ANSWERS) {
   if (!state || !Array.isArray(state.ids) || !Array.isArray(state.guesses)) return null;
-  if (state.ids.length !== QUESTIONS_PER_DAY || state.guesses.length !== QUESTIONS_PER_DAY) return null;
+  if (state.ids.length !== QUESTIONS_PER_DAY || !isFinished(state)) return null;
   const multiples = [];
   for (let i = 0; i < QUESTIONS_PER_DAY; i++) {
     const answer = answers[state.ids[i]];
@@ -211,10 +259,36 @@ export function scorePuzzle(state, answers = ANSWERS) {
   return { score: multiples.reduce((a, b) => a + b, 0) / multiples.length, multiples };
 }
 
-/** The record with more guesses wins; ties keep what is stored. */
-export function mergePuzzle(existing, incoming) {
+function sameIds(a, b) {
+  if (!a || !b) return true; // a record without ids is trusted to be the same puzzle
+  return a.length === b.length && a.every((id, i) => id === b[i]);
+}
+
+/**
+ * Merge two records of the same puzzle. Answers are combined question by
+ * question (what is stored wins where both answered the same question), the
+ * latest notes win, and a record whose question ids differ is replaced only
+ * by one with more answers. Returns `existing` itself when nothing changes.
+ */
+export function mergePuzzle(existing, incoming, now = Date.now()) {
   if (!existing) return incoming;
-  return incoming.guesses.length > existing.guesses.length ? incoming : existing;
+  if (!sameIds(existing.ids, incoming.ids)) return answeredCount(incoming) > answeredCount(existing) ? incoming : existing;
+  const len = Math.max(existing.guesses.length, incoming.guesses.length);
+  const guesses = [];
+  const units = [];
+  for (let i = 0; i < len; i++) {
+    const e = existing.guesses[i] ?? null;
+    const inc = incoming.guesses[i] ?? null;
+    guesses.push(e !== null ? e : inc);
+    units.push(e !== null ? (existing.units || [])[i] ?? null : (incoming.units || [])[i] ?? null);
+  }
+  const merged = { ...existing, guesses };
+  if (units.some((u) => u !== null)) merged.units = units;
+  else delete merged.units;
+  if (!merged.ids && incoming.ids) merged.ids = incoming.ids.slice();
+  if (merged.completedAt == null && isFinished(merged)) merged.completedAt = typeof incoming.completedAt === 'number' ? incoming.completedAt : now;
+  if (typeof incoming.notes === 'string' && incoming.notes !== (existing.notes ?? '')) merged.notes = incoming.notes;
+  return JSON.stringify(merged) === JSON.stringify(existing) ? existing : merged;
 }
 
 // ------------------------------------------------------------------- http
@@ -275,6 +349,17 @@ async function rateLimit(env, key, limit, now) {
   await env.DB.prepare('UPDATE attempts SET count = count + 1 WHERE key = ?').bind(key).run();
 }
 
+/** Guesses and suggestions a browser made anonymously now belong to the account it signed in to. */
+async function claimAnonymous(env, userId, player) {
+  const anon = String(player ?? '').trim();
+  if (!ANON_ID_RE.test(anon)) return;
+  await env.DB.batch([
+    env.DB.prepare('UPDATE OR IGNORE guesses SET player_key = ? WHERE player_key = ?').bind(`u:${userId}`, `a:${anon}`),
+    env.DB.prepare('DELETE FROM guesses WHERE player_key = ?').bind(`a:${anon}`),
+    env.DB.prepare('UPDATE suggestions SET player_key = ? WHERE player_key = ?').bind(`u:${userId}`, `a:${anon}`),
+  ]);
+}
+
 async function issueSession(env, userId, now) {
   const token = randomToken();
   await env.DB.prepare('INSERT INTO sessions (token_hash, user_id, created_at, expires_at) VALUES (?, ?, ?, ?)')
@@ -283,13 +368,23 @@ async function issueSession(env, userId, now) {
   return token;
 }
 
+/**
+ * The owner key, whose SHA-256 is ADMIN_KEY_HASH in wrangler.toml, is the
+ * password of the reserved "owner" login that opens the admin view.
+ */
+export async function isOwnerKey(env, key) {
+  const want = String(env.ADMIN_KEY_HASH || '').trim().toLowerCase();
+  if (!/^[0-9a-f]{64}$/.test(want) || typeof key !== 'string' || !key.trim()) return false;
+  return timingSafeEqual(await sha256Hex(key.trim()), want);
+}
+
 async function requireSession(env, request, now) {
   const auth = request.headers.get('Authorization') || '';
   const m = /^Bearer\s+([A-Za-z0-9_-]{20,100})$/.exec(auth);
   if (!m) throw new HttpError(401, 'Sign in to continue');
   const tokenHash = await sha256Hex(m[1]);
   const row = await env.DB.prepare(
-    'SELECT s.user_id AS userId, s.expires_at AS expiresAt, u.username AS username, u.created_at AS createdAt FROM sessions s JOIN users u ON u.id = s.user_id WHERE s.token_hash = ?',
+    'SELECT s.user_id AS userId, s.expires_at AS expiresAt, u.username AS username, u.is_admin AS isAdmin, u.created_at AS createdAt FROM sessions s JOIN users u ON u.id = s.user_id WHERE s.token_hash = ?',
   )
     .bind(tokenHash)
     .first();
@@ -297,7 +392,13 @@ async function requireSession(env, request, now) {
     if (row) await env.DB.prepare('DELETE FROM sessions WHERE token_hash = ?').bind(tokenHash).run();
     throw new HttpError(401, 'Your session has expired. Please sign in again.');
   }
-  return { userId: row.userId, username: row.username, createdAt: row.createdAt, tokenHash };
+  return { userId: row.userId, username: row.username, createdAt: row.createdAt, tokenHash, admin: row.isAdmin === 1 };
+}
+
+async function requireAdmin(env, request, now) {
+  const session = await requireSession(env, request, now);
+  if (!session.admin) throw new HttpError(403, 'Only the game owner can do that');
+  return session;
 }
 
 async function loadPuzzles(env, userId, { backfill = false, now = Date.now() } = {}) {
@@ -328,6 +429,7 @@ async function signup(request, env, now) {
   const username = validateUsername(body.username);
   const password = validatePassword(body.password);
   await rateLimit(env, `signup:${clientIp(request)}`, SIGNUP_LIMIT_PER_IP, now);
+  if (username === OWNER_USERNAME) throw new HttpError(409, 'That username is reserved');
   const existing = await env.DB.prepare('SELECT id FROM users WHERE username = ?').bind(username).first();
   if (existing) throw new HttpError(409, 'That username is taken');
   const iterations = Math.max(10000, Number(env.PBKDF2_ITERATIONS) || DEFAULT_ITERATIONS);
@@ -336,8 +438,9 @@ async function signup(request, env, now) {
     .bind(username, record.pw_hash, record.pw_salt, record.pw_iterations, now)
     .run();
   const userId = result.meta?.last_row_id ?? (await env.DB.prepare('SELECT id FROM users WHERE username = ?').bind(username).first()).id;
+  await claimAnonymous(env, userId, body.player);
   const token = await issueSession(env, userId, now);
-  return json({ token, username }, 201);
+  return json({ token, username, admin: false }, 201);
 }
 
 async function login(request, env, now) {
@@ -346,13 +449,15 @@ async function login(request, env, now) {
   const password = validatePassword(body.password);
   await rateLimit(env, `login:ip:${clientIp(request)}`, LOGIN_LIMIT_PER_IP, now);
   await rateLimit(env, `login:user:${username}`, LOGIN_LIMIT_PER_USER, now);
-  const user = await env.DB.prepare('SELECT id, pw_hash, pw_salt, pw_iterations FROM users WHERE username = ?').bind(username).first();
-  // Verify against a dummy record when the user is unknown so timing does not reveal which usernames exist.
+  if (username === OWNER_USERNAME) return ownerLogin(env, password, now);
+  const user = await env.DB.prepare('SELECT id, username, is_admin AS isAdmin, pw_hash, pw_salt, pw_iterations FROM users WHERE username = ?').bind(username).first();
+  // Verify against a dummy record when the user is unknown so timing does not reveal which accounts exist.
   const ok = user ? await verifyPassword(password, user) : (await verifyPassword(password, DUMMY_RECORD), false);
   if (!ok) throw new HttpError(401, 'Wrong username or password');
   await env.DB.prepare('DELETE FROM sessions WHERE expires_at < ?').bind(now).run();
+  await claimAnonymous(env, user.id, body.player);
   const token = await issueSession(env, user.id, now);
-  return json({ token, username }, 200);
+  return json({ token, username: user.username, admin: user.isAdmin === 1 }, 200);
 }
 
 const DUMMY_RECORD = { pw_hash: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=', pw_salt: 'AAAAAAAAAAAAAAAAAAAAAA==', pw_iterations: DEFAULT_ITERATIONS };
@@ -365,7 +470,23 @@ async function logout(request, env, now) {
 
 async function me(request, env, now) {
   const session = await requireSession(env, request, now);
-  return json({ username: session.username, createdAt: session.createdAt });
+  return json({ username: session.username, createdAt: session.createdAt, admin: session.admin });
+}
+
+/** The special owner login: the reserved username with the owner key as its password. */
+async function ownerLogin(env, password, now) {
+  if (!(await isOwnerKey(env, password))) throw new HttpError(401, 'Wrong username or password');
+  let user = await env.DB.prepare('SELECT id FROM users WHERE username = ?').bind(OWNER_USERNAME).first();
+  if (!user) {
+    const iterations = Math.max(10000, Number(env.PBKDF2_ITERATIONS) || DEFAULT_ITERATIONS);
+    const record = await createPasswordRecord(password, iterations);
+    const result = await env.DB.prepare('INSERT INTO users (username, pw_hash, pw_salt, pw_iterations, created_at, is_admin) VALUES (?, ?, ?, ?, ?, 1)')
+      .bind(OWNER_USERNAME, record.pw_hash, record.pw_salt, record.pw_iterations, now)
+      .run();
+    user = { id: result.meta?.last_row_id ?? (await env.DB.prepare('SELECT id FROM users WHERE username = ?').bind(OWNER_USERNAME).first()).id };
+  } else await env.DB.prepare('UPDATE users SET is_admin = 1 WHERE id = ?').bind(user.id).run();
+  const token = await issueSession(env, user.id, now);
+  return json({ token, username: OWNER_USERNAME, admin: true }, 200);
 }
 
 async function getPuzzles(request, env, now) {
@@ -386,7 +507,7 @@ async function putPuzzles(request, env, now) {
     if (!Number.isInteger(n) || n < 1 || n > MAX_PUZZLE_NUMBER) continue;
     const incoming = sanitizePuzzle(raw);
     if (!incoming) continue;
-    const merged = mergePuzzle(stored[n], incoming);
+    const merged = mergePuzzle(stored[n], incoming, now);
     if (merged !== stored[n]) {
       stored[n] = merged;
       const scored = scorePuzzle(merged);
@@ -445,10 +566,67 @@ async function getStats(request, env) {
   return json(await questionStats(env, questionId, answer, mine));
 }
 
+// ------------------------------------------------------ unlimited and timed
+
+async function createRun(request, env, now) {
+  const session = await requireSession(env, request, now);
+  const body = await readJson(request);
+  if (body.mode !== 'timed') throw new HttpError(400, 'Only timed runs are recorded');
+  const result = await env.DB.prepare("INSERT INTO runs (user_id, mode, started_at) VALUES (?, 'timed', ?)").bind(session.userId, now).run();
+  const id = result.meta?.last_row_id ?? (await env.DB.prepare('SELECT id FROM runs WHERE user_id = ? ORDER BY id DESC LIMIT 1').bind(session.userId).first()).id;
+  return json({ id, startedAt: now, durationMs: TIMED_DURATION_MS }, 201);
+}
+
+/**
+ * One answer in unlimited or timed mode. Signed-in players get it recorded
+ * for the leaderboards (timed answers must belong to a run that is still
+ * going); everyone's first answer to a question also joins the community
+ * statistics, exactly like a daily guess.
+ */
+async function postPlay(request, env, now) {
+  const body = await readJson(request);
+  const mode = body.mode === 'timed' || body.mode === 'unlimited' ? body.mode : null;
+  if (!mode) throw new HttpError(400, 'mode must be unlimited or timed');
+  const questionId = validateQuestionId(body.question_id);
+  const guess = positiveNumber(body.guess, 'guess');
+  const answer = answerFor(questionId, body.answer);
+  const multiple = scoreMultiple(guess, answer);
+  await rateLimit(env, `play:${clientIp(request)}`, PLAY_LIMIT_PER_IP, now);
+  const key = await playerKey(env, request, body, now);
+  let run = null;
+  if (key.startsWith('u:')) {
+    const userId = Number(key.slice(2));
+    let runId = null;
+    if (mode === 'timed') {
+      const id = Number(body.run_id);
+      if (!Number.isInteger(id) || id < 1) throw new HttpError(400, 'A run id is required in timed mode');
+      const row = await env.DB.prepare("SELECT id, started_at AS startedAt FROM runs WHERE id = ? AND user_id = ? AND mode = 'timed'").bind(id, userId).first();
+      if (!row) throw new HttpError(404, 'Unknown run');
+      if (now > row.startedAt + TIMED_DURATION_MS + TIMED_GRACE_MS) throw new HttpError(400, 'Time is up for that run');
+      runId = row.id;
+    }
+    const inBallpark = multiple <= BALLPARK_MAX ? 1 : 0;
+    const writes = [
+      env.DB.prepare('INSERT INTO plays (user_id, mode, run_id, question_id, guess, multiple, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)').bind(userId, mode, runId, questionId, guess, multiple, now),
+    ];
+    if (runId) writes.push(env.DB.prepare('UPDATE runs SET answered = answered + 1, ballpark = ballpark + ?, sum_multiple = sum_multiple + ? WHERE id = ?').bind(inBallpark, multiple, runId));
+    await env.DB.batch(writes);
+    if (runId) {
+      const r = await env.DB.prepare('SELECT answered, ballpark, sum_multiple AS sum, started_at AS startedAt FROM runs WHERE id = ?').bind(runId).first();
+      run = { id: runId, answered: r.answered, ballpark: r.ballpark, average: r.answered ? r.sum / r.answered : null, remainingMs: Math.max(0, r.startedAt + TIMED_DURATION_MS - now) };
+    }
+  }
+  await env.DB.prepare('INSERT OR IGNORE INTO guesses (question_id, player_key, guess, created_at) VALUES (?, ?, ?, ?)').bind(questionId, key, guess, now).run();
+  return json({ multiple, ballpark: multiple <= BALLPARK_MAX, run, stats: await questionStats(env, questionId, answer, guess) });
+}
+
+// ------------------------------------------------------------ leaderboards
+
 async function leaderboard(request, env, now) {
   const session = await requireSession(env, request, now);
   const url = new URL(request.url);
-  if (url.searchParams.get('scope') === 'all') {
+  const scope = url.searchParams.get('scope');
+  if (scope === 'all') {
     const { results } = await env.DB.prepare(
       'SELECT u.username AS username, p.user_id AS userId, COUNT(*) AS played, AVG(p.score) AS average, MIN(p.score) AS best FROM puzzles p JOIN users u ON u.id = p.user_id WHERE p.score IS NOT NULL GROUP BY p.user_id',
     ).all();
@@ -457,6 +635,31 @@ async function leaderboard(request, env, now) {
       .sort((a, b) => (a.ranked !== b.ranked ? (a.ranked ? -1 : 1) : a.ranked ? a.average - b.average : b.played - a.played))
       .slice(0, BOARD_LIMIT);
     return json({ scope: 'all', rankedMinPlayed: RANKED_MIN_PLAYED, players });
+  }
+  if (scope === 'unlimited') {
+    const { results } = await env.DB.prepare(
+      "SELECT u.username AS username, p.user_id AS userId, COUNT(*) AS answered, AVG(p.multiple) AS average, SUM(CASE WHEN p.multiple <= ? THEN 1 ELSE 0 END) AS ballpark FROM plays p JOIN users u ON u.id = p.user_id WHERE p.mode = 'unlimited' GROUP BY p.user_id ORDER BY answered DESC, average ASC LIMIT ?",
+    )
+      .bind(BALLPARK_MAX, BOARD_LIMIT)
+      .all();
+    const players = (results || []).map((r) => ({ username: r.username, answered: Number(r.answered), ballpark: Number(r.ballpark), average: Number(r.average), you: r.userId === session.userId }));
+    return json({ scope: 'unlimited', players });
+  }
+  if (scope === 'timed') {
+    const { results } = await env.DB.prepare(
+      "SELECT r.user_id AS userId, u.username AS username, r.answered AS answered, r.ballpark AS ballpark, r.sum_multiple AS sum, r.started_at AS startedAt FROM runs r JOIN users u ON u.id = r.user_id WHERE r.mode = 'timed' AND r.answered > 0",
+    ).all();
+    const best = new Map();
+    for (const r of results || []) {
+      const run = { username: r.username, userId: r.userId, answered: Number(r.answered), ballpark: Number(r.ballpark), average: Number(r.sum) / Number(r.answered), startedAt: r.startedAt };
+      const prev = best.get(r.userId);
+      if (!prev || run.ballpark > prev.ballpark || (run.ballpark === prev.ballpark && run.average < prev.average)) best.set(r.userId, run);
+    }
+    const players = [...best.values()]
+      .sort((a, b) => b.ballpark - a.ballpark || a.average - b.average || b.answered - a.answered)
+      .slice(0, BOARD_LIMIT)
+      .map(({ userId, ...p }) => ({ ...p, you: userId === session.userId }));
+    return json({ scope: 'timed', durationMs: TIMED_DURATION_MS, ballparkMax: BALLPARK_MAX, players });
   }
   const n = Number(url.searchParams.get('n'));
   if (!Number.isInteger(n) || n < 1 || n > MAX_PUZZLE_NUMBER) throw new HttpError(400, 'Give a puzzle number as n');
@@ -479,6 +682,149 @@ async function leaderboard(request, env, now) {
   return json({ scope: 'daily', n, players });
 }
 
+// ------------------------------------------------------------- suggestions
+
+async function postSuggestion(request, env, now) {
+  const body = await readJson(request);
+  const text = String(body.text ?? '').trim();
+  if (text.length < 3) throw new HttpError(400, 'Write a few words first');
+  if (text.length > SUGGESTION_MAX) throw new HttpError(400, `Keep it under ${SUGGESTION_MAX} characters`);
+  await rateLimit(env, `suggest:${clientIp(request)}`, SUGGEST_LIMIT_PER_IP, now);
+  const key = await playerKey(env, request, body, now);
+  await env.DB.prepare('INSERT INTO suggestions (text, player_key, created_at) VALUES (?, ?, ?)').bind(text, key, now).run();
+  return json({ ok: true }, 201);
+}
+
+async function adminSuggestions(request, env, now) {
+  await requireAdmin(env, request, now);
+  const { results } = await env.DB.prepare(
+    "SELECT s.id AS id, s.text AS text, s.player_key AS playerKey, s.created_at AS createdAt, s.done AS done, u.username AS username FROM suggestions s LEFT JOIN users u ON s.player_key = 'u:' || u.id ORDER BY s.id DESC LIMIT ?",
+  )
+    .bind(ADMIN_ROWS_LIMIT)
+    .all();
+  return json({ suggestions: (results || []).map((r) => ({ id: r.id, text: r.text, createdAt: r.createdAt, done: !!r.done, username: r.username || null, guest: r.username ? null : String(r.playerKey).slice(2, 8) })) });
+}
+
+async function adminSuggestionUpdate(request, env, now) {
+  await requireAdmin(env, request, now);
+  const body = await readJson(request);
+  const id = Number(body.id);
+  if (!Number.isInteger(id) || id < 1) throw new HttpError(400, 'Give the suggestion id');
+  if (body.delete === true) await env.DB.prepare('DELETE FROM suggestions WHERE id = ?').bind(id).run();
+  else await env.DB.prepare('UPDATE suggestions SET done = ? WHERE id = ?').bind(body.done === false ? 0 : 1, id).run();
+  return json(null, 204);
+}
+
+// ------------------------------------------------------------------- admin
+
+function parsePuzzleRow(row) {
+  try {
+    const state = sanitizePuzzle(JSON.parse(row.data));
+    if (!state) return null;
+    const scored = scorePuzzle(state);
+    return { n: row.n, ...state, score: row.score == null ? (scored ? scored.score : null) : Number(row.score), multiples: scored ? scored.multiples : null, updatedAt: row.updated_at };
+  } catch {
+    return null;
+  }
+}
+
+async function adminPlayers(request, env, now) {
+  const admin = await requireAdmin(env, request, now);
+  const { results } = await env.DB.prepare(
+    `SELECT u.id AS id, u.username AS username, u.is_admin AS isAdmin, u.created_at AS createdAt,
+      (SELECT COUNT(*) FROM puzzles p WHERE p.user_id = u.id AND p.score IS NOT NULL) AS played,
+      (SELECT AVG(p.score) FROM puzzles p WHERE p.user_id = u.id AND p.score IS NOT NULL) AS average,
+      (SELECT COUNT(*) FROM guesses g WHERE g.player_key = 'u:' || u.id) AS answers,
+      (SELECT COUNT(*) FROM plays pl WHERE pl.user_id = u.id AND pl.mode = 'unlimited') AS unlimited,
+      (SELECT MAX(r.ballpark) FROM runs r WHERE r.user_id = u.id AND r.mode = 'timed') AS timedBest,
+      (SELECT MAX(p.updated_at) FROM puzzles p WHERE p.user_id = u.id) AS lastPuzzle,
+      (SELECT MAX(g.created_at) FROM guesses g WHERE g.player_key = 'u:' || u.id) AS lastGuess,
+      (SELECT MAX(pl.created_at) FROM plays pl WHERE pl.user_id = u.id) AS lastPlay
+     FROM users u ORDER BY u.id ASC LIMIT ?`,
+  )
+    .bind(ADMIN_LIST_LIMIT)
+    .all();
+  const players = [];
+  for (const r of results || []) {
+    const times = [r.lastPuzzle, r.lastGuess, r.lastPlay].filter((t) => typeof t === 'number');
+    players.push({
+      id: r.id,
+      username: r.username,
+      createdAt: r.createdAt,
+      played: Number(r.played),
+      average: r.average == null ? null : Number(r.average),
+      answers: Number(r.answers),
+      unlimited: Number(r.unlimited),
+      timedBest: r.timedBest == null ? null : Number(r.timedBest),
+      lastActive: times.length ? Math.max(...times) : null,
+      admin: r.isAdmin === 1 || r.id === admin.userId,
+    });
+  }
+  return json({ players });
+}
+
+async function adminAnswers(request, env, now) {
+  await requireAdmin(env, request, now);
+  const url = new URL(request.url);
+  if (url.searchParams.has('user')) {
+    const id = Number(url.searchParams.get('user'));
+    if (!Number.isInteger(id) || id < 1) throw new HttpError(400, 'Give a user id');
+    const user = await env.DB.prepare('SELECT id, username, created_at AS createdAt FROM users WHERE id = ?').bind(id).first();
+    if (!user) throw new HttpError(404, 'No such player');
+    const [puzzles, plays, guesses] = await Promise.all([
+      env.DB.prepare('SELECT n, data, score, updated_at FROM puzzles WHERE user_id = ? ORDER BY n DESC LIMIT ?').bind(id, ADMIN_ROWS_LIMIT).all(),
+      env.DB.prepare('SELECT mode, run_id AS runId, question_id AS questionId, guess, multiple, created_at AS createdAt FROM plays WHERE user_id = ? ORDER BY id DESC LIMIT ?').bind(id, ADMIN_ROWS_LIMIT).all(),
+      env.DB.prepare('SELECT question_id AS questionId, guess, created_at AS createdAt FROM guesses WHERE player_key = ? ORDER BY created_at DESC LIMIT ?').bind(`u:${id}`, ADMIN_ROWS_LIMIT).all(),
+    ]);
+    return json({
+      user: { id: user.id, username: user.username, createdAt: user.createdAt },
+      puzzles: (puzzles.results || []).map(parsePuzzleRow).filter(Boolean),
+      plays: (plays.results || []).map((r) => ({ mode: r.mode, runId: r.runId, questionId: r.questionId, guess: Number(r.guess), multiple: Number(r.multiple), createdAt: r.createdAt })),
+      guesses: (guesses.results || []).map((r) => ({ questionId: r.questionId, guess: Number(r.guess), createdAt: r.createdAt })),
+    });
+  }
+  const ids = String(url.searchParams.get('question_ids') || '')
+    .split(',')
+    .map((s) => s.trim())
+    .filter(Boolean)
+    .slice(0, ADMIN_QUESTIONS_MAX)
+    .map(validateQuestionId);
+  if (!ids.length) throw new HttpError(400, 'Give user=<id> or question_ids=a,b,c');
+  const { results } = await env.DB.prepare(
+    `SELECT g.question_id AS questionId, g.player_key AS playerKey, g.guess AS guess, g.created_at AS createdAt, u.id AS userId, u.username AS username
+     FROM guesses g LEFT JOIN users u ON g.player_key = 'u:' || u.id WHERE g.question_id IN (${ids.map(() => '?').join(',')}) ORDER BY g.question_id ASC, g.created_at ASC, g.player_key ASC LIMIT ?`,
+  )
+    .bind(...ids, ADMIN_ROWS_LIMIT)
+    .all();
+  const guesses = (results || []).map((r) => ({
+    questionId: r.questionId,
+    guess: Number(r.guess),
+    createdAt: r.createdAt,
+    userId: r.userId ?? null,
+    username: r.username || null,
+    guest: r.username ? null : String(r.playerKey).slice(2, 8),
+  }));
+  return json({ questionIds: ids, guesses });
+}
+
+async function adminSetPassword(request, env, now) {
+  const admin = await requireAdmin(env, request, now);
+  const body = await readJson(request);
+  const id = Number(body.user_id);
+  if (!Number.isInteger(id) || id < 1) throw new HttpError(400, 'Give the player id');
+  const password = validatePassword(body.password);
+  const user = await env.DB.prepare('SELECT id FROM users WHERE id = ?').bind(id).first();
+  if (!user) throw new HttpError(404, 'No such player');
+  const iterations = Math.max(10000, Number(env.PBKDF2_ITERATIONS) || DEFAULT_ITERATIONS);
+  const record = await createPasswordRecord(password, iterations);
+  await env.DB.batch([
+    env.DB.prepare('UPDATE users SET pw_hash = ?, pw_salt = ?, pw_iterations = ? WHERE id = ?').bind(record.pw_hash, record.pw_salt, record.pw_iterations, id),
+    // Sign that player out everywhere, except the owner's own current session when resetting their own password.
+    env.DB.prepare('DELETE FROM sessions WHERE user_id = ? AND token_hash != ?').bind(id, admin.tokenHash),
+  ]);
+  return json(null, 204);
+}
+
 async function deleteAccount(request, env, now) {
   const session = await requireSession(env, request, now);
   const body = await readJson(request);
@@ -488,6 +834,9 @@ async function deleteAccount(request, env, now) {
     env.DB.prepare('DELETE FROM puzzles WHERE user_id = ?').bind(user.id),
     env.DB.prepare('DELETE FROM sessions WHERE user_id = ?').bind(user.id),
     env.DB.prepare('DELETE FROM guesses WHERE player_key = ?').bind(`u:${user.id}`),
+    env.DB.prepare('DELETE FROM plays WHERE user_id = ?').bind(user.id),
+    env.DB.prepare('DELETE FROM runs WHERE user_id = ?').bind(user.id),
+    env.DB.prepare('DELETE FROM suggestions WHERE player_key = ?').bind(`u:${user.id}`),
     env.DB.prepare('DELETE FROM users WHERE id = ?').bind(user.id),
   ]);
   return json(null, 204);
@@ -504,7 +853,15 @@ const ROUTES = [
   ['DELETE', '/api/account', deleteAccount],
   ['POST', '/api/guesses', postGuess],
   ['GET', '/api/stats', getStats],
+  ['POST', '/api/runs', createRun],
+  ['POST', '/api/plays', postPlay],
+  ['POST', '/api/suggestions', postSuggestion],
   ['GET', '/api/leaderboard', leaderboard],
+  ['GET', '/api/admin/players', adminPlayers],
+  ['GET', '/api/admin/answers', adminAnswers],
+  ['POST', '/api/admin/password', adminSetPassword],
+  ['GET', '/api/admin/suggestions', adminSuggestions],
+  ['POST', '/api/admin/suggestion', adminSuggestionUpdate],
 ];
 
 export async function handle(request, env, now = Date.now()) {

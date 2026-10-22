@@ -9,7 +9,8 @@ import { createD1 } from '../tests/helpers/d1.js';
 const port = Number(process.argv[2] || process.env.API_PORT || 8787);
 const migrationsDir = new URL('../worker/migrations/', import.meta.url);
 const schema = fs.readdirSync(migrationsDir).filter((f) => f.endsWith('.sql')).sort().map((f) => fs.readFileSync(new URL(f, migrationsDir), 'utf8')).join('\n');
-const env = { DB: createD1(schema), ALLOWED_ORIGINS: '*', PBKDF2_ITERATIONS: process.env.PBKDF2_ITERATIONS || '20000' };
+// ADMIN_KEY_HASH (SHA-256 of the owner key) enables the "owner" login, as in worker/wrangler.toml.
+const env = { DB: createD1(schema), ALLOWED_ORIGINS: '*', PBKDF2_ITERATIONS: process.env.PBKDF2_ITERATIONS || '20000', ADMIN_KEY_HASH: process.env.ADMIN_KEY_HASH || '' };
 
 http
   .createServer(async (req, res) => {

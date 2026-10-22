@@ -2,7 +2,10 @@
 // private browsing modes, blocked storage or hand-edited data must never break
 // the game.
 
+import { answeredCount, mergePuzzleRecords, QUESTIONS_PER_DAY } from './logic.js';
+
 const PREFIX = 'fermi5:';
+export const NOTES_MAX = 4000;
 const PUZZLE_PREFIX = `${PREFIX}puzzle:`;
 
 function read(key, fallback) {
@@ -29,17 +32,33 @@ export function freshPuzzleState() {
   return { guesses: [], completedAt: null };
 }
 
-/** Coerce anything (storage, a backup, a cloud record) into a valid puzzle state. */
+/**
+ * Coerce anything (storage, a backup, a cloud record) into a valid puzzle
+ * state. Questions can be answered in any order: `guesses` holds a positive
+ * number per answered question and null for one not answered yet.
+ */
 export function sanitizePuzzleState(s) {
-  if (!s || typeof s !== 'object' || !Array.isArray(s.guesses)) return freshPuzzleState();
-  if (!s.guesses.every((g) => typeof g === 'number' && Number.isFinite(g) && g > 0)) return freshPuzzleState();
+  if (!s || typeof s !== 'object' || !Array.isArray(s.guesses) || s.guesses.length > QUESTIONS_PER_DAY) return freshPuzzleState();
+  const guesses = [];
+  for (const g of s.guesses) {
+    if (g === null || g === undefined) guesses.push(null);
+    else if (typeof g === 'number' && Number.isFinite(g) && g > 0) guesses.push(g);
+    else return freshPuzzleState();
+  }
+  while (guesses.length && guesses[guesses.length - 1] === null) guesses.pop();
   const state = {
-    guesses: s.guesses.slice(),
+    guesses,
     completedAt: typeof s.completedAt === 'number' ? s.completedAt : null,
   };
   if (Array.isArray(s.ids) && s.ids.every((id) => typeof id === 'string')) state.ids = s.ids.slice();
-  if (Array.isArray(s.units)) state.units = s.units.map((u) => (typeof u === 'string' ? u : null));
+  if (Array.isArray(s.units)) state.units = s.units.slice(0, QUESTIONS_PER_DAY).map((u) => (typeof u === 'string' ? u : null));
+  if (typeof s.notes === 'string' && s.notes) state.notes = s.notes.slice(0, NOTES_MAX);
   return state;
+}
+
+/** True for a record worth keeping, syncing or backing up: at least one answer or some notes. */
+export function hasContent(state) {
+  return answeredCount(state) > 0 || (typeof state.notes === 'string' && state.notes.trim() !== '');
 }
 
 export function loadPuzzleState(n) {
@@ -60,7 +79,7 @@ export function listPuzzleStates() {
       const n = Number(key.slice(PUZZLE_PREFIX.length));
       if (!Number.isInteger(n) || n < 1) continue;
       const state = loadPuzzleState(n);
-      if (state.guesses.length) out[n] = state;
+      if (hasContent(state)) out[n] = state;
     }
   } catch {
     // storage unavailable
@@ -126,7 +145,7 @@ export function parseBackup(code) {
       const n = Number(k);
       if (!Number.isInteger(n) || n < 1) continue;
       const state = sanitizePuzzleState(v);
-      if (state.guesses.length) puzzles[n] = state;
+      if (hasContent(state)) puzzles[n] = state;
     }
     const prefs = payload.prefs && typeof payload.prefs === 'object' && !Array.isArray(payload.prefs) ? payload.prefs : {};
     return { puzzles, prefs };
@@ -136,20 +155,41 @@ export function parseBackup(code) {
 }
 
 /**
- * Merge puzzle records into storage. A record wins when it has more guesses
- * than what is stored. Returns the puzzle numbers that changed.
+ * Merge puzzle records into storage, question by question (see
+ * mergePuzzleRecords). Returns the puzzle numbers that changed.
  */
 export function mergePuzzleStates(puzzles) {
   const changed = [];
   for (const [k, incoming] of Object.entries(puzzles)) {
     const n = Number(k);
+    if (!Number.isInteger(n) || n < 1) continue;
     const state = sanitizePuzzleState(incoming);
-    if (!state.guesses.length) continue;
+    if (!hasContent(state)) continue;
     const local = loadPuzzleState(n);
-    if (state.guesses.length > local.guesses.length) {
-      savePuzzleState(n, state);
+    const merged = mergePuzzleRecords(local, state);
+    if (merged !== local) {
+      savePuzzleState(n, merged);
       changed.push(n);
     }
   }
   return changed;
+}
+
+// ---------------------------------------------------------------------------
+// Unlimited and timed modes: local totals (the server keeps the leaderboards).
+
+export function loadModeStats(mode) {
+  const s = read(`mode:${mode}`, {});
+  const out = s && typeof s === 'object' && !Array.isArray(s) ? s : {};
+  return {
+    answered: Number.isInteger(out.answered) && out.answered >= 0 ? out.answered : 0,
+    ballpark: Number.isInteger(out.ballpark) && out.ballpark >= 0 ? out.ballpark : 0,
+    sumMultiple: Number.isFinite(out.sumMultiple) && out.sumMultiple >= 0 ? out.sumMultiple : 0,
+    seen: Array.isArray(out.seen) ? out.seen.filter((id) => typeof id === 'string').slice(-2000) : [],
+    best: out.best && typeof out.best === 'object' && Number.isInteger(out.best.ballpark) ? { ballpark: out.best.ballpark, answered: Number.isInteger(out.best.answered) ? out.best.answered : 0, average: Number.isFinite(out.best.average) ? out.best.average : null, at: Number.isFinite(out.best.at) ? out.best.at : null } : null,
+  };
+}
+
+export function saveModeStats(mode, stats) {
+  return write(`mode:${mode}`, stats);
 }

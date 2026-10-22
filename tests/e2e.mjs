@@ -6,6 +6,7 @@ import path from 'node:path';
 import fs from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import assert from 'node:assert/strict';
+import { createHash } from 'node:crypto';
 
 const require = createRequire(import.meta.url);
 const { chromium } = require('playwright');
@@ -16,7 +17,8 @@ const shots = process.env.SHOTS_DIR || path.join(root, '.e2e-shots');
 fs.mkdirSync(shots, { recursive: true });
 
 const apiPort = port + 1;
-const api = spawn(process.execPath, [path.join(root, 'scripts', 'dev-api.mjs'), String(apiPort)], { stdio: ['ignore', 'ignore', 'pipe'], env: { ...process.env, PBKDF2_ITERATIONS: '2000' } });
+const OWNER_KEY = 'e2e-owner-key-123456';
+const api = spawn(process.execPath, [path.join(root, 'scripts', 'dev-api.mjs'), String(apiPort)], { stdio: ['ignore', 'ignore', 'pipe'], env: { ...process.env, PBKDF2_ITERATIONS: '2000', ADMIN_KEY_HASH: createHash('sha256').update(OWNER_KEY).digest('hex') } });
 const server = spawn(process.execPath, [path.join(root, 'scripts', 'serve.mjs'), String(port)], { stdio: ['ignore', 'ignore', 'pipe'] });
 let serverExit = null;
 let serverStderr = '';
@@ -63,7 +65,7 @@ async function step(name, fn) {
 try {
   const context = await browser.newContext({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 2 });
   const apiUrl = `http://127.0.0.1:${apiPort}`;
-  await context.addInitScript((u) => { window.FERMI_CONFIG = { apiUrl: u }; }, apiUrl);
+  await context.addInitScript((u) => { window.FERMI_CONFIG = { apiUrl: u, timedSeconds: 4 }; }, apiUrl);
   const page = await context.newPage();
   const errors = [];
   page.on('pageerror', (e) => errors.push(String(e)));
@@ -217,14 +219,32 @@ try {
     assert.match(await page.textContent('.qnum'), /Question 3 of 5/);
   });
 
+  await step('questions can be answered out of order', async () => {
+    await page.click('#progress .dot[data-index="4"]');
+    await page.waitForSelector('#guess');
+    assert.match(await page.textContent('.qnum'), /Question 5 of 5/);
+    await page.fill('#guess', '777');
+    await page.click('#lock');
+    await page.waitForSelector('#continue');
+    assert.equal(await page.locator('#progress .dot.done').count(), 3);
+    assert.match(await page.textContent('#continue'), /Next question/);
+    await page.click('#continue');
+    await page.waitForSelector('#guess');
+    assert.match(await page.textContent('.qnum'), /Question 3 of 5/, 'continues at the first open question');
+    await page.reload();
+    await page.waitForSelector('#guess');
+    assert.equal(await page.locator('#progress .dot.done').count(), 3, 'a gap in the answers survives a reload');
+    assert.match(await page.textContent('.qnum'), /Question 3 of 5/);
+  });
+
   await step('complete the puzzle', async () => {
-    for (let i = 2; i < 5; i++) {
+    for (let i = 2; i < 4; i++) {
       await page.waitForSelector('#guess');
       await page.fill('#guess', '12345');
       await page.click('#lock');
       await page.waitForSelector('#continue');
       const label = await page.textContent('#continue');
-      if (i < 4) assert.match(label, /Next question/);
+      if (i < 3) assert.match(label, /Next question/);
       else assert.match(label, /See results/);
       await page.click('#continue');
     }
@@ -233,6 +253,25 @@ try {
     assert.equal(await page.locator('#summary .row').count(), 5);
     assert.match(await page.textContent('.summary-foot'), /Streak 1/);
     await page.screenshot({ path: path.join(shots, '05-summary.png'), fullPage: true });
+  });
+
+  await step('calculator notes are saved with the puzzle and shown on its results', async () => {
+    await page.click('#btn-calc');
+    await page.waitForSelector('#dlg-calc[open]');
+    assert.match(await page.textContent('#notes-for'), /puzzle No\. \d+/);
+    await page.fill('#calc-notes', 'Q1: 330M people x 1.5 = 500M');
+    await page.waitForFunction(() => document.querySelector('#notes-status').textContent === 'Saved');
+    await page.keyboard.press('Escape');
+    await page.waitForSelector('#dlg-calc', { state: 'hidden' });
+    await page.waitForFunction(() => /330M people/.test(document.querySelector('#summary .summary-notes')?.textContent || ''));
+    await page.reload();
+    await page.waitForSelector('#summary:not([hidden])');
+    assert.match(await page.textContent('#summary .summary-notes'), /330M people x 1\.5/, 'notes persist');
+    await page.click('#btn-archive');
+    await page.waitForSelector('#dlg-archive[open]');
+    assert.match(await page.textContent('#archive-body .row'), /notes/);
+    await page.keyboard.press('Escape');
+    await page.waitForSelector('#dlg-archive', { state: 'hidden' });
   });
 
   await step('summary shows a streak of one and tier colours have contrast', async () => {
@@ -364,6 +403,111 @@ try {
     await page.screenshot({ path: path.join(shots, '10-leaderboard.png') });
     await page.keyboard.press('Escape');
     await page.waitForSelector('#dlg-board', { state: 'hidden' });
+  });
+
+  const bankQuestions = (await (await fetch(`${url}data/questions.json`)).json()).questions;
+  const answerOnScreen = async (p) => {
+    const text = (await p.textContent('.question')).trim();
+    const q = bankQuestions.find((x) => x.question === text);
+    assert.ok(q, `question on screen is in the bank: ${text}`);
+    return q.answer;
+  };
+
+  await step('unlimited mode serves fresh questions and keeps a tally', async () => {
+    await page.click('#mode-unlimited');
+    await page.waitForSelector('#guess');
+    assert.match(await page.textContent('.qnum'), /Question 1$/);
+    assert.ok(await page.locator('#progress').isHidden(), 'no daily progress dots');
+    await page.fill('#guess', String(await answerOnScreen(page)));
+    await page.click('#lock');
+    await page.waitForSelector('#continue');
+    assert.match(await page.textContent('#puzzle-meta'), /Answered 1/);
+    assert.match(await page.textContent('#puzzle-meta'), /In the ballpark 1/);
+    await page.waitForFunction(() => /players|first player/.test(document.querySelector('#community')?.textContent || ''));
+    await page.click('#continue');
+    await page.waitForSelector('#guess');
+    assert.match(await page.textContent('.qnum'), /Question 2$/);
+    await page.screenshot({ path: path.join(shots, '11-unlimited.png') });
+  });
+
+  await step('timed mode runs the clock and ends with a tally', async () => {
+    await page.click('#mode-timed');
+    await page.waitForSelector('#arena-start');
+    await page.click('#arena-start');
+    await page.waitForSelector('#guess');
+    await page.waitForSelector('#arena-clock');
+    await page.fill('#guess', String(await answerOnScreen(page)));
+    await page.click('#lock');
+    await page.waitForSelector('#continue');
+    await page.waitForSelector('.arena-end', { timeout: 15000 });
+    assert.match(await page.textContent('.arena-end'), /1 answered/);
+    assert.match(await page.textContent('.arena-end'), /New personal best/);
+    await page.screenshot({ path: path.join(shots, '12-timed.png') });
+    await page.click('#btn-board');
+    await page.waitForSelector('#dlg-board[open]');
+    await page.click('#tab-unlimited');
+    await page.waitForFunction(() => /answered/.test(document.querySelector('#board-body')?.textContent || '') && document.querySelectorAll('#board-body .board-row').length >= 1);
+    assert.ok((await page.locator('#board-body .board-row.you').count()) > 0, 'the player is on the unlimited board');
+    await page.click('#tab-timed');
+    await page.waitForFunction(() => document.querySelectorAll('#board-body .board-row').length >= 1);
+    assert.match(await page.textContent('#board-body .board-row.you'), /1\s*in the ballpark/);
+    await page.keyboard.press('Escape');
+    await page.waitForSelector('#dlg-board', { state: 'hidden' });
+    await page.click('#mode-daily');
+    await page.waitForSelector('#summary:not([hidden])');
+  });
+
+  await step('anyone can send a suggestion and only the owner can read it', async () => {
+    await page.fill('#suggest-text', 'How many pizzas would cover Central Park?');
+    await page.click('#suggest-form button');
+    await page.waitForFunction(() => /Thanks/.test(document.querySelector('#toast').textContent));
+    assert.equal(await page.inputValue('#suggest-text'), '');
+    const r = await fetch(`${apiUrl}/api/admin/suggestions`);
+    assert.equal(r.status, 401);
+  });
+
+  await step('the owner login shows every player, their answers and the suggestions', async () => {
+    const me = await page.evaluate(() => JSON.parse(localStorage.getItem('fermi5:account')).username);
+    const fresh = await browser.newContext({ viewport: { width: 390, height: 844 } });
+    await fresh.addInitScript((u) => { window.FERMI_CONFIG = { apiUrl: u }; }, apiUrl);
+    const p3 = await fresh.newPage();
+    await p3.goto(url);
+    await p3.waitForSelector('#dlg-help[open]');
+    await p3.click('#dlg-help .dialog-foot button');
+    await p3.waitForSelector('#guess');
+    assert.ok(await p3.locator('#owner-banner').isHidden());
+    await p3.click('#btn-stats');
+    await p3.waitForSelector('#dlg-stats[open]');
+    await p3.fill('#account-user', 'owner');
+    await p3.fill('#account-pass', OWNER_KEY);
+    await p3.click('#account-form button[data-mode="login"]');
+    await p3.waitForFunction(() => /owner/.test(document.querySelector('#stats-body').textContent));
+    await p3.keyboard.press('Escape');
+    await p3.waitForSelector('#dlg-stats', { state: 'hidden' });
+    assert.ok(await p3.locator('#owner-banner').isVisible(), 'owner banner shows');
+    await p3.click('#btn-board');
+    await p3.waitForSelector('#dlg-board[open]');
+    await p3.click('#tab-owner');
+    await p3.waitForSelector('.owner-table');
+    assert.match(await p3.textContent('.owner-table'), new RegExp(me));
+    await p3.click(`.owner-open:text-is("${me}")`);
+    await p3.waitForSelector('.owner-detail .owner-q');
+    const detail = await p3.textContent('.owner-detail');
+    assert.match(detail, /No\. \d+/);
+    assert.match(detail, /330M people/, 'the player\'s notes are visible');
+    assert.match(detail, /answer/);
+    assert.match(detail, /Unlimited and timed answers \(2\)/);
+    await p3.screenshot({ path: path.join(shots, '13-owner.png'), fullPage: true });
+    await p3.click('.owner-nav [data-view="puzzle"]');
+    await p3.waitForSelector('.owner-q');
+    assert.equal(await p3.locator('#owner-body .owner-q').count(), 5);
+    assert.match(await p3.textContent('#owner-body'), new RegExp(me));
+    await p3.click('.owner-nav [data-view="suggestions"]');
+    await p3.waitForSelector('.owner-sug');
+    assert.match(await p3.textContent('.owner-sug'), /pizzas would cover Central Park/);
+    await p3.click('.owner-sug .sug-done');
+    await p3.waitForSelector('.owner-sug li.done');
+    await fresh.close();
   });
 
   await step('archive lists today as completed', async () => {

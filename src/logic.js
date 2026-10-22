@@ -314,6 +314,62 @@ export function firstRepeatDay(bank, perDay = QUESTIONS_PER_DAY) {
  * Current streak: consecutive puzzles ending at today (or at yesterday if
  * today is not yet done). `counts(n)` reports whether puzzle n counts.
  */
+/**
+ * Questions can be answered in any order, so `guesses` holds a positive
+ * number per answered question and null for one not answered yet.
+ */
+export function answeredCount(state) {
+  return state && Array.isArray(state.guesses) ? state.guesses.filter((g) => g !== null && g !== undefined).length : 0;
+}
+
+export function isAnswered(state, i) {
+  const g = state && Array.isArray(state.guesses) ? state.guesses[i] : undefined;
+  return g !== null && g !== undefined;
+}
+
+export function isFinished(state, perDay = QUESTIONS_PER_DAY) {
+  return !!state && Array.isArray(state.guesses) && state.guesses.length === perDay && answeredCount(state) === perDay;
+}
+
+/** Index of the first unanswered question, or -1 when all `total` are answered. */
+export function firstUnanswered(state, total = QUESTIONS_PER_DAY) {
+  for (let i = 0; i < total; i++) if (!isAnswered(state, i)) return i;
+  return -1;
+}
+
+function sameIds(a, b) {
+  if (!a || !b) return true; // a record without ids is trusted to be the same puzzle
+  return a.length === b.length && a.every((id, i) => id === b[i]);
+}
+
+/**
+ * Merge two records of the same puzzle (local and cloud, or a backup).
+ * Answers combine question by question (what is stored wins where both
+ * answered the same question), the latest notes win, and a record whose
+ * question ids differ replaces the stored one only when it has more answers.
+ * Returns `existing` itself when nothing changes. Mirrored in the Worker.
+ */
+export function mergePuzzleRecords(existing, incoming, now = Date.now()) {
+  if (!existing) return incoming;
+  if (!sameIds(existing.ids, incoming.ids)) return answeredCount(incoming) > answeredCount(existing) ? incoming : existing;
+  const len = Math.max(existing.guesses.length, incoming.guesses.length);
+  const guesses = [];
+  const units = [];
+  for (let i = 0; i < len; i++) {
+    const e = existing.guesses[i] ?? null;
+    const inc = incoming.guesses[i] ?? null;
+    guesses.push(e !== null ? e : inc);
+    units.push(e !== null ? (existing.units || [])[i] ?? null : (incoming.units || [])[i] ?? null);
+  }
+  const merged = { ...existing, guesses };
+  if (units.some((u) => u !== null)) merged.units = units;
+  else delete merged.units;
+  if (!merged.ids && incoming.ids) merged.ids = incoming.ids.slice();
+  if (merged.completedAt == null && isFinished(merged)) merged.completedAt = typeof incoming.completedAt === 'number' ? incoming.completedAt : now;
+  if (typeof incoming.notes === 'string' && incoming.notes !== (existing.notes ?? '')) merged.notes = incoming.notes;
+  return JSON.stringify(merged) === JSON.stringify(existing) ? existing : merged;
+}
+
 export function computeStreak(counts, todayNumber) {
   let n = counts(todayNumber) ? todayNumber : todayNumber - 1;
   let streak = 0;
@@ -330,7 +386,7 @@ export function computeStreak(counts, todayNumber) {
  * Records without a completion time (older saves) are trusted.
  */
 export function finishedOnTime(state, n) {
-  if (!state || !Array.isArray(state.guesses) || state.guesses.length < QUESTIONS_PER_DAY) return false;
+  if (!isFinished(state)) return false;
   if (typeof state.completedAt !== 'number') return true;
   return puzzleNumberForDate(localDateKey(new Date(state.completedAt))) <= n;
 }

@@ -9,7 +9,7 @@
   <meta name="theme-color" content="#f6f5f2" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#121214" media="(prefers-color-scheme: dark)">
   <meta property="og:title" content="Ballpark — five estimation questions a day">
-  <meta property="og:description" content="One guess per question. Score is how many times off you were. Lower is better.">
+  <meta property="og:description" content="One guess per question. Score is how many times off you were. Lower is better. Plus unlimited and five-minute timed modes.">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="stylesheet" href="styles.css">
@@ -51,7 +51,14 @@
     </div>
   </header>
 
+  <div id="owner-banner" class="owner-banner" hidden>Owner mode: open the leaderboard (trophy) to see every player's answers and suggestions.</div>
+
   <main id="main" class="container">
+    <div class="modes" role="tablist" aria-label="Game mode">
+      <button type="button" role="tab" class="mode-tab" id="mode-daily" aria-selected="true" aria-controls="question-card">Daily</button>
+      <button type="button" role="tab" class="mode-tab" id="mode-unlimited" aria-selected="false" aria-controls="question-card">Unlimited</button>
+      <button type="button" role="tab" class="mode-tab" id="mode-timed" aria-selected="false" aria-controls="question-card">Timed</button>
+    </div>
     <div id="day-banner" class="banner" hidden>
       <span>A new puzzle is ready.</span>
       <button id="btn-new-day" type="button" class="link-btn">Play today's puzzle</button>
@@ -66,7 +73,14 @@
   <div id="announcer" class="sr-only" aria-live="polite" aria-atomic="true"></div>
 
   <footer class="footer">
-    <p>Inspired by <a href="https://fermi.gg" target="_blank" rel="noopener noreferrer">fermi.gg</a>. No lookups — reason it out.</p>
+    <form class="suggest" id="suggest-form" hidden>
+      <label for="suggest-text" class="suggest-label">Got a question idea or a suggestion? Only the game's owner reads these.</label>
+      <div class="suggest-row">
+        <input id="suggest-text" type="text" maxlength="1000" placeholder="e.g. How many pizzas would cover Central Park?" autocomplete="off">
+        <button type="submit" class="btn">Send</button>
+      </div>
+    </form>
+    <p>No lookups — reason it out.</p>
   </footer>
 
   <dialog id="dlg-help" class="dialog" aria-labelledby="help-title">
@@ -77,7 +91,7 @@
       </button>
     </form>
     <div class="dialog-body prose">
-      <p>Every day brings <strong>five estimation questions</strong>. You get <strong>one guess</strong> per question.</p>
+      <p>Every day brings <strong>five estimation questions</strong>. You get <strong>one guess</strong> per question, and you can answer them in any order: tap a number above the card to jump around.</p>
       <p>Each guess is scored by <strong>how many times off</strong> it was. <strong>1×</strong> is exact; <strong>2×</strong> means you guessed double or half the answer. Lower is better. Your daily score is the average of the five.</p>
       <ul class="tier-list">
         <li><span>🎯</span> within 1.1×</li>
@@ -86,12 +100,13 @@
         <li><span>🟠</span> within 10×</li>
         <li><span>🔴</span> more than 10× off</li>
       </ul>
-      <p>Type numbers any way you like: <code>1500</code>, <code>1.5k</code>, <code>2 million</code>, <code>3B</code>, <code>1e9</code>, or a sum such as <code>365*24*60</code>. A calculator lives in the top bar.</p>
+      <p>Type numbers any way you like: <code>1500</code>, <code>1.5k</code>, <code>2 million</code>, <code>3B</code>, <code>1e9</code>, or a sum such as <code>365*24*60</code>. A calculator lives in the top bar, with a notes box for your working that is saved with the puzzle.</p>
+      <p><strong>Unlimited</strong> keeps serving fresh questions for as long as you like. <strong>Timed</strong> gives you five minutes to answer as many as you can; an answer within 10× counts as in the ballpark.</p>
       <p>For distances, weights, areas, volumes, speeds and temperatures, the unit menu inside the box lets you answer in miles, pounds, °F and so on. The game converts your guess and remembers your choice.</p>
       <p>No looking things up: the fun is in reasoning your way there. A new puzzle arrives at midnight, your local time. Streaks count puzzles finished on their own day; the archive is just for fun.</p>
       <p>Your results are saved in this browser, and every finished puzzle is listed under Statistics, where you can also copy a backup code to carry your history to another device. On claude.ai they are saved to your account as well.</p>
       <p>After each answer you see how other players guessed. To make that work, each guess is sent to the game's server under a random id (or your username if you are signed in); no names or other details are collected.</p>
-      <p class="muted small">Every question is a Fermi problem: the kind of back-of-the-envelope estimate Enrico Fermi was famous for. Is your answer in the ballpark?</p>
+      <p class="muted small">Every question is a back-of-the-envelope estimate. Is your answer in the ballpark?</p>
     </div>
     <form method="dialog" class="dialog-foot">
       <button class="btn primary wide" type="submit" autofocus>Let's go</button>
@@ -137,6 +152,11 @@
       </div>
       <p class="muted small">k = thousand, M = million, B = billion. Functions: sqrt, log, ln.</p>
       <button type="button" id="calc-use" class="btn primary wide">Use as my guess</button>
+      <div class="notes">
+        <label for="calc-notes" class="notes-label">Notes <span id="notes-for" class="muted small"></span></label>
+        <textarea id="calc-notes" rows="4" maxlength="4000" placeholder="Jot your working here. It is saved with this puzzle and shown with your results." spellcheck="false"></textarea>
+        <p id="notes-status" class="muted small notes-status" aria-live="polite">&nbsp;</p>
+      </div>
     </div>
   </dialog>
 
@@ -158,9 +178,12 @@
       </button>
     </form>
     <div class="dialog-body">
-      <div class="tabs" role="tablist" aria-label="Leaderboard period">
+      <div class="tabs" role="tablist" aria-label="Leaderboard">
         <button type="button" role="tab" id="tab-daily" class="tab" aria-selected="true" aria-controls="board-body">Today</button>
         <button type="button" role="tab" id="tab-all" class="tab" aria-selected="false" aria-controls="board-body">All time</button>
+        <button type="button" role="tab" id="tab-unlimited" class="tab" aria-selected="false" aria-controls="board-body">Unlimited</button>
+        <button type="button" role="tab" id="tab-timed" class="tab" aria-selected="false" aria-controls="board-body">Timed</button>
+        <button type="button" role="tab" id="tab-owner" class="tab tab-owner" aria-selected="false" aria-controls="board-body" hidden>Owner</button>
       </div>
       <div id="board-body" role="tabpanel" aria-live="polite"></div>
     </div>

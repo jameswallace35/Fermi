@@ -1,4 +1,4 @@
-# Cloudflare Worker for Fermi accounts. Deployed by .github/workflows/deploy-worker.yml,
+# Cloudflare Worker for Ballpark accounts. Deployed by .github/workflows/deploy-worker.yml,
 # which fills in the D1 database id. To run it yourself: npx wrangler deploy (from this folder).
 name = "fermi-api"
 main = "src/index.js"
@@ -15,6 +15,10 @@ migrations_dir = "migrations"
 ALLOWED_ORIGINS = "*"
 # PBKDF2-SHA256 work factor for new passwords.
 PBKDF2_ITERATIONS = "100000"
+# The owner login: signing in with the username "owner" and the owner key as the password opens
+# the owner view (every player's answers and suggestions). Only the SHA-256 hash of the key is
+# kept here; to change the key generate a new pair with: node -e "const c=require('crypto');const k=c.randomBytes(16).toString('hex');console.log(k, c.createHash('sha256').update(k).digest('hex'))"
+ADMIN_KEY_HASH = "9325548c6c66d8e352ef2e79881e72843927b87afc7ea091072c8066f2b87c1a"
 
 [observability]
 enabled = true
