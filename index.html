@@ -12,7 +12,7 @@
   <meta property="og:description" content="One guess per question. Score is how many times off you were. Lower is better. Plus unlimited and five-minute timed modes.">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="manifest" href="manifest.webmanifest">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=3f7b125b2c">
   <script>
     // Apply the saved theme before first paint to avoid a flash.
     try {
@@ -202,7 +202,8 @@
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
   <textarea id="share-fallback" class="sr-only" aria-hidden="true" tabindex="-1" readonly></textarea>
 
-  <script src="config.js"></script>
-  <script type="module" src="src/main.js"></script>
+  <script type="importmap" id="asset-versions">{"imports":{"./src/account.js":"./src/account.js?v=61ad87ff09","./src/calc.js":"./src/calc.js?v=219afc3332","./src/logic.js":"./src/logic.js?v=d71bc6933f","./src/main.js":"./src/main.js?v=cd7d48ddb2","./src/storage.js":"./src/storage.js?v=8f35050725","./src/sync.js":"./src/sync.js?v=47a19cc943"}}</script>
+  <script src="config.js?v=d5f8d8255d"></script>
+  <script type="module" src="src/main.js?v=cd7d48ddb2"></script>
 </body>
 </html>
