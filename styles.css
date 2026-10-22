@@ -186,6 +186,7 @@ button {
   border-radius: 999px;
   padding: 2px 8px;
   letter-spacing: 0;
+  white-space: nowrap;
 }
 
 .topbar-actions {
@@ -1175,7 +1176,7 @@ button {
   }
 }
 
-@media (max-width: 380px) {
+@media (max-width: 420px) {
   .brand-tag {
     display: none;
   }
