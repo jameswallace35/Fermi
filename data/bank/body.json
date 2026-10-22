@@ -1,69 +1,15 @@
 [
   {
-    "id": "body-126vegf",
-    "question": "How many times will your heart beat in a lifetime?",
-    "answer": 2900000000,
-    "unit": "beats",
-    "source_title": "Heart rate (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Heart_rate",
-    "explainer": "At 70 beats a minute that is 100,800 a day, 36.8 million a year, and about 2.9 billion over 80 years.",
-    "difficulty": 1,
-    "as_of": "stable"
-  },
-  {
-    "id": "body-lqjg2w",
-    "question": "If all the hair your head grows in a lifetime were laid end to end, how many kilometres would it stretch?",
-    "answer": 1200,
-    "unit": "km",
-    "source_title": "Hair (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Hair",
-    "explainer": "A head has about 100,000 hairs, each growing about 15 cm a year. Over 80 years that is 100,000 × 0.15 m × 80 = 1.2 million metres, about 1,200 km.",
-    "difficulty": 2,
-    "as_of": "stable"
-  },
-  {
-    "id": "body-fn1xku",
-    "question": "How many times do you blink in a single day?",
-    "answer": 14000,
-    "unit": "blinks",
-    "source_title": "Blinking (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Blinking",
-    "explainer": "People blink about 15 times a minute while awake. Over 16 waking hours that is 15 × 60 × 16, about 14,000 blinks.",
-    "difficulty": 1,
-    "as_of": "stable"
-  },
-  {
-    "id": "body-jpnc5a",
-    "question": "How many litres of saliva does a person produce in a lifetime?",
-    "answer": 29000,
+    "id": "body-cy6h41",
+    "question": "How many litres of blood does your heart pump in a day?",
+    "answer": 7200,
     "unit": "litres",
-    "source_title": "Saliva (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Saliva",
-    "explainer": "A healthy adult makes about a litre of saliva a day, so over 80 years that is roughly 29,000 litres: a dozen Olympic pools' worth of bathtubs.",
+    "explainer": "The heart pumps about 5 litres a minute at rest, which is 300 litres an hour and about 7,200 litres a day.",
+    "source_title": "Cardiac output (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Cardiac_output",
+    "as_of": "stable",
     "difficulty": 1,
-    "as_of": "stable"
-  },
-  {
-    "id": "body-w3h9nt",
-    "question": "How many steps does a typical person take in a lifetime?",
-    "answer": 200000000,
-    "unit": "steps",
-    "source_title": "Pedometer (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Pedometer",
-    "explainer": "7,000 steps a day times 365 days times 80 years is about 200 million steps.",
-    "difficulty": 1,
-    "as_of": "stable"
-  },
-  {
-    "id": "body-gpaad8",
-    "question": "How many years of a lifetime are spent asleep?",
-    "answer": 26.7,
-    "unit": "years",
-    "source_title": "Sleep (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Sleep",
-    "explainer": "Eight hours a night is a third of each day, and a third of 80 years is about 27 years asleep.",
-    "difficulty": 1,
-    "as_of": "stable"
+    "retired": true
   },
   {
     "id": "body-1rpry8v",
@@ -77,51 +23,6 @@
     "as_of": "stable"
   },
   {
-    "id": "body-kgac4y",
-    "question": "If all your blood vessels were laid end to end, how many times would they wrap around the equator?",
-    "answer": 2.5,
-    "unit": "times",
-    "source_title": "Circulatory system facts (Live Science)",
-    "source_url": "https://www.livescience.com/39925-circulatory-system-facts-surprising.html",
-    "explainer": "The usual estimate is about 100,000 km of blood vessels in an adult, most of it tiny capillaries. The equator is 40,075 km, so about two and a half times around.",
-    "difficulty": 1,
-    "as_of": "stable"
-  },
-  {
-    "id": "body-cy6h41",
-    "question": "How many litres of blood does your heart pump in a day?",
-    "answer": 7200,
-    "unit": "litres",
-    "source_title": "Cardiac output (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Cardiac_output",
-    "explainer": "The heart pumps about 5 litres a minute at rest, which is 300 litres an hour and about 7,200 litres a day.",
-    "difficulty": 1,
-    "as_of": "stable",
-    "retired": true
-  },
-  {
-    "id": "body-2w0hdm",
-    "question": "How many bananas would you have to eat to get a whole year's worth of calories?",
-    "answer": 7000,
-    "unit": "bananas",
-    "source_title": "Banana (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Banana",
-    "explainer": "An adult needs about 2,000 kcal a day, 730,000 a year. A banana has about 105 kcal, so about 7,000 bananas, 19 a day.",
-    "difficulty": 1,
-    "as_of": "stable"
-  },
-  {
-    "id": "body-15brl7w",
-    "question": "How many words does a person speak in a lifetime?",
-    "answer": 440000000,
-    "unit": "words",
-    "source_title": "Are Women Really More Talkative Than Men? (Science, 2007)",
-    "source_url": "https://www.science.org/doi/10.1126/science.1139940",
-    "explainer": "A 2007 study found people speak about 16,000 words a day. Over 75 talking years that is about 440 million words.",
-    "difficulty": 1,
-    "as_of": "stable"
-  },
-  {
     "id": "body-1y6x3ui",
     "question": "How many Big Macs' worth of energy does a runner burn in a marathon?",
     "answer": 4.4,
@@ -129,6 +30,28 @@
     "source_title": "Big Mac nutrition (McDonald's)",
     "source_url": "https://www.mcdonalds.com/us/en-us/product/big-mac.html",
     "explainer": "A marathon burns about 2,600 kcal and a Big Mac has 590 kcal, so a marathon is about four and a half Big Macs.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "body-126vegf",
+    "question": "How many times will your heart beat in a lifetime?",
+    "answer": 2900000000,
+    "unit": "beats",
+    "source_title": "Heart rate (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Heart_rate",
+    "explainer": "At 70 beats a minute that is 100,800 a day, 36.8 million a year, and about 2.9 billion over 80 years.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "body-gpaad8",
+    "question": "How many years of a lifetime are spent asleep?",
+    "answer": 26.7,
+    "unit": "years",
+    "source_title": "Sleep (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Sleep",
+    "explainer": "Eight hours a night is a third of each day, and a third of 80 years is about 27 years asleep.",
     "difficulty": 1,
     "as_of": "stable"
   },
@@ -155,17 +78,6 @@
     "as_of": "stable"
   },
   {
-    "id": "body-1v12ewf",
-    "question": "How many kilometres does a typical person walk in a lifetime?",
-    "answer": 150000,
-    "unit": "km",
-    "source_title": "Pedometer (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Pedometer",
-    "explainer": "7,000 steps of about 0.75 m is 5.25 km a day. Over 80 years that is about 150,000 km, nearly four times around the Earth.",
-    "difficulty": 2,
-    "as_of": "stable"
-  },
-  {
     "id": "body-nqx3w6",
     "question": "How many hours does a person spend eating over a lifetime?",
     "answer": 44000,
@@ -177,24 +89,101 @@
     "as_of": "stable"
   },
   {
-    "id": "body-1etzws0",
-    "question": "How many litres of air do you breathe in a day?",
-    "answer": 12000,
-    "unit": "litres",
-    "source_title": "Tidal volume (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Tidal_volume",
-    "explainer": "Each resting breath is about half a litre, 16 times a minute: 8 litres a minute, about 12,000 litres a day.",
+    "id": "body-15brl7w",
+    "question": "How many words does a person speak in a lifetime?",
+    "answer": 440000000,
+    "unit": "words",
+    "source_title": "Are Women Really More Talkative Than Men? (Science, 2007)",
+    "source_url": "https://www.science.org/doi/10.1126/science.1139940",
+    "explainer": "A 2007 study found people speak about 16,000 words a day. Over 75 talking years that is about 440 million words.",
     "difficulty": 1,
     "as_of": "stable"
   },
   {
-    "id": "body-5j0yr2",
-    "question": "How many bathtubs would a person's lifetime of urine fill?",
-    "answer": 146,
-    "unit": "bathtubs",
-    "source_title": "Urine (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Urine",
-    "explainer": "Adults pass about 1.5 litres a day. Over 80 years that is 43,800 litres, which fills about 150 bathtubs of 300 litres.",
+    "id": "body-lqjg2w",
+    "question": "If all the hair your head grows in a lifetime were laid end to end, how many kilometres would it stretch?",
+    "answer": 1200,
+    "unit": "km",
+    "source_title": "Hair (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Hair",
+    "explainer": "A head has about 100,000 hairs, each growing about 15 cm a year. Over 80 years that is 100,000 × 0.15 m × 80 = 1.2 million metres, about 1,200 km.",
+    "difficulty": 2,
+    "as_of": "stable"
+  },
+  {
+    "id": "body-fn1xku",
+    "question": "How many times do you blink in a single day?",
+    "answer": 14000,
+    "unit": "blinks",
+    "source_title": "Blinking (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Blinking",
+    "explainer": "People blink about 15 times a minute while awake. Over 16 waking hours that is 15 × 60 × 16, about 14,000 blinks.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "body-w3h9nt",
+    "question": "How many steps does a typical person take in a lifetime?",
+    "answer": 200000000,
+    "unit": "steps",
+    "source_title": "Pedometer (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Pedometer",
+    "explainer": "7,000 steps a day times 365 days times 80 years is about 200 million steps.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "body-kgac4y",
+    "question": "If all your blood vessels were laid end to end, how many times would they wrap around the equator?",
+    "answer": 2.5,
+    "unit": "times",
+    "source_title": "Circulatory system facts (Live Science)",
+    "source_url": "https://www.livescience.com/39925-circulatory-system-facts-surprising.html",
+    "explainer": "The usual estimate is about 100,000 km of blood vessels in an adult, most of it tiny capillaries. The equator is 40,075 km, so about two and a half times around.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "body-1v12ewf",
+    "question": "How many kilometres does a typical person walk in a lifetime?",
+    "answer": 150000,
+    "unit": "km",
+    "source_title": "Pedometer (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Pedometer",
+    "explainer": "7,000 steps of about 0.75 m is 5.25 km a day. Over 80 years that is about 150,000 km, nearly four times around the Earth.",
+    "difficulty": 2,
+    "as_of": "stable"
+  },
+  {
+    "id": "body-jpnc5a",
+    "question": "How many litres of saliva does a person produce in a lifetime?",
+    "answer": 29000,
+    "unit": "litres",
+    "source_title": "Saliva (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Saliva",
+    "explainer": "A healthy adult makes about a litre of saliva a day, so over 80 years that is roughly 29,000 litres: a dozen Olympic pools' worth of bathtubs.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "body-2w0hdm",
+    "question": "How many bananas would you have to eat to get a whole year's worth of calories?",
+    "answer": 7000,
+    "unit": "bananas",
+    "source_title": "Banana (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Banana",
+    "explainer": "An adult needs about 2,000 kcal a day, 730,000 a year. A banana has about 105 kcal, so about 7,000 bananas, 19 a day.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "body-3ygbgl",
+    "question": "How many times does a person blink in a lifetime?",
+    "answer": 420000000,
+    "unit": "blinks",
+    "source_title": "Blinking (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Blinking",
+    "explainer": "About 15 blinks a minute for 16 waking hours is 14,400 a day. Over 80 years that is about 420 million blinks.",
     "difficulty": 1,
     "as_of": "stable"
   },
@@ -210,13 +199,13 @@
     "as_of": "stable"
   },
   {
-    "id": "body-1aj750n",
-    "question": "How many glasses of water does a person drink in a lifetime?",
-    "answer": 230000,
-    "unit": "glasses",
-    "source_title": "Drinking water (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Drinking_water",
-    "explainer": "Two litres a day is eight glasses. Over 80 years that is about 230,000 glasses.",
+    "id": "body-5j0yr2",
+    "question": "How many bathtubs would a person's lifetime of urine fill?",
+    "answer": 146,
+    "unit": "bathtubs",
+    "source_title": "Urine (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Urine",
+    "explainer": "Adults pass about 1.5 litres a day. Over 80 years that is 43,800 litres, which fills about 150 bathtubs of 300 litres.",
     "difficulty": 1,
     "as_of": "stable"
   },
@@ -232,13 +221,24 @@
     "as_of": "stable"
   },
   {
-    "id": "body-3ygbgl",
-    "question": "How many times does a person blink in a lifetime?",
-    "answer": 420000000,
-    "unit": "blinks",
-    "source_title": "Blinking (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Blinking",
-    "explainer": "About 15 blinks a minute for 16 waking hours is 14,400 a day. Over 80 years that is about 420 million blinks.",
+    "id": "body-1etzws0",
+    "question": "How many litres of air do you breathe in a day?",
+    "answer": 12000,
+    "unit": "litres",
+    "source_title": "Tidal volume (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Tidal_volume",
+    "explainer": "Each resting breath is about half a litre, 16 times a minute: 8 litres a minute, about 12,000 litres a day.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "body-1aj750n",
+    "question": "How many glasses of water does a person drink in a lifetime?",
+    "answer": 230000,
+    "unit": "glasses",
+    "source_title": "Drinking water (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Drinking_water",
+    "explainer": "Two litres a day is eight glasses. Over 80 years that is about 230,000 glasses.",
     "difficulty": 1,
     "as_of": "stable"
   }

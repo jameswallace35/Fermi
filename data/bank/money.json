@@ -1,5 +1,76 @@
 [
   {
+    "id": "money-ny3pep",
+    "question": "How much money is a one-tonne pile of US pennies worth?",
+    "answer": 4000,
+    "unit": "US$",
+    "explainer": "A penny weighs 2.5 g, so a tonne (1,000,000 g) is 400,000 pennies, worth $4,000.",
+    "source_title": "Penny (U.S. Mint)",
+    "source_url": "https://www.usmint.gov/coins/coin-medal-programs/circulating-coins/penny",
+    "as_of": "stable",
+    "difficulty": 1,
+    "retired": true
+  },
+  {
+    "id": "money-15lq1q5",
+    "question": "Spending $1,000 a day, how many years would it take to get through a billion dollars?",
+    "answer": 2700,
+    "unit": "years",
+    "explainer": "A billion divided by $1,000 a day is a million days, which is about 2,700 years. You would have started around the founding of Rome.",
+    "source_title": "1,000,000,000 (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/1,000,000,000",
+    "as_of": "stable",
+    "difficulty": 1,
+    "retired": true
+  },
+  {
+    "id": "money-1gvpkmy",
+    "question": "Saving $10 every day from your 18th birthday, how much cash would you have on your 65th, with no interest?",
+    "answer": 170000,
+    "unit": "US$",
+    "explainer": "47 years is 17,167 days. At $10 a day that is about $172,000 under the mattress.",
+    "source_title": "Saving (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Saving",
+    "as_of": "stable",
+    "difficulty": 1,
+    "retired": true
+  },
+  {
+    "id": "money-d4v3bg",
+    "question": "Counting one bill a second non-stop, how many days would it take to count a million dollars in $1 bills?",
+    "answer": 11.6,
+    "unit": "days",
+    "explainer": "There are 86,400 seconds in a day, so a million seconds is about 11.6 days of non-stop counting.",
+    "source_title": "Second (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Second",
+    "as_of": "stable",
+    "difficulty": 1,
+    "retired": true
+  },
+  {
+    "id": "money-lbtr27",
+    "question": "Spending a million dollars every day, how many years would it take to spend a trillion dollars?",
+    "answer": 2700,
+    "unit": "years",
+    "explainer": "A trillion divided by a million is a million days, which is about 2,700 years.",
+    "source_title": "1,000,000,000,000 (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/1,000,000,000,000",
+    "as_of": "stable",
+    "difficulty": 1,
+    "retired": true
+  },
+  {
+    "id": "money-xaemkz",
+    "question": "How many standard gold bars are stored in Fort Knox?",
+    "answer": 370000,
+    "unit": "gold bars",
+    "source_title": "Fort Knox Bullion Depository (U.S. Mint)",
+    "source_url": "https://www.usmint.gov/about/mint-tours-facilities/fort-knox",
+    "explainer": "Fort Knox holds about 4,580 tonnes of gold, which is 4.58 million kg. Divided by 12.4 kg a bar, that is about 370,000 bars.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
     "id": "money-e2j2tq",
     "question": "How many bananas could Elon Musk buy with his entire 2025 fortune?",
     "answer": 1400000000000,
@@ -11,35 +82,13 @@
     "as_of": "2025"
   },
   {
-    "id": "money-1mmynz3",
-    "question": "How many kilometres tall would a stack of one trillion one-dollar bills be?",
-    "answer": 110000,
-    "unit": "km",
-    "source_title": "$1 note (U.S. Currency Education Program)",
-    "source_url": "https://www.uscurrency.gov/denominations/1",
-    "explainer": "A dollar bill is about 0.11 mm thick. A trillion of them is 110 million metres, about 110,000 km: more than a quarter of the way to the Moon.",
-    "difficulty": 1,
-    "as_of": "stable"
-  },
-  {
-    "id": "money-15lq1q5",
-    "question": "Spending $1,000 a day, how many years would it take to get through a billion dollars?",
-    "answer": 2700,
-    "unit": "years",
-    "source_title": "1,000,000,000 (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/1,000,000,000",
-    "explainer": "A billion divided by $1,000 a day is a million days, which is about 2,700 years. You would have started around the founding of Rome.",
-    "difficulty": 1,
-    "as_of": "stable"
-  },
-  {
-    "id": "money-1kdlrqi",
-    "question": "How much does a takeaway coffee every single day add up to over 60 years?",
-    "answer": 88000,
-    "unit": "US$",
-    "source_title": "Coffee (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Coffee",
-    "explainer": "$4 a day is $1,461 a year. Over 60 years that is about $88,000, a decent car for every decade.",
+    "id": "money-ih4xx2",
+    "question": "How many kilograms does a million dollars in $100 bills weigh?",
+    "answer": 10,
+    "unit": "kg",
+    "source_title": "$100 note (U.S. Currency Education Program)",
+    "source_url": "https://www.uscurrency.gov/denominations/100",
+    "explainer": "A million dollars is 10,000 hundred-dollar bills, and each bill weighs about 1 gram: 10 kg, which fits in a backpack.",
     "difficulty": 1,
     "as_of": "stable"
   },
@@ -55,37 +104,15 @@
     "as_of": "2023"
   },
   {
-    "id": "money-d4v3bg",
-    "question": "Counting one bill a second non-stop, how many days would it take to count a million dollars in $1 bills?",
-    "answer": 11.6,
-    "unit": "days",
-    "source_title": "Second (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Second",
-    "explainer": "There are 86,400 seconds in a day, so a million seconds is about 11.6 days of non-stop counting.",
+    "id": "money-2b15os",
+    "question": "How many months of Netflix could one 30-second Super Bowl ad pay for?",
+    "answer": 450000,
+    "unit": "months",
+    "source_title": "Super Bowl advertising (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Super_Bowl_advertising",
+    "explainer": "A 30-second Super Bowl spot cost about $7 million in 2024, and Netflix Standard was $15.49 a month: about 450,000 months, or 38,000 years of telly.",
     "difficulty": 1,
-    "as_of": "stable"
-  },
-  {
-    "id": "money-woyrc1",
-    "question": "How much would it cost to buy every possible Powerball ticket combination?",
-    "answer": 580000000,
-    "unit": "US$",
-    "source_title": "Powerball prize chart",
-    "source_url": "https://www.powerball.com/powerball-prize-chart",
-    "explainer": "There are 292,201,338 possible Powerball combinations. At $2 a ticket that is about $584 million, so a jackpot below that loses money even if you buy them all.",
-    "difficulty": 1,
-    "as_of": "stable"
-  },
-  {
-    "id": "money-xaemkz",
-    "question": "How many standard gold bars are stored in Fort Knox?",
-    "answer": 370000,
-    "unit": "gold bars",
-    "source_title": "Fort Knox Bullion Depository (U.S. Mint)",
-    "source_url": "https://www.usmint.gov/about/mint-tours-facilities/fort-knox",
-    "explainer": "Fort Knox holds about 4,580 tonnes of gold, which is 4.58 million kg. Divided by 12.4 kg a bar, that is about 370,000 bars.",
-    "difficulty": 1,
-    "as_of": "stable"
+    "as_of": "2024"
   },
   {
     "id": "money-jpe658",
@@ -99,51 +126,6 @@
     "as_of": "2024"
   },
   {
-    "id": "money-1qe0h36",
-    "question": "Working full time on the US federal minimum wage, how many years would it take to earn a million dollars?",
-    "answer": 66.3,
-    "unit": "years",
-    "source_title": "Minimum wage (U.S. Department of Labor)",
-    "source_url": "https://www.dol.gov/agencies/whd/minimum-wage",
-    "explainer": "$7.25 an hour for 2,080 hours a year is $15,080 a year. A million dollars takes about 66 years, before tax.",
-    "difficulty": 1,
-    "as_of": "2025"
-  },
-  {
-    "id": "money-2b15os",
-    "question": "How many months of Netflix could one 30-second Super Bowl ad pay for?",
-    "answer": 450000,
-    "unit": "months",
-    "source_title": "Super Bowl advertising (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Super_Bowl_advertising",
-    "explainer": "A 30-second Super Bowl spot cost about $7 million in 2024, and Netflix Standard was $15.49 a month: about 450,000 months, or 38,000 years of telly.",
-    "difficulty": 1,
-    "as_of": "2024"
-  },
-  {
-    "id": "money-ny3pep",
-    "question": "How much money is a one-tonne pile of US pennies worth?",
-    "answer": 4000,
-    "unit": "US$",
-    "source_title": "Penny (U.S. Mint)",
-    "source_url": "https://www.usmint.gov/coins/coin-medal-programs/circulating-coins/penny",
-    "explainer": "A penny weighs 2.5 g, so a tonne (1,000,000 g) is 400,000 pennies, worth $4,000.",
-    "difficulty": 1,
-    "as_of": "stable",
-    "retired": true
-  },
-  {
-    "id": "money-ih4xx2",
-    "question": "How many kilograms does a million dollars in $100 bills weigh?",
-    "answer": 10,
-    "unit": "kg",
-    "source_title": "$100 note (U.S. Currency Education Program)",
-    "source_url": "https://www.uscurrency.gov/denominations/100",
-    "explainer": "A million dollars is 10,000 hundred-dollar bills, and each bill weighs about 1 gram: 10 kg, which fits in a backpack.",
-    "difficulty": 1,
-    "as_of": "stable"
-  },
-  {
     "id": "money-j5cr0o",
     "question": "How many Big Macs is a year of the median US household income?",
     "answer": 14000,
@@ -155,15 +137,37 @@
     "as_of": "2023"
   },
   {
-    "id": "money-1gvpkmy",
-    "question": "Saving $10 every day from your 18th birthday, how much cash would you have on your 65th, with no interest?",
-    "answer": 170000,
+    "id": "money-woyrc1",
+    "question": "How much would it cost to buy every possible Powerball ticket combination?",
+    "answer": 580000000,
     "unit": "US$",
-    "source_title": "Saving (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Saving",
-    "explainer": "47 years is 17,167 days. At $10 a day that is about $172,000 under the mattress.",
+    "source_title": "Powerball prize chart",
+    "source_url": "https://www.powerball.com/powerball-prize-chart",
+    "explainer": "There are 292,201,338 possible Powerball combinations. At $2 a ticket that is about $584 million, so a jackpot below that loses money even if you buy them all.",
     "difficulty": 1,
     "as_of": "stable"
+  },
+  {
+    "id": "money-1mmynz3",
+    "question": "How many kilometres tall would a stack of one trillion one-dollar bills be?",
+    "answer": 110000,
+    "unit": "km",
+    "source_title": "$1 note (U.S. Currency Education Program)",
+    "source_url": "https://www.uscurrency.gov/denominations/1",
+    "explainer": "A dollar bill is about 0.11 mm thick. A trillion of them is 110 million metres, about 110,000 km: more than a quarter of the way to the Moon.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "money-1qe0h36",
+    "question": "Working full time on the US federal minimum wage, how many years would it take to earn a million dollars?",
+    "answer": 66.3,
+    "unit": "years",
+    "source_title": "Minimum wage (U.S. Department of Labor)",
+    "source_url": "https://www.dol.gov/agencies/whd/minimum-wage",
+    "explainer": "$7.25 an hour for 2,080 hours a year is $15,080 a year. A million dollars takes about 66 years, before tax.",
+    "difficulty": 1,
+    "as_of": "2025"
   },
   {
     "id": "money-56h3qs",
@@ -175,6 +179,28 @@
     "explainer": "Forbes put Bezos at about $215 billion in 2025. At $1,000 a second that is 215 million seconds, about 6.8 years.",
     "difficulty": 1,
     "as_of": "2025"
+  },
+  {
+    "id": "money-1kdlrqi",
+    "question": "How much does a takeaway coffee every single day add up to over 60 years?",
+    "answer": 88000,
+    "unit": "US$",
+    "source_title": "Coffee (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Coffee",
+    "explainer": "$4 a day is $1,461 a year. Over 60 years that is about $88,000, a decent car for every decade.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "money-aksvfi",
+    "question": "How many trips to the Moon would a stack of the US national debt in one-dollar bills make?",
+    "answer": 10.4,
+    "unit": "trips",
+    "source_title": "U.S. national debt (Treasury Fiscal Data)",
+    "source_url": "https://fiscaldata.treasury.gov/americas-finance-guide/national-debt/",
+    "explainer": "The debt was about $36.2 trillion at the end of 2024. At 0.11 mm a bill the stack is 4 million km tall, about 10 trips to the Moon.",
+    "difficulty": 2,
+    "as_of": "2024"
   },
   {
     "id": "money-w4jxjk",
@@ -199,17 +225,6 @@
     "as_of": "stable"
   },
   {
-    "id": "money-pxz002",
-    "question": "Working full time on the UK National Living Wage, how many years would it take to earn a million pounds?",
-    "answer": 44.8,
-    "unit": "years",
-    "source_title": "National Minimum Wage and National Living Wage rates (GOV.UK)",
-    "source_url": "https://www.gov.uk/national-minimum-wage-rates",
-    "explainer": "£11.44 an hour for 37.5 hours a week is £22,300 a year. A million pounds takes about 45 years.",
-    "difficulty": 1,
-    "as_of": "2024"
-  },
-  {
     "id": "money-1tfxexg",
     "question": "With a million dollars in a savings account, how many lattes a day could you buy on the interest alone?",
     "answer": 21.9,
@@ -217,28 +232,6 @@
     "source_title": "Interest (Wikipedia)",
     "source_url": "https://en.wikipedia.org/wiki/Interest",
     "explainer": "4% of a million is $40,000 a year, about $110 a day, which buys about 22 lattes a day forever.",
-    "difficulty": 1,
-    "as_of": "stable"
-  },
-  {
-    "id": "money-aksvfi",
-    "question": "How many trips to the Moon would a stack of the US national debt in one-dollar bills make?",
-    "answer": 10.4,
-    "unit": "trips",
-    "source_title": "U.S. national debt (Treasury Fiscal Data)",
-    "source_url": "https://fiscaldata.treasury.gov/americas-finance-guide/national-debt/",
-    "explainer": "The debt was about $36.2 trillion at the end of 2024. At 0.11 mm a bill the stack is 4 million km tall, about 10 trips to the Moon.",
-    "difficulty": 2,
-    "as_of": "2024"
-  },
-  {
-    "id": "money-lbtr27",
-    "question": "Spending a million dollars every day, how many years would it take to spend a trillion dollars?",
-    "answer": 2700,
-    "unit": "years",
-    "source_title": "1,000,000,000,000 (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/1,000,000,000,000",
-    "explainer": "A trillion divided by a million is a million days, which is about 2,700 years.",
     "difficulty": 1,
     "as_of": "stable"
   },
@@ -252,5 +245,60 @@
     "explainer": "An iPhone 16 costs $799 and a Big Mac about $5.69, so about 140 burgers.",
     "difficulty": 1,
     "as_of": "2024"
+  },
+  {
+    "id": "money-pxz002",
+    "question": "Working full time on the UK National Living Wage, how many years would it take to earn a million pounds?",
+    "answer": 44.8,
+    "unit": "years",
+    "source_title": "National Minimum Wage and National Living Wage rates (GOV.UK)",
+    "source_url": "https://www.gov.uk/national-minimum-wage-rates",
+    "explainer": "£11.44 an hour for 37.5 hours a week is £22,300 a year. A million pounds takes about 45 years.",
+    "difficulty": 1,
+    "as_of": "2024"
+  },
+  {
+    "id": "money-128hh5p",
+    "question": "Spending like the average American household, how many years would a billion dollars last?",
+    "answer": 13000,
+    "unit": "years",
+    "source_title": "Consumer Expenditures 2024 - U.S. Bureau of Labor Statistics",
+    "source_url": "https://www.bls.gov/news.release/cesan.htm",
+    "explainer": "The average American household spent about $78,500 in 2024. A billion dollars covers that for roughly 12,700 years, back past the end of the Ice Age.",
+    "difficulty": 1,
+    "as_of": "2024"
+  },
+  {
+    "id": "money-czxgdg",
+    "question": "Ignoring the door and windows, how many one-dollar bills would it take to wallpaper a 4 m by 4 m room with 2.5 m ceilings?",
+    "answer": 3900,
+    "unit": "bills",
+    "source_title": "United States one-dollar bill - Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/United_States_one-dollar_bill",
+    "explainer": "Four walls of 4 m by 2.5 m add up to 40 square metres. A dollar bill is 15.6 cm by 6.6 cm, about a hundredth of a square metre, so about 3,900 bills, or $3,900, would paper the room.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "money-ssstno",
+    "question": "Buying a brand-new car every single day, how many years would it take to get through a billion dollars?",
+    "answer": 55,
+    "unit": "years",
+    "source_title": "Kelley Blue Book average transaction price, October 2025 (Cox Automotive)",
+    "source_url": "https://www.coxautoinc.com/wp-content/uploads/2025/11/October-2025-Kelley-Blue-Book-Average-Transaction-Price-tables.pdf",
+    "explainer": "A new car in the United States sold for about $49,800 on average in late 2025, so a billion dollars buys about 20,000 of them: one a day for 55 years.",
+    "difficulty": 2,
+    "as_of": "2025"
+  },
+  {
+    "id": "money-1bkuin2",
+    "question": "How many Lamborghini Temerario supercars could a trillion dollars buy?",
+    "answer": 2900000,
+    "unit": "Lamborghinis",
+    "source_title": "Lamborghini Temerario price - Italpassion",
+    "source_url": "https://www.italpassion.fr/en/cars/lamborghini-temerario/",
+    "explainer": "The Temerario starts at about $350,000, so a trillion dollars buys about 2.9 million of them, roughly one for every person in Chicago.",
+    "difficulty": 1,
+    "as_of": "2025"
   }
 ]

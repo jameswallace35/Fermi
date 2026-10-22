@@ -1,5 +1,40 @@
 [
   {
+    "id": "culture-1f097ae",
+    "question": "How many days would it take to watch all 236 episodes of Friends back to back?",
+    "answer": 3.6,
+    "unit": "days",
+    "explainer": "236 episodes of about 22 minutes is 5,192 minutes, 87 hours: about three and a half days.",
+    "source_title": "List of Friends episodes (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/List_of_Friends_episodes",
+    "as_of": "stable",
+    "difficulty": 1,
+    "retired": true
+  },
+  {
+    "id": "culture-11rw9ix",
+    "question": "How many times has 'Baby Shark' been watched on YouTube for every person on Earth?",
+    "answer": 1.9,
+    "unit": "views",
+    "explainer": "The Baby Shark Dance video passed 15 billion views. Divided by 8.1 billion people, that is nearly two views each.",
+    "source_title": "Baby Shark (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Baby_Shark",
+    "as_of": "2024",
+    "difficulty": 1,
+    "retired": true
+  },
+  {
+    "id": "culture-10klr8n",
+    "question": "How many Oscar statuettes would weigh the same as an African elephant?",
+    "answer": 1600,
+    "unit": "Oscars",
+    "source_title": "The Oscar statuette (Academy of Motion Picture Arts and Sciences)",
+    "source_url": "https://www.oscars.org/oscars/statuette",
+    "explainer": "An Oscar weighs 3.86 kg and a big elephant about 6,000 kg, so about 1,600 statuettes.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
     "id": "culture-1mad9vt",
     "question": "How many days would it take to binge every episode of The Simpsons back to back?",
     "answer": 12.1,
@@ -9,17 +44,6 @@
     "explainer": "By May 2025 there were 790 episodes of about 22 minutes: 290 hours, which is about 12 days without sleep.",
     "difficulty": 1,
     "as_of": "2025"
-  },
-  {
-    "id": "culture-1947t0j",
-    "question": "How many days would it take to watch every Marvel Cinematic Universe film released up to 2023, back to back?",
-    "answer": 3,
-    "unit": "days",
-    "source_title": "How long would it take to watch all 33 MCU movies (Fiction Horizon)",
-    "source_url": "https://fictionhorizon.com/how-long-would-it-take-to-watch-all-of-the-mcu-movies/",
-    "explainer": "The first 33 MCU films run 4,359 minutes in total, about 72.7 hours: three full days and nights of superheroes.",
-    "difficulty": 1,
-    "as_of": "2023"
   },
   {
     "id": "culture-1dsd1ry",
@@ -33,6 +57,17 @@
     "as_of": "stable"
   },
   {
+    "id": "culture-1947t0j",
+    "question": "How many days would it take to watch every Marvel Cinematic Universe film released up to 2023, back to back?",
+    "answer": 3,
+    "unit": "days",
+    "source_title": "How long would it take to watch all 33 MCU movies (Fiction Horizon)",
+    "source_url": "https://fictionhorizon.com/how-long-would-it-take-to-watch-all-of-the-mcu-movies/",
+    "explainer": "The first 33 MCU films run 4,359 minutes in total, about 72.7 hours: three full days and nights of superheroes.",
+    "difficulty": 1,
+    "as_of": "2023"
+  },
+  {
     "id": "culture-ks737p",
     "question": "At three and a half minutes a song, how many years would it take to listen to every track on Spotify?",
     "answer": 665,
@@ -44,60 +79,26 @@
     "as_of": "2024"
   },
   {
-    "id": "culture-8i6rfe",
-    "question": "Reading at a normal pace, how many hours would it take to read everything Shakespeare wrote?",
-    "answer": 59,
-    "unit": "hours",
-    "source_title": "Shakespeare statistics (Open Source Shakespeare)",
-    "source_url": "https://www.opensourceshakespeare.org/stats/",
-    "explainer": "Shakespeare's complete works run to 884,647 words. At 250 a minute that is 3,539 minutes, about 59 hours.",
-    "difficulty": 1,
-    "as_of": "stable"
-  },
-  {
-    "id": "culture-1e85bzh",
-    "question": "How many Pokémon trading cards have been printed for every person on Earth?",
-    "answer": 8,
-    "unit": "cards",
-    "source_title": "The Pokémon Company business summary",
-    "source_url": "https://corporate.pokemon.co.jp/en/",
-    "explainer": "The Pokémon Company had shipped 64.8 billion cards by March 2024. With 8.1 billion people, that is eight cards each.",
+    "id": "culture-1v9yq1e",
+    "question": "If the Louvre's visitors for one year queued in single file, one metre apart, how many kilometres long would the queue be?",
+    "answer": 8700,
+    "unit": "km",
+    "source_title": "Louvre attendance 2024 (Louvre)",
+    "source_url": "https://www.louvre.fr/en",
+    "explainer": "The Louvre had about 8.7 million visitors in 2024. One per metre makes a queue 8.7 million metres long: 8,700 km, Paris to Beijing.",
     "difficulty": 1,
     "as_of": "2024"
   },
   {
-    "id": "culture-1f097ae",
-    "question": "How many days would it take to watch all 236 episodes of Friends back to back?",
-    "answer": 3.6,
-    "unit": "days",
-    "source_title": "List of Friends episodes (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/List_of_Friends_episodes",
-    "explainer": "236 episodes of about 22 minutes is 5,192 minutes, 87 hours: about three and a half days.",
+    "id": "culture-rknxrl",
+    "question": "How many lattes could Taylor Swift's Eras Tour ticket sales have bought?",
+    "answer": 420000000,
+    "unit": "lattes",
+    "source_title": "The Eras Tour (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/The_Eras_Tour",
+    "explainer": "The Eras Tour grossed about $2.08 billion in ticket sales. At $5 a latte that is about 420 million coffees.",
     "difficulty": 1,
-    "as_of": "stable",
-    "retired": true
-  },
-  {
-    "id": "culture-16tqzyq",
-    "question": "How many copies of the Mona Lisa, laid side by side, would it take to carpet a football pitch?",
-    "answer": 17000,
-    "unit": "Mona Lisas",
-    "source_title": "Mona Lisa (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Mona_Lisa",
-    "explainer": "The Mona Lisa is 77 cm by 53 cm, 0.41 m². A pitch is about 7,140 m², so about 17,000 Mona Lisas.",
-    "difficulty": 1,
-    "as_of": "stable"
-  },
-  {
-    "id": "culture-10klr8n",
-    "question": "How many Oscar statuettes would weigh the same as an African elephant?",
-    "answer": 1600,
-    "unit": "Oscars",
-    "source_title": "The Oscar statuette (Academy of Motion Picture Arts and Sciences)",
-    "source_url": "https://www.oscars.org/oscars/statuette",
-    "explainer": "An Oscar weighs 3.86 kg and a big elephant about 6,000 kg, so about 1,600 statuettes.",
-    "difficulty": 1,
-    "as_of": "stable"
+    "as_of": "2024"
   },
   {
     "id": "culture-f7byap",
@@ -122,13 +123,24 @@
     "as_of": "stable"
   },
   {
-    "id": "culture-rknxrl",
-    "question": "How many lattes could Taylor Swift's Eras Tour ticket sales have bought?",
-    "answer": 420000000,
-    "unit": "lattes",
-    "source_title": "The Eras Tour (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/The_Eras_Tour",
-    "explainer": "The Eras Tour grossed about $2.08 billion in ticket sales. At $5 a latte that is about 420 million coffees.",
+    "id": "culture-16tqzyq",
+    "question": "How many copies of the Mona Lisa, laid side by side, would it take to carpet a football pitch?",
+    "answer": 17000,
+    "unit": "Mona Lisas",
+    "source_title": "Mona Lisa (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Mona_Lisa",
+    "explainer": "The Mona Lisa is 77 cm by 53 cm, 0.41 m². A pitch is about 7,140 m², so about 17,000 Mona Lisas.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "culture-1e85bzh",
+    "question": "How many Pokémon trading cards have been printed for every person on Earth?",
+    "answer": 8,
+    "unit": "cards",
+    "source_title": "The Pokémon Company business summary",
+    "source_url": "https://corporate.pokemon.co.jp/en/",
+    "explainer": "The Pokémon Company had shipped 64.8 billion cards by March 2024. With 8.1 billion people, that is eight cards each.",
     "difficulty": 1,
     "as_of": "2024"
   },
@@ -144,28 +156,6 @@
     "as_of": "2023"
   },
   {
-    "id": "culture-11rw9ix",
-    "question": "How many times has 'Baby Shark' been watched on YouTube for every person on Earth?",
-    "answer": 1.9,
-    "unit": "views",
-    "source_title": "Baby Shark (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Baby_Shark",
-    "explainer": "The Baby Shark Dance video passed 15 billion views. Divided by 8.1 billion people, that is nearly two views each.",
-    "difficulty": 1,
-    "as_of": "2024"
-  },
-  {
-    "id": "culture-1v9yq1e",
-    "question": "If the Louvre's visitors for one year queued in single file, one metre apart, how many kilometres long would the queue be?",
-    "answer": 8700,
-    "unit": "km",
-    "source_title": "Louvre attendance 2024 (Louvre)",
-    "source_url": "https://www.louvre.fr/en",
-    "explainer": "The Louvre had about 8.7 million visitors in 2024. One per metre makes a queue 8.7 million metres long: 8,700 km, Paris to Beijing.",
-    "difficulty": 1,
-    "as_of": "2024"
-  },
-  {
     "id": "culture-1mijdvi",
     "question": "How many hours of Simpsons would you have watched if you saw every episode the week it aired, from 1989 to 2025?",
     "answer": 290,
@@ -177,26 +167,26 @@
     "as_of": "2025"
   },
   {
-    "id": "culture-1wtxpcc",
-    "question": "If every Harry Potter book ever sold were stacked in one pile, how many kilometres tall would it be?",
-    "answer": 18000,
-    "unit": "km",
-    "source_title": "Harry Potter (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Harry_Potter",
-    "explainer": "More than 600 million copies have been sold, each about 3 cm thick: 18 million metres, about 18,000 km, more than the Earth's diameter.",
+    "id": "culture-8i6rfe",
+    "question": "Reading at a normal pace, how many hours would it take to read everything Shakespeare wrote?",
+    "answer": 59,
+    "unit": "hours",
+    "source_title": "Shakespeare statistics (Open Source Shakespeare)",
+    "source_url": "https://www.opensourceshakespeare.org/stats/",
+    "explainer": "Shakespeare's complete works run to 884,647 words. At 250 a minute that is 3,539 minutes, about 59 hours.",
     "difficulty": 1,
-    "as_of": "2023"
+    "as_of": "stable"
   },
   {
-    "id": "culture-2nzqs4",
-    "question": "How many cinema tickets does Avatar's worldwide box office add up to?",
-    "answer": 290000000,
-    "unit": "tickets",
-    "source_title": "Avatar (2009 film) (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Avatar_(2009_film)",
-    "explainer": "Avatar (2009) has grossed about $2.92 billion worldwide. At $10 a ticket that is about 290 million tickets.",
+    "id": "culture-918bed",
+    "question": "How many episodes of The Simpsons could you watch in the time it takes to watch the extended Lord of the Rings trilogy?",
+    "answer": 31.1,
+    "unit": "episodes",
+    "source_title": "The Lord of the Rings (film series) (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/The_Lord_of_the_Rings_(film_series)",
+    "explainer": "The extended trilogy runs about 11.4 hours, 684 minutes. At 22 minutes an episode that is about 31 episodes.",
     "difficulty": 1,
-    "as_of": "2023"
+    "as_of": "stable"
   },
   {
     "id": "culture-3i8y4c",
@@ -210,13 +200,46 @@
     "as_of": "2021"
   },
   {
-    "id": "culture-918bed",
-    "question": "How many episodes of The Simpsons could you watch in the time it takes to watch the extended Lord of the Rings trilogy?",
-    "answer": 31.1,
-    "unit": "episodes",
-    "source_title": "The Lord of the Rings (film series) (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/The_Lord_of_the_Rings_(film_series)",
-    "explainer": "The extended trilogy runs about 11.4 hours, 684 minutes. At 22 minutes an episode that is about 31 episodes.",
+    "id": "culture-dncmay",
+    "question": "How many Mount Everests tall would a single stack of every Pokémon card ever printed be?",
+    "answer": 2200,
+    "unit": "Everests",
+    "source_title": "The Pokémon Company business summary",
+    "source_url": "https://corporate.pokemon.co.jp/en/",
+    "explainer": "64.8 billion cards at 0.3 mm each is 19.4 million metres. Everest is 8,849 m, so about 2,200 Everests.",
+    "difficulty": 2,
+    "as_of": "2024"
+  },
+  {
+    "id": "culture-2nzqs4",
+    "question": "How many cinema tickets does Avatar's worldwide box office add up to?",
+    "answer": 290000000,
+    "unit": "tickets",
+    "source_title": "Avatar (2009 film) (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Avatar_(2009_film)",
+    "explainer": "Avatar (2009) has grossed about $2.92 billion worldwide. At $10 a ticket that is about 290 million tickets.",
+    "difficulty": 1,
+    "as_of": "2023"
+  },
+  {
+    "id": "culture-1wtxpcc",
+    "question": "If every Harry Potter book ever sold were stacked in one pile, how many kilometres tall would it be?",
+    "answer": 18000,
+    "unit": "km",
+    "source_title": "Harry Potter (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Harry_Potter",
+    "explainer": "More than 600 million copies have been sold, each about 3 cm thick: 18 million metres, about 18,000 km, more than the Earth's diameter.",
+    "difficulty": 1,
+    "as_of": "2023"
+  },
+  {
+    "id": "culture-1te46t1",
+    "question": "How many Barbie dolls laid head to toe would it take to stretch from Los Angeles to New York?",
+    "answer": 14000000,
+    "unit": "Barbies",
+    "source_title": "Barbie (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Barbie",
+    "explainer": "Los Angeles to New York is about 3,944 km in a straight line, and a Barbie is 29 cm tall: about 14 million dolls.",
     "difficulty": 1,
     "as_of": "stable"
   },
@@ -243,25 +266,14 @@
     "as_of": "2024"
   },
   {
-    "id": "culture-1te46t1",
-    "question": "How many Barbie dolls laid head to toe would it take to stretch from Los Angeles to New York?",
-    "answer": 14000000,
-    "unit": "Barbies",
-    "source_title": "Barbie (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Barbie",
-    "explainer": "Los Angeles to New York is about 3,944 km in a straight line, and a Barbie is 29 cm tall: about 14 million dolls.",
+    "id": "culture-llpgjq",
+    "question": "How many years of a lifetime does the average American spend watching TV?",
+    "answer": 9.2,
+    "unit": "years",
+    "source_title": "Television capturing America’s attention - U.S. Bureau of Labor Statistics",
+    "source_url": "https://www.bls.gov/opub/btn/volume-7/television-capturing-americas-attention.htm",
+    "explainer": "Americans watch about two and three-quarter hours of TV a day. Over an 80-year life that is about 9 years in front of the screen.",
     "difficulty": 1,
-    "as_of": "stable"
-  },
-  {
-    "id": "culture-dncmay",
-    "question": "How many Mount Everests tall would a single stack of every Pokémon card ever printed be?",
-    "answer": 2200,
-    "unit": "Everests",
-    "source_title": "The Pokémon Company business summary",
-    "source_url": "https://corporate.pokemon.co.jp/en/",
-    "explainer": "64.8 billion cards at 0.3 mm each is 19.4 million metres. Everest is 8,849 m, so about 2,200 Everests.",
-    "difficulty": 2,
     "as_of": "2024"
   }
 ]

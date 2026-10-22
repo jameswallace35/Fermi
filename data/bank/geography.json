@@ -1,113 +1,14 @@
 [
   {
-    "id": "geography-ti6899",
-    "question": "How many football pitches, laid side by side, would it take to carpet the whole Sahara Desert?",
-    "answer": 1300000000,
-    "unit": "pitches",
-    "source_title": "Sahara (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Sahara",
-    "explainer": "The Sahara covers about 9.2 million km², and a full-size pitch is 105 m by 68 m, or 7,140 m². That is 9.2 trillion m² divided by 7,140: about 1.3 billion pitches.",
-    "difficulty": 2,
-    "as_of": "stable"
-  },
-  {
-    "id": "geography-1j8ab3p",
-    "question": "How many Olympic swimming pools could the Amazon River fill every second?",
-    "answer": 83.6,
-    "unit": "pools",
-    "source_title": "Amazon River (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Amazon_River",
-    "explainer": "The Amazon pours about 209,000 m³ into the Atlantic every second, and an Olympic pool holds 2,500 m³: roughly 84 pools a second.",
-    "difficulty": 1,
-    "as_of": "stable"
-  },
-  {
-    "id": "geography-6pxu5s",
-    "question": "How many bathtubs would it take to hold all the water in Lake Baikal?",
-    "answer": 79000000000000,
-    "unit": "bathtubs",
-    "source_title": "Lake Baikal (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Lake_Baikal",
-    "explainer": "Baikal holds about 23,600 km³, which is 23.6 trillion m³. A full bathtub is about 300 litres (0.3 m³), so you would need roughly 79 trillion of them.",
-    "difficulty": 2,
-    "as_of": "stable"
-  },
-  {
-    "id": "geography-1iqvinn",
-    "question": "Walking non-stop at a normal pace, how many days would it take to walk the full length of the Nile?",
-    "answer": 55.4,
-    "unit": "days",
-    "source_title": "Nile (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Nile",
-    "explainer": "The Nile runs about 6,650 km. At 5 km/h that is 1,330 hours, which is about 55 days without a single break.",
-    "difficulty": 1,
-    "as_of": "stable"
-  },
-  {
-    "id": "geography-1iu1qk",
-    "question": "How many Mount Everests stacked on top of each other would it take to reach the Moon?",
-    "answer": 43000,
-    "unit": "Everests",
-    "source_title": "Lunar distance (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Lunar_distance",
-    "explainer": "The Moon is on average 384,400 km away and Everest is 8.849 km tall, so you would need about 43,000 Everests in a pile.",
-    "difficulty": 1,
-    "as_of": "stable"
-  },
-  {
-    "id": "geography-zn6hua",
-    "question": "If people stood shoulder to shoulder, half a metre each, in one line around the equator, how many people would it take?",
-    "answer": 80000000,
-    "unit": "people",
-    "source_title": "Earth's circumference (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Earth%27s_circumference",
-    "explainer": "The equator is 40,075 km, or 40 million metres. At half a metre per person that is about 80 million people, roughly the population of Germany.",
-    "difficulty": 1,
-    "as_of": "stable"
-  },
-  {
-    "id": "geography-d0u2e9",
-    "question": "How many Central Parks would fit inside Greenland?",
-    "answer": 640000,
-    "unit": "Central Parks",
-    "source_title": "Greenland (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Greenland",
-    "explainer": "Greenland is about 2,166,000 km² and Central Park is 3.41 km², so Greenland could hold roughly 640,000 Central Parks.",
-    "difficulty": 1,
-    "as_of": "stable"
-  },
-  {
-    "id": "geography-u1m08o",
-    "question": "How many Grand Canyons could you fill with all the water in North America's Great Lakes?",
-    "answer": 5.4,
-    "unit": "Grand Canyons",
-    "source_title": "Great Lakes (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Great_Lakes",
-    "explainer": "The Great Lakes hold about 22,700 km³ of water and the Grand Canyon has a volume of roughly 4,170 km³, so the lakes would fill it about five and a half times.",
-    "difficulty": 2,
-    "as_of": "stable"
-  },
-  {
-    "id": "geography-jzoq4z",
-    "question": "How many Eiffel Towers stacked end to end would reach from the sea surface to the bottom of the Mariana Trench?",
-    "answer": 33.1,
-    "unit": "Eiffel Towers",
-    "source_title": "Challenger Deep (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Challenger_Deep",
-    "explainer": "The Challenger Deep is about 10,935 m down and the Eiffel Tower is 330 m tall, so it would take about 33 towers.",
-    "difficulty": 1,
-    "as_of": "stable"
-  },
-  {
     "id": "geography-tpfxtx",
     "question": "How many times would all the walls of the Great Wall of China stretch from New York to Los Angeles?",
     "answer": 5.4,
     "unit": "times",
+    "explainer": "China's 2012 survey measured 21,196 km of wall. New York to Los Angeles is about 3,944 km as the crow flies, so the Wall would make the trip about 5.4 times.",
     "source_title": "Great Wall of China (Wikipedia)",
     "source_url": "https://en.wikipedia.org/wiki/Great_Wall_of_China",
-    "explainer": "China's 2012 survey measured 21,196 km of wall. New York to Los Angeles is about 3,944 km as the crow flies, so the Wall would make the trip about 5.4 times.",
-    "difficulty": 2,
     "as_of": "stable",
+    "difficulty": 2,
     "retired": true
   },
   {
@@ -115,45 +16,12 @@
     "question": "How many Greater Londons would fit inside Australia?",
     "answer": 4900,
     "unit": "Londons",
+    "explainer": "Australia covers about 7,692,000 km² and Greater London about 1,572 km², so Australia could swallow roughly 4,900 Londons.",
     "source_title": "Australia (Wikipedia)",
     "source_url": "https://en.wikipedia.org/wiki/Australia",
-    "explainer": "Australia covers about 7,692,000 km² and Greater London about 1,572 km², so Australia could swallow roughly 4,900 Londons.",
-    "difficulty": 1,
     "as_of": "stable",
+    "difficulty": 1,
     "retired": true
-  },
-  {
-    "id": "geography-40o34d",
-    "question": "If all the ice in Antarctica were cut into Olympic swimming pool-sized blocks, how many blocks would there be?",
-    "answer": 11000000000000,
-    "unit": "pools",
-    "source_title": "Antarctic ice sheet (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Antarctic_ice_sheet",
-    "explainer": "The Antarctic ice sheet holds about 26.5 million km³ of ice, which is 2.65 × 10¹⁶ m³. Divided by a 2,500 m³ pool that is about 11 trillion blocks.",
-    "difficulty": 2,
-    "as_of": "stable"
-  },
-  {
-    "id": "geography-1d5tnwf",
-    "question": "How many football pitches would fit inside Vatican City?",
-    "answer": 68.6,
-    "unit": "pitches",
-    "source_title": "Vatican City (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Vatican_City",
-    "explainer": "Vatican City is only 0.49 km², or 490,000 m². A full-size pitch is about 7,140 m², so the whole country is about 69 pitches.",
-    "difficulty": 1,
-    "as_of": "stable"
-  },
-  {
-    "id": "geography-1j87lgn",
-    "question": "How many Manhattans would fit inside Texas?",
-    "answer": 12000,
-    "unit": "Manhattans",
-    "source_title": "Texas (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Texas",
-    "explainer": "Texas is about 695,700 km² and Manhattan is 59.1 km², so Texas could hold roughly 12,000 Manhattans.",
-    "difficulty": 1,
-    "as_of": "stable"
   },
   {
     "id": "geography-1ryhrke",
@@ -178,6 +46,127 @@
     "as_of": "stable"
   },
   {
+    "id": "geography-zn6hua",
+    "question": "If people stood shoulder to shoulder, half a metre each, in one line around the equator, how many people would it take?",
+    "answer": 80000000,
+    "unit": "people",
+    "source_title": "Earth's circumference (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Earth%27s_circumference",
+    "explainer": "The equator is 40,075 km, or 40 million metres. At half a metre per person that is about 80 million people, roughly the population of Germany.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "geography-1iu1qk",
+    "question": "How many Mount Everests stacked on top of each other would it take to reach the Moon?",
+    "answer": 43000,
+    "unit": "Everests",
+    "source_title": "Lunar distance (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Lunar_distance",
+    "explainer": "The Moon is on average 384,400 km away and Everest is 8.849 km tall, so you would need about 43,000 Everests in a pile.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "geography-1iqvinn",
+    "question": "Walking non-stop at a normal pace, how many days would it take to walk the full length of the Nile?",
+    "answer": 55.4,
+    "unit": "days",
+    "source_title": "Nile (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Nile",
+    "explainer": "The Nile runs about 6,650 km. At 5 km/h that is 1,330 hours, which is about 55 days without a single break.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "geography-1j87lgn",
+    "question": "How many Manhattans would fit inside Texas?",
+    "answer": 12000,
+    "unit": "Manhattans",
+    "source_title": "Texas (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Texas",
+    "explainer": "Texas is about 695,700 km² and Manhattan is 59.1 km², so Texas could hold roughly 12,000 Manhattans.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "geography-u1m08o",
+    "question": "How many Grand Canyons could you fill with all the water in North America's Great Lakes?",
+    "answer": 5.4,
+    "unit": "Grand Canyons",
+    "source_title": "Great Lakes (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Great_Lakes",
+    "explainer": "The Great Lakes hold about 22,700 km³ of water and the Grand Canyon has a volume of roughly 4,170 km³, so the lakes would fill it about five and a half times.",
+    "difficulty": 2,
+    "as_of": "stable"
+  },
+  {
+    "id": "geography-ti6899",
+    "question": "How many football pitches, laid side by side, would it take to carpet the whole Sahara Desert?",
+    "answer": 1300000000,
+    "unit": "pitches",
+    "source_title": "Sahara (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Sahara",
+    "explainer": "The Sahara covers about 9.2 million km², and a full-size pitch is 105 m by 68 m, or 7,140 m². That is 9.2 trillion m² divided by 7,140: about 1.3 billion pitches.",
+    "difficulty": 2,
+    "as_of": "stable"
+  },
+  {
+    "id": "geography-jzoq4z",
+    "question": "How many Eiffel Towers stacked end to end would reach from the sea surface to the bottom of the Mariana Trench?",
+    "answer": 33.1,
+    "unit": "Eiffel Towers",
+    "source_title": "Challenger Deep (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Challenger_Deep",
+    "explainer": "The Challenger Deep is about 10,935 m down and the Eiffel Tower is 330 m tall, so it would take about 33 towers.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "geography-1d5tnwf",
+    "question": "How many football pitches would fit inside Vatican City?",
+    "answer": 68.6,
+    "unit": "pitches",
+    "source_title": "Vatican City (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Vatican_City",
+    "explainer": "Vatican City is only 0.49 km², or 490,000 m². A full-size pitch is about 7,140 m², so the whole country is about 69 pitches.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "geography-1j8ab3p",
+    "question": "How many Olympic swimming pools could the Amazon River fill every second?",
+    "answer": 83.6,
+    "unit": "pools",
+    "source_title": "Amazon River (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Amazon_River",
+    "explainer": "The Amazon pours about 209,000 m³ into the Atlantic every second, and an Olympic pool holds 2,500 m³: roughly 84 pools a second.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "geography-d0u2e9",
+    "question": "How many Central Parks would fit inside Greenland?",
+    "answer": 640000,
+    "unit": "Central Parks",
+    "source_title": "Greenland (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Greenland",
+    "explainer": "Greenland is about 2,166,000 km² and Central Park is 3.41 km², so Greenland could hold roughly 640,000 Central Parks.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "geography-6pxu5s",
+    "question": "How many bathtubs would it take to hold all the water in Lake Baikal?",
+    "answer": 79000000000000,
+    "unit": "bathtubs",
+    "source_title": "Lake Baikal (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Lake_Baikal",
+    "explainer": "Baikal holds about 23,600 km³, which is 23.6 trillion m³. A full bathtub is about 300 litres (0.3 m³), so you would need roughly 79 trillion of them.",
+    "difficulty": 2,
+    "as_of": "stable"
+  },
+  {
     "id": "geography-5q8ki",
     "question": "How many bathtubs of rain fall on Greater London in a typical year?",
     "answer": 3100000000,
@@ -189,13 +178,24 @@
     "as_of": "stable"
   },
   {
-    "id": "geography-l5ek04",
-    "question": "How many Olympic swimming pools of water does the Mississippi pour into the Gulf of Mexico every minute?",
-    "answer": 403,
+    "id": "geography-40o34d",
+    "question": "If all the ice in Antarctica were cut into Olympic swimming pool-sized blocks, how many blocks would there be?",
+    "answer": 11000000000000,
     "unit": "pools",
-    "source_title": "Mississippi River (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Mississippi_River",
-    "explainer": "The Mississippi discharges about 16,800 m³ a second, roughly a million m³ a minute. An Olympic pool is 2,500 m³, so about 400 pools a minute.",
+    "source_title": "Antarctic ice sheet (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Antarctic_ice_sheet",
+    "explainer": "The Antarctic ice sheet holds about 26.5 million km³ of ice, which is 2.65 × 10¹⁶ m³. Divided by a 2,500 m³ pool that is about 11 trillion blocks.",
+    "difficulty": 2,
+    "as_of": "stable"
+  },
+  {
+    "id": "geography-ih6dkt",
+    "question": "How many tennis courts would fit on the island of Manhattan?",
+    "answer": 230000,
+    "unit": "tennis courts",
+    "source_title": "Manhattan (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Manhattan",
+    "explainer": "Manhattan is 59.1 km², or 59.1 million m². A tennis court is 23.77 m by 10.97 m, about 261 m², so roughly 230,000 courts.",
     "difficulty": 1,
     "as_of": "stable"
   },
@@ -211,28 +211,6 @@
     "as_of": "stable"
   },
   {
-    "id": "geography-1f6l0po",
-    "question": "How many Empire State Buildings stacked on top of each other would reach a cruising airliner?",
-    "answer": 24.8,
-    "unit": "Empire State Buildings",
-    "source_title": "Empire State Building (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Empire_State_Building",
-    "explainer": "Jets cruise at about 11,000 m and the Empire State Building is 443 m to its tip, so about 25 of them.",
-    "difficulty": 1,
-    "as_of": "stable"
-  },
-  {
-    "id": "geography-ih6dkt",
-    "question": "How many tennis courts would fit on the island of Manhattan?",
-    "answer": 230000,
-    "unit": "tennis courts",
-    "source_title": "Manhattan (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Manhattan",
-    "explainer": "Manhattan is 59.1 km², or 59.1 million m². A tennis court is 23.77 m by 10.97 m, about 261 m², so roughly 230,000 courts.",
-    "difficulty": 1,
-    "as_of": "stable"
-  },
-  {
     "id": "geography-1qy6t31",
     "question": "Walking all day, every day, how many years would it take to walk the entire coastline of mainland Australia?",
     "answer": 3.3,
@@ -240,6 +218,28 @@
     "source_title": "Coastline of Australia (Wikipedia)",
     "source_url": "https://en.wikipedia.org/wiki/Coastline_of_Australia",
     "explainer": "Australia's mainland coastline is about 35,900 km. At 30 km a day that is 1,196 days, about 3.3 years.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "geography-q4w9vb",
+    "question": "How many times could the Nile be laid across Texas from east to west?",
+    "answer": 5.3,
+    "unit": "times",
+    "source_title": "Nile (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Nile",
+    "explainer": "The Nile is about 6,650 km long and Texas is about 1,244 km wide, so the river would cross it about five times.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "geography-1f6l0po",
+    "question": "How many Empire State Buildings stacked on top of each other would reach a cruising airliner?",
+    "answer": 24.8,
+    "unit": "Empire State Buildings",
+    "source_title": "Empire State Building (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Empire_State_Building",
+    "explainer": "Jets cruise at about 11,000 m and the Empire State Building is 443 m to its tip, so about 25 of them.",
     "difficulty": 1,
     "as_of": "stable"
   },
@@ -255,13 +255,13 @@
     "as_of": "stable"
   },
   {
-    "id": "geography-q4w9vb",
-    "question": "How many times could the Nile be laid across Texas from east to west?",
-    "answer": 5.3,
-    "unit": "times",
-    "source_title": "Nile (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Nile",
-    "explainer": "The Nile is about 6,650 km long and Texas is about 1,244 km wide, so the river would cross it about five times.",
+    "id": "geography-l5ek04",
+    "question": "How many Olympic swimming pools of water does the Mississippi pour into the Gulf of Mexico every minute?",
+    "answer": 403,
+    "unit": "pools",
+    "source_title": "Mississippi River (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Mississippi_River",
+    "explainer": "The Mississippi discharges about 16,800 m³ a second, roughly a million m³ a minute. An Olympic pool is 2,500 m³, so about 400 pools a minute.",
     "difficulty": 1,
     "as_of": "stable"
   }

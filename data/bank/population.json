@@ -1,5 +1,17 @@
 [
   {
+    "id": "population-b1h0wt",
+    "question": "How many times more people are alive today than in the year AD 1?",
+    "answer": 27,
+    "unit": "times",
+    "explainer": "Estimates put the world's population in AD 1 at about 300 million. Today's 8.1 billion is about 27 times more.",
+    "source_title": "Estimates of historical world population (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Estimates_of_historical_world_population",
+    "as_of": "2024",
+    "difficulty": 1,
+    "retired": true
+  },
+  {
     "id": "population-hdr9yd",
     "question": "If everyone on Earth held hands in one long line, how many times would it wrap around the equator?",
     "answer": 303,
@@ -22,28 +34,6 @@
     "as_of": "2024"
   },
   {
-    "id": "population-1ncoihi",
-    "question": "How many babies are born around the world every minute?",
-    "answer": 250,
-    "unit": "babies",
-    "source_title": "Births and deaths (Our World in Data)",
-    "source_url": "https://ourworldindata.org/births-and-deaths",
-    "explainer": "About 360,000 babies are born each day. Divided by 1,440 minutes that is about 250 a minute, four every second.",
-    "difficulty": 1,
-    "as_of": "2023"
-  },
-  {
-    "id": "population-867pmf",
-    "question": "For every person alive today, how many people have ever been born?",
-    "answer": 14.4,
-    "unit": "people",
-    "source_title": "How many people have ever lived on Earth? (PRB)",
-    "source_url": "https://www.prb.org/articles/how-many-people-have-ever-lived-on-earth/",
-    "explainer": "Demographers estimate about 117 billion people have ever been born, against 8.1 billion alive: about 14 ancestors for each of us.",
-    "difficulty": 1,
-    "as_of": "2022"
-  },
-  {
     "id": "population-hyphmd",
     "question": "If everyone on Earth stood together, four to a square metre, how many square kilometres would the crowd cover?",
     "answer": 2000,
@@ -55,28 +45,6 @@
     "as_of": "2024"
   },
   {
-    "id": "population-11x4pmr",
-    "question": "Shaking hands for three seconds each, eight hours a day, how many years would it take to shake hands with everyone on Earth?",
-    "answer": 2300,
-    "unit": "years",
-    "source_title": "World population (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/World_population",
-    "explainer": "8.1 billion handshakes of 3 seconds is 24.3 billion seconds. At 28,800 seconds of shaking a day that is 844,000 days, about 2,300 years.",
-    "difficulty": 2,
-    "as_of": "2024"
-  },
-  {
-    "id": "population-791qko",
-    "question": "How many coaches would it take to seat everyone in Greater Tokyo at once?",
-    "answer": 740000,
-    "unit": "coaches",
-    "source_title": "Greater Tokyo Area (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Greater_Tokyo_Area",
-    "explainer": "Greater Tokyo has about 37 million people. At 50 a coach that is 740,000 coaches, a traffic jam about 9,000 km long.",
-    "difficulty": 1,
-    "as_of": "stable"
-  },
-  {
     "id": "population-okesh9",
     "question": "If the whole world's population moved to Texas, how many people would there be per square kilometre?",
     "answer": 12000,
@@ -84,17 +52,6 @@
     "source_title": "Texas (Wikipedia)",
     "source_url": "https://en.wikipedia.org/wiki/Texas",
     "explainer": "Texas is about 695,700 km². 8.1 billion people spread over it is about 12,000 per km², a little denser than Paris today.",
-    "difficulty": 1,
-    "as_of": "2024"
-  },
-  {
-    "id": "population-583249",
-    "question": "How many big football stadiums would it take to seat the entire population of China at once?",
-    "answer": 18000,
-    "unit": "stadiums",
-    "source_title": "Demographics of China (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Demographics_of_China",
-    "explainer": "China has about 1.41 billion people. Divided by 80,000 seats, that is about 18,000 stadiums.",
     "difficulty": 1,
     "as_of": "2024"
   },
@@ -110,6 +67,39 @@
     "as_of": "stable"
   },
   {
+    "id": "population-791qko",
+    "question": "How many coaches would it take to seat everyone in Greater Tokyo at once?",
+    "answer": 740000,
+    "unit": "coaches",
+    "source_title": "Greater Tokyo Area (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Greater_Tokyo_Area",
+    "explainer": "Greater Tokyo has about 37 million people. At 50 a coach that is 740,000 coaches, a traffic jam about 9,000 km long.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "population-583249",
+    "question": "How many big football stadiums would it take to seat the entire population of China at once?",
+    "answer": 18000,
+    "unit": "stadiums",
+    "source_title": "Demographics of China (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Demographics_of_China",
+    "explainer": "China has about 1.41 billion people. Divided by 80,000 seats, that is about 18,000 stadiums.",
+    "difficulty": 1,
+    "as_of": "2024"
+  },
+  {
+    "id": "population-867pmf",
+    "question": "For every person alive today, how many people have ever been born?",
+    "answer": 14.4,
+    "unit": "people",
+    "source_title": "How many people have ever lived on Earth? (PRB)",
+    "source_url": "https://www.prb.org/articles/how-many-people-have-ever-lived-on-earth/",
+    "explainer": "Demographers estimate about 117 billion people have ever been born, against 8.1 billion alive: about 14 ancestors for each of us.",
+    "difficulty": 1,
+    "as_of": "2022"
+  },
+  {
     "id": "population-1nn6daw",
     "question": "How many football pitches would it take for everyone in India to stand four to a square metre?",
     "answer": 50000,
@@ -121,16 +111,26 @@
     "as_of": "2024"
   },
   {
-    "id": "population-b1h0wt",
-    "question": "How many times more people are alive today than in the year AD 1?",
-    "answer": 27,
-    "unit": "times",
-    "source_title": "Estimates of historical world population (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Estimates_of_historical_world_population",
-    "explainer": "Estimates put the world's population in AD 1 at about 300 million. Today's 8.1 billion is about 27 times more.",
+    "id": "population-1ncoihi",
+    "question": "How many babies are born around the world every minute?",
+    "answer": 250,
+    "unit": "babies",
+    "source_title": "Births and deaths (Our World in Data)",
+    "source_url": "https://ourworldindata.org/births-and-deaths",
+    "explainer": "About 360,000 babies are born each day. Divided by 1,440 minutes that is about 250 a minute, four every second.",
     "difficulty": 1,
-    "as_of": "2024",
-    "retired": true
+    "as_of": "2023"
+  },
+  {
+    "id": "population-11x4pmr",
+    "question": "Shaking hands for three seconds each, eight hours a day, how many years would it take to shake hands with everyone on Earth?",
+    "answer": 2300,
+    "unit": "years",
+    "source_title": "World population (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/World_population",
+    "explainer": "8.1 billion handshakes of 3 seconds is 24.3 billion seconds. At 28,800 seconds of shaking a day that is 844,000 days, about 2,300 years.",
+    "difficulty": 2,
+    "as_of": "2024"
   },
   {
     "id": "population-fp1uuj",
@@ -155,37 +155,15 @@
     "as_of": "2023"
   },
   {
-    "id": "population-11kfb8e",
-    "question": "How many people are alive today for every person who lived in the Roman Empire at its peak?",
-    "answer": 135,
-    "unit": "people",
-    "source_title": "Demography of the Roman Empire (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Demography_of_the_Roman_Empire",
-    "explainer": "The Roman Empire peaked at roughly 60 million people. Today's 8.1 billion is about 140 times that.",
+    "id": "population-191ztpc",
+    "question": "How many babies are born around the world during a two-hour film?",
+    "answer": 30000,
+    "unit": "babies",
+    "source_title": "Births and deaths (Our World in Data)",
+    "source_url": "https://ourworldindata.org/births-and-deaths",
+    "explainer": "About 250 babies are born every minute, so a 120-minute film sees about 30,000 new arrivals.",
     "difficulty": 1,
-    "as_of": "2024"
-  },
-  {
-    "id": "population-hfdboo",
-    "question": "How many people could stand on the island of Manhattan at four to a square metre?",
-    "answer": 240000000,
-    "unit": "people",
-    "source_title": "Manhattan (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Manhattan",
-    "explainer": "Manhattan is 59.1 km², or 59.1 million m². At four per square metre that is about 240 million people, more than live in Brazil.",
-    "difficulty": 1,
-    "as_of": "stable"
-  },
-  {
-    "id": "population-1axf1og",
-    "question": "If everyone on Earth walked past you in single file at a normal pace, how many years would the parade last?",
-    "answer": 185,
-    "unit": "years",
-    "source_title": "World population (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/World_population",
-    "explainer": "8.1 billion people one metre apart is an 8.1-million-km line. At 5 km/h it takes 1.6 million hours to pass, about 180 years.",
-    "difficulty": 2,
-    "as_of": "2024"
+    "as_of": "2023"
   },
   {
     "id": "population-108m3q2",
@@ -195,17 +173,6 @@
     "source_title": "Demographics of China (Wikipedia)",
     "source_url": "https://en.wikipedia.org/wiki/Demographics_of_China",
     "explainer": "1.41 billion people at 1.5 m each is 2.1 million km. The equator is 40,075 km, so about 53 times around.",
-    "difficulty": 1,
-    "as_of": "2024"
-  },
-  {
-    "id": "population-epn2ko",
-    "question": "How many people are there on Earth for every Starbucks store?",
-    "answer": 200000,
-    "unit": "people",
-    "source_title": "Starbucks (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Starbucks",
-    "explainer": "Starbucks had 40,199 stores at the end of 2024 and the world has 8.1 billion people, about 200,000 people per store.",
     "difficulty": 1,
     "as_of": "2024"
   },
@@ -221,14 +188,47 @@
     "as_of": "2024"
   },
   {
-    "id": "population-191ztpc",
-    "question": "How many babies are born around the world during a two-hour film?",
-    "answer": 30000,
-    "unit": "babies",
-    "source_title": "Births and deaths (Our World in Data)",
-    "source_url": "https://ourworldindata.org/births-and-deaths",
-    "explainer": "About 250 babies are born every minute, so a 120-minute film sees about 30,000 new arrivals.",
+    "id": "population-epn2ko",
+    "question": "How many people are there on Earth for every Starbucks store?",
+    "answer": 200000,
+    "unit": "people",
+    "source_title": "Starbucks (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Starbucks",
+    "explainer": "Starbucks had 40,199 stores at the end of 2024 and the world has 8.1 billion people, about 200,000 people per store.",
     "difficulty": 1,
-    "as_of": "2023"
+    "as_of": "2024"
+  },
+  {
+    "id": "population-1axf1og",
+    "question": "If everyone on Earth walked past you in single file at a normal pace, how many years would the parade last?",
+    "answer": 185,
+    "unit": "years",
+    "source_title": "World population (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/World_population",
+    "explainer": "8.1 billion people one metre apart is an 8.1-million-km line. At 5 km/h it takes 1.6 million hours to pass, about 180 years.",
+    "difficulty": 2,
+    "as_of": "2024"
+  },
+  {
+    "id": "population-hfdboo",
+    "question": "How many people could stand on the island of Manhattan at four to a square metre?",
+    "answer": 240000000,
+    "unit": "people",
+    "source_title": "Manhattan (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Manhattan",
+    "explainer": "Manhattan is 59.1 km², or 59.1 million m². At four per square metre that is about 240 million people, more than live in Brazil.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "population-11kfb8e",
+    "question": "How many people are alive today for every person who lived in the Roman Empire at its peak?",
+    "answer": 135,
+    "unit": "people",
+    "source_title": "Demography of the Roman Empire (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Demography_of_the_Roman_Empire",
+    "explainer": "The Roman Empire peaked at roughly 60 million people. Today's 8.1 billion is about 140 times that.",
+    "difficulty": 1,
+    "as_of": "2024"
   }
 ]

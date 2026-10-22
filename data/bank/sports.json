@@ -1,13 +1,47 @@
 [
   {
-    "id": "sports-m4bjze",
-    "question": "How many footballs would it take to fill Wembley's pitch to a depth of one metre?",
-    "answer": 820000,
-    "unit": "footballs",
-    "source_title": "Football pitch (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Football_pitch",
-    "explainer": "The pitch is 105 m by 68 m, so a metre deep is 7,140 m³. A 22 cm football is 5.6 litres, and balls pack to about 64%, so about 820,000 footballs.",
-    "difficulty": 3,
+    "id": "sports-1yruugx",
+    "question": "How many Olympic gold medals' worth of real gold is in one standard 12.4 kg gold bar?",
+    "answer": 2100,
+    "unit": "medals",
+    "explainer": "A Paris 2024 gold medal contains just 6 g of gold on a silver core. A 12.4 kg bar holds about 2,100 medals' worth.",
+    "source_title": "Paris 2024 medals (Olympics.com)",
+    "source_url": "https://olympics.com/en/paris-2024/the-games/the-brand/medals",
+    "as_of": "2024",
+    "difficulty": 1,
+    "retired": true
+  },
+  {
+    "id": "sports-1nf253h",
+    "question": "If all the hot dogs sold at Major League Baseball games in one season were laid end to end, how many km would they stretch?",
+    "answer": 2900,
+    "unit": "km",
+    "source_title": "Doggone delicious (Baseball Hall of Fame)",
+    "source_url": "https://baseballhall.org/discover/shortstops/doggone-delicious",
+    "explainer": "Fans ate about 19.1 million ballpark hot dogs in 2022. At 15 cm each that is 2.9 million metres, about 2,900 km: New York to Denver.",
+    "difficulty": 1,
+    "as_of": "2022"
+  },
+  {
+    "id": "sports-1q3dkpf",
+    "question": "How many days of non-stop football is a full Premier League season?",
+    "answer": 23.8,
+    "unit": "days",
+    "source_title": "Premier League (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Premier_League",
+    "explainer": "There are 380 matches a season, each about 90 minutes plus stoppages, call it 1.5 hours: 570 hours, which is about 24 days straight.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "sports-1swrhh",
+    "question": "If Usain Bolt could hold his 100 m world-record pace for a whole marathon, how many minutes would it take him?",
+    "answer": 67.4,
+    "unit": "minutes",
+    "source_title": "Usain Bolt (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Usain_Bolt",
+    "explainer": "Bolt ran 100 m in 9.58 s. A marathon is 421.95 of those, so 421.95 × 9.58 s is 4,042 s, about 67 minutes.",
+    "difficulty": 1,
     "as_of": "stable"
   },
   {
@@ -33,25 +67,25 @@
     "as_of": "stable"
   },
   {
-    "id": "sports-1ikl4me",
-    "question": "Running non-stop at the marathon world-record pace, how many days would it take to run around the world?",
-    "answer": 79.5,
-    "unit": "days",
-    "source_title": "Marathon world record progression (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Marathon_world_record_progression",
-    "explainer": "The record is 2:00:35, which is 21 km/h. 40,075 km at that speed is 1,909 hours, about 80 days, with no sleep.",
-    "difficulty": 2,
-    "as_of": "2023"
+    "id": "sports-1xzlk84",
+    "question": "How many full Monopoly banks would it take to buy a median-priced American home with play money?",
+    "answer": 20.4,
+    "unit": "Monopoly banks",
+    "source_title": "Monopoly (game) (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Monopoly_(game)",
+    "explainer": "A Monopoly set comes with $20,580 of play money and the median US home sold for about $420,000 in 2024, so about 20 full banks.",
+    "difficulty": 1,
+    "as_of": "2024"
   },
   {
-    "id": "sports-1q90rqn",
-    "question": "How many tennis balls would fit inside a London double-decker bus?",
-    "answer": 410000,
-    "unit": "tennis balls",
-    "source_title": "Tennis ball (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Tennis_ball",
-    "explainer": "A double-decker has roughly 100 m³ of space inside. A tennis ball is 6.7 cm across (0.000157 m³) and balls pack to about 64%, so about 410,000 balls.",
-    "difficulty": 3,
+    "id": "sports-1aymgad",
+    "question": "If every tennis ball used at one Wimbledon were stacked in a single column, how many kilometres tall would it be?",
+    "answer": 3.7,
+    "unit": "km",
+    "source_title": "Balls (Wimbledon)",
+    "source_url": "https://www.wimbledon.com/en_GB/atoz/balls.html",
+    "explainer": "Wimbledon uses about 55,000 balls a tournament. At 6.7 cm each the column would be about 3.7 km tall, higher than most mountains in Britain.",
+    "difficulty": 1,
     "as_of": "stable"
   },
   {
@@ -66,6 +100,50 @@
     "as_of": "2024"
   },
   {
+    "id": "sports-cr6t8",
+    "question": "How many laps of a 400 m running track is the Tour de France?",
+    "answer": 8700,
+    "unit": "laps",
+    "source_title": "2024 Tour de France (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/2024_Tour_de_France",
+    "explainer": "The 2024 Tour was 3,498 km, which is 3,498,000 m. Divided by a 400 m track that is about 8,700 laps.",
+    "difficulty": 1,
+    "as_of": "2024"
+  },
+  {
+    "id": "sports-m4bjze",
+    "question": "How many footballs would it take to fill Wembley's pitch to a depth of one metre?",
+    "answer": 820000,
+    "unit": "footballs",
+    "source_title": "Football pitch (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Football_pitch",
+    "explainer": "The pitch is 105 m by 68 m, so a metre deep is 7,140 m³. A 22 cm football is 5.6 litres, and balls pack to about 64%, so about 820,000 footballs.",
+    "difficulty": 3,
+    "as_of": "stable"
+  },
+  {
+    "id": "sports-szxcuq",
+    "question": "How many Big Macs would a Tour de France rider need to replace all the energy burned over the three-week race?",
+    "answer": 214,
+    "unit": "Big Macs",
+    "source_title": "Tour de France (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Tour_de_France",
+    "explainer": "Riders burn about 6,000 kcal a day for 21 stages, about 126,000 kcal. At 590 kcal a Big Mac, that is about 210 burgers.",
+    "difficulty": 2,
+    "as_of": "stable"
+  },
+  {
+    "id": "sports-1ikl4me",
+    "question": "Running non-stop at the marathon world-record pace, how many days would it take to run around the world?",
+    "answer": 79.5,
+    "unit": "days",
+    "source_title": "Marathon world record progression (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Marathon_world_record_progression",
+    "explainer": "The record is 2:00:35, which is 21 km/h. 40,075 km at that speed is 1,909 hours, about 80 days, with no sleep.",
+    "difficulty": 2,
+    "as_of": "2023"
+  },
+  {
     "id": "sports-1ysk6z0",
     "question": "How many basketballs would it take to fill the Grand Canyon?",
     "answer": 370000000000000,
@@ -77,14 +155,14 @@
     "as_of": "stable"
   },
   {
-    "id": "sports-1q3dkpf",
-    "question": "How many days of non-stop football is a full Premier League season?",
-    "answer": 23.8,
-    "unit": "days",
-    "source_title": "Premier League (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Premier_League",
-    "explainer": "There are 380 matches a season, each about 90 minutes plus stoppages, call it 1.5 hours: 570 hours, which is about 24 days straight.",
-    "difficulty": 1,
+    "id": "sports-1q90rqn",
+    "question": "How many tennis balls would fit inside a London double-decker bus?",
+    "answer": 410000,
+    "unit": "tennis balls",
+    "source_title": "Tennis ball (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Tennis_ball",
+    "explainer": "A double-decker has roughly 100 m³ of space inside. A tennis ball is 6.7 cm across (0.000157 m³) and balls pack to about 64%, so about 410,000 balls.",
+    "difficulty": 3,
     "as_of": "stable"
   },
   {
@@ -99,82 +177,48 @@
     "as_of": "stable"
   },
   {
-    "id": "sports-1nf253h",
-    "question": "If all the hot dogs sold at Major League Baseball games in one season were laid end to end, how many km would they stretch?",
-    "answer": 2900,
+    "id": "sports-18nl47c",
+    "question": "If every Rubik's Cube ever sold were stacked in one column, how many kilometres tall would it be?",
+    "answer": 29000,
     "unit": "km",
-    "source_title": "Doggone delicious (Baseball Hall of Fame)",
-    "source_url": "https://baseballhall.org/discover/shortstops/doggone-delicious",
-    "explainer": "Fans ate about 19.1 million ballpark hot dogs in 2022. At 15 cm each that is 2.9 million metres, about 2,900 km: New York to Denver.",
-    "difficulty": 1,
-    "as_of": "2022"
-  },
-  {
-    "id": "sports-1yruugx",
-    "question": "How many Olympic gold medals' worth of real gold is in one standard 12.4 kg gold bar?",
-    "answer": 2100,
-    "unit": "medals",
-    "source_title": "Paris 2024 medals (Olympics.com)",
-    "source_url": "https://olympics.com/en/paris-2024/the-games/the-brand/medals",
-    "explainer": "A Paris 2024 gold medal contains just 6 g of gold on a silver core. A 12.4 kg bar holds about 2,100 medals' worth.",
-    "difficulty": 1,
-    "as_of": "2024",
-    "retired": true
-  },
-  {
-    "id": "sports-szxcuq",
-    "question": "How many Big Macs would a Tour de France rider need to replace all the energy burned over the three-week race?",
-    "answer": 214,
-    "unit": "Big Macs",
-    "source_title": "Tour de France (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Tour_de_France",
-    "explainer": "Riders burn about 6,000 kcal a day for 21 stages, about 126,000 kcal. At 590 kcal a Big Mac, that is about 210 burgers.",
-    "difficulty": 2,
-    "as_of": "stable"
-  },
-  {
-    "id": "sports-1aymgad",
-    "question": "If every tennis ball used at one Wimbledon were stacked in a single column, how many kilometres tall would it be?",
-    "answer": 3.7,
-    "unit": "km",
-    "source_title": "Balls (Wimbledon)",
-    "source_url": "https://www.wimbledon.com/en_GB/atoz/balls.html",
-    "explainer": "Wimbledon uses about 55,000 balls a tournament. At 6.7 cm each the column would be about 3.7 km tall, higher than most mountains in Britain.",
-    "difficulty": 1,
-    "as_of": "stable"
-  },
-  {
-    "id": "sports-1swrhh",
-    "question": "If Usain Bolt could hold his 100 m world-record pace for a whole marathon, how many minutes would it take him?",
-    "answer": 67.4,
-    "unit": "minutes",
-    "source_title": "Usain Bolt (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Usain_Bolt",
-    "explainer": "Bolt ran 100 m in 9.58 s. A marathon is 421.95 of those, so 421.95 × 9.58 s is 4,042 s, about 67 minutes.",
-    "difficulty": 1,
-    "as_of": "stable"
-  },
-  {
-    "id": "sports-1xzlk84",
-    "question": "How many full Monopoly banks would it take to buy a median-priced American home with play money?",
-    "answer": 20.4,
-    "unit": "Monopoly banks",
-    "source_title": "Monopoly (game) (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Monopoly_(game)",
-    "explainer": "A Monopoly set comes with $20,580 of play money and the median US home sold for about $420,000 in 2024, so about 20 full banks.",
+    "source_title": "Rubik's Cube (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Rubik%27s_Cube",
+    "explainer": "About 500 million cubes have been sold, each 5.7 cm tall: 28.5 million metres, about 29,000 km, nearly three-quarters of the way around the Earth.",
     "difficulty": 1,
     "as_of": "2024"
   },
   {
-    "id": "sports-cr6t8",
-    "question": "How many laps of a 400 m running track is the Tour de France?",
-    "answer": 8700,
-    "unit": "laps",
-    "source_title": "2024 Tour de France (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/2024_Tour_de_France",
-    "explainer": "The 2024 Tour was 3,498 km, which is 3,498,000 m. Divided by a 400 m track that is about 8,700 laps.",
+    "id": "sports-2jubpt",
+    "question": "How many TV viewers watched the 2025 Super Bowl for every seat in the stadium?",
+    "answer": 1800,
+    "unit": "viewers",
+    "source_title": "Super Bowl LIX (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Super_Bowl_LIX",
+    "explainer": "Super Bowl LIX averaged 127.7 million viewers, and the Superdome holds about 70,000, so about 1,800 viewers per seat.",
     "difficulty": 1,
-    "as_of": "2024"
+    "as_of": "2025"
+  },
+  {
+    "id": "sports-qmvoon",
+    "question": "How many marathons does a Premier League outfield player run over a full season?",
+    "answer": 9.9,
+    "unit": "marathons",
+    "source_title": "Premier League (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Premier_League",
+    "explainer": "About 11 km a match over 38 matches is 418 km. A marathon is 42.195 km, so about 10 marathons a season.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "sports-1gxh74p",
+    "question": "How many playing cards stacked on top of each other would reach the top of the Empire State Building?",
+    "answer": 1500000,
+    "unit": "cards",
+    "source_title": "Playing card (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Playing_card",
+    "explainer": "A playing card is about 0.3 mm thick and the Empire State Building is 443 m tall, so about 1.5 million cards.",
+    "difficulty": 1,
+    "as_of": "stable"
   },
   {
     "id": "sports-1f3uuo",
@@ -184,6 +228,17 @@
     "source_title": "Baseball (ball) (Wikipedia)",
     "source_url": "https://en.wikipedia.org/wiki/Baseball_(ball)",
     "explainer": "A baseball weighs about 145 g and a blue whale about 150,000 kg, so about a million baseballs.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "sports-1obesk9",
+    "question": "How many lengths of a football pitch could a cheetah run in one minute at top speed?",
+    "answer": 17.5,
+    "unit": "lengths",
+    "source_title": "Cheetah (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Cheetah",
+    "explainer": "At 110 km/h a cheetah covers 1,833 m a minute. A pitch is 105 m long, so about 17 lengths.",
     "difficulty": 1,
     "as_of": "stable"
   },
@@ -199,39 +254,6 @@
     "as_of": "stable"
   },
   {
-    "id": "sports-2jubpt",
-    "question": "How many TV viewers watched the 2025 Super Bowl for every seat in the stadium?",
-    "answer": 1800,
-    "unit": "viewers",
-    "source_title": "Super Bowl LIX (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Super_Bowl_LIX",
-    "explainer": "Super Bowl LIX averaged 127.7 million viewers, and the Superdome holds about 70,000, so about 1,800 viewers per seat.",
-    "difficulty": 1,
-    "as_of": "2025"
-  },
-  {
-    "id": "sports-1gxh74p",
-    "question": "How many playing cards stacked on top of each other would reach the top of the Empire State Building?",
-    "answer": 1500000,
-    "unit": "cards",
-    "source_title": "Playing card (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Playing_card",
-    "explainer": "A playing card is about 0.3 mm thick and the Empire State Building is 443 m tall, so about 1.5 million cards.",
-    "difficulty": 1,
-    "as_of": "stable"
-  },
-  {
-    "id": "sports-qmvoon",
-    "question": "How many marathons does a Premier League outfield player run over a full season?",
-    "answer": 9.9,
-    "unit": "marathons",
-    "source_title": "Premier League (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Premier_League",
-    "explainer": "About 11 km a match over 38 matches is 418 km. A marathon is 42.195 km, so about 10 marathons a season.",
-    "difficulty": 1,
-    "as_of": "stable"
-  },
-  {
     "id": "sports-1o57gek",
     "question": "How many golf balls would it take to fill an Olympic swimming pool?",
     "answer": 39000000,
@@ -241,27 +263,5 @@
     "explainer": "A pool is 2,500 m³. A golf ball is 42.7 mm across, 0.0000407 m³, and balls pack to about 64%, so about 39 million golf balls.",
     "difficulty": 2,
     "as_of": "stable"
-  },
-  {
-    "id": "sports-1obesk9",
-    "question": "How many lengths of a football pitch could a cheetah run in one minute at top speed?",
-    "answer": 17.5,
-    "unit": "lengths",
-    "source_title": "Cheetah (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Cheetah",
-    "explainer": "At 110 km/h a cheetah covers 1,833 m a minute. A pitch is 105 m long, so about 17 lengths.",
-    "difficulty": 1,
-    "as_of": "stable"
-  },
-  {
-    "id": "sports-18nl47c",
-    "question": "If every Rubik's Cube ever sold were stacked in one column, how many kilometres tall would it be?",
-    "answer": 29000,
-    "unit": "km",
-    "source_title": "Rubik's Cube (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Rubik%27s_Cube",
-    "explainer": "About 500 million cubes have been sold, each 5.7 cm tall: 28.5 million metres, about 29,000 km, nearly three-quarters of the way around the Earth.",
-    "difficulty": 1,
-    "as_of": "2024"
   }
 ]

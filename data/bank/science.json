@@ -1,14 +1,39 @@
 [
   {
-    "id": "science-nhcphf",
-    "question": "How many grains of rice are in a 1 kg bag?",
-    "answer": 40000,
-    "unit": "grains",
-    "source_title": "Rice (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Rice",
-    "explainer": "A grain of long-grain rice weighs about 25 mg, so 1,000 g divided by 0.025 g is roughly 40,000 grains.",
+    "id": "science-1ijc40k",
+    "question": "How many drops of water are in an Olympic swimming pool?",
+    "answer": 50000000000,
+    "unit": "drops",
+    "explainer": "An Olympic pool holds 2.5 million litres, which is 2.5 billion millilitres. A drop is about 0.05 ml, so about 50 billion drops.",
+    "source_title": "Olympic-size swimming pool (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Olympic-size_swimming_pool",
+    "as_of": "stable",
     "difficulty": 1,
-    "as_of": "stable"
+    "retired": true
+  },
+  {
+    "id": "science-f7vtkj",
+    "question": "How many seconds are there in a year?",
+    "answer": 32000000,
+    "unit": "seconds",
+    "explainer": "There are 86,400 seconds in a day and 365.25 days in a year, which gives about 31.6 million seconds.",
+    "source_title": "Year (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Year",
+    "as_of": "stable",
+    "difficulty": 1,
+    "retired": true
+  },
+  {
+    "id": "science-ml71nr",
+    "question": "How many years is a trillion seconds?",
+    "answer": 32000,
+    "unit": "years",
+    "explainer": "A year has about 31.6 million seconds, so a trillion seconds is about 32,000 years, back to the Ice Age.",
+    "source_title": "Year (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Year",
+    "as_of": "stable",
+    "difficulty": 1,
+    "retired": true
   },
   {
     "id": "science-mz52sc",
@@ -22,47 +47,13 @@
     "as_of": "stable"
   },
   {
-    "id": "science-c8nujk",
-    "question": "How many times would you have to fold a sheet of paper in half for the stack to reach the Moon?",
-    "answer": 41.8,
-    "unit": "folds",
-    "source_title": "Lunar distance (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Lunar_distance",
-    "explainer": "Each fold doubles the thickness. Starting from 0.1 mm, after 42 folds the stack is 0.0001 m × 2⁴² = 440,000 km, past the Moon's 384,400 km.",
-    "difficulty": 2,
-    "as_of": "stable"
-  },
-  {
-    "id": "science-1ijc40k",
-    "question": "How many drops of water are in an Olympic swimming pool?",
-    "answer": 50000000000,
-    "unit": "drops",
-    "source_title": "Olympic-size swimming pool (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Olympic-size_swimming_pool",
-    "explainer": "An Olympic pool holds 2.5 million litres, which is 2.5 billion millilitres. A drop is about 0.05 ml, so about 50 billion drops.",
-    "difficulty": 1,
-    "as_of": "stable",
-    "retired": true
-  },
-  {
-    "id": "science-1uj495a",
-    "question": "How many ants would it take to weigh the same as one adult person?",
-    "answer": 23000000,
-    "unit": "ants",
-    "source_title": "Ant (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Ant",
-    "explainer": "A typical ant weighs about 3 mg and an adult about 70 kg (70,000 g), so it would take roughly 23 million ants.",
-    "difficulty": 1,
-    "as_of": "stable"
-  },
-  {
-    "id": "science-wedagw",
-    "question": "How many M&M's would weigh the same as a blue whale?",
-    "answer": 170000000,
-    "unit": "M&M's",
-    "source_title": "Blue whale (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Blue_whale",
-    "explainer": "A blue whale can weigh 150 tonnes (150,000 kg) and an M&M weighs about 0.9 g, so about 170 million M&M's.",
+    "id": "science-nhcphf",
+    "question": "How many grains of rice are in a 1 kg bag?",
+    "answer": 40000,
+    "unit": "grains",
+    "source_title": "Rice (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Rice",
+    "explainer": "A grain of long-grain rice weighs about 25 mg, so 1,000 g divided by 0.025 g is roughly 40,000 grains.",
     "difficulty": 1,
     "as_of": "stable"
   },
@@ -78,35 +69,13 @@
     "as_of": "stable"
   },
   {
-    "id": "science-f7vtkj",
-    "question": "How many seconds are there in a year?",
-    "answer": 32000000,
-    "unit": "seconds",
-    "source_title": "Year (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Year",
-    "explainer": "There are 86,400 seconds in a day and 365.25 days in a year, which gives about 31.6 million seconds.",
-    "difficulty": 1,
-    "as_of": "stable"
-  },
-  {
-    "id": "science-x7iufb",
-    "question": "How many LEGO bricks stacked one on top of another would reach the International Space Station?",
-    "answer": 42000000,
-    "unit": "bricks",
-    "source_title": "Lego (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Lego",
-    "explainer": "A LEGO brick is 9.6 mm tall and the ISS orbits about 400 km up. 400,000 m divided by 0.0096 m is about 42 million bricks.",
-    "difficulty": 1,
-    "as_of": "stable"
-  },
-  {
-    "id": "science-jcg0me",
-    "question": "How many human hairs laid side by side would it take to span one metre?",
-    "answer": 14000,
-    "unit": "hairs",
-    "source_title": "Hair (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Hair",
-    "explainer": "A human hair is about 70 micrometres (0.07 mm) wide, so 1,000 mm divided by 0.07 mm is roughly 14,000 hairs.",
+    "id": "science-1p25apx",
+    "question": "How many sugar cubes would weigh the same as an African elephant?",
+    "answer": 1500000,
+    "unit": "sugar cubes",
+    "source_title": "African bush elephant (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/African_bush_elephant",
+    "explainer": "A big African elephant weighs about 6 tonnes (6,000 kg) and a sugar cube about 4 g, so about 1.5 million cubes.",
     "difficulty": 1,
     "as_of": "stable"
   },
@@ -122,25 +91,58 @@
     "as_of": "stable"
   },
   {
-    "id": "science-ml71nr",
-    "question": "How many years is a trillion seconds?",
-    "answer": 32000,
-    "unit": "years",
-    "source_title": "Year (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Year",
-    "explainer": "A year has about 31.6 million seconds, so a trillion seconds is about 32,000 years, back to the Ice Age.",
+    "id": "science-hfzxfu",
+    "question": "How many sheets of A4 paper would weigh the same as an African elephant?",
+    "answer": 1200000,
+    "unit": "sheets",
+    "source_title": "Paper size (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Paper_size",
+    "explainer": "A sheet of 80 gsm A4 paper weighs 5 g. An elephant of 6 tonnes is 6 million grams, so 1.2 million sheets.",
     "difficulty": 1,
     "as_of": "stable"
   },
   {
-    "id": "science-1p25apx",
-    "question": "How many sugar cubes would weigh the same as an African elephant?",
-    "answer": 1500000,
-    "unit": "sugar cubes",
-    "source_title": "African bush elephant (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/African_bush_elephant",
-    "explainer": "A big African elephant weighs about 6 tonnes (6,000 kg) and a sugar cube about 4 g, so about 1.5 million cubes.",
+    "id": "science-x7iufb",
+    "question": "How many LEGO bricks stacked one on top of another would reach the International Space Station?",
+    "answer": 42000000,
+    "unit": "bricks",
+    "source_title": "Lego (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Lego",
+    "explainer": "A LEGO brick is 9.6 mm tall and the ISS orbits about 400 km up. 400,000 m divided by 0.0096 m is about 42 million bricks.",
     "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "science-wedagw",
+    "question": "How many M&M's would weigh the same as a blue whale?",
+    "answer": 170000000,
+    "unit": "M&M's",
+    "source_title": "Blue whale (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Blue_whale",
+    "explainer": "A blue whale can weigh 150 tonnes (150,000 kg) and an M&M weighs about 0.9 g, so about 170 million M&M's.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "science-jcg0me",
+    "question": "How many human hairs laid side by side would it take to span one metre?",
+    "answer": 14000,
+    "unit": "hairs",
+    "source_title": "Hair (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Hair",
+    "explainer": "A human hair is about 70 micrometres (0.07 mm) wide, so 1,000 mm divided by 0.07 mm is roughly 14,000 hairs.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "science-c8nujk",
+    "question": "How many times would you have to fold a sheet of paper in half for the stack to reach the Moon?",
+    "answer": 41.8,
+    "unit": "folds",
+    "source_title": "Lunar distance (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Lunar_distance",
+    "explainer": "Each fold doubles the thickness. Starting from 0.1 mm, after 42 folds the stack is 0.0001 m × 2⁴² = 440,000 km, past the Moon's 384,400 km.",
+    "difficulty": 2,
     "as_of": "stable"
   },
   {
@@ -166,6 +168,17 @@
     "as_of": "stable"
   },
   {
+    "id": "science-1uj495a",
+    "question": "How many ants would it take to weigh the same as one adult person?",
+    "answer": 23000000,
+    "unit": "ants",
+    "source_title": "Ant (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Ant",
+    "explainer": "A typical ant weighs about 3 mg and an adult about 70 kg (70,000 g), so it would take roughly 23 million ants.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
     "id": "science-113gn0s",
     "question": "How many teaspoons of water does it take to fill a bathtub?",
     "answer": 60000,
@@ -173,28 +186,6 @@
     "source_title": "Teaspoon (Wikipedia)",
     "source_url": "https://en.wikipedia.org/wiki/Teaspoon",
     "explainer": "A full bath is about 300 litres and a teaspoon is 5 ml, so 300,000 ml divided by 5 ml is 60,000 teaspoons.",
-    "difficulty": 1,
-    "as_of": "stable"
-  },
-  {
-    "id": "science-hfzxfu",
-    "question": "How many sheets of A4 paper would weigh the same as an African elephant?",
-    "answer": 1200000,
-    "unit": "sheets",
-    "source_title": "Paper size (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Paper_size",
-    "explainer": "A sheet of 80 gsm A4 paper weighs 5 g. An elephant of 6 tonnes is 6 million grams, so 1.2 million sheets.",
-    "difficulty": 1,
-    "as_of": "stable"
-  },
-  {
-    "id": "science-pqhjoc",
-    "question": "How many ordinary dice would fit inside a one-metre cube?",
-    "answer": 240000,
-    "unit": "dice",
-    "source_title": "Dice (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Dice",
-    "explainer": "A die is 1.6 cm on a side, so 62.5 dice fit along each metre. 62.5 cubed is about 240,000 dice.",
     "difficulty": 1,
     "as_of": "stable"
   },
@@ -232,17 +223,6 @@
     "as_of": "stable"
   },
   {
-    "id": "science-145x6il",
-    "question": "How many sheets of A4 paper, laid flat, would it take to carpet a football pitch?",
-    "answer": 110000,
-    "unit": "sheets",
-    "source_title": "Paper size (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Paper_size",
-    "explainer": "A4 is 21 cm by 29.7 cm, 0.0624 m². A pitch is about 7,140 m², so about 110,000 sheets.",
-    "difficulty": 1,
-    "as_of": "stable"
-  },
-  {
     "id": "science-ou130u",
     "question": "How many one-litre bottles of water would it take to fill an Olympic swimming pool?",
     "answer": 2500000,
@@ -254,6 +234,28 @@
     "as_of": "stable"
   },
   {
+    "id": "science-145x6il",
+    "question": "How many sheets of A4 paper, laid flat, would it take to carpet a football pitch?",
+    "answer": 110000,
+    "unit": "sheets",
+    "source_title": "Paper size (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Paper_size",
+    "explainer": "A4 is 21 cm by 29.7 cm, 0.0624 m². A pitch is about 7,140 m², so about 110,000 sheets.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "science-pqhjoc",
+    "question": "How many ordinary dice would fit inside a one-metre cube?",
+    "answer": 240000,
+    "unit": "dice",
+    "source_title": "Dice (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Dice",
+    "explainer": "A die is 1.6 cm on a side, so 62.5 dice fit along each metre. 62.5 cubed is about 240,000 dice.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
     "id": "science-17pic8p",
     "question": "How many ping-pong balls would fit in a bathtub?",
     "answer": 5700,
@@ -261,6 +263,28 @@
     "source_title": "Table tennis (Wikipedia)",
     "source_url": "https://en.wikipedia.org/wiki/Table_tennis",
     "explainer": "A bath holds about 300 litres (0.3 m³). A 4 cm ping-pong ball is 33.5 ml, and balls pack to about 64% of the space, so about 5,700 balls.",
+    "difficulty": 2,
+    "as_of": "stable"
+  },
+  {
+    "id": "science-1tm64m4",
+    "question": "How many grains of beach sand would it take to fill a 10-litre bucket?",
+    "answer": 100000000,
+    "unit": "grains",
+    "source_title": "Counting Sand Grains - Fred M. Haynes",
+    "source_url": "https://fredmhaynes.com/2019/12/28/counting-sand-grains/",
+    "explainer": "A grain of medium beach sand is about half a millimetre across, so a litre of loosely packed sand holds roughly 10 million grains. A 10-litre bucket holds about 100 million.",
+    "difficulty": 2,
+    "as_of": "stable"
+  },
+  {
+    "id": "science-17ft3ab",
+    "question": "How many tennis balls would it take to fill an Olympic swimming pool?",
+    "answer": 10000000,
+    "unit": "tennis balls",
+    "source_title": "ITF Technical Booklet 2023 (ball size 6.54 to 6.86 cm)",
+    "source_url": "https://www.itftennis.com/media/4420/2023-technical-booklet.pdf",
+    "explainer": "An Olympic pool holds about 2,500 cubic metres. A tennis ball is 6.7 cm across, about 160 cubic centimetres, and loosely poured balls fill about 64% of a space, so roughly 10 million balls.",
     "difficulty": 2,
     "as_of": "stable"
   }

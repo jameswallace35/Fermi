@@ -330,6 +330,22 @@ export default {
   "sports-mrm3az": 857,
   "sports-1o57gek": 39000000,
   "science-17pic8p": 5700,
-  "money-pxz002": 44.8
+  "money-pxz002": 44.8,
+  "money-128hh5p": 13000,
+  "money-ssstno": 55,
+  "history-3drmhm": 400,
+  "history-kfjkby": 35,
+  "science-1tm64m4": 100000000,
+  "history-i7ld57": 7.3,
+  "history-192q3nb": 36000,
+  "science-17ft3ab": 10000000,
+  "everyday-1fj7rus": 5400,
+  "history-sqxarf": 196,
+  "history-1d5l1ye": 7,
+  "everyday-2hy8ae": 530000,
+  "culture-llpgjq": 9.2,
+  "history-sl95ek": 10500,
+  "money-czxgdg": 3900,
+  "money-1bkuin2": 2900000
  }
 };

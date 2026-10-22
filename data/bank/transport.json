@@ -1,5 +1,28 @@
 [
   {
+    "id": "transport-1xibdfi",
+    "question": "Driving eight hours a day at 60 km/h, how many years would it take to drive every road in the United States?",
+    "answer": 38.2,
+    "unit": "years",
+    "explainer": "The US has about 6.7 million km of public roads. At 480 km a day that is 14,000 days, about 38 years.",
+    "source_title": "Public road length (FHWA)",
+    "source_url": "https://www.fhwa.dot.gov/policyinformation/statistics.cfm",
+    "as_of": "2022",
+    "difficulty": 1,
+    "retired": true
+  },
+  {
+    "id": "transport-6ae0hs",
+    "question": "How many shipping containers does the Port of Shanghai, the world's busiest, handle every minute?",
+    "answer": 97.9,
+    "unit": "containers",
+    "source_title": "Port of Shanghai (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Port_of_Shanghai",
+    "explainer": "Shanghai handled 51.5 million standard containers in 2024. A year has 525,960 minutes, so about 98 containers a minute.",
+    "difficulty": 1,
+    "as_of": "2024"
+  },
+  {
     "id": "transport-1xdm4pl",
     "question": "If every car in the world were parked bumper to bumper, how many times would the line wrap around the equator?",
     "answer": 168,
@@ -11,6 +34,28 @@
     "as_of": "2023"
   },
   {
+    "id": "transport-mdsq4w",
+    "question": "How many Eiffel Towers' worth of metal is there in the Golden Gate Bridge?",
+    "answer": 10.3,
+    "unit": "Eiffel Towers",
+    "source_title": "Golden Gate Bridge fast facts (CNN)",
+    "source_url": "https://www.keyt.com/news/national-world/cnn-national/2024/07/12/golden-gate-bridge-fast-facts-3/",
+    "explainer": "The Golden Gate Bridge contains about 83,000 US tons of steel, 75,000 tonnes. The Eiffel Tower's iron weighs 7,300 tonnes, so about 10 Eiffel Towers.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "transport-aoavcg",
+    "question": "How many trips around the equator does a car cover in its typical lifetime?",
+    "answer": 7.5,
+    "unit": "trips",
+    "source_title": "Earth's circumference (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Earth%27s_circumference",
+    "explainer": "A well-kept car covers about 300,000 km before it is scrapped. The equator is 40,075 km, so about seven and a half laps of the planet.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
     "id": "transport-5oxtzs",
     "question": "Driving non-stop at motorway speed, how many days would it take to drive once around the equator?",
     "answer": 16.7,
@@ -18,6 +63,17 @@
     "source_title": "Earth's circumference (Wikipedia)",
     "source_url": "https://en.wikipedia.org/wiki/Earth%27s_circumference",
     "explainer": "40,075 km at 100 km/h is about 401 hours, which is about 17 days of driving.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "transport-ytg6qe",
+    "question": "How many bicycles would it take to weigh the same as an empty Boeing 747?",
+    "answer": 15000,
+    "unit": "bicycles",
+    "source_title": "Boeing 747 (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Boeing_747",
+    "explainer": "An empty 747 weighs about 180 tonnes, 180,000 kg. A bicycle weighs about 12 kg, so about 15,000 bikes.",
     "difficulty": 1,
     "as_of": "stable"
   },
@@ -44,37 +100,25 @@
     "as_of": "2024"
   },
   {
-    "id": "transport-1xibdfi",
-    "question": "Driving eight hours a day at 60 km/h, how many years would it take to drive every road in the United States?",
-    "answer": 38.2,
+    "id": "transport-1uokm8o",
+    "question": "How many passengers pass through Atlanta's airport, the world's busiest, every minute?",
+    "answer": 206,
+    "unit": "passengers",
+    "source_title": "Hartsfield-Jackson serves 108.1 million passengers in 2024 (AviationPros)",
+    "source_url": "https://www.aviationpros.com/airport-business/airport-infrastructure-operations/press-release/55271215/hartsfield-jackson-atlanta-international-airport-serves-1081-million-passengers-in-2024",
+    "explainer": "Hartsfield-Jackson handled 108.1 million passengers in 2024. A year has 525,960 minutes, so about 210 passengers a minute, day and night.",
+    "difficulty": 1,
+    "as_of": "2024"
+  },
+  {
+    "id": "transport-1v0lk9q",
+    "question": "Over a lifetime of driving, how many whole years does the average American spend driving?",
+    "answer": 3,
     "unit": "years",
-    "source_title": "Public road length (FHWA)",
-    "source_url": "https://www.fhwa.dot.gov/policyinformation/statistics.cfm",
-    "explainer": "The US has about 6.7 million km of public roads. At 480 km a day that is 14,000 days, about 38 years.",
-    "difficulty": 1,
-    "as_of": "2022",
-    "retired": true
-  },
-  {
-    "id": "transport-1lwphr",
-    "question": "How many bathtubs of jet fuel does a Boeing 747 burn on a long-haul flight?",
-    "answer": 458,
-    "unit": "bathtubs",
-    "source_title": "How much fuel does a jumbo jet burn? (Flight Deck Friend)",
-    "source_url": "https://www.flightdeckfriend.com/ask-a-pilot/how-much-fuel-does-a-jumbo-jet-burn/",
-    "explainer": "A 747 burns about 11 tonnes an hour, so 110 tonnes in 10 hours. Jet fuel weighs 0.8 kg a litre, so that is 137,000 litres: about 460 bathtubs.",
+    "source_title": "Average annual miles per driver (FHWA)",
+    "source_url": "https://www.fhwa.dot.gov/ohim/onh00/bar8.htm",
+    "explainer": "About 434 hours a year behind the wheel, times 60 years, is 26,000 hours: about 3 years of your life in the driver's seat.",
     "difficulty": 2,
-    "as_of": "stable"
-  },
-  {
-    "id": "transport-1spya0i",
-    "question": "How many London buses parked end to end would it take to stretch across the English Channel at its narrowest?",
-    "answer": 3000,
-    "unit": "buses",
-    "source_title": "Strait of Dover (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Strait_of_Dover",
-    "explainer": "The Strait of Dover is 33.3 km wide and a New Routemaster is 11.2 m long, so about 3,000 buses.",
-    "difficulty": 1,
     "as_of": "stable"
   },
   {
@@ -89,59 +133,26 @@
     "as_of": "stable"
   },
   {
-    "id": "transport-1uokm8o",
-    "question": "How many passengers pass through Atlanta's airport, the world's busiest, every minute?",
-    "answer": 206,
-    "unit": "passengers",
-    "source_title": "Hartsfield-Jackson serves 108.1 million passengers in 2024 (AviationPros)",
-    "source_url": "https://www.aviationpros.com/airport-business/airport-infrastructure-operations/press-release/55271215/hartsfield-jackson-atlanta-international-airport-serves-1081-million-passengers-in-2024",
-    "explainer": "Hartsfield-Jackson handled 108.1 million passengers in 2024. A year has 525,960 minutes, so about 210 passengers a minute, day and night.",
-    "difficulty": 1,
-    "as_of": "2024"
-  },
-  {
-    "id": "transport-mdsq4w",
-    "question": "How many Eiffel Towers' worth of metal is there in the Golden Gate Bridge?",
-    "answer": 10.3,
-    "unit": "Eiffel Towers",
-    "source_title": "Golden Gate Bridge fast facts (CNN)",
-    "source_url": "https://www.keyt.com/news/national-world/cnn-national/2024/07/12/golden-gate-bridge-fast-facts-3/",
-    "explainer": "The Golden Gate Bridge contains about 83,000 US tons of steel, 75,000 tonnes. The Eiffel Tower's iron weighs 7,300 tonnes, so about 10 Eiffel Towers.",
+    "id": "transport-1spya0i",
+    "question": "How many London buses parked end to end would it take to stretch across the English Channel at its narrowest?",
+    "answer": 3000,
+    "unit": "buses",
+    "source_title": "Strait of Dover (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Strait_of_Dover",
+    "explainer": "The Strait of Dover is 33.3 km wide and a New Routemaster is 11.2 m long, so about 3,000 buses.",
     "difficulty": 1,
     "as_of": "stable"
   },
   {
-    "id": "transport-ytg6qe",
-    "question": "How many bicycles would it take to weigh the same as an empty Boeing 747?",
-    "answer": 15000,
-    "unit": "bicycles",
-    "source_title": "Boeing 747 (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Boeing_747",
-    "explainer": "An empty 747 weighs about 180 tonnes, 180,000 kg. A bicycle weighs about 12 kg, so about 15,000 bikes.",
-    "difficulty": 1,
-    "as_of": "stable"
-  },
-  {
-    "id": "transport-1v0lk9q",
-    "question": "Over a lifetime of driving, how many whole years does the average American spend driving?",
-    "answer": 3,
-    "unit": "years",
-    "source_title": "Average annual miles per driver (FHWA)",
-    "source_url": "https://www.fhwa.dot.gov/ohim/onh00/bar8.htm",
-    "explainer": "About 434 hours a year behind the wheel, times 60 years, is 26,000 hours: about 3 years of your life in the driver's seat.",
+    "id": "transport-1lwphr",
+    "question": "How many bathtubs of jet fuel does a Boeing 747 burn on a long-haul flight?",
+    "answer": 458,
+    "unit": "bathtubs",
+    "source_title": "How much fuel does a jumbo jet burn? (Flight Deck Friend)",
+    "source_url": "https://www.flightdeckfriend.com/ask-a-pilot/how-much-fuel-does-a-jumbo-jet-burn/",
+    "explainer": "A 747 burns about 11 tonnes an hour, so 110 tonnes in 10 hours. Jet fuel weighs 0.8 kg a litre, so that is 137,000 litres: about 460 bathtubs.",
     "difficulty": 2,
     "as_of": "stable"
-  },
-  {
-    "id": "transport-6ae0hs",
-    "question": "How many shipping containers does the Port of Shanghai, the world's busiest, handle every minute?",
-    "answer": 97.9,
-    "unit": "containers",
-    "source_title": "Port of Shanghai (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Port_of_Shanghai",
-    "explainer": "Shanghai handled 51.5 million standard containers in 2024. A year has 525,960 minutes, so about 98 containers a minute.",
-    "difficulty": 1,
-    "as_of": "2024"
   },
   {
     "id": "transport-1p0unza",
@@ -155,26 +166,26 @@
     "as_of": "2024"
   },
   {
-    "id": "transport-aoavcg",
-    "question": "How many trips around the equator does a car cover in its typical lifetime?",
-    "answer": 7.5,
-    "unit": "trips",
-    "source_title": "Earth's circumference (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Earth%27s_circumference",
-    "explainer": "A well-kept car covers about 300,000 km before it is scrapped. The equator is 40,075 km, so about seven and a half laps of the planet.",
-    "difficulty": 1,
-    "as_of": "stable"
+    "id": "transport-7a6wud",
+    "question": "How many round trips to the Moon do all the miles Americans drive in a year add up to?",
+    "answer": 6800000,
+    "unit": "round trips",
+    "source_title": "Vehicle miles traveled (FHWA)",
+    "source_url": "https://www.fhwa.dot.gov/policyinformation/travel_monitoring/tvt.cfm",
+    "explainer": "Americans drove about 3.26 trillion miles in 2023, 5.2 trillion km. A round trip to the Moon is 768,800 km, so about 6.8 million round trips.",
+    "difficulty": 2,
+    "as_of": "2023"
   },
   {
-    "id": "transport-1owpumz",
-    "question": "Flying non-stop in an airliner at cruising speed, how many days would it take to fly once around the equator?",
-    "answer": 1.9,
-    "unit": "days",
-    "source_title": "Earth's circumference (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Earth%27s_circumference",
-    "explainer": "40,075 km at 900 km/h is 44.5 hours, which is about 1.9 days in the air.",
+    "id": "transport-neuhm3",
+    "question": "How many New York City subway rides begin every second?",
+    "answer": 36.4,
+    "unit": "rides",
+    "source_title": "New York City Subway (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/New_York_City_Subway",
+    "explainer": "The subway carried about 1.15 billion riders in 2023. Divided by 31.6 million seconds, that is about 36 rides starting every second.",
     "difficulty": 1,
-    "as_of": "stable"
+    "as_of": "2023"
   },
   {
     "id": "transport-fiv6kk",
@@ -188,15 +199,15 @@
     "as_of": "2023"
   },
   {
-    "id": "transport-neuhm3",
-    "question": "How many New York City subway rides begin every second?",
-    "answer": 36.4,
-    "unit": "rides",
-    "source_title": "New York City Subway (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/New_York_City_Subway",
-    "explainer": "The subway carried about 1.15 billion riders in 2023. Divided by 31.6 million seconds, that is about 36 rides starting every second.",
+    "id": "transport-15s76k3",
+    "question": "How many Eiffel Towers stacked on top of each other would reach a cruising airliner?",
+    "answer": 33.3,
+    "unit": "Eiffel Towers",
+    "source_title": "Eiffel Tower (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Eiffel_Tower",
+    "explainer": "Jets cruise at about 11,000 m and the Eiffel Tower is 330 m tall, so about 33 towers.",
     "difficulty": 1,
-    "as_of": "2023"
+    "as_of": "stable"
   },
   {
     "id": "transport-fybfvx",
@@ -221,25 +232,14 @@
     "as_of": "2023"
   },
   {
-    "id": "transport-15s76k3",
-    "question": "How many Eiffel Towers stacked on top of each other would reach a cruising airliner?",
-    "answer": 33.3,
-    "unit": "Eiffel Towers",
-    "source_title": "Eiffel Tower (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Eiffel_Tower",
-    "explainer": "Jets cruise at about 11,000 m and the Eiffel Tower is 330 m tall, so about 33 towers.",
+    "id": "transport-1vxnczb",
+    "question": "How many Toyotas roll off production lines every minute?",
+    "answer": 19.6,
+    "unit": "cars",
+    "source_title": "Toyota (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Toyota",
+    "explainer": "Toyota built about 10.3 million vehicles in 2023. A year has 525,960 minutes, so about 20 Toyotas a minute.",
     "difficulty": 1,
-    "as_of": "stable"
-  },
-  {
-    "id": "transport-7a6wud",
-    "question": "How many round trips to the Moon do all the miles Americans drive in a year add up to?",
-    "answer": 6800000,
-    "unit": "round trips",
-    "source_title": "Vehicle miles traveled (FHWA)",
-    "source_url": "https://www.fhwa.dot.gov/policyinformation/travel_monitoring/tvt.cfm",
-    "explainer": "Americans drove about 3.26 trillion miles in 2023, 5.2 trillion km. A round trip to the Moon is 768,800 km, so about 6.8 million round trips.",
-    "difficulty": 2,
     "as_of": "2023"
   },
   {
@@ -254,14 +254,14 @@
     "as_of": "2023"
   },
   {
-    "id": "transport-1vxnczb",
-    "question": "How many Toyotas roll off production lines every minute?",
-    "answer": 19.6,
-    "unit": "cars",
-    "source_title": "Toyota (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Toyota",
-    "explainer": "Toyota built about 10.3 million vehicles in 2023. A year has 525,960 minutes, so about 20 Toyotas a minute.",
+    "id": "transport-1owpumz",
+    "question": "Flying non-stop in an airliner at cruising speed, how many days would it take to fly once around the equator?",
+    "answer": 1.9,
+    "unit": "days",
+    "source_title": "Earth's circumference (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Earth%27s_circumference",
+    "explainer": "40,075 km at 900 km/h is 44.5 hours, which is about 1.9 days in the air.",
     "difficulty": 1,
-    "as_of": "2023"
+    "as_of": "stable"
   }
 ]

@@ -82,7 +82,8 @@
    "source_title": "1,000,000,000 (Wikipedia)",
    "source_url": "https://en.wikipedia.org/wiki/1,000,000,000",
    "as_of": "stable",
-   "difficulty": 1
+   "difficulty": 1,
+   "retired": true
   },
   {
    "id": "science-1ijc40k",
@@ -357,7 +358,8 @@
    "source_title": "Saving (Wikipedia)",
    "source_url": "https://en.wikipedia.org/wiki/Saving",
    "as_of": "stable",
-   "difficulty": 1
+   "difficulty": 1,
+   "retired": true
   },
   {
    "id": "money-xaemkz",
@@ -672,7 +674,8 @@
    "source_title": "Year (Wikipedia)",
    "source_url": "https://en.wikipedia.org/wiki/Year",
    "as_of": "stable",
-   "difficulty": 1
+   "difficulty": 1,
+   "retired": true
   },
   {
    "id": "geography-vr69oz",
@@ -912,7 +915,8 @@
    "source_title": "Year (Wikipedia)",
    "source_url": "https://en.wikipedia.org/wiki/Year",
    "as_of": "stable",
-   "difficulty": 1
+   "difficulty": 1,
+   "retired": true
   },
   {
    "id": "transport-1xdm4pl",
@@ -1020,7 +1024,8 @@
    "source_title": "Boston Tea Party facts and numbers (Boston Tea Party Historical Society)",
    "source_url": "https://www.boston-tea-party.org/facts-numbers.html",
    "as_of": "stable",
-   "difficulty": 2
+   "difficulty": 2,
+   "retired": true
   },
   {
    "id": "population-hyphmd",
@@ -1181,11 +1186,11 @@
   {
    "id": "tech-15barlo",
    "category": "tech",
-   "question": "How many 1.44 MB floppy disks would it take to hold what a 128 GB phone stores?",
+   "question": "How many floppy disks from the 1990s would it take to hold what a modern phone stores?",
    "answer": 89000,
    "unit": "floppy disks",
-   "explainer": "128 GB is 128,000 MB. Divided by 1.44 MB a disk that is about 89,000 floppies, a stack about 300 m tall.",
-   "source_title": "Floppy disk (Wikipedia)",
+   "explainer": "A 1990s floppy disk held 1.44 MB and a typical phone today holds 128 GB, which is 128,000 MB. That is about 89,000 floppies, a stack about 300 m tall.",
+   "source_title": "Floppy disk - Wikipedia",
    "source_url": "https://en.wikipedia.org/wiki/Floppy_disk",
    "as_of": "stable",
    "difficulty": 1
@@ -1248,7 +1253,8 @@
    "source_title": "Louisiana Purchase (Wikipedia)",
    "source_url": "https://en.wikipedia.org/wiki/Louisiana_Purchase",
    "as_of": "stable",
-   "difficulty": 1
+   "difficulty": 1,
+   "retired": true
   },
   {
    "id": "sports-171rhs2",
@@ -1488,7 +1494,8 @@
    "source_title": "Woolly mammoth (Wikipedia)",
    "source_url": "https://en.wikipedia.org/wiki/Woolly_mammoth",
    "as_of": "stable",
-   "difficulty": 1
+   "difficulty": 1,
+   "retired": true
   },
   {
    "id": "culture-8x291u",
@@ -1608,7 +1615,8 @@
    "source_title": "Baby Shark (Wikipedia)",
    "source_url": "https://en.wikipedia.org/wiki/Baby_Shark",
    "as_of": "2024",
-   "difficulty": 1
+   "difficulty": 1,
+   "retired": true
   },
   {
    "id": "tech-hl0vff",
@@ -1680,7 +1688,8 @@
    "source_title": "Birthday cake (Wikipedia)",
    "source_url": "https://en.wikipedia.org/wiki/Birthday_cake",
    "as_of": "stable",
-   "difficulty": 1
+   "difficulty": 1,
+   "retired": true
   },
   {
    "id": "population-1nn6daw",
@@ -2484,7 +2493,8 @@
    "source_title": "Second (Wikipedia)",
    "source_url": "https://en.wikipedia.org/wiki/Second",
    "as_of": "stable",
-   "difficulty": 1
+   "difficulty": 1,
+   "retired": true
   },
   {
    "id": "transport-1lwphr",
@@ -2664,7 +2674,8 @@
    "source_title": "Fall of the Western Roman Empire (Wikipedia)",
    "source_url": "https://en.wikipedia.org/wiki/Fall_of_the_Western_Roman_Empire",
    "as_of": "stable",
-   "difficulty": 1
+   "difficulty": 1,
+   "retired": true
   },
   {
    "id": "everyday-l3wt55",
@@ -2748,7 +2759,8 @@
    "source_title": "Founding of Rome (Wikipedia)",
    "source_url": "https://en.wikipedia.org/wiki/Founding_of_Rome",
    "as_of": "stable",
-   "difficulty": 1
+   "difficulty": 1,
+   "retired": true
   },
   {
    "id": "geography-1n695fs",
@@ -3108,7 +3120,8 @@
    "source_title": "Shower (Wikipedia)",
    "source_url": "https://en.wikipedia.org/wiki/Shower",
    "as_of": "stable",
-   "difficulty": 1
+   "difficulty": 1,
+   "retired": true
   },
   {
    "id": "body-2xv19p",
@@ -3528,7 +3541,8 @@
    "source_title": "1,000,000,000,000 (Wikipedia)",
    "source_url": "https://en.wikipedia.org/wiki/1,000,000,000,000",
    "as_of": "stable",
-   "difficulty": 1
+   "difficulty": 1,
+   "retired": true
   },
   {
    "id": "science-pqhjoc",
@@ -3708,7 +3722,8 @@
    "source_title": "Early human migrations (Wikipedia)",
    "source_url": "https://en.wikipedia.org/wiki/Early_human_migrations",
    "as_of": "stable",
-   "difficulty": 1
+   "difficulty": 1,
+   "retired": true
   },
   {
    "id": "history-fmgw55",
@@ -3852,7 +3867,8 @@
    "source_title": "Mona Lisa (Wikipedia)",
    "source_url": "https://en.wikipedia.org/wiki/Mona_Lisa",
    "as_of": "stable",
-   "difficulty": 1
+   "difficulty": 1,
+   "retired": true
   },
   {
    "id": "money-h96i22",
@@ -4032,6 +4048,198 @@
    "source_title": "National Minimum Wage and National Living Wage rates (GOV.UK)",
    "source_url": "https://www.gov.uk/national-minimum-wage-rates",
    "as_of": "2024",
+   "difficulty": 1
+  },
+  {
+   "id": "money-128hh5p",
+   "category": "money",
+   "question": "Spending like the average American household, how many years would a billion dollars last?",
+   "answer": 13000,
+   "unit": "years",
+   "explainer": "The average American household spent about $78,500 in 2024. A billion dollars covers that for roughly 12,700 years, back past the end of the Ice Age.",
+   "source_title": "Consumer Expenditures 2024 - U.S. Bureau of Labor Statistics",
+   "source_url": "https://www.bls.gov/news.release/cesan.htm",
+   "as_of": "2024",
+   "difficulty": 1
+  },
+  {
+   "id": "money-ssstno",
+   "category": "money",
+   "question": "Buying a brand-new car every single day, how many years would it take to get through a billion dollars?",
+   "answer": 55,
+   "unit": "years",
+   "explainer": "A new car in the United States sold for about $49,800 on average in late 2025, so a billion dollars buys about 20,000 of them: one a day for 55 years.",
+   "source_title": "Kelley Blue Book average transaction price, October 2025 (Cox Automotive)",
+   "source_url": "https://www.coxautoinc.com/wp-content/uploads/2025/11/October-2025-Kelley-Blue-Book-Average-Transaction-Price-tables.pdf",
+   "as_of": "2025",
+   "difficulty": 2
+  },
+  {
+   "id": "history-3drmhm",
+   "category": "history",
+   "question": "How many Olympic swimming pools of water did ancient Rome's aqueducts deliver every day?",
+   "answer": 400,
+   "unit": "pools",
+   "explainer": "Rome's eleven aqueducts are usually reckoned to have delivered about a million cubic metres a day for a city of about a million people. An Olympic pool holds 2,500 cubic metres, so about 400 pools a day.",
+   "source_title": "Aqueducts: Quenching Rome’s Thirst - National Geographic",
+   "source_url": "https://www.nationalgeographic.com/history/world-history-magazine/article/roman-aqueducts-engineering-innovation",
+   "as_of": "stable",
+   "difficulty": 2
+  },
+  {
+   "id": "history-kfjkby",
+   "category": "history",
+   "question": "How many bath towels could be cut from the cloth of the Bayeux Tapestry?",
+   "answer": 35,
+   "unit": "towels",
+   "explainer": "The Bayeux Tapestry is nearly 70 m long and about 50 cm wide, around 34 square metres of linen. A bath towel is about 70 cm by 140 cm, so you could cut about 35 of them.",
+   "source_title": "Bayeux Tapestry - Wikipedia",
+   "source_url": "https://en.wikipedia.org/wiki/Bayeux_Tapestry",
+   "as_of": "stable",
+   "difficulty": 1
+  },
+  {
+   "id": "science-1tm64m4",
+   "category": "science",
+   "question": "How many grains of beach sand would it take to fill a 10-litre bucket?",
+   "answer": 100000000,
+   "unit": "grains",
+   "explainer": "A grain of medium beach sand is about half a millimetre across, so a litre of loosely packed sand holds roughly 10 million grains. A 10-litre bucket holds about 100 million.",
+   "source_title": "Counting Sand Grains - Fred M. Haynes",
+   "source_url": "https://fredmhaynes.com/2019/12/28/counting-sand-grains/",
+   "as_of": "stable",
+   "difficulty": 2
+  },
+  {
+   "id": "history-i7ld57",
+   "category": "history",
+   "question": "If the whole history of modern humans were squeezed into one year, how many days ago did the first cities appear?",
+   "answer": 7.3,
+   "unit": "days",
+   "explainer": "Our species is about 300,000 years old and the first cities, such as Uruk, appeared about 6,000 years ago: two percent of the way back, which on a one-year scale is the last seven days.",
+   "source_title": "The first of our kind: Jebel Irhoud - Max Planck Society",
+   "source_url": "https://www.mpg.de/11322481/",
+   "as_of": "stable",
+   "difficulty": 2
+  },
+  {
+   "id": "history-192q3nb",
+   "category": "history",
+   "question": "How many Manhattans would fit inside the land of the Louisiana Purchase?",
+   "answer": 36000,
+   "unit": "Manhattans",
+   "explainer": "The Louisiana Purchase of 1803 covered about 2.14 million square kilometres. Manhattan is 59 square kilometres, so about 36,000 Manhattans would fit.",
+   "source_title": "Louisiana Purchase - Wikipedia",
+   "source_url": "https://en.wikipedia.org/wiki/Louisiana_Purchase",
+   "as_of": "stable",
+   "difficulty": 1
+  },
+  {
+   "id": "science-17ft3ab",
+   "category": "science",
+   "question": "How many tennis balls would it take to fill an Olympic swimming pool?",
+   "answer": 10000000,
+   "unit": "tennis balls",
+   "explainer": "An Olympic pool holds about 2,500 cubic metres. A tennis ball is 6.7 cm across, about 160 cubic centimetres, and loosely poured balls fill about 64% of a space, so roughly 10 million balls.",
+   "source_title": "ITF Technical Booklet 2023 (ball size 6.54 to 6.86 cm)",
+   "source_url": "https://www.itftennis.com/media/4420/2023-technical-booklet.pdf",
+   "as_of": "stable",
+   "difficulty": 2
+  },
+  {
+   "id": "everyday-1fj7rus",
+   "category": "everyday",
+   "question": "How many loads of laundry does an American family get through between a child's birth and their 18th birthday?",
+   "answer": 5400,
+   "unit": "loads",
+   "explainer": "The average American household washes about 300 loads of laundry a year. Eighteen years of that is about 5,400 loads.",
+   "source_title": "Saving Water and Energy through Clothes Washer Replacement - NRDC",
+   "source_url": "https://www.nrdc.org/resources/saving-water-and-energy-through-clothes-washer-replacement",
+   "as_of": "stable",
+   "difficulty": 1
+  },
+  {
+   "id": "history-sqxarf",
+   "category": "history",
+   "question": "How many king-size beds would it take to cover the floor of the Hall of Mirrors at Versailles?",
+   "answer": 196,
+   "unit": "beds",
+   "explainer": "The Hall of Mirrors is 73 m long and 10.5 m wide, about 770 square metres. A king-size bed is roughly 1.9 m by 2 m, so about 196 beds would carpet it.",
+   "source_title": "Palace of Versailles: Hall of Mirrors - Bluffton University",
+   "source_url": "https://homepages.bluffton.edu/~SULLIVANM/france/versailles/interior/mirrors.html",
+   "as_of": "stable",
+   "difficulty": 1
+  },
+  {
+   "id": "history-1d5l1ye",
+   "category": "history",
+   "question": "At a camel caravan's pace, how many months would it take to travel the full length of the Silk Road?",
+   "answer": 7,
+   "unit": "months",
+   "explainer": "The Silk Road ran about 6,400 km from Xi’an to the Mediterranean. A laden camel caravan covered roughly 30 km a day, so the whole way took about 210 days, around seven months.",
+   "source_title": "Silk Road - Wikipedia",
+   "source_url": "https://en.wikipedia.org/wiki/Silk_Road",
+   "as_of": "stable",
+   "difficulty": 2
+  },
+  {
+   "id": "everyday-2hy8ae",
+   "category": "everyday",
+   "question": "How many times does a person laugh in a lifetime?",
+   "answer": 530000,
+   "unit": "laughs",
+   "explainer": "Diary studies find adults laugh about 18 times a day. Over 80 years that is about 530,000 laughs.",
+   "source_title": "Frontiers in Psychology (2024): laughter in everyday life",
+   "source_url": "https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2024.1296955/full",
+   "as_of": "stable",
+   "difficulty": 1
+  },
+  {
+   "id": "culture-llpgjq",
+   "category": "culture",
+   "question": "How many years of a lifetime does the average American spend watching TV?",
+   "answer": 9.2,
+   "unit": "years",
+   "explainer": "Americans watch about two and three-quarter hours of TV a day. Over an 80-year life that is about 9 years in front of the screen.",
+   "source_title": "Television capturing America’s attention - U.S. Bureau of Labor Statistics",
+   "source_url": "https://www.bls.gov/opub/btn/volume-7/television-capturing-americas-attention.htm",
+   "as_of": "2024",
+   "difficulty": 1
+  },
+  {
+   "id": "history-sl95ek",
+   "category": "history",
+   "question": "How many people could stand shoulder to shoulder on the arena floor of the Colosseum?",
+   "answer": 10500,
+   "unit": "people",
+   "explainer": "The arena floor was an oval about 76 m by 44 m, roughly 2,600 square metres. At four people to a square metre, about 10,500 people could pack onto it.",
+   "source_title": "The Colosseum in numbers - the-colosseum.net",
+   "source_url": "https://the-colosseum.net/wp/en/numbers/",
+   "as_of": "stable",
+   "difficulty": 2
+  },
+  {
+   "id": "money-czxgdg",
+   "category": "money",
+   "question": "Ignoring the door and windows, how many one-dollar bills would it take to wallpaper a 4 m by 4 m room with 2.5 m ceilings?",
+   "answer": 3900,
+   "unit": "bills",
+   "explainer": "Four walls of 4 m by 2.5 m add up to 40 square metres. A dollar bill is 15.6 cm by 6.6 cm, about a hundredth of a square metre, so about 3,900 bills, or $3,900, would paper the room.",
+   "source_title": "United States one-dollar bill - Wikipedia",
+   "source_url": "https://en.wikipedia.org/wiki/United_States_one-dollar_bill",
+   "as_of": "stable",
+   "difficulty": 1
+  },
+  {
+   "id": "money-1bkuin2",
+   "category": "money",
+   "question": "How many Lamborghini Temerario supercars could a trillion dollars buy?",
+   "answer": 2900000,
+   "unit": "Lamborghinis",
+   "explainer": "The Temerario starts at about $350,000, so a trillion dollars buys about 2.9 million of them, roughly one for every person in Chicago.",
+   "source_title": "Lamborghini Temerario price - Italpassion",
+   "source_url": "https://www.italpassion.fr/en/cars/lamborghini-temerario/",
+   "as_of": "2025",
    "difficulty": 1
   }
  ]

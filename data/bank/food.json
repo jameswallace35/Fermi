@@ -1,5 +1,28 @@
 [
   {
+    "id": "food-1e0p07z",
+    "question": "How many sugar cubes are dissolved in a 2-litre bottle of Coca-Cola?",
+    "answer": 53,
+    "unit": "sugar cubes",
+    "explainer": "Classic Coke has 10.6 g of sugar per 100 ml, so 212 g in 2 litres. At 4 g a cube that is about 53 sugar cubes.",
+    "source_title": "Coca-Cola Original Taste nutrition (Coca-Cola GB)",
+    "source_url": "https://www.coca-cola.com/gb/en/brands/coca-cola",
+    "as_of": "stable",
+    "difficulty": 1,
+    "retired": true
+  },
+  {
+    "id": "food-ixqsx7",
+    "question": "How many Olympic swimming pools would all the tea Britain drinks in one day fill?",
+    "answer": 10,
+    "unit": "pools",
+    "source_title": "Tea loved by Brits (UK Tea & Infusions Association)",
+    "source_url": "https://www.tea.co.uk/news/article/tea-loved-by-brits-and-5-billion-cups-of-tea-are-drunk-globally-each-day",
+    "explainer": "Brits drink about 100 million cups a day. At 250 ml each that is 25 million litres, which is 10 Olympic pools.",
+    "difficulty": 1,
+    "as_of": "2023"
+  },
+  {
     "id": "food-g3d2ag",
     "question": "How many pizzas do Americans eat every second?",
     "answer": 95.1,
@@ -11,6 +34,61 @@
     "as_of": "stable"
   },
   {
+    "id": "food-1gdsxyv",
+    "question": "How many bathtubs of milk do the world's cows produce every second?",
+    "answer": 98.2,
+    "unit": "bathtubs",
+    "source_title": "Dairy production (FAO)",
+    "source_url": "https://www.fao.org/dairy-production-products/production/en",
+    "explainer": "The world produces about 930 million tonnes of milk a year, roughly 930 billion litres. That is 29,000 litres a second, about 98 bathtubs.",
+    "difficulty": 2,
+    "as_of": "2022"
+  },
+  {
+    "id": "food-lkjo9a",
+    "question": "How many customers does McDonald's serve every second, worldwide?",
+    "answer": 799,
+    "unit": "customers",
+    "source_title": "McDonald's company overview",
+    "source_url": "https://corporate.mcdonalds.com/corpmcd/our-company.html",
+    "explainer": "McDonald's says it serves about 69 million customers a day. Divided by 86,400 seconds, that is about 800 people a second.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "food-xewppk",
+    "question": "How many potatoes go into McDonald's fries worldwide in a year?",
+    "answer": 9100000000,
+    "unit": "potatoes",
+    "source_title": "McDonald's best-selling item (Food Republic)",
+    "source_url": "https://www.foodrepublic.com/1802262/what-is-mcdonalds-best-selling-item/",
+    "explainer": "McDonald's buys about 3.4 billion pounds of potatoes a year, about 1.54 billion kg. At 170 g a potato, that is roughly 9 billion potatoes.",
+    "difficulty": 2,
+    "as_of": "2023"
+  },
+  {
+    "id": "food-1gtlaip",
+    "question": "How many litres of Coca-Cola products are drunk worldwide every second?",
+    "answer": 6000,
+    "unit": "litres",
+    "source_title": "Coca-Cola FAQs",
+    "source_url": "https://www.coca-colacompany.com/about-us/faqs",
+    "explainer": "Coca-Cola serves about 2.2 billion drinks a day. At a 237 ml serving that is 521 million litres a day, about 6,000 litres every second.",
+    "difficulty": 2,
+    "as_of": "2024"
+  },
+  {
+    "id": "food-ehiadw",
+    "question": "How many Olympic swimming pools of beer were drunk at Oktoberfest 2024?",
+    "answer": 2.8,
+    "unit": "pools",
+    "source_title": "Oktoberfest facts and figures (City of Munich)",
+    "source_url": "https://www.muenchen.de/en/events/oktoberfest/numbers-records",
+    "explainer": "Munich reported 7 million litres of beer served at Oktoberfest 2024. An Olympic pool holds 2.5 million litres, so about 2.8 pools.",
+    "difficulty": 1,
+    "as_of": "2024"
+  },
+  {
     "id": "food-1h292u2",
     "question": "How many Olympic swimming pools would all the coffee the world drinks in one day fill?",
     "answer": 225,
@@ -19,6 +97,50 @@
     "source_url": "https://www.tastingtable.com/1876511/how-much-coffee-americans-drink-daily/",
     "explainer": "The world drinks about 2.25 billion cups a day. At 250 ml a cup that is 560 million litres, and a pool holds 2.5 million litres: about 230 pools.",
     "difficulty": 2,
+    "as_of": "stable"
+  },
+  {
+    "id": "food-1ee8j97",
+    "question": "How many grains of rice does the average person in Asia eat in a year?",
+    "answer": 4000000,
+    "unit": "grains",
+    "source_title": "Rice (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Rice",
+    "explainer": "People in rice-eating countries get through about 100 kg a year. A grain weighs about 25 mg, so 100,000 g ÷ 0.025 g is about 4 million grains.",
+    "difficulty": 2,
+    "as_of": "stable"
+  },
+  {
+    "id": "food-fqdlof",
+    "question": "How many cups of coffee does the average Finn drink in a year?",
+    "answer": 1300,
+    "unit": "cups",
+    "source_title": "Finnish coffee consumption (Yle)",
+    "source_url": "https://yle.fi/a/3-7510668",
+    "explainer": "Finns drink about 10 kg of roasted coffee each per year, the most in the world. At 8 g a cup that is about 1,250 cups: three and a half a day.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "food-1mcoi1f",
+    "question": "If all the hot dogs Americans eat on the Fourth of July were laid end to end, how many kilometres would they stretch?",
+    "answer": 23000,
+    "unit": "km",
+    "source_title": "Hot dog consumption (National Hot Dog and Sausage Council)",
+    "source_url": "https://www.hot-dog.org/culture/hot-dog-fast-facts",
+    "explainer": "Americans eat about 150 million hot dogs on the Fourth. At 15 cm each that is 22.5 million metres, about 23,000 km: more than halfway round the Earth.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "food-1wn93xw",
+    "question": "How many apples go into one litre of apple juice?",
+    "answer": 8.3,
+    "unit": "apples",
+    "source_title": "Apple juice (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Apple_juice",
+    "explainer": "It takes about 1.5 kg of apples to press a litre of juice. A medium apple is about 180 g, so roughly 8 apples per litre.",
+    "difficulty": 1,
     "as_of": "stable"
   },
   {
@@ -33,59 +155,15 @@
     "as_of": "2019"
   },
   {
-    "id": "food-1mcoi1f",
-    "question": "If all the hot dogs Americans eat on the Fourth of July were laid end to end, how many kilometres would they stretch?",
-    "answer": 23000,
-    "unit": "km",
-    "source_title": "Hot dog consumption (National Hot Dog and Sausage Council)",
-    "source_url": "https://www.hot-dog.org/culture/hot-dog-fast-facts",
-    "explainer": "Americans eat about 150 million hot dogs on the Fourth. At 15 cm each that is 22.5 million metres, about 23,000 km: more than halfway round the Earth.",
-    "difficulty": 1,
-    "as_of": "stable"
-  },
-  {
-    "id": "food-1gtlaip",
-    "question": "How many litres of Coca-Cola products are drunk worldwide every second?",
-    "answer": 6000,
-    "unit": "litres",
-    "source_title": "Coca-Cola FAQs",
-    "source_url": "https://www.coca-colacompany.com/about-us/faqs",
-    "explainer": "Coca-Cola serves about 2.2 billion drinks a day. At a 237 ml serving that is 521 million litres a day, about 6,000 litres every second.",
+    "id": "food-1yb6a11",
+    "question": "How many eggs do the world's hens lay every second?",
+    "answer": 51000,
+    "unit": "eggs",
+    "source_title": "Egg production (FAO)",
+    "source_url": "https://www.fao.org/poultry-production-products/production/en",
+    "explainer": "The world produces about 1.6 trillion eggs a year. Divided by 31.6 million seconds, that is about 51,000 eggs a second.",
     "difficulty": 2,
-    "as_of": "2024"
-  },
-  {
-    "id": "food-1ee8j97",
-    "question": "How many grains of rice does the average person in Asia eat in a year?",
-    "answer": 4000000,
-    "unit": "grains",
-    "source_title": "Rice (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Rice",
-    "explainer": "People in rice-eating countries get through about 100 kg a year. A grain weighs about 25 mg, so 100,000 g ÷ 0.025 g is about 4 million grains.",
-    "difficulty": 2,
-    "as_of": "stable"
-  },
-  {
-    "id": "food-ixqsx7",
-    "question": "How many Olympic swimming pools would all the tea Britain drinks in one day fill?",
-    "answer": 10,
-    "unit": "pools",
-    "source_title": "Tea loved by Brits (UK Tea & Infusions Association)",
-    "source_url": "https://www.tea.co.uk/news/article/tea-loved-by-brits-and-5-billion-cups-of-tea-are-drunk-globally-each-day",
-    "explainer": "Brits drink about 100 million cups a day. At 250 ml each that is 25 million litres, which is 10 Olympic pools.",
-    "difficulty": 1,
-    "as_of": "2023"
-  },
-  {
-    "id": "food-1wn93xw",
-    "question": "How many apples go into one litre of apple juice?",
-    "answer": 8.3,
-    "unit": "apples",
-    "source_title": "Apple juice (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Apple_juice",
-    "explainer": "It takes about 1.5 kg of apples to press a litre of juice. A medium apple is about 180 g, so roughly 8 apples per litre.",
-    "difficulty": 1,
-    "as_of": "stable"
+    "as_of": "2022"
   },
   {
     "id": "food-6fktel",
@@ -99,146 +177,13 @@
     "as_of": "stable"
   },
   {
-    "id": "food-ehiadw",
-    "question": "How many Olympic swimming pools of beer were drunk at Oktoberfest 2024?",
-    "answer": 2.8,
-    "unit": "pools",
-    "source_title": "Oktoberfest facts and figures (City of Munich)",
-    "source_url": "https://www.muenchen.de/en/events/oktoberfest/numbers-records",
-    "explainer": "Munich reported 7 million litres of beer served at Oktoberfest 2024. An Olympic pool holds 2.5 million litres, so about 2.8 pools.",
-    "difficulty": 1,
-    "as_of": "2024"
-  },
-  {
-    "id": "food-1gdsxyv",
-    "question": "How many bathtubs of milk do the world's cows produce every second?",
-    "answer": 98.2,
-    "unit": "bathtubs",
-    "source_title": "Dairy production (FAO)",
-    "source_url": "https://www.fao.org/dairy-production-products/production/en",
-    "explainer": "The world produces about 930 million tonnes of milk a year, roughly 930 billion litres. That is 29,000 litres a second, about 98 bathtubs.",
-    "difficulty": 2,
-    "as_of": "2022"
-  },
-  {
-    "id": "food-1e0p07z",
-    "question": "How many sugar cubes are dissolved in a 2-litre bottle of Coca-Cola?",
-    "answer": 53,
-    "unit": "sugar cubes",
-    "source_title": "Coca-Cola Original Taste nutrition (Coca-Cola GB)",
-    "source_url": "https://www.coca-cola.com/gb/en/brands/coca-cola",
-    "explainer": "Classic Coke has 10.6 g of sugar per 100 ml, so 212 g in 2 litres. At 4 g a cube that is about 53 sugar cubes.",
-    "difficulty": 1,
-    "as_of": "stable",
-    "retired": true
-  },
-  {
-    "id": "food-xewppk",
-    "question": "How many potatoes go into McDonald's fries worldwide in a year?",
-    "answer": 9100000000,
-    "unit": "potatoes",
-    "source_title": "McDonald's best-selling item (Food Republic)",
-    "source_url": "https://www.foodrepublic.com/1802262/what-is-mcdonalds-best-selling-item/",
-    "explainer": "McDonald's buys about 3.4 billion pounds of potatoes a year, about 1.54 billion kg. At 170 g a potato, that is roughly 9 billion potatoes.",
-    "difficulty": 2,
-    "as_of": "2023"
-  },
-  {
-    "id": "food-fqdlof",
-    "question": "How many cups of coffee does the average Finn drink in a year?",
-    "answer": 1300,
-    "unit": "cups",
-    "source_title": "Finnish coffee consumption (Yle)",
-    "source_url": "https://yle.fi/a/3-7510668",
-    "explainer": "Finns drink about 10 kg of roasted coffee each per year, the most in the world. At 8 g a cup that is about 1,250 cups: three and a half a day.",
-    "difficulty": 1,
-    "as_of": "stable"
-  },
-  {
-    "id": "food-lkjo9a",
-    "question": "How many customers does McDonald's serve every second, worldwide?",
-    "answer": 799,
-    "unit": "customers",
-    "source_title": "McDonald's company overview",
-    "source_url": "https://corporate.mcdonalds.com/corpmcd/our-company.html",
-    "explainer": "McDonald's says it serves about 69 million customers a day. Divided by 86,400 seconds, that is about 800 people a second.",
-    "difficulty": 1,
-    "as_of": "stable"
-  },
-  {
-    "id": "food-1yb6a11",
-    "question": "How many eggs do the world's hens lay every second?",
-    "answer": 51000,
-    "unit": "eggs",
-    "source_title": "Egg production (FAO)",
-    "source_url": "https://www.fao.org/poultry-production-products/production/en",
-    "explainer": "The world produces about 1.6 trillion eggs a year. Divided by 31.6 million seconds, that is about 51,000 eggs a second.",
-    "difficulty": 2,
-    "as_of": "2022"
-  },
-  {
-    "id": "food-10d9o81",
-    "question": "How many eggs does the average American eat in a lifetime?",
-    "answer": 22000,
-    "unit": "eggs",
-    "source_title": "Egg consumption (USDA ERS)",
-    "source_url": "https://www.ers.usda.gov/data-products/food-availability-per-capita-data-system/",
-    "explainer": "Americans eat about 280 eggs a year each. Over 80 years that is about 22,000 eggs.",
-    "difficulty": 1,
-    "as_of": "stable"
-  },
-  {
-    "id": "food-nm9atq",
-    "question": "How many kilograms of chocolate does the average Swiss person eat in a lifetime?",
-    "answer": 880,
-    "unit": "kg",
-    "source_title": "Chocolate consumption (Chocosuisse)",
-    "source_url": "https://www.chocosuisse.ch/en/",
-    "explainer": "The Swiss eat about 11 kg of chocolate a year each, the most in the world. Over 80 years that is about 880 kg, nearly a tonne.",
-    "difficulty": 1,
-    "as_of": "stable"
-  },
-  {
-    "id": "food-u5bzg8",
-    "question": "How many bananas does the world eat every second?",
-    "answer": 33000,
-    "unit": "bananas",
-    "source_title": "Banana (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Banana",
-    "explainer": "The world grows about 125 million tonnes of bananas a year, and a banana weighs about 120 g: a trillion bananas, about 33,000 every second.",
-    "difficulty": 2,
-    "as_of": "2022"
-  },
-  {
-    "id": "food-29aymw",
-    "question": "How many pints of beer does the average Czech drink in a year?",
-    "answer": 225,
-    "unit": "pints",
-    "source_title": "Beer consumption in Czechia hits record low (Radio Prague)",
-    "source_url": "https://english.radio.cz/node/8820630",
-    "explainer": "Czechs drink about 128 litres of beer a year each, the most in the world. A pint is 0.568 litres, so about 225 pints.",
-    "difficulty": 1,
-    "as_of": "2023"
-  },
-  {
-    "id": "food-i50xdg",
-    "question": "How many kilograms of added sugar does the average American eat in a year?",
-    "answer": 24.8,
-    "unit": "kg",
-    "source_title": "Added sugars (American Heart Association)",
-    "source_url": "https://www.heart.org/en/healthy-living/healthy-eating/eat-smart/sugar/added-sugars",
-    "explainer": "17 teaspoons of sugar is about 68 g a day. Over a year that is about 25 kg, a full suitcase of sugar.",
-    "difficulty": 1,
-    "as_of": "stable"
-  },
-  {
-    "id": "food-67egls",
-    "question": "Eating one apple a day, how many years would it take to eat a tonne of apples?",
-    "answer": 15.2,
-    "unit": "years",
-    "source_title": "Apple (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Apple",
-    "explainer": "A tonne is a million grams and an apple about 180 g, so about 5,600 apples: a little over 15 years of an apple a day.",
+    "id": "food-i1657",
+    "question": "How many M&M's are made every second in the United States?",
+    "answer": 4600,
+    "unit": "M&M's",
+    "source_title": "M&M's (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/M%26M%27s",
+    "explainer": "Mars makes about 400 million M&M's a day in the US. Divided by 86,400 seconds, that is about 4,600 a second.",
     "difficulty": 1,
     "as_of": "stable"
   },
@@ -265,6 +210,50 @@
     "as_of": "2023"
   },
   {
+    "id": "food-u5bzg8",
+    "question": "How many bananas does the world eat every second?",
+    "answer": 33000,
+    "unit": "bananas",
+    "source_title": "Banana (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Banana",
+    "explainer": "The world grows about 125 million tonnes of bananas a year, and a banana weighs about 120 g: a trillion bananas, about 33,000 every second.",
+    "difficulty": 2,
+    "as_of": "2022"
+  },
+  {
+    "id": "food-10d9o81",
+    "question": "How many eggs does the average American eat in a lifetime?",
+    "answer": 22000,
+    "unit": "eggs",
+    "source_title": "Egg consumption (USDA ERS)",
+    "source_url": "https://www.ers.usda.gov/data-products/food-availability-per-capita-data-system/",
+    "explainer": "Americans eat about 280 eggs a year each. Over 80 years that is about 22,000 eggs.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "food-29aymw",
+    "question": "How many pints of beer does the average Czech drink in a year?",
+    "answer": 225,
+    "unit": "pints",
+    "source_title": "Beer consumption in Czechia hits record low (Radio Prague)",
+    "source_url": "https://english.radio.cz/node/8820630",
+    "explainer": "Czechs drink about 128 litres of beer a year each, the most in the world. A pint is 0.568 litres, so about 225 pints.",
+    "difficulty": 1,
+    "as_of": "2023"
+  },
+  {
+    "id": "food-i50xdg",
+    "question": "How many kilograms of added sugar does the average American eat in a year?",
+    "answer": 24.8,
+    "unit": "kg",
+    "source_title": "Added sugars (American Heart Association)",
+    "source_url": "https://www.heart.org/en/healthy-living/healthy-eating/eat-smart/sugar/added-sugars",
+    "explainer": "17 teaspoons of sugar is about 68 g a day. Over a year that is about 25 kg, a full suitcase of sugar.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
     "id": "food-17oi80l",
     "question": "How many Starbucks coffees are poured every second, worldwide?",
     "answer": 127,
@@ -272,6 +261,17 @@
     "source_title": "How many cups of coffee does Starbucks sell a day? (Coffee Explore)",
     "source_url": "https://coffeexplore.com/how-many-cups-of-coffee-does-starbucks-sell-a-day",
     "explainer": "Starbucks says it serves about 4 billion cups a year. Divided by 31.6 million seconds, that is about 130 cups a second.",
+    "difficulty": 1,
+    "as_of": "stable"
+  },
+  {
+    "id": "food-nm9atq",
+    "question": "How many kilograms of chocolate does the average Swiss person eat in a lifetime?",
+    "answer": 880,
+    "unit": "kg",
+    "source_title": "Chocolate consumption (Chocosuisse)",
+    "source_url": "https://www.chocosuisse.ch/en/",
+    "explainer": "The Swiss eat about 11 kg of chocolate a year each, the most in the world. Over 80 years that is about 880 kg, nearly a tonne.",
     "difficulty": 1,
     "as_of": "stable"
   },
@@ -287,13 +287,13 @@
     "as_of": "2023"
   },
   {
-    "id": "food-i1657",
-    "question": "How many M&M's are made every second in the United States?",
-    "answer": 4600,
-    "unit": "M&M's",
-    "source_title": "M&M's (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/M%26M%27s",
-    "explainer": "Mars makes about 400 million M&M's a day in the US. Divided by 86,400 seconds, that is about 4,600 a second.",
+    "id": "food-67egls",
+    "question": "Eating one apple a day, how many years would it take to eat a tonne of apples?",
+    "answer": 15.2,
+    "unit": "years",
+    "source_title": "Apple (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Apple",
+    "explainer": "A tonne is a million grams and an apple about 180 g, so about 5,600 apples: a little over 15 years of an apple a day.",
     "difficulty": 1,
     "as_of": "stable"
   }
