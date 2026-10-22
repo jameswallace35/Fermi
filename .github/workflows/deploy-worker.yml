@@ -30,19 +30,22 @@ jobs:
       - name: Check the token and find the account
         id: account
         run: |
-          if [ -z "$CLOUDFLARE_API_TOKEN" ]; then
-            echo "::error::Add CLOUDFLARE_API_TOKEN to this repository's Actions secrets (Settings -> Secrets and variables -> Actions)."
+          if [ -z "$CLOUDFLARE_API_TOKEN" ] && [ -z "$CLOUDFLARE_ACCOUNT_ID" ]; then
+            echo "::error::Add CLOUDFLARE_API_TOKEN (and optionally CLOUDFLARE_ACCOUNT_ID) to this repository's Actions secrets (Settings -> Secrets and variables -> Actions)."
             exit 1
           fi
-          # Accept the token however it was pasted: bare, with "Bearer ", or inside a curl command.
-          TOKEN=$(printf '%s' "$CLOUDFLARE_API_TOKEN" | tr -d '\r\n' | grep -oE 'cfut_[A-Za-z0-9_-]{20,}|(^|[^A-Za-z0-9_-])[A-Za-z0-9_-]{40}([^A-Za-z0-9_-]|$)' | head -n 1 | tr -d ' "'"'"'\\' | sed -E 's/^[^A-Za-z0-9_-]+//; s/[^A-Za-z0-9_-]+$//')
+          # Accept the token and account id however they were pasted (bare, with "Bearer ",
+          # inside a curl command, or in each other's slot): search both secrets for each.
+          RAW=$(printf '%s\n%s' "$CLOUDFLARE_API_TOKEN" "$CLOUDFLARE_ACCOUNT_ID" | tr -d '\r\n')
+          TOKEN=$(printf '%s' "$RAW" | grep -oE 'cfut_[A-Za-z0-9_-]{20,}|(^|[^A-Za-z0-9_-])[A-Za-z0-9_-]{40}([^A-Za-z0-9_-]|$)' | head -n 1 | sed -E 's/^[^A-Za-z0-9_-]+//; s/[^A-Za-z0-9_-]+$//')
           if [ -z "$TOKEN" ]; then
-            echo "::error::CLOUDFLARE_API_TOKEN does not look like a Cloudflare API token. Paste the token itself (it starts with cfut_ or is 40 characters long)."
+            echo "::error::Neither secret contains a Cloudflare API token. Open Settings -> Secrets and variables -> Actions, edit CLOUDFLARE_API_TOKEN and paste the token itself (it starts with cfut_)."
             exit 1
           fi
           echo "::add-mask::$TOKEN"
           echo "CLOUDFLARE_API_TOKEN=$TOKEN" >> "$GITHUB_ENV"
           CLOUDFLARE_API_TOKEN="$TOKEN"
+          CLOUDFLARE_ACCOUNT_ID=$(printf '%s' "$RAW" | grep -oE '(^|[^0-9a-f])[0-9a-f]{32}([^0-9a-f]|$)' | head -n 1 | sed -E 's/^[^0-9a-f]+//; s/[^0-9a-f]+$//')
           VERIFY=$(curl -sS -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" https://api.cloudflare.com/client/v4/user/tokens/verify)
           if ! echo "$VERIFY" | node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>{const r=JSON.parse(s);process.exit(r.success&&r.result&&r.result.status==="active"?0:1)})'; then
             echo "::error::Cloudflare did not accept CLOUDFLARE_API_TOKEN. Create a token from the 'Edit Cloudflare Workers' template (plus D1: Edit) and paste the token itself, not the curl command or the account id."
