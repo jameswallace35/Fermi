@@ -16,6 +16,7 @@ It is a static site: plain HTML, CSS and JavaScript modules, no build step, no s
 - **Reveal card** with your guess, the real answer, a log-scale "how far off" bar, a short explainer and the source.
 - **Share text**, streaks (puzzles finished on their own day), statistics with a tier histogram and a list of every finished puzzle, and an **archive** of past puzzles.
 - **Results that travel**: a backup code copies your whole history to another browser, and when the page runs on claude.ai (as a published artifact) results are also saved to your Claude account.
+- **How others guessed and leaderboards** (with the accounts API deployed): every result card shows the number of players, the typical guess, a histogram of other guesses and the share of players you beat; signed-in players get a leaderboard for the day's puzzle and an all-time table, scored on the server from its own copy of the answers.
 - Light and dark themes, keyboard friendly, mobile first, works as a home-screen app.
 
 ## Run it locally

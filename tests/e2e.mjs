@@ -333,6 +333,39 @@ try {
     await fresh.close();
   });
 
+  await step('leaderboard shows today and all time with a rival', async () => {
+    // a rival account finishes today's puzzle with guesses ten times too high
+    const rival = `rival_${Math.floor(Math.random() * 1e6)}`;
+    const r = await fetch(`${apiUrl}/api/signup`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ username: rival, password: 'estimate123' }) });
+    assert.equal(r.status, 201);
+    const { token } = await r.json();
+    const mine = await page.evaluate(() => JSON.parse(localStorage.getItem(`fermi5:puzzle:${location.hash ? location.hash.slice(1) : ''}`) || 'null'));
+    const todayState = await page.evaluate(async () => {
+      const L = await import('./src/logic.js');
+      return JSON.parse(localStorage.getItem(`fermi5:puzzle:${Math.max(1, L.todayPuzzleNumber())}`));
+    });
+    const bank = await (await fetch(`${url}data/questions.json`)).json();
+    const answers = Object.fromEntries(bank.questions.map((q) => [q.id, q.answer]));
+    const n = await page.evaluate(async () => Math.max(1, (await import('./src/logic.js')).todayPuzzleNumber()));
+    const put = await fetch(`${apiUrl}/api/puzzles`, { method: 'PUT', headers: { 'content-type': 'application/json', authorization: `Bearer ${token}` }, body: JSON.stringify({ puzzles: { [n]: { guesses: todayState.ids.map((id) => answers[id] * 10), ids: todayState.ids, completedAt: Date.now() } } }) });
+    assert.equal(put.status, 200);
+    void mine;
+
+    await page.click('#btn-board');
+    await page.waitForSelector('#dlg-board[open]');
+    await page.waitForFunction(() => document.querySelectorAll('#board-body .board-row').length >= 2);
+    const rows = await page.$$eval('#board-body .board-row', (els) => els.map((e) => ({ you: e.classList.contains('you'), name: e.querySelector('strong').textContent })));
+    assert.equal(rows.length, 2);
+    assert.ok(rows.some((row) => row.you), 'the signed-in player appears');
+    assert.ok(rows.some((row) => row.name.startsWith('rival_')), 'the rival appears');
+    await page.click('#tab-all');
+    await page.waitForFunction(() => /ranked after/.test(document.querySelector('#board-body').textContent) && document.querySelectorAll('#board-body .board-row').length >= 2);
+    assert.match(await page.textContent('#board-body'), /needs 3/);
+    await page.screenshot({ path: path.join(shots, '10-leaderboard.png') });
+    await page.keyboard.press('Escape');
+    await page.waitForSelector('#dlg-board', { state: 'hidden' });
+  });
+
   await step('archive lists today as completed', async () => {
     await page.click('#btn-archive');
     await page.waitForSelector('#dlg-archive[open]');

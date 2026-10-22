@@ -5,7 +5,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { validateQuestion, isDuplicate, buildBank, readBankFiles } from './build-bank.mjs';
+import { validateQuestion, isDuplicate, buildBank, readBankFiles, workerBankSource } from './build-bank.mjs';
 import { selectQuestions, firstRepeatDay, QUESTIONS_PER_DAY } from '../src/logic.js';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -70,6 +70,13 @@ try {
   }
 } catch (err) {
   errors.push(err.message);
+}
+
+try {
+  const current = fs.readFileSync(path.join(root, 'worker', 'src', 'bank.js'), 'utf8');
+  if (current !== workerBankSource(bank)) errors.push('worker/src/bank.js is out of date with data/questions.json: run npm run build:bank');
+} catch {
+  errors.push('worker/src/bank.js is missing: run npm run build:bank');
 }
 
 if (errors.length) {

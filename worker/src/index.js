@@ -16,11 +16,19 @@
 //   POST   /api/guesses  { question_id, guess, answer, player? } (Bearer optional)
 //                                                        -> stats for that question, including you
 //   GET    /api/stats?question_id=..&answer=..&guess=..  -> stats for that question
+//   GET    /api/leaderboard?n=<puzzle>  (Bearer)         -> players who finished puzzle n, best first
+//   GET    /api/leaderboard?scope=all   (Bearer)         -> all-time standings
+
+import bank from './bank.js';
 
 export const USERNAME_RE = /^[a-z0-9_]{3,24}$/;
 export const PASSWORD_MIN = 8;
 export const PASSWORD_MAX = 200;
 export const QUESTIONS_PER_DAY = 5;
+export const ANSWERS = bank.answers || {};
+const MAX_MULTIPLE = 1e15;
+const RANKED_MIN_PLAYED = 3;
+const BOARD_LIMIT = 100;
 
 const SESSION_TTL_MS = 90 * 24 * 60 * 60 * 1000;
 const BODY_LIMIT = 256 * 1024;
@@ -180,6 +188,29 @@ export function computeStats(guesses, answer, mine = null) {
   return { count, typical: answer * 10 ** mean, median: answer * 10 ** medianLog, histogram, bucketWidth: WIDTH, range: RANGE, within2x, beat };
 }
 
+/** How many times off a guess is, mirroring the game's scoring. */
+export function scoreMultiple(guess, answer) {
+  if (!Number.isFinite(guess) || !Number.isFinite(answer) || guess <= 0 || answer <= 0) return MAX_MULTIPLE;
+  const ratio = Math.max(guess / answer, answer / guess);
+  return Number.isFinite(ratio) ? Math.min(Number(ratio.toPrecision(12)), MAX_MULTIPLE) : MAX_MULTIPLE;
+}
+
+/**
+ * Score a finished puzzle from the server's own answers. Returns null when the
+ * puzzle is unfinished or any question id is unknown.
+ */
+export function scorePuzzle(state, answers = ANSWERS) {
+  if (!state || !Array.isArray(state.ids) || !Array.isArray(state.guesses)) return null;
+  if (state.ids.length !== QUESTIONS_PER_DAY || state.guesses.length !== QUESTIONS_PER_DAY) return null;
+  const multiples = [];
+  for (let i = 0; i < QUESTIONS_PER_DAY; i++) {
+    const answer = answers[state.ids[i]];
+    if (!(answer > 0)) return null;
+    multiples.push(scoreMultiple(state.guesses[i], answer));
+  }
+  return { score: multiples.reduce((a, b) => a + b, 0) / multiples.length, multiples };
+}
+
 /** The record with more guesses wins; ties keep what is stored. */
 export function mergePuzzle(existing, incoming) {
   if (!existing) return incoming;
@@ -269,17 +300,24 @@ async function requireSession(env, request, now) {
   return { userId: row.userId, username: row.username, createdAt: row.createdAt, tokenHash };
 }
 
-async function loadPuzzles(env, userId) {
-  const { results } = await env.DB.prepare('SELECT n, data FROM puzzles WHERE user_id = ?').bind(userId).all();
+async function loadPuzzles(env, userId, { backfill = false, now = Date.now() } = {}) {
+  const { results } = await env.DB.prepare('SELECT n, data, score FROM puzzles WHERE user_id = ?').bind(userId).all();
   const puzzles = {};
+  const fixes = [];
   for (const row of results || []) {
     try {
       const state = sanitizePuzzle(JSON.parse(row.data));
-      if (state) puzzles[row.n] = state;
+      if (!state) continue;
+      puzzles[row.n] = state;
+      if (backfill && row.score == null) {
+        const scored = scorePuzzle(state);
+        if (scored) fixes.push(env.DB.prepare('UPDATE puzzles SET score = ? WHERE user_id = ? AND n = ?').bind(scored.score, userId, row.n));
+      }
     } catch {
       // ignore a corrupt row
     }
   }
+  if (fixes.length) await env.DB.batch(fixes);
   return puzzles;
 }
 
@@ -332,7 +370,7 @@ async function me(request, env, now) {
 
 async function getPuzzles(request, env, now) {
   const session = await requireSession(env, request, now);
-  return json({ puzzles: await loadPuzzles(env, session.userId) });
+  return json({ puzzles: await loadPuzzles(env, session.userId, { backfill: true, now }) });
 }
 
 async function putPuzzles(request, env, now) {
@@ -351,8 +389,9 @@ async function putPuzzles(request, env, now) {
     const merged = mergePuzzle(stored[n], incoming);
     if (merged !== stored[n]) {
       stored[n] = merged;
+      const scored = scorePuzzle(merged);
       writes.push(
-        env.DB.prepare('INSERT OR REPLACE INTO puzzles (user_id, n, data, updated_at) VALUES (?, ?, ?, ?)').bind(session.userId, n, JSON.stringify(merged), now),
+        env.DB.prepare('INSERT OR REPLACE INTO puzzles (user_id, n, data, updated_at, score) VALUES (?, ?, ?, ?, ?)').bind(session.userId, n, JSON.stringify(merged), now, scored ? scored.score : null),
       );
     }
   }
@@ -380,11 +419,17 @@ async function questionStats(env, questionId, answer, mine) {
   return { question_id: questionId, ...computeStats((results || []).map((r) => Number(r.guess)), answer, mine) };
 }
 
+/** The server's answer for a question when it knows one, else the client's. */
+function answerFor(questionId, clientAnswer) {
+  const known = ANSWERS[questionId];
+  return known > 0 ? known : positiveNumber(clientAnswer, 'answer');
+}
+
 async function postGuess(request, env, now) {
   const body = await readJson(request);
   const questionId = validateQuestionId(body.question_id);
   const guess = positiveNumber(body.guess, 'guess');
-  const answer = positiveNumber(body.answer, 'answer');
+  const answer = answerFor(questionId, body.answer);
   await rateLimit(env, `guess:${clientIp(request)}`, GUESS_LIMIT_PER_IP, now);
   const key = await playerKey(env, request, body, now);
   await env.DB.prepare('INSERT OR IGNORE INTO guesses (question_id, player_key, guess, created_at) VALUES (?, ?, ?, ?)').bind(questionId, key, guess, now).run();
@@ -394,10 +439,44 @@ async function postGuess(request, env, now) {
 async function getStats(request, env) {
   const url = new URL(request.url);
   const questionId = validateQuestionId(url.searchParams.get('question_id'));
-  const answer = positiveNumber(url.searchParams.get('answer'), 'answer');
+  const answer = answerFor(questionId, url.searchParams.get('answer'));
   const mineRaw = url.searchParams.get('guess');
   const mine = mineRaw === null || mineRaw === '' ? null : positiveNumber(mineRaw, 'guess');
   return json(await questionStats(env, questionId, answer, mine));
+}
+
+async function leaderboard(request, env, now) {
+  const session = await requireSession(env, request, now);
+  const url = new URL(request.url);
+  if (url.searchParams.get('scope') === 'all') {
+    const { results } = await env.DB.prepare(
+      'SELECT u.username AS username, p.user_id AS userId, COUNT(*) AS played, AVG(p.score) AS average, MIN(p.score) AS best FROM puzzles p JOIN users u ON u.id = p.user_id WHERE p.score IS NOT NULL GROUP BY p.user_id',
+    ).all();
+    const players = (results || [])
+      .map((r) => ({ username: r.username, played: Number(r.played), average: Number(r.average), best: Number(r.best), ranked: Number(r.played) >= RANKED_MIN_PLAYED, you: r.userId === session.userId }))
+      .sort((a, b) => (a.ranked !== b.ranked ? (a.ranked ? -1 : 1) : a.ranked ? a.average - b.average : b.played - a.played))
+      .slice(0, BOARD_LIMIT);
+    return json({ scope: 'all', rankedMinPlayed: RANKED_MIN_PLAYED, players });
+  }
+  const n = Number(url.searchParams.get('n'));
+  if (!Number.isInteger(n) || n < 1 || n > MAX_PUZZLE_NUMBER) throw new HttpError(400, 'Give a puzzle number as n');
+  const { results } = await env.DB.prepare(
+    'SELECT u.username AS username, p.user_id AS userId, p.data AS data, p.score AS score, p.updated_at AS updatedAt FROM puzzles p JOIN users u ON u.id = p.user_id WHERE p.n = ? AND p.score IS NOT NULL ORDER BY p.score ASC, p.updated_at ASC LIMIT ?',
+  )
+    .bind(n, BOARD_LIMIT)
+    .all();
+  const players = [];
+  for (const r of results || []) {
+    let multiples = null;
+    try {
+      const scored = scorePuzzle(sanitizePuzzle(JSON.parse(r.data)));
+      if (scored) multiples = scored.multiples;
+    } catch {
+      multiples = null;
+    }
+    players.push({ username: r.username, score: Number(r.score), multiples, finishedAt: r.updatedAt, you: r.userId === session.userId });
+  }
+  return json({ scope: 'daily', n, players });
 }
 
 async function deleteAccount(request, env, now) {
@@ -425,6 +504,7 @@ const ROUTES = [
   ['DELETE', '/api/account', deleteAccount],
   ['POST', '/api/guesses', postGuess],
   ['GET', '/api/stats', getStats],
+  ['GET', '/api/leaderboard', leaderboard],
 ];
 
 export async function handle(request, env, now = Date.now()) {

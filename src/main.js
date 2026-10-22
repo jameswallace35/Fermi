@@ -21,6 +21,7 @@ const els = {
   calc: $('#dlg-calc'),
   stats: $('#dlg-stats'),
   archive: $('#dlg-archive'),
+  board: $('#dlg-board'),
   calcExpr: $('#calc-expr'),
   calcResult: $('#calc-result'),
   calcUse: $('#calc-use'),
@@ -893,6 +894,85 @@ function renderArchive(reset = true) {
   if (moreBtn) moreBtn.addEventListener('click', () => renderArchive(false));
 }
 
+// ------------------------------------------------------------- leaderboard
+
+let boardScope = 'daily';
+
+function renderBoardTabs() {
+  const daily = $('#tab-daily');
+  daily.textContent = puzzleNumber === todayNumber ? 'Today' : `No. ${puzzleNumber}`;
+  daily.setAttribute('aria-selected', String(boardScope === 'daily'));
+  $('#tab-all').setAttribute('aria-selected', String(boardScope === 'all'));
+}
+
+async function renderBoard() {
+  renderBoardTabs();
+  const body = $('#board-body');
+  if (!A.session()) {
+    body.innerHTML = `<p class="board-empty">Sign in or create an account to see how you stack up against other players.</p>
+      <button type="button" class="btn primary wide" id="board-signin">Open Statistics to sign in</button>`;
+    $('#board-signin').addEventListener('click', () => {
+      els.board.close();
+      renderStats();
+      openDialog(els.stats);
+    });
+    return;
+  }
+  body.innerHTML = '<p class="board-empty">Loading…</p>';
+  const scope = boardScope;
+  const n = puzzleNumber;
+  let data;
+  try {
+    data = await A.fetchLeaderboard(scope === 'all' ? { scope: 'all' } : { n });
+  } catch (err) {
+    if (boardScope !== scope) return;
+    if (err && err.status === 401) {
+      A.forgetSession();
+      renderBoard();
+      return;
+    }
+    body.innerHTML = `<p class="board-empty">${esc((err && err.message) || 'Could not load the leaderboard.')}</p>`;
+    return;
+  }
+  if (boardScope !== scope || puzzleNumber !== n) return;
+  const players = Array.isArray(data.players) ? data.players : [];
+  if (scope === 'daily') {
+    const date = L.formatDateKey(L.dateKeyForPuzzle(n));
+    body.innerHTML = `<p class="board-sub-title">Puzzle No. ${n} · ${esc(date)} · lowest average wins</p>` + (players.length
+      ? `<ol class="board">${players
+          .map((p, i) => `<li class="board-row${p.you ? ' you' : ''}">
+            <span class="board-rank">${i + 1}</span>
+            <span class="board-name"><strong>${esc(p.username)}${p.you ? ' (you)' : ''}</strong><span class="board-sub">${Array.isArray(p.multiples) ? p.multiples.map((m) => L.tierFor(m).emoji).join(' ') : ''}</span></span>
+            <span class="board-score ${L.tierFor(p.score).cls}">${L.formatMultiple(p.score)}</span>
+          </li>`)
+          .join('')}</ol>`
+      : `<p class="board-empty">Nobody has finished puzzle No. ${n} yet. Finish it and you will be first.</p>`);
+  } else {
+    const min = Number(data.rankedMinPlayed) || 3;
+    body.innerHTML = `<p class="board-sub-title">Average over every puzzle finished · ranked after ${min} puzzles</p>` + (players.length
+      ? `<ol class="board">${players
+          .map((p, i) => `<li class="board-row${p.you ? ' you' : ''}">
+            <span class="board-rank">${p.ranked ? i + 1 : '–'}</span>
+            <span class="board-name"><strong>${esc(p.username)}${p.you ? ' (you)' : ''}</strong><span class="board-sub">${p.played} puzzle${p.played === 1 ? '' : 's'} · best ${L.formatMultiple(p.best)}</span></span>
+            <span class="board-score ${L.tierFor(p.average).cls}">${L.formatMultiple(p.average)}${p.ranked ? '' : `<small>needs ${min}</small>`}</span>
+          </li>`)
+          .join('')}</ol>`
+      : '<p class="board-empty">No finished puzzles yet.</p>');
+  }
+}
+
+function setupBoard() {
+  if (!A.available()) return;
+  const btn = $('#btn-board');
+  btn.hidden = false;
+  btn.addEventListener('click', () => {
+    openDialog(els.board);
+    renderBoard();
+  });
+  $('#tab-daily').addEventListener('click', () => { boardScope = 'daily'; renderBoard(); });
+  $('#tab-all').addEventListener('click', () => { boardScope = 'all'; renderBoard(); });
+}
+
 // -------------------------------------------------------------- calculator
 
 function updateCalc() {
@@ -1048,9 +1128,10 @@ async function init() {
     goTo(todayNumber);
   });
   setupCalculator();
+  setupBoard();
 
   // Close dialogs when the backdrop is clicked.
-  for (const dlg of [els.help, els.calc, els.stats, els.archive]) {
+  for (const dlg of [els.help, els.calc, els.stats, els.archive, els.board]) {
     dlg.addEventListener('click', (e) => {
       if (e.target === dlg) dlg.close();
     });

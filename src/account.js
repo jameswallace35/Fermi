@@ -103,6 +103,14 @@ export async function fetchStats({ questionId, answer, guess }) {
   return request('GET', `/api/stats?${params}`);
 }
 
+/** The leaderboard for one puzzle (`{ n }`) or all time (`{ scope: 'all' }`). Needs a session. */
+export async function fetchLeaderboard({ scope, n }) {
+  const s = session();
+  if (!s) throw new ApiError(401, 'Sign in to see the leaderboard');
+  const params = scope === 'all' ? new URLSearchParams({ scope: 'all' }) : new URLSearchParams({ n: String(n) });
+  return request('GET', `/api/leaderboard?${params}`, { token: s.token });
+}
+
 /** A sync handle with the same shape as the claude.ai one, or null when signed out. */
 export function connectAccountSync() {
   const s = session();

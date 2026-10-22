@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import worker, { sanitizePuzzle, mergePuzzle, timingSafeEqual, createPasswordRecord, verifyPassword, validateUsername, computeStats, HttpError } from '../worker/src/index.js';
+import worker, { sanitizePuzzle, mergePuzzle, timingSafeEqual, createPasswordRecord, verifyPassword, validateUsername, computeStats, scorePuzzle, ANSWERS, HttpError } from '../worker/src/index.js';
 import { createD1 } from './helpers/d1.js';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -247,4 +247,63 @@ test('guess stats endpoints: one guess per player, anonymous or signed in', asyn
   await call(env, 'DELETE', '/api/account', { token, body: { password: 'estimate123' } });
   r = await call(env, 'GET', `/api/stats?question_id=${q}&answer=100`, {});
   assert.equal(r.body.count, 2);
+});
+
+const REAL_IDS = Object.keys(ANSWERS).slice(0, 5);
+const exactGuesses = () => REAL_IDS.map((id) => ANSWERS[id]);
+
+test('scorePuzzle uses the server answers and refuses unknown ids', () => {
+  const perfect = scorePuzzle({ ids: REAL_IDS, guesses: exactGuesses() });
+  assert.equal(perfect.score, 1);
+  assert.deepEqual(perfect.multiples, [1, 1, 1, 1, 1]);
+  const doubled = scorePuzzle({ ids: REAL_IDS, guesses: exactGuesses().map((a) => a * 2) });
+  assert.equal(doubled.score, 2);
+  assert.equal(scorePuzzle({ ids: ['nope-1', ...REAL_IDS.slice(1)], guesses: exactGuesses() }), null);
+  assert.equal(scorePuzzle({ ids: REAL_IDS, guesses: [1, 2] }), null);
+  assert.equal(scorePuzzle({ guesses: exactGuesses() }), null);
+});
+
+test('leaderboards rank finished puzzles by server-computed score', async () => {
+  const env = makeEnv();
+  const signup = async (u) => (await call(env, 'POST', '/api/signup', { body: { username: u, password: 'estimate123' } })).body.token;
+  const [alice, bob, carol] = await Promise.all([signup('alice'), signup('bob_b'), signup('carol')]);
+  const finish = (token, n, factor) => call(env, 'PUT', '/api/puzzles', { token, body: { puzzles: { [n]: { guesses: exactGuesses().map((a) => a * factor), ids: REAL_IDS, completedAt: 5 } } } });
+  await finish(alice, 1, 3);
+  await finish(bob, 1, 1.5);
+  await finish(carol, 1, 10);
+  await finish(alice, 2, 1);
+  await finish(alice, 3, 1);
+  await finish(bob, 2, 4);
+  // an unfinished puzzle never scores
+  await call(env, 'PUT', '/api/puzzles', { token: carol, body: { puzzles: { 2: { guesses: [1, 2], ids: REAL_IDS.slice(0, 2) } } } });
+
+  let r = await call(env, 'GET', '/api/leaderboard?n=1', {});
+  assert.equal(r.status, 401, 'leaderboards need a session');
+  r = await call(env, 'GET', '/api/leaderboard?n=1', { token: alice });
+  assert.equal(r.status, 200);
+  assert.deepEqual(r.body.players.map((p) => p.username), ['bob_b', 'alice', 'carol']);
+  assert.deepEqual(r.body.players.map((p) => p.score), [1.5, 3, 10]);
+  assert.deepEqual(r.body.players.map((p) => p.you), [false, true, false]);
+  assert.deepEqual(r.body.players[0].multiples, [1.5, 1.5, 1.5, 1.5, 1.5]);
+  r = await call(env, 'GET', '/api/leaderboard?n=2', { token: carol });
+  assert.deepEqual(r.body.players.map((p) => p.username), ['alice', 'bob_b']);
+  r = await call(env, 'GET', '/api/leaderboard?n=abc', { token: alice });
+  assert.equal(r.status, 400);
+
+  r = await call(env, 'GET', '/api/leaderboard?scope=all', { token: bob });
+  assert.equal(r.status, 200);
+  const names = r.body.players.map((p) => `${p.username}:${p.played}:${p.ranked}`);
+  assert.deepEqual(names, ['alice:3:true', 'bob_b:2:false', 'carol:1:false'], 'ranked players first, then by puzzles played');
+  const aliceRow = r.body.players[0];
+  assert.ok(Math.abs(aliceRow.average - (3 + 1 + 1) / 3) < 1e-9);
+  assert.equal(aliceRow.best, 1);
+  assert.equal(r.body.players[1].you, true);
+
+  // GET /api/puzzles backfills a missing score
+  env.DB.raw.prepare('UPDATE puzzles SET score = NULL WHERE n = 1').run();
+  r = await call(env, 'GET', '/api/leaderboard?n=1', { token: alice });
+  assert.equal(r.body.players.length, 0);
+  await call(env, 'GET', '/api/puzzles', { token: bob });
+  r = await call(env, 'GET', '/api/leaderboard?n=1', { token: alice });
+  assert.deepEqual(r.body.players.map((p) => p.username), ['bob_b']);
 });
