@@ -1,19 +1,7 @@
 [
   {
-    "id": "history-18tnmhg",
-    "question": "If a medieval monk copied one page a day, how many years would it take to copy the whole Bible by hand?",
-    "answer": 3.3,
-    "unit": "years",
-    "explainer": "A full Bible runs to about 1,200 printed pages. One page a day, every day, is about 3.3 years for a single copy.",
-    "source_title": "Bible (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Bible",
-    "as_of": "stable",
-    "difficulty": 1,
-    "retired": true
-  },
-  {
     "id": "history-jmwo1b",
-    "question": "How many 75-year lifetimes fit between the building of the Great Pyramid and today?",
+    "question": "How many human lifetimes fit between the building of the Great Pyramid and today?",
     "answer": 60.9,
     "unit": "lifetimes",
     "source_title": "Great Pyramid of Giza (Wikipedia)",
@@ -35,7 +23,7 @@
   },
   {
     "id": "history-e8xail",
-    "question": "Walking 30 km a day, how many years would it take to walk every road the Romans ever built?",
+    "question": "Walking all day, every day, how many years would it take to walk every road the Romans ever built?",
     "answer": 27.4,
     "unit": "years",
     "source_title": "New map transforms what we know about Roman roads (Scientific American)",
@@ -57,7 +45,7 @@
   },
   {
     "id": "history-rkjvkf",
-    "question": "How many 25-year generations separate us from the fall of the Western Roman Empire in AD 476?",
+    "question": "How many generations separate us from the fall of the Western Roman Empire in AD 476?",
     "answer": 62,
     "unit": "generations",
     "source_title": "Fall of the Western Roman Empire (Wikipedia)",
@@ -68,7 +56,7 @@
   },
   {
     "id": "history-10yap3e",
-    "question": "Walking 25 km a day, how many years would it take to walk every section of the Great Wall of China?",
+    "question": "Walking all day, every day, how many years would it take to walk every section of the Great Wall of China?",
     "answer": 2.3,
     "unit": "years",
     "source_title": "Great Wall of China (Wikipedia)",
@@ -90,7 +78,7 @@
   },
   {
     "id": "history-1x5rlv",
-    "question": "How many 75-year lifetimes ago did the last woolly mammoths die out?",
+    "question": "How many human lifetimes ago did the last woolly mammoths die out?",
     "answer": 53.3,
     "unit": "lifetimes",
     "source_title": "Woolly mammoth (Wikipedia)",
@@ -98,6 +86,18 @@
     "explainer": "The last mammoths, on Wrangel Island, died out about 4,000 years ago, while the pyramids already stood. That is only about 53 lifetimes back.",
     "difficulty": 1,
     "as_of": "stable"
+  },
+  {
+    "id": "history-18tnmhg",
+    "question": "If a medieval monk copied one page a day, how many years would it take to copy the whole Bible by hand?",
+    "answer": 3.3,
+    "unit": "years",
+    "source_title": "Bible (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Bible",
+    "explainer": "A full Bible runs to about 1,200 printed pages. One page a day, every day, is about 3.3 years for a single copy.",
+    "difficulty": 1,
+    "as_of": "stable",
+    "retired": true
   },
   {
     "id": "history-30prkx",
@@ -145,7 +145,7 @@
   },
   {
     "id": "history-1aasohi",
-    "question": "How many 5 g gold wedding rings could be made from Tutankhamun's solid gold coffin?",
+    "question": "How many gold wedding rings could be made from Tutankhamun's solid gold coffin?",
     "answer": 22000,
     "unit": "rings",
     "source_title": "Tutankhamun (Wikipedia)",
@@ -167,7 +167,7 @@
   },
   {
     "id": "history-1p7x00y",
-    "question": "How many 75-year lifetimes have passed since Rome was founded in 753 BC?",
+    "question": "How many human lifetimes have passed since Rome was founded in 753 BC?",
     "answer": 37.1,
     "unit": "lifetimes",
     "source_title": "Founding of Rome (Wikipedia)",
@@ -178,7 +178,7 @@
   },
   {
     "id": "history-1fg590u",
-    "question": "How many 25-year generations separate you from the first modern humans to leave Africa, about 60,000 years ago?",
+    "question": "How many generations separate you from the first modern humans to leave Africa, about 60,000 years ago?",
     "answer": 2400,
     "unit": "generations",
     "source_title": "Early human migrations (Wikipedia)",
@@ -233,7 +233,7 @@
   },
   {
     "id": "history-177oi7i",
-    "question": "How many 75-year lifetimes have passed since Leonardo painted the Mona Lisa in 1503?",
+    "question": "How many human lifetimes have passed since Leonardo painted the Mona Lisa in 1503?",
     "answer": 7,
     "unit": "lifetimes",
     "source_title": "Mona Lisa (Wikipedia)",

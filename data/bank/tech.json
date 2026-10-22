@@ -1,17 +1,5 @@
 [
   {
-    "id": "tech-ijoez2",
-    "question": "How many times could the world's undersea internet cables wrap around the Earth?",
-    "answer": 34.9,
-    "unit": "times",
-    "explainer": "There are about 1.4 million km of submarine cable in service. The equator is 40,075 km, so about 35 times around.",
-    "source_title": "Submarine cable FAQs (TeleGeography)",
-    "source_url": "https://www2.telegeography.com/submarine-cable-faqs-frequently-asked-questions",
-    "as_of": "2024",
-    "difficulty": 1,
-    "retired": true
-  },
-  {
     "id": "tech-634g3x",
     "question": "How many hours of video are uploaded to YouTube every single hour?",
     "answer": 30000,
@@ -57,7 +45,7 @@
   },
   {
     "id": "tech-ymhleq",
-    "question": "If you use your phone five hours a day from age 15 to 80, how many whole years of your life is that?",
+    "question": "At the average American's daily phone use, how many whole years between the ages of 15 and 80 are spent on the phone?",
     "answer": 13.5,
     "unit": "years",
     "source_title": "Study finds the average American spent 2.5 months on their phone in 2024 (Reviews.org)",
@@ -98,6 +86,18 @@
     "explainer": "128 GB is 128,000 MB. Divided by 1.44 MB a disk that is about 89,000 floppies, a stack about 300 m tall.",
     "difficulty": 1,
     "as_of": "stable"
+  },
+  {
+    "id": "tech-ijoez2",
+    "question": "How many times could the world's undersea internet cables wrap around the Earth?",
+    "answer": 34.9,
+    "unit": "times",
+    "source_title": "Submarine cable FAQs (TeleGeography)",
+    "source_url": "https://www2.telegeography.com/submarine-cable-faqs-frequently-asked-questions",
+    "explainer": "There are about 1.4 million km of submarine cable in service. The equator is 40,075 km, so about 35 times around.",
+    "difficulty": 1,
+    "as_of": "2024",
+    "retired": true
   },
   {
     "id": "tech-9a73w9",
@@ -145,7 +145,7 @@
   },
   {
     "id": "tech-tlf26a",
-    "question": "How many $799 iPhones could Apple have bought with its own 2024 revenue?",
+    "question": "How many iPhones could Apple have bought with its own 2024 revenue?",
     "answer": 490000000,
     "unit": "iPhones",
     "source_title": "Apple reports fourth quarter results (Apple Newsroom)",
@@ -178,7 +178,7 @@
   },
   {
     "id": "tech-rzuej3",
-    "question": "Typing non-stop at 40 words a minute, how many years would it take to retype all of English Wikipedia?",
+    "question": "Typing non-stop at an ordinary pace, how many years would it take to retype all of English Wikipedia?",
     "answer": 219,
     "unit": "years",
     "source_title": "Size in volumes (Wikipedia)",

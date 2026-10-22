@@ -1,19 +1,7 @@
 [
   {
-    "id": "body-cy6h41",
-    "question": "How many litres of blood does your heart pump in a day?",
-    "answer": 7200,
-    "unit": "litres",
-    "explainer": "The heart pumps about 5 litres a minute at rest, which is 300 litres an hour and about 7,200 litres a day.",
-    "source_title": "Cardiac output (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Cardiac_output",
-    "as_of": "stable",
-    "difficulty": 1,
-    "retired": true
-  },
-  {
     "id": "body-126vegf",
-    "question": "How many times will your heart beat in an 80-year life?",
+    "question": "How many times will your heart beat in a lifetime?",
     "answer": 2900000000,
     "unit": "beats",
     "source_title": "Heart rate (Wikipedia)",
@@ -57,7 +45,7 @@
   },
   {
     "id": "body-w3h9nt",
-    "question": "At 7,000 steps a day, how many steps does a person take in an 80-year life?",
+    "question": "How many steps does a typical person take in a lifetime?",
     "answer": 200000000,
     "unit": "steps",
     "source_title": "Pedometer (Wikipedia)",
@@ -68,7 +56,7 @@
   },
   {
     "id": "body-gpaad8",
-    "question": "How many years of an 80-year life are spent asleep?",
+    "question": "How many years of a lifetime are spent asleep?",
     "answer": 26.7,
     "unit": "years",
     "source_title": "Sleep (Wikipedia)",
@@ -98,6 +86,18 @@
     "explainer": "The usual estimate is about 100,000 km of blood vessels in an adult, most of it tiny capillaries. The equator is 40,075 km, so about two and a half times around.",
     "difficulty": 1,
     "as_of": "stable"
+  },
+  {
+    "id": "body-cy6h41",
+    "question": "How many litres of blood does your heart pump in a day?",
+    "answer": 7200,
+    "unit": "litres",
+    "source_title": "Cardiac output (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Cardiac_output",
+    "explainer": "The heart pumps about 5 litres a minute at rest, which is 300 litres an hour and about 7,200 litres a day.",
+    "difficulty": 1,
+    "as_of": "stable",
+    "retired": true
   },
   {
     "id": "body-2w0hdm",
@@ -145,7 +145,7 @@
   },
   {
     "id": "body-kerb5l",
-    "question": "How many centimetres do your fingernails grow over an 80-year life?",
+    "question": "How many centimetres do your fingernails grow over a lifetime?",
     "answer": 336,
     "unit": "cm",
     "source_title": "Nail (anatomy) (Wikipedia)",
@@ -156,7 +156,7 @@
   },
   {
     "id": "body-1v12ewf",
-    "question": "At 7,000 steps a day, how many kilometres does a person walk in an 80-year life?",
+    "question": "How many kilometres does a typical person walk in a lifetime?",
     "answer": 150000,
     "unit": "km",
     "source_title": "Pedometer (Wikipedia)",
@@ -167,7 +167,7 @@
   },
   {
     "id": "body-nqx3w6",
-    "question": "How many hours does a person spend eating over an 80-year life?",
+    "question": "How many hours does a person spend eating over a lifetime?",
     "answer": 44000,
     "unit": "hours",
     "source_title": "Meal (Wikipedia)",
@@ -200,7 +200,7 @@
   },
   {
     "id": "body-2xv19p",
-    "question": "How many meals does a person eat in an 80-year life, at three a day?",
+    "question": "How many meals does a person eat in a lifetime?",
     "answer": 88000,
     "unit": "meals",
     "source_title": "Meal (Wikipedia)",
@@ -211,7 +211,7 @@
   },
   {
     "id": "body-1aj750n",
-    "question": "How many 250 ml glasses of water does a person drink in an 80-year life, at two litres a day?",
+    "question": "How many glasses of water does a person drink in a lifetime?",
     "answer": 230000,
     "unit": "glasses",
     "source_title": "Drinking water (Wikipedia)",
@@ -233,7 +233,7 @@
   },
   {
     "id": "body-3ygbgl",
-    "question": "How many times does a person blink in an 80-year life?",
+    "question": "How many times does a person blink in a lifetime?",
     "answer": 420000000,
     "unit": "blinks",
     "source_title": "Blinking (Wikipedia)",

@@ -1,17 +1,5 @@
 [
   {
-    "id": "space-x2qo4l",
-    "question": "How many Moons lined up side by side would it take to reach from the Earth to the Sun?",
-    "answer": 43000,
-    "unit": "Moons",
-    "explainer": "The Sun is 149.6 million km away and the Moon is 3,474 km across, so about 43,000 Moons would bridge the gap.",
-    "source_title": "Moon (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Moon",
-    "as_of": "stable",
-    "difficulty": 1,
-    "retired": true
-  },
-  {
     "id": "space-l4hqw8",
     "question": "How many Earths would fit side by side across the face of the Sun?",
     "answer": 109,
@@ -24,7 +12,7 @@
   },
   {
     "id": "space-1gn5ot5",
-    "question": "Driving non-stop at 100 km/h, how many months would it take to reach the Moon?",
+    "question": "Driving non-stop at motorway speed, how many months would it take to reach the Moon?",
     "answer": 5.3,
     "unit": "months",
     "source_title": "Lunar distance (Wikipedia)",
@@ -35,7 +23,7 @@
   },
   {
     "id": "space-1gwyhqm",
-    "question": "How many 30 cm pizzas, laid flat side by side, would it take to cover the entire surface of the Moon?",
+    "question": "How many large pizzas, laid flat side by side, would it take to cover the entire surface of the Moon?",
     "answer": 540000000000000,
     "unit": "pizzas",
     "source_title": "Moon (Wikipedia)",
@@ -46,7 +34,7 @@
   },
   {
     "id": "space-d8lr2j",
-    "question": "Flying at a jumbo jet's 900 km/h, how many years would it take to reach the Sun?",
+    "question": "Flying in an airliner at cruising speed, how many years would it take to reach the Sun?",
     "answer": 19,
     "unit": "years",
     "source_title": "Astronomical unit (Wikipedia)",
@@ -101,7 +89,7 @@
   },
   {
     "id": "space-2t6ych",
-    "question": "Driving non-stop at 100 km/h, how many years would it take to reach Mars at its closest approach?",
+    "question": "Driving non-stop at motorway speed, how many years would it take to reach Mars at its closest approach?",
     "answer": 62.3,
     "unit": "years",
     "source_title": "Mars (Wikipedia)",
@@ -109,6 +97,18 @@
     "explainer": "At their closest, Earth and Mars are about 54.6 million km apart. At 100 km/h that is 546,000 hours, which is about 62 years.",
     "difficulty": 1,
     "as_of": "stable"
+  },
+  {
+    "id": "space-x2qo4l",
+    "question": "How many Moons lined up side by side would it take to reach from the Earth to the Sun?",
+    "answer": 43000,
+    "unit": "Moons",
+    "source_title": "Moon (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Moon",
+    "explainer": "The Sun is 149.6 million km away and the Moon is 3,474 km across, so about 43,000 Moons would bridge the gap.",
+    "difficulty": 1,
+    "as_of": "stable",
+    "retired": true
   },
   {
     "id": "space-ynzoxa",
@@ -123,7 +123,7 @@
   },
   {
     "id": "space-l72hay",
-    "question": "Walking at 5 km/h non-stop, how many days would it take to walk all the way around the Moon's equator?",
+    "question": "Walking non-stop at a normal pace, how many days would it take to walk all the way around the Moon's equator?",
     "answer": 91,
     "unit": "days",
     "source_title": "Moon (Wikipedia)",
@@ -145,7 +145,7 @@
   },
   {
     "id": "space-y7ramm",
-    "question": "If the Sun were shrunk to a 24 cm basketball, how many metres away would the Earth be?",
+    "question": "If the Sun were shrunk to the size of a basketball, how many metres away would the Earth be?",
     "answer": 25.8,
     "unit": "metres",
     "source_title": "Sun (Wikipedia)",
@@ -156,7 +156,7 @@
   },
   {
     "id": "space-5txft2",
-    "question": "If the Sun were shrunk to a 24 cm basketball, how many millimetres across would the Earth be?",
+    "question": "If the Sun were shrunk to the size of a basketball, how many millimetres across would the Earth be?",
     "answer": 2.2,
     "unit": "mm",
     "source_title": "Sun (Wikipedia)",
@@ -167,7 +167,7 @@
   },
   {
     "id": "space-7s01zy",
-    "question": "Flying at a jumbo jet's 900 km/h, how many years would it take to reach Proxima Centauri, the nearest star?",
+    "question": "Flying in an airliner at cruising speed, how many years would it take to reach Proxima Centauri, the nearest star?",
     "answer": 5100000,
     "unit": "years",
     "source_title": "Proxima Centauri (Wikipedia)",
@@ -178,7 +178,7 @@
   },
   {
     "id": "space-2nd2wq",
-    "question": "How many days would Japan's fastest bullet train, at its 320 km/h service speed, take to reach the Moon?",
+    "question": "How many days would Japan's fastest bullet train take, at full service speed, to reach the Moon?",
     "answer": 50.1,
     "unit": "days",
     "source_title": "Shinkansen (Wikipedia)",

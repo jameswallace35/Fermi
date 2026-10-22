@@ -1,17 +1,5 @@
 [
   {
-    "id": "food-1e0p07z",
-    "question": "How many sugar cubes are dissolved in a 2-litre bottle of Coca-Cola?",
-    "answer": 53,
-    "unit": "sugar cubes",
-    "explainer": "Classic Coke has 10.6 g of sugar per 100 ml, so 212 g in 2 litres. At 4 g a cube that is about 53 sugar cubes.",
-    "source_title": "Coca-Cola Original Taste nutrition (Coca-Cola GB)",
-    "source_url": "https://www.coca-cola.com/gb/en/brands/coca-cola",
-    "as_of": "stable",
-    "difficulty": 1,
-    "retired": true
-  },
-  {
     "id": "food-g3d2ag",
     "question": "How many pizzas do Americans eat every second?",
     "answer": 95.1,
@@ -133,6 +121,18 @@
     "as_of": "2022"
   },
   {
+    "id": "food-1e0p07z",
+    "question": "How many sugar cubes are dissolved in a 2-litre bottle of Coca-Cola?",
+    "answer": 53,
+    "unit": "sugar cubes",
+    "source_title": "Coca-Cola Original Taste nutrition (Coca-Cola GB)",
+    "source_url": "https://www.coca-cola.com/gb/en/brands/coca-cola",
+    "explainer": "Classic Coke has 10.6 g of sugar per 100 ml, so 212 g in 2 litres. At 4 g a cube that is about 53 sugar cubes.",
+    "difficulty": 1,
+    "as_of": "stable",
+    "retired": true
+  },
+  {
     "id": "food-xewppk",
     "question": "How many potatoes go into McDonald's fries worldwide in a year?",
     "answer": 9100000000,
@@ -178,7 +178,7 @@
   },
   {
     "id": "food-10d9o81",
-    "question": "How many eggs does the average American eat in an 80-year life?",
+    "question": "How many eggs does the average American eat in a lifetime?",
     "answer": 22000,
     "unit": "eggs",
     "source_title": "Egg consumption (USDA ERS)",
@@ -189,7 +189,7 @@
   },
   {
     "id": "food-nm9atq",
-    "question": "How many kilograms of chocolate does the average Swiss person eat in an 80-year life?",
+    "question": "How many kilograms of chocolate does the average Swiss person eat in a lifetime?",
     "answer": 880,
     "unit": "kg",
     "source_title": "Chocolate consumption (Chocosuisse)",
@@ -222,7 +222,7 @@
   },
   {
     "id": "food-i50xdg",
-    "question": "How many kilograms of added sugar does the average American eat in a year, at 17 teaspoons a day?",
+    "question": "How many kilograms of added sugar does the average American eat in a year?",
     "answer": 24.8,
     "unit": "kg",
     "source_title": "Added sugars (American Heart Association)",

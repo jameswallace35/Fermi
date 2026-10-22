@@ -1,29 +1,5 @@
 [
   {
-    "id": "geography-tpfxtx",
-    "question": "How many times would all the walls of the Great Wall of China stretch from New York to Los Angeles?",
-    "answer": 5.4,
-    "unit": "times",
-    "explainer": "China's 2012 survey measured 21,196 km of wall. New York to Los Angeles is about 3,944 km as the crow flies, so the Wall would make the trip about 5.4 times.",
-    "source_title": "Great Wall of China (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Great_Wall_of_China",
-    "as_of": "stable",
-    "difficulty": 2,
-    "retired": true
-  },
-  {
-    "id": "geography-qv8aei",
-    "question": "How many Greater Londons would fit inside Australia?",
-    "answer": 4900,
-    "unit": "Londons",
-    "explainer": "Australia covers about 7,692,000 km² and Greater London about 1,572 km², so Australia could swallow roughly 4,900 Londons.",
-    "source_title": "Australia (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Australia",
-    "as_of": "stable",
-    "difficulty": 1,
-    "retired": true
-  },
-  {
     "id": "geography-ti6899",
     "question": "How many football pitches, laid side by side, would it take to carpet the whole Sahara Desert?",
     "answer": 1300000000,
@@ -58,7 +34,7 @@
   },
   {
     "id": "geography-1iqvinn",
-    "question": "Walking non-stop at 5 km/h, how many days would it take to walk the full length of the Nile?",
+    "question": "Walking non-stop at a normal pace, how many days would it take to walk the full length of the Nile?",
     "answer": 55.4,
     "unit": "days",
     "source_title": "Nile (Wikipedia)",
@@ -123,6 +99,30 @@
     "as_of": "stable"
   },
   {
+    "id": "geography-tpfxtx",
+    "question": "How many times would all the walls of the Great Wall of China stretch from New York to Los Angeles?",
+    "answer": 5.4,
+    "unit": "times",
+    "source_title": "Great Wall of China (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Great_Wall_of_China",
+    "explainer": "China's 2012 survey measured 21,196 km of wall. New York to Los Angeles is about 3,944 km as the crow flies, so the Wall would make the trip about 5.4 times.",
+    "difficulty": 2,
+    "as_of": "stable",
+    "retired": true
+  },
+  {
+    "id": "geography-qv8aei",
+    "question": "How many Greater Londons would fit inside Australia?",
+    "answer": 4900,
+    "unit": "Londons",
+    "source_title": "Australia (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Australia",
+    "explainer": "Australia covers about 7,692,000 km² and Greater London about 1,572 km², so Australia could swallow roughly 4,900 Londons.",
+    "difficulty": 1,
+    "as_of": "stable",
+    "retired": true
+  },
+  {
     "id": "geography-40o34d",
     "question": "If all the ice in Antarctica were cut into Olympic swimming pool-sized blocks, how many blocks would there be?",
     "answer": 11000000000000,
@@ -157,7 +157,7 @@
   },
   {
     "id": "geography-1ryhrke",
-    "question": "The Pacific plate carries Hawaii towards Japan at about 7 cm a year. How many years until they meet?",
+    "question": "The Pacific plate carries Hawaii towards Japan at about the speed your fingernails grow. How many years until they meet?",
     "answer": 89000000,
     "unit": "years",
     "source_title": "Pacific Plate (Wikipedia)",
@@ -234,7 +234,7 @@
   },
   {
     "id": "geography-1qy6t31",
-    "question": "Walking 30 km a day, how many years would it take to walk the entire coastline of mainland Australia?",
+    "question": "Walking all day, every day, how many years would it take to walk the entire coastline of mainland Australia?",
     "answer": 3.3,
     "unit": "years",
     "source_title": "Coastline of Australia (Wikipedia)",

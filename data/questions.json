@@ -164,7 +164,7 @@
   {
    "id": "tech-ymhleq",
    "category": "tech",
-   "question": "If you use your phone five hours a day from age 15 to 80, how many whole years of your life is that?",
+   "question": "At the average American's daily phone use, how many whole years between the ages of 15 and 80 are spent on the phone?",
    "answer": 13.5,
    "unit": "years",
    "explainer": "Five hours is 5/24 of a day. Over 65 years that adds up to about 14 years spent looking at a screen.",
@@ -189,7 +189,7 @@
   {
    "id": "history-10yap3e",
    "category": "history",
-   "question": "Walking 25 km a day, how many years would it take to walk every section of the Great Wall of China?",
+   "question": "Walking all day, every day, how many years would it take to walk every section of the Great Wall of China?",
    "answer": 2.3,
    "unit": "years",
    "explainer": "China's survey measured 21,196 km of wall. At 25 km a day that is 848 days, about 2.3 years.",
@@ -226,7 +226,7 @@
   {
    "id": "space-y7ramm",
    "category": "space",
-   "question": "If the Sun were shrunk to a 24 cm basketball, how many metres away would the Earth be?",
+   "question": "If the Sun were shrunk to the size of a basketball, how many metres away would the Earth be?",
    "answer": 25.8,
    "unit": "metres",
    "explainer": "The Sun is 1,392,700 km across and the Earth is 149.6 million km away, 107 Sun-widths. 107 × 0.24 m is about 26 metres.",
@@ -251,7 +251,7 @@
   {
    "id": "everyday-1an44e7",
    "category": "everyday",
-   "question": "At four minutes a day, how many full days of an 80-year life are spent brushing teeth?",
+   "question": "At four minutes a day, how many full days of a lifetime are spent brushing teeth?",
    "answer": 81.2,
    "unit": "days",
    "explainer": "Four minutes a day for 80 years is 116,880 minutes. Divided by 1,440 minutes in a day that is about 81 days of brushing.",
@@ -362,7 +362,7 @@
   {
    "id": "money-xaemkz",
    "category": "money",
-   "question": "How many standard 12.4 kg gold bars are stored in Fort Knox?",
+   "question": "How many standard gold bars are stored in Fort Knox?",
    "answer": 370000,
    "unit": "gold bars",
    "explainer": "Fort Knox holds about 4,580 tonnes of gold, which is 4.58 million kg. Divided by 12.4 kg a bar, that is about 370,000 bars.",
@@ -387,7 +387,7 @@
   {
    "id": "history-jmwo1b",
    "category": "history",
-   "question": "How many 75-year lifetimes fit between the building of the Great Pyramid and today?",
+   "question": "How many human lifetimes fit between the building of the Great Pyramid and today?",
    "answer": 60.9,
    "unit": "lifetimes",
    "explainer": "The Great Pyramid was finished around 2560 BC, about 4,570 years ago. Divided by a 75-year life, that is only about 61 lifetimes end to end.",
@@ -411,7 +411,7 @@
   {
    "id": "space-d8lr2j",
    "category": "space",
-   "question": "Flying at a jumbo jet's 900 km/h, how many years would it take to reach the Sun?",
+   "question": "Flying in an airliner at cruising speed, how many years would it take to reach the Sun?",
    "answer": 19,
    "unit": "years",
    "explainer": "The Sun is about 149.6 million km away. At 900 km/h that is 166,000 hours, which is about 19 years in the air.",
@@ -521,7 +521,7 @@
   {
    "id": "space-2nd2wq",
    "category": "space",
-   "question": "How many days would Japan's fastest bullet train, at its 320 km/h service speed, take to reach the Moon?",
+   "question": "How many days would Japan's fastest bullet train take, at full service speed, to reach the Moon?",
    "answer": 50.1,
    "unit": "days",
    "explainer": "The Moon is 384,400 km away. At 320 km/h that is 1,201 hours, or about 50 days.",
@@ -557,7 +557,7 @@
   {
    "id": "body-126vegf",
    "category": "body",
-   "question": "How many times will your heart beat in an 80-year life?",
+   "question": "How many times will your heart beat in a lifetime?",
    "answer": 2900000000,
    "unit": "beats",
    "explainer": "At 70 beats a minute that is 100,800 a day, 36.8 million a year, and about 2.9 billion over 80 years.",
@@ -581,7 +581,7 @@
   {
    "id": "everyday-h562k2",
    "category": "everyday",
-   "question": "How many years of an 80-year life does the average American spend on their phone, at five hours a day?",
+   "question": "How many years of a lifetime does the average American spend looking at their phone?",
    "answer": 16.7,
    "unit": "years",
    "explainer": "Five hours a day is 5/24 of each day. Over 80 years that is about 17 years of scrolling.",
@@ -593,7 +593,7 @@
   {
    "id": "animals-sskcav",
    "category": "animals",
-   "question": "How many 250 ml glasses of milk does one dairy cow give in a day?",
+   "question": "How many glasses of milk does one dairy cow give in a day?",
    "answer": 112,
    "unit": "glasses",
    "explainer": "A modern dairy cow gives about 28 litres a day. Divided into 250 ml glasses, that is about 110 glasses.",
@@ -617,7 +617,7 @@
   {
    "id": "geography-1ryhrke",
    "category": "geography",
-   "question": "The Pacific plate carries Hawaii towards Japan at about 7 cm a year. How many years until they meet?",
+   "question": "The Pacific plate carries Hawaii towards Japan at about the speed your fingernails grow. How many years until they meet?",
    "answer": 89000000,
    "unit": "years",
    "explainer": "Honolulu to Tokyo is about 6,200 km, or 6.2 million metres. At 0.07 m a year that is roughly 89 million years.",
@@ -689,7 +689,7 @@
   {
    "id": "money-e2j2tq",
    "category": "money",
-   "question": "How many bananas could Elon Musk buy with his entire 2025 fortune, at 25 cents each?",
+   "question": "How many bananas could Elon Musk buy with his entire 2025 fortune?",
    "answer": 1400000000000,
    "unit": "bananas",
    "explainer": "Forbes put Musk's fortune at about $342 billion in 2025. At $0.25 a banana that is about 1.4 trillion bananas, 170 for every person alive.",
@@ -737,7 +737,7 @@
   {
    "id": "body-gpaad8",
    "category": "body",
-   "question": "How many years of an 80-year life are spent asleep?",
+   "question": "How many years of a lifetime are spent asleep?",
    "answer": 26.7,
    "unit": "years",
    "explainer": "Eight hours a night is a third of each day, and a third of 80 years is about 27 years asleep.",
@@ -749,7 +749,7 @@
   {
    "id": "culture-1dsd1ry",
    "category": "culture",
-   "question": "Reading aloud at 150 words a minute, how many hours would it take to read all seven Harry Potter books?",
+   "question": "Reading aloud, how many hours would it take to read all seven Harry Potter books?",
    "answer": 120,
    "unit": "hours",
    "explainer": "The seven books total 1,084,170 words. At 150 words a minute that is 7,228 minutes, about 120 hours of reading aloud.",
@@ -773,7 +773,7 @@
   {
    "id": "space-5txft2",
    "category": "space",
-   "question": "If the Sun were shrunk to a 24 cm basketball, how many millimetres across would the Earth be?",
+   "question": "If the Sun were shrunk to the size of a basketball, how many millimetres across would the Earth be?",
    "answer": 2.2,
    "unit": "mm",
    "explainer": "Earth is 12,742 km across and the Sun 1,392,700 km, a ratio of 109. A 240 mm ball divided by 109 is about 2.2 mm: a peppercorn.",
@@ -809,7 +809,7 @@
   {
    "id": "culture-1947t0j",
    "category": "culture",
-   "question": "How many days would it take to watch the first 33 Marvel Cinematic Universe films back to back?",
+   "question": "How many days would it take to watch every Marvel Cinematic Universe film released up to 2023, back to back?",
    "answer": 3,
    "unit": "days",
    "explainer": "The first 33 MCU films run 4,359 minutes in total, about 72.7 hours: three full days and nights of superheroes.",
@@ -953,7 +953,7 @@
   {
    "id": "space-1gwyhqm",
    "category": "space",
-   "question": "How many 30 cm pizzas, laid flat side by side, would it take to cover the entire surface of the Moon?",
+   "question": "How many large pizzas, laid flat side by side, would it take to cover the entire surface of the Moon?",
    "answer": 540000000000000,
    "unit": "pizzas",
    "explainer": "The Moon's surface is about 37.9 million km², or 3.79 × 10¹³ m². A 30 cm pizza covers 0.0707 m², so you would need about 540 trillion pizzas.",
@@ -1001,7 +1001,7 @@
   {
    "id": "body-kerb5l",
    "category": "body",
-   "question": "How many centimetres do your fingernails grow over an 80-year life?",
+   "question": "How many centimetres do your fingernails grow over a lifetime?",
    "answer": 336,
    "unit": "cm",
    "explainer": "Fingernails grow about 3.5 mm a month, which is 4.2 cm a year and about 340 cm over 80 years: a nail taller than a doorway.",
@@ -1037,7 +1037,7 @@
   {
    "id": "space-2t6ych",
    "category": "space",
-   "question": "Driving non-stop at 100 km/h, how many years would it take to reach Mars at its closest approach?",
+   "question": "Driving non-stop at motorway speed, how many years would it take to reach Mars at its closest approach?",
    "answer": 62.3,
    "unit": "years",
    "explainer": "At their closest, Earth and Mars are about 54.6 million km apart. At 100 km/h that is 546,000 hours, which is about 62 years.",
@@ -1061,7 +1061,7 @@
   {
    "id": "money-2b15os",
    "category": "money",
-   "question": "How many months of a standard Netflix subscription could one 30-second Super Bowl ad pay for?",
+   "question": "How many months of Netflix could one 30-second Super Bowl ad pay for?",
    "answer": 450000,
    "unit": "months",
    "explainer": "A 30-second Super Bowl spot cost about $7 million in 2024, and Netflix Standard was $15.49 a month: about 450,000 months, or 38,000 years of telly.",
@@ -1121,7 +1121,7 @@
   {
    "id": "body-nqx3w6",
    "category": "body",
-   "question": "How many hours does a person spend eating over an 80-year life?",
+   "question": "How many hours does a person spend eating over a lifetime?",
    "answer": 44000,
    "unit": "hours",
    "explainer": "About an hour and a half a day at the table, times 365 days, times 80 years, is about 44,000 hours: five solid years of eating.",
@@ -1133,7 +1133,7 @@
   {
    "id": "geography-1iqvinn",
    "category": "geography",
-   "question": "Walking non-stop at 5 km/h, how many days would it take to walk the full length of the Nile?",
+   "question": "Walking non-stop at a normal pace, how many days would it take to walk the full length of the Nile?",
    "answer": 55.4,
    "unit": "days",
    "explainer": "The Nile runs about 6,650 km. At 5 km/h that is 1,330 hours, which is about 55 days without a single break.",
@@ -1169,7 +1169,7 @@
   {
    "id": "culture-rknxrl",
    "category": "culture",
-   "question": "How many $5 lattes could Taylor Swift's Eras Tour ticket sales have bought?",
+   "question": "How many lattes could Taylor Swift's Eras Tour ticket sales have bought?",
    "answer": 420000000,
    "unit": "lattes",
    "explainer": "The Eras Tour grossed about $2.08 billion in ticket sales. At $5 a latte that is about 420 million coffees.",
@@ -1193,7 +1193,7 @@
   {
    "id": "animals-1tmqfdw",
    "category": "animals",
-   "question": "How many honeybees' entire lifetime output does it take to fill one 450 g jar of honey?",
+   "question": "How many honeybees' entire lifetime output does it take to fill one jar of honey?",
    "answer": 1100,
    "unit": "bees",
    "explainer": "One worker bee makes about a twelfth of a teaspoon of honey in its life, roughly 0.4 g. A 450 g jar is the life's work of about 1,100 bees.",
@@ -1217,7 +1217,7 @@
   {
    "id": "tech-tlf26a",
    "category": "tech",
-   "question": "How many $799 iPhones could Apple have bought with its own 2024 revenue?",
+   "question": "How many iPhones could Apple have bought with its own 2024 revenue?",
    "answer": 490000000,
    "unit": "iPhones",
    "explainer": "Apple's revenue for fiscal 2024 was $391 billion. At $799 an iPhone 16 that is about 490 million phones.",
@@ -1229,7 +1229,7 @@
   {
    "id": "history-e8xail",
    "category": "history",
-   "question": "Walking 30 km a day, how many years would it take to walk every road the Romans ever built?",
+   "question": "Walking all day, every day, how many years would it take to walk every road the Romans ever built?",
    "answer": 27.4,
    "unit": "years",
    "explainer": "A 2025 map puts the Roman road network at about 300,000 km. At 30 km a day that is 10,000 days, about 27 years of walking.",
@@ -1373,7 +1373,7 @@
   {
    "id": "transport-aoavcg",
    "category": "transport",
-   "question": "How many trips around the equator is a car's typical 300,000 km lifetime?",
+   "question": "How many trips around the equator does a car cover in its typical lifetime?",
    "answer": 7.5,
    "unit": "trips",
    "explainer": "A well-kept car covers about 300,000 km before it is scrapped. The equator is 40,075 km, so about seven and a half laps of the planet.",
@@ -1397,7 +1397,7 @@
   {
    "id": "space-1gn5ot5",
    "category": "space",
-   "question": "Driving non-stop at 100 km/h, how many months would it take to reach the Moon?",
+   "question": "Driving non-stop at motorway speed, how many months would it take to reach the Moon?",
    "answer": 5.3,
    "unit": "months",
    "explainer": "The Moon is about 384,400 km away. At 100 km/h that is 3,844 hours, or 160 days: a bit over five months of driving.",
@@ -1409,7 +1409,7 @@
   {
    "id": "population-791qko",
    "category": "population",
-   "question": "How many 50-seat coaches would it take to seat everyone in Greater Tokyo at once?",
+   "question": "How many coaches would it take to seat everyone in Greater Tokyo at once?",
    "answer": 740000,
    "unit": "coaches",
    "explainer": "Greater Tokyo has about 37 million people. At 50 a coach that is 740,000 coaches, a traffic jam about 9,000 km long.",
@@ -1421,7 +1421,7 @@
   {
    "id": "history-1aasohi",
    "category": "history",
-   "question": "How many 5 g gold wedding rings could be made from Tutankhamun's solid gold coffin?",
+   "question": "How many gold wedding rings could be made from Tutankhamun's solid gold coffin?",
    "answer": 22000,
    "unit": "rings",
    "explainer": "Tutankhamun's innermost coffin is about 110 kg of gold, which is 110,000 g. At 5 g a ring that is about 22,000 wedding rings.",
@@ -1457,7 +1457,7 @@
   {
    "id": "transport-5oxtzs",
    "category": "transport",
-   "question": "Driving non-stop at 100 km/h, how many days would it take to drive once around the equator?",
+   "question": "Driving non-stop at motorway speed, how many days would it take to drive once around the equator?",
    "answer": 16.7,
    "unit": "days",
    "explainer": "40,075 km at 100 km/h is about 401 hours, which is about 17 days of driving.",
@@ -1481,7 +1481,7 @@
   {
    "id": "history-1x5rlv",
    "category": "history",
-   "question": "How many 75-year lifetimes ago did the last woolly mammoths die out?",
+   "question": "How many human lifetimes ago did the last woolly mammoths die out?",
    "answer": 53.3,
    "unit": "lifetimes",
    "explainer": "The last mammoths, on Wrangel Island, died out about 4,000 years ago, while the pyramids already stood. That is only about 53 lifetimes back.",
@@ -1493,7 +1493,7 @@
   {
    "id": "culture-8x291u",
    "category": "culture",
-   "question": "How many years of non-stop listening do one billion Spotify streams of a 3.5-minute song add up to?",
+   "question": "How many years of non-stop listening do one billion Spotify streams of a typical song add up to?",
    "answer": 6700,
    "unit": "years",
    "explainer": "A billion plays of 3.5 minutes is 3.5 billion minutes, 58 million hours, about 6,700 years of listening.",
@@ -1505,7 +1505,7 @@
   {
    "id": "population-583249",
    "category": "population",
-   "question": "How many 80,000-seat stadiums would it take to seat the entire population of China at once?",
+   "question": "How many big football stadiums would it take to seat the entire population of China at once?",
    "answer": 18000,
    "unit": "stadiums",
    "explainer": "China has about 1.41 billion people. Divided by 80,000 seats, that is about 18,000 stadiums.",
@@ -1517,7 +1517,7 @@
   {
    "id": "everyday-v92qk5",
    "category": "everyday",
-   "question": "At ten minutes a day, how many full days of an 80-year life are spent on the toilet?",
+   "question": "How many full days of a lifetime are spent on the toilet?",
    "answer": 203,
    "unit": "days",
    "explainer": "Ten minutes a day for 80 years is 292,000 minutes, 4,870 hours: about 200 days sitting down.",
@@ -1553,7 +1553,7 @@
   {
    "id": "everyday-1jcejsv",
    "category": "everyday",
-   "question": "How many kilograms of toothpaste does a person squeeze out in an 80-year life?",
+   "question": "How many kilograms of toothpaste does a person squeeze out in a lifetime?",
    "answer": 58.4,
    "unit": "kg",
    "explainer": "A pea-sized squeeze is about 1 g. Twice a day for 80 years is 58,400 g, about 58 kg of toothpaste: roughly your own body weight.",
@@ -1637,7 +1637,7 @@
   {
    "id": "body-w3h9nt",
    "category": "body",
-   "question": "At 7,000 steps a day, how many steps does a person take in an 80-year life?",
+   "question": "How many steps does a typical person take in a lifetime?",
    "answer": 200000000,
    "unit": "steps",
    "explainer": "7,000 steps a day times 365 days times 80 years is about 200 million steps.",
@@ -1673,7 +1673,7 @@
   {
    "id": "everyday-bhk4cr",
    "category": "everyday",
-   "question": "How many birthday candles does a person blow out in an 80-year life, one candle per year of age?",
+   "question": "How many birthday candles does a person blow out in a lifetime, one candle per year of age?",
    "answer": 3200,
    "unit": "candles",
    "explainer": "One candle on the first birthday, two on the second, and so on up to 80: 1 + 2 + ... + 80 = 80 × 81 ÷ 2, which is 3,240 candles.",
@@ -1817,7 +1817,7 @@
   {
    "id": "money-woyrc1",
    "category": "money",
-   "question": "How much would it cost to buy every possible Powerball ticket combination at $2 each?",
+   "question": "How much would it cost to buy every possible Powerball ticket combination?",
    "answer": 580000000,
    "unit": "US$",
    "explainer": "There are 292,201,338 possible Powerball combinations. At $2 a ticket that is about $584 million, so a jackpot below that loses money even if you buy them all.",
@@ -1901,7 +1901,7 @@
   {
    "id": "animals-66o3k6",
    "category": "animals",
-   "question": "If every pet dog in the United States ate 300 g of food a day, how many tonnes of dog food would that be each day?",
+   "question": "How many tonnes of dog food do the pet dogs of the United States get through each day?",
    "answer": 27000,
    "unit": "tonnes",
    "explainer": "The AVMA counts about 89.7 million pet dogs in the US. At 0.3 kg each that is 26.9 million kg a day, about 27,000 tonnes.",
@@ -1961,7 +1961,7 @@
   {
    "id": "body-1v12ewf",
    "category": "body",
-   "question": "At 7,000 steps a day, how many kilometres does a person walk in an 80-year life?",
+   "question": "How many kilometres does a typical person walk in a lifetime?",
    "answer": 150000,
    "unit": "km",
    "explainer": "7,000 steps of about 0.75 m is 5.25 km a day. Over 80 years that is about 150,000 km, nearly four times around the Earth.",
@@ -2081,7 +2081,7 @@
   {
    "id": "space-l72hay",
    "category": "space",
-   "question": "Walking at 5 km/h non-stop, how many days would it take to walk all the way around the Moon's equator?",
+   "question": "Walking non-stop at a normal pace, how many days would it take to walk all the way around the Moon's equator?",
    "answer": 91,
    "unit": "days",
    "explainer": "The Moon's equator is about 10,921 km around. At 5 km/h that is 2,184 hours, or about 91 days.",
@@ -2273,7 +2273,7 @@
   {
    "id": "transport-1v0lk9q",
    "category": "transport",
-   "question": "Over a 60-year driving life, how many whole years does the average American spend driving?",
+   "question": "Over a lifetime of driving, how many whole years does the average American spend driving?",
    "answer": 3,
    "unit": "years",
    "explainer": "About 434 hours a year behind the wheel, times 60 years, is 26,000 hours: about 3 years of your life in the driver's seat.",
@@ -2285,7 +2285,7 @@
   {
    "id": "culture-8i6rfe",
    "category": "culture",
-   "question": "Reading at 250 words a minute, how many hours would it take to read everything Shakespeare wrote?",
+   "question": "Reading at a normal pace, how many hours would it take to read everything Shakespeare wrote?",
    "answer": 59,
    "unit": "hours",
    "explainer": "Shakespeare's complete works run to 884,647 words. At 250 a minute that is 3,539 minutes, about 59 hours.",
@@ -2465,7 +2465,7 @@
   {
    "id": "everyday-n1p5xu",
    "category": "everyday",
-   "question": "How many bathtubs of water does one person use showering over an 80-year life?",
+   "question": "How many bathtubs of water does one person use showering over a lifetime?",
    "answer": 6300,
    "unit": "bathtubs",
    "explainer": "A shower uses about 65 litres. One a day for 80 years is 1.9 million litres, which is about 6,300 bathtubs of 300 litres.",
@@ -2489,7 +2489,7 @@
   {
    "id": "transport-1lwphr",
    "category": "transport",
-   "question": "How many bathtubs of jet fuel does a Boeing 747 burn on a 10-hour flight?",
+   "question": "How many bathtubs of jet fuel does a Boeing 747 burn on a long-haul flight?",
    "answer": 458,
    "unit": "bathtubs",
    "explainer": "A 747 burns about 11 tonnes an hour, so 110 tonnes in 10 hours. Jet fuel weighs 0.8 kg a litre, so that is 137,000 litres: about 460 bathtubs.",
@@ -2513,7 +2513,7 @@
   {
    "id": "sports-1bwdwmq",
    "category": "sports",
-   "question": "How many kilometres does a Premier League outfield player run over a full 38-game season?",
+   "question": "How many kilometres does a Premier League outfield player run over a full season?",
    "answer": 418,
    "unit": "km",
    "explainer": "Outfield players cover about 11 km a match. Over 38 matches that is about 420 km, London to Newcastle on foot.",
@@ -2525,7 +2525,7 @@
   {
    "id": "money-1kdlrqi",
    "category": "money",
-   "question": "How much does a $4 coffee every single day add up to over 60 years?",
+   "question": "How much does a takeaway coffee every single day add up to over 60 years?",
    "answer": 88000,
    "unit": "US$",
    "explainer": "$4 a day is $1,461 a year. Over 60 years that is about $88,000, a decent car for every decade.",
@@ -2573,7 +2573,7 @@
   {
    "id": "space-7s01zy",
    "category": "space",
-   "question": "Flying at a jumbo jet's 900 km/h, how many years would it take to reach Proxima Centauri, the nearest star?",
+   "question": "Flying in an airliner at cruising speed, how many years would it take to reach Proxima Centauri, the nearest star?",
    "answer": 5100000,
    "unit": "years",
    "explainer": "Proxima Centauri is about 40 trillion km away. At 900 km/h that is 4.4 × 10¹⁰ hours, which is about 5.1 million years.",
@@ -2657,7 +2657,7 @@
   {
    "id": "history-rkjvkf",
    "category": "history",
-   "question": "How many 25-year generations separate us from the fall of the Western Roman Empire in AD 476?",
+   "question": "How many generations separate us from the fall of the Western Roman Empire in AD 476?",
    "answer": 62,
    "unit": "generations",
    "explainer": "From 476 to 2026 is 1,550 years. At 25 years a generation that is about 62 generations: a line of 62 parents and children.",
@@ -2741,7 +2741,7 @@
   {
    "id": "history-1p7x00y",
    "category": "history",
-   "question": "How many 75-year lifetimes have passed since Rome was founded in 753 BC?",
+   "question": "How many human lifetimes have passed since Rome was founded in 753 BC?",
    "answer": 37.1,
    "unit": "lifetimes",
    "explainer": "From 753 BC to 2026 is 2,779 years. Divided by 75, that is about 37 lifetimes end to end.",
@@ -2837,7 +2837,7 @@
   {
    "id": "geography-1qy6t31",
    "category": "geography",
-   "question": "Walking 30 km a day, how many years would it take to walk the entire coastline of mainland Australia?",
+   "question": "Walking all day, every day, how many years would it take to walk the entire coastline of mainland Australia?",
    "answer": 3.3,
    "unit": "years",
    "explainer": "Australia's mainland coastline is about 35,900 km. At 30 km a day that is 1,196 days, about 3.3 years.",
@@ -2861,7 +2861,7 @@
   {
    "id": "body-3ygbgl",
    "category": "body",
-   "question": "How many times does a person blink in an 80-year life?",
+   "question": "How many times does a person blink in a lifetime?",
    "answer": 420000000,
    "unit": "blinks",
    "explainer": "About 15 blinks a minute for 16 waking hours is 14,400 a day. Over 80 years that is about 420 million blinks.",
@@ -3053,7 +3053,7 @@
   {
    "id": "everyday-gey4jp",
    "category": "everyday",
-   "question": "How many times would a lifetime of walking climb the Empire State Building's 1,576 steps?",
+   "question": "How many times would a lifetime of walking climb the Empire State Building's stairs?",
    "answer": 130000,
    "unit": "climbs",
    "explainer": "7,000 steps a day for 80 years is about 204 million steps. Divided by 1,576 steps that is about 130,000 trips to the observation deck.",
@@ -3077,7 +3077,7 @@
   {
    "id": "tech-rzuej3",
    "category": "tech",
-   "question": "Typing non-stop at 40 words a minute, how many years would it take to retype all of English Wikipedia?",
+   "question": "Typing non-stop at an ordinary pace, how many years would it take to retype all of English Wikipedia?",
    "answer": 219,
    "unit": "years",
    "explainer": "English Wikipedia holds about 4.6 billion words. At 40 words a minute that is 115 million minutes, about 220 years of typing.",
@@ -3113,7 +3113,7 @@
   {
    "id": "body-2xv19p",
    "category": "body",
-   "question": "How many meals does a person eat in an 80-year life, at three a day?",
+   "question": "How many meals does a person eat in a lifetime?",
    "answer": 88000,
    "unit": "meals",
    "explainer": "Three meals a day for 80 years is 3 × 365 × 80, about 88,000 meals.",
@@ -3149,7 +3149,7 @@
   {
    "id": "culture-2nzqs4",
    "category": "culture",
-   "question": "How many $10 cinema tickets does Avatar's worldwide box office add up to?",
+   "question": "How many cinema tickets does Avatar's worldwide box office add up to?",
    "answer": 290000000,
    "unit": "tickets",
    "explainer": "Avatar (2009) has grossed about $2.92 billion worldwide. At $10 a ticket that is about 290 million tickets.",
@@ -3293,7 +3293,7 @@
   {
    "id": "food-10d9o81",
    "category": "food",
-   "question": "How many eggs does the average American eat in an 80-year life?",
+   "question": "How many eggs does the average American eat in a lifetime?",
    "answer": 22000,
    "unit": "eggs",
    "explainer": "Americans eat about 280 eggs a year each. Over 80 years that is about 22,000 eggs.",
@@ -3377,7 +3377,7 @@
   {
    "id": "food-i50xdg",
    "category": "food",
-   "question": "How many kilograms of added sugar does the average American eat in a year, at 17 teaspoons a day?",
+   "question": "How many kilograms of added sugar does the average American eat in a year?",
    "answer": 24.8,
    "unit": "kg",
    "explainer": "17 teaspoons of sugar is about 68 g a day. Over a year that is about 25 kg, a full suitcase of sugar.",
@@ -3401,7 +3401,7 @@
   {
    "id": "population-mncqlp",
    "category": "population",
-   "question": "If everyone on Earth were a 4 cm LEGO minifigure lying head to toe, how many kilometres long would the line be?",
+   "question": "If everyone on Earth were a LEGO minifigure lying head to toe, how many kilometres long would the line be?",
    "answer": 320000,
    "unit": "km",
    "explainer": "8.1 billion minifigures at 4 cm each is 324 million metres, about 320,000 km: most of the way to the Moon.",
@@ -3497,7 +3497,7 @@
   {
    "id": "population-1axf1og",
    "category": "population",
-   "question": "If everyone on Earth walked past you in single file, one metre apart at 5 km/h, how many years would the parade last?",
+   "question": "If everyone on Earth walked past you in single file at a normal pace, how many years would the parade last?",
    "answer": 185,
    "unit": "years",
    "explainer": "8.1 billion people one metre apart is an 8.1-million-km line. At 5 km/h it takes 1.6 million hours to pass, about 180 years.",
@@ -3533,7 +3533,7 @@
   {
    "id": "science-pqhjoc",
    "category": "science",
-   "question": "How many standard 1.6 cm dice would fit inside a one-metre cube?",
+   "question": "How many ordinary dice would fit inside a one-metre cube?",
    "answer": 240000,
    "unit": "dice",
    "explainer": "A die is 1.6 cm on a side, so 62.5 dice fit along each metre. 62.5 cubed is about 240,000 dice.",
@@ -3581,7 +3581,7 @@
   {
    "id": "transport-fybfvx",
    "category": "transport",
-   "question": "Cycling eight hours a day at 20 km/h, how many days would it take to ride around the equator?",
+   "question": "Cycling at an easy pace for a full working day, every day, how many days would it take to ride around the equator?",
    "answer": 250,
    "unit": "days",
    "explainer": "40,075 km at 160 km a day is about 250 days of pedalling.",
@@ -3605,7 +3605,7 @@
   {
    "id": "food-nm9atq",
    "category": "food",
-   "question": "How many kilograms of chocolate does the average Swiss person eat in an 80-year life?",
+   "question": "How many kilograms of chocolate does the average Swiss person eat in a lifetime?",
    "answer": 880,
    "unit": "kg",
    "explainer": "The Swiss eat about 11 kg of chocolate a year each, the most in the world. Over 80 years that is about 880 kg, nearly a tonne.",
@@ -3653,7 +3653,7 @@
   {
    "id": "everyday-ehaw73",
    "category": "everyday",
-   "question": "How many times does a person wash their hands in an 80-year life, at eight times a day?",
+   "question": "How many times does a person wash their hands in a lifetime?",
    "answer": 230000,
    "unit": "washes",
    "explainer": "Eight washes a day for 80 years is 8 × 365 × 80, about 230,000 hand washes.",
@@ -3677,7 +3677,7 @@
   {
    "id": "animals-1d2esmi",
    "category": "animals",
-   "question": "How many honeybee trips does it take to carry home the nectar for one 450 g jar of honey?",
+   "question": "How many honeybee trips does it take to carry home the nectar for one jar of honey?",
    "answer": 28000,
    "unit": "trips",
    "explainer": "A bee carries about 40 mg of nectar per trip, and it takes roughly 2.5 kg of nectar to make 1 kg of honey. So a 450 g jar needs about 1.1 kg of nectar, about 28,000 trips.",
@@ -3689,7 +3689,7 @@
   {
    "id": "sports-qmvoon",
    "category": "sports",
-   "question": "How many marathons does a Premier League outfield player run over a 38-game season?",
+   "question": "How many marathons does a Premier League outfield player run over a full season?",
    "answer": 9.9,
    "unit": "marathons",
    "explainer": "About 11 km a match over 38 matches is 418 km. A marathon is 42.195 km, so about 10 marathons a season.",
@@ -3701,7 +3701,7 @@
   {
    "id": "history-1fg590u",
    "category": "history",
-   "question": "How many 25-year generations separate you from the first modern humans to leave Africa, about 60,000 years ago?",
+   "question": "How many generations separate you from the first modern humans to leave Africa, about 60,000 years ago?",
    "answer": 2400,
    "unit": "generations",
    "explainer": "60,000 years divided by 25 years a generation is about 2,400 generations of parents and children.",
@@ -3821,7 +3821,7 @@
   {
    "id": "money-1tfxexg",
    "category": "money",
-   "question": "With a million dollars earning 4% a year, how many $5 lattes a day could you buy on the interest alone?",
+   "question": "With a million dollars in a savings account, how many lattes a day could you buy on the interest alone?",
    "answer": 21.9,
    "unit": "lattes",
    "explainer": "4% of a million is $40,000 a year, about $110 a day, which buys about 22 lattes a day forever.",
@@ -3833,7 +3833,7 @@
   {
    "id": "body-1aj750n",
    "category": "body",
-   "question": "How many 250 ml glasses of water does a person drink in an 80-year life, at two litres a day?",
+   "question": "How many glasses of water does a person drink in a lifetime?",
    "answer": 230000,
    "unit": "glasses",
    "explainer": "Two litres a day is eight glasses. Over 80 years that is about 230,000 glasses.",
@@ -3845,7 +3845,7 @@
   {
    "id": "history-177oi7i",
    "category": "history",
-   "question": "How many 75-year lifetimes have passed since Leonardo painted the Mona Lisa in 1503?",
+   "question": "How many human lifetimes have passed since Leonardo painted the Mona Lisa in 1503?",
    "answer": 7,
    "unit": "lifetimes",
    "explainer": "From 1503 to 2026 is 523 years, which is about seven lifetimes laid end to end.",
@@ -3905,7 +3905,7 @@
   {
    "id": "transport-1owpumz",
    "category": "transport",
-   "question": "Flying non-stop at 900 km/h, how many days would it take to fly once around the equator?",
+   "question": "Flying non-stop in an airliner at cruising speed, how many days would it take to fly once around the equator?",
    "answer": 1.9,
    "unit": "days",
    "explainer": "40,075 km at 900 km/h is 44.5 hours, which is about 1.9 days in the air.",

@@ -1,17 +1,5 @@
 [
   {
-    "id": "science-1ijc40k",
-    "question": "How many drops of water are in an Olympic swimming pool?",
-    "answer": 50000000000,
-    "unit": "drops",
-    "explainer": "An Olympic pool holds 2.5 million litres, which is 2.5 billion millilitres. A drop is about 0.05 ml, so about 50 billion drops.",
-    "source_title": "Olympic-size swimming pool (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Olympic-size_swimming_pool",
-    "as_of": "stable",
-    "difficulty": 1,
-    "retired": true
-  },
-  {
     "id": "science-nhcphf",
     "question": "How many grains of rice are in a 1 kg bag?",
     "answer": 40000,
@@ -43,6 +31,18 @@
     "explainer": "Each fold doubles the thickness. Starting from 0.1 mm, after 42 folds the stack is 0.0001 m × 2⁴² = 440,000 km, past the Moon's 384,400 km.",
     "difficulty": 2,
     "as_of": "stable"
+  },
+  {
+    "id": "science-1ijc40k",
+    "question": "How many drops of water are in an Olympic swimming pool?",
+    "answer": 50000000000,
+    "unit": "drops",
+    "source_title": "Olympic-size swimming pool (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Olympic-size_swimming_pool",
+    "explainer": "An Olympic pool holds 2.5 million litres, which is 2.5 billion millilitres. A drop is about 0.05 ml, so about 50 billion drops.",
+    "difficulty": 1,
+    "as_of": "stable",
+    "retired": true
   },
   {
     "id": "science-1uj495a",
@@ -189,7 +189,7 @@
   },
   {
     "id": "science-pqhjoc",
-    "question": "How many standard 1.6 cm dice would fit inside a one-metre cube?",
+    "question": "How many ordinary dice would fit inside a one-metre cube?",
     "answer": 240000,
     "unit": "dice",
     "source_title": "Dice (Wikipedia)",

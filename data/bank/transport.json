@@ -1,17 +1,5 @@
 [
   {
-    "id": "transport-1xibdfi",
-    "question": "Driving eight hours a day at 60 km/h, how many years would it take to drive every road in the United States?",
-    "answer": 38.2,
-    "unit": "years",
-    "explainer": "The US has about 6.7 million km of public roads. At 480 km a day that is 14,000 days, about 38 years.",
-    "source_title": "Public road length (FHWA)",
-    "source_url": "https://www.fhwa.dot.gov/policyinformation/statistics.cfm",
-    "as_of": "2022",
-    "difficulty": 1,
-    "retired": true
-  },
-  {
     "id": "transport-1xdm4pl",
     "question": "If every car in the world were parked bumper to bumper, how many times would the line wrap around the equator?",
     "answer": 168,
@@ -24,7 +12,7 @@
   },
   {
     "id": "transport-5oxtzs",
-    "question": "Driving non-stop at 100 km/h, how many days would it take to drive once around the equator?",
+    "question": "Driving non-stop at motorway speed, how many days would it take to drive once around the equator?",
     "answer": 16.7,
     "unit": "days",
     "source_title": "Earth's circumference (Wikipedia)",
@@ -56,8 +44,20 @@
     "as_of": "2024"
   },
   {
+    "id": "transport-1xibdfi",
+    "question": "Driving eight hours a day at 60 km/h, how many years would it take to drive every road in the United States?",
+    "answer": 38.2,
+    "unit": "years",
+    "source_title": "Public road length (FHWA)",
+    "source_url": "https://www.fhwa.dot.gov/policyinformation/statistics.cfm",
+    "explainer": "The US has about 6.7 million km of public roads. At 480 km a day that is 14,000 days, about 38 years.",
+    "difficulty": 1,
+    "as_of": "2022",
+    "retired": true
+  },
+  {
     "id": "transport-1lwphr",
-    "question": "How many bathtubs of jet fuel does a Boeing 747 burn on a 10-hour flight?",
+    "question": "How many bathtubs of jet fuel does a Boeing 747 burn on a long-haul flight?",
     "answer": 458,
     "unit": "bathtubs",
     "source_title": "How much fuel does a jumbo jet burn? (Flight Deck Friend)",
@@ -123,7 +123,7 @@
   },
   {
     "id": "transport-1v0lk9q",
-    "question": "Over a 60-year driving life, how many whole years does the average American spend driving?",
+    "question": "Over a lifetime of driving, how many whole years does the average American spend driving?",
     "answer": 3,
     "unit": "years",
     "source_title": "Average annual miles per driver (FHWA)",
@@ -156,7 +156,7 @@
   },
   {
     "id": "transport-aoavcg",
-    "question": "How many trips around the equator is a car's typical 300,000 km lifetime?",
+    "question": "How many trips around the equator does a car cover in its typical lifetime?",
     "answer": 7.5,
     "unit": "trips",
     "source_title": "Earth's circumference (Wikipedia)",
@@ -167,7 +167,7 @@
   },
   {
     "id": "transport-1owpumz",
-    "question": "Flying non-stop at 900 km/h, how many days would it take to fly once around the equator?",
+    "question": "Flying non-stop in an airliner at cruising speed, how many days would it take to fly once around the equator?",
     "answer": 1.9,
     "unit": "days",
     "source_title": "Earth's circumference (Wikipedia)",
@@ -200,7 +200,7 @@
   },
   {
     "id": "transport-fybfvx",
-    "question": "Cycling eight hours a day at 20 km/h, how many days would it take to ride around the equator?",
+    "question": "Cycling at an easy pace for a full working day, every day, how many days would it take to ride around the equator?",
     "answer": 250,
     "unit": "days",
     "source_title": "Earth's circumference (Wikipedia)",

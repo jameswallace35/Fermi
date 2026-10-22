@@ -1,19 +1,7 @@
 [
   {
-    "id": "money-ny3pep",
-    "question": "How much money is a one-tonne pile of US pennies worth?",
-    "answer": 4000,
-    "unit": "US$",
-    "explainer": "A penny weighs 2.5 g, so a tonne (1,000,000 g) is 400,000 pennies, worth $4,000.",
-    "source_title": "Penny (U.S. Mint)",
-    "source_url": "https://www.usmint.gov/coins/coin-medal-programs/circulating-coins/penny",
-    "as_of": "stable",
-    "difficulty": 1,
-    "retired": true
-  },
-  {
     "id": "money-e2j2tq",
-    "question": "How many bananas could Elon Musk buy with his entire 2025 fortune, at 25 cents each?",
+    "question": "How many bananas could Elon Musk buy with his entire 2025 fortune?",
     "answer": 1400000000000,
     "unit": "bananas",
     "source_title": "Forbes Billionaires 2025",
@@ -46,7 +34,7 @@
   },
   {
     "id": "money-1kdlrqi",
-    "question": "How much does a $4 coffee every single day add up to over 60 years?",
+    "question": "How much does a takeaway coffee every single day add up to over 60 years?",
     "answer": 88000,
     "unit": "US$",
     "source_title": "Coffee (Wikipedia)",
@@ -79,7 +67,7 @@
   },
   {
     "id": "money-woyrc1",
-    "question": "How much would it cost to buy every possible Powerball ticket combination at $2 each?",
+    "question": "How much would it cost to buy every possible Powerball ticket combination?",
     "answer": 580000000,
     "unit": "US$",
     "source_title": "Powerball prize chart",
@@ -90,7 +78,7 @@
   },
   {
     "id": "money-xaemkz",
-    "question": "How many standard 12.4 kg gold bars are stored in Fort Knox?",
+    "question": "How many standard gold bars are stored in Fort Knox?",
     "answer": 370000,
     "unit": "gold bars",
     "source_title": "Fort Knox Bullion Depository (U.S. Mint)",
@@ -123,7 +111,7 @@
   },
   {
     "id": "money-2b15os",
-    "question": "How many months of a standard Netflix subscription could one 30-second Super Bowl ad pay for?",
+    "question": "How many months of Netflix could one 30-second Super Bowl ad pay for?",
     "answer": 450000,
     "unit": "months",
     "source_title": "Super Bowl advertising (Wikipedia)",
@@ -131,6 +119,18 @@
     "explainer": "A 30-second Super Bowl spot cost about $7 million in 2024, and Netflix Standard was $15.49 a month: about 450,000 months, or 38,000 years of telly.",
     "difficulty": 1,
     "as_of": "2024"
+  },
+  {
+    "id": "money-ny3pep",
+    "question": "How much money is a one-tonne pile of US pennies worth?",
+    "answer": 4000,
+    "unit": "US$",
+    "source_title": "Penny (U.S. Mint)",
+    "source_url": "https://www.usmint.gov/coins/coin-medal-programs/circulating-coins/penny",
+    "explainer": "A penny weighs 2.5 g, so a tonne (1,000,000 g) is 400,000 pennies, worth $4,000.",
+    "difficulty": 1,
+    "as_of": "stable",
+    "retired": true
   },
   {
     "id": "money-ih4xx2",
@@ -211,7 +211,7 @@
   },
   {
     "id": "money-1tfxexg",
-    "question": "With a million dollars earning 4% a year, how many $5 lattes a day could you buy on the interest alone?",
+    "question": "With a million dollars in a savings account, how many lattes a day could you buy on the interest alone?",
     "answer": 21.9,
     "unit": "lattes",
     "source_title": "Interest (Wikipedia)",

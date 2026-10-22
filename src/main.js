@@ -1667,10 +1667,16 @@ function setupCalculator() {
     clearTimeout(notesSaveTimer);
     notesSaveTimer = setTimeout(saveNotesNow, 500);
   });
+  // Closing the docked panels with X keeps them closed on later visits. The
+  // preference is written on the click itself, since the dialog's close event
+  // arrives a task later and a reload in between would lose it.
+  const rememberClosed = () => {
+    if (!relayoutingCalc && els.calc.classList.contains('side')) S.savePrefs({ ...S.loadPrefs(), sidePanels: false });
+  };
+  els.calc.querySelector('.dialog-head').addEventListener('submit', rememberClosed);
   els.calc.addEventListener('close', () => {
     if (notesSaveTimer) saveNotesNow();
-    // Closing the docked panels with X keeps them closed on later visits.
-    if (!relayoutingCalc && els.calc.classList.contains('side')) S.savePrefs({ ...S.loadPrefs(), sidePanels: false });
+    rememberClosed();
   });
   window.addEventListener('resize', relayoutCalculator);
 }

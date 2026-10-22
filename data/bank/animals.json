@@ -1,17 +1,5 @@
 [
   {
-    "id": "animals-1aearji",
-    "question": "How many people could a blue whale's 150 tonnes feed, at 500 g of meat each?",
-    "answer": 300000,
-    "unit": "people",
-    "explainer": "150 tonnes is 150,000 kg. At half a kilo per plate that is 300,000 servings, a whole city's dinner.",
-    "source_title": "Blue whale (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Blue_whale",
-    "as_of": "stable",
-    "difficulty": 1,
-    "retired": true
-  },
-  {
     "id": "animals-qhxtz9",
     "question": "How many ants are there on Earth for every single person?",
     "answer": 2500000,
@@ -46,7 +34,7 @@
   },
   {
     "id": "animals-66o3k6",
-    "question": "If every pet dog in the United States ate 300 g of food a day, how many tonnes of dog food would that be each day?",
+    "question": "How many tonnes of dog food do the pet dogs of the United States get through each day?",
     "answer": 27000,
     "unit": "tonnes",
     "source_title": "U.S. pet ownership statistics (AVMA)",
@@ -101,7 +89,7 @@
   },
   {
     "id": "animals-1tmqfdw",
-    "question": "How many honeybees' entire lifetime output does it take to fill one 450 g jar of honey?",
+    "question": "How many honeybees' entire lifetime output does it take to fill one jar of honey?",
     "answer": 1100,
     "unit": "bees",
     "source_title": "Honey bee facts (National Honey Board)",
@@ -134,7 +122,7 @@
   },
   {
     "id": "animals-sskcav",
-    "question": "How many 250 ml glasses of milk does one dairy cow give in a day?",
+    "question": "How many glasses of milk does one dairy cow give in a day?",
     "answer": 112,
     "unit": "glasses",
     "source_title": "Dairy cattle (Wikipedia)",
@@ -177,6 +165,18 @@
     "as_of": "stable"
   },
   {
+    "id": "animals-1aearji",
+    "question": "How many people could a blue whale's 150 tonnes feed, at 500 g of meat each?",
+    "answer": 300000,
+    "unit": "people",
+    "source_title": "Blue whale (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Blue_whale",
+    "explainer": "150 tonnes is 150,000 kg. At half a kilo per plate that is 300,000 servings, a whole city's dinner.",
+    "difficulty": 1,
+    "as_of": "stable",
+    "retired": true
+  },
+  {
     "id": "animals-1xsrxu5",
     "question": "How many house mice would weigh the same as an African elephant?",
     "answer": 300000,
@@ -189,7 +189,7 @@
   },
   {
     "id": "animals-1d2esmi",
-    "question": "How many honeybee trips does it take to carry home the nectar for one 450 g jar of honey?",
+    "question": "How many honeybee trips does it take to carry home the nectar for one jar of honey?",
     "answer": 28000,
     "unit": "trips",
     "source_title": "Honey bee (Wikipedia)",

@@ -1,17 +1,5 @@
 [
   {
-    "id": "everyday-1an44e7",
-    "question": "At four minutes a day, how many full days of an 80-year life are spent brushing teeth?",
-    "answer": 81.2,
-    "unit": "days",
-    "explainer": "Four minutes a day for 80 years is 116,880 minutes. Divided by 1,440 minutes in a day that is about 81 days of brushing.",
-    "source_title": "Toothbrush (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/Toothbrush",
-    "as_of": "stable",
-    "difficulty": 1,
-    "retired": true
-  },
-  {
     "id": "everyday-1p75k9g",
     "question": "How many LEGO bricks stacked on top of each other would reach the top of the Eiffel Tower?",
     "answer": 34000,
@@ -24,7 +12,7 @@
   },
   {
     "id": "everyday-v92qk5",
-    "question": "At ten minutes a day, how many full days of an 80-year life are spent on the toilet?",
+    "question": "How many full days of a lifetime are spent on the toilet?",
     "answer": 203,
     "unit": "days",
     "source_title": "Toilet (Wikipedia)",
@@ -45,6 +33,18 @@
     "as_of": "stable"
   },
   {
+    "id": "everyday-1an44e7",
+    "question": "At four minutes a day, how many full days of a lifetime are spent brushing teeth?",
+    "answer": 81.2,
+    "unit": "days",
+    "source_title": "Toothbrush (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/Toothbrush",
+    "explainer": "Four minutes a day for 80 years is 116,880 minutes. Divided by 1,440 minutes in a day that is about 81 days of brushing.",
+    "difficulty": 1,
+    "as_of": "stable",
+    "retired": true
+  },
+  {
     "id": "everyday-yskl95",
     "question": "How many standard 2x4 LEGO bricks would it take to build a solid, full-size London double-decker bus?",
     "answer": 26000000,
@@ -57,7 +57,7 @@
   },
   {
     "id": "everyday-n1p5xu",
-    "question": "How many bathtubs of water does one person use showering over an 80-year life?",
+    "question": "How many bathtubs of water does one person use showering over a lifetime?",
     "answer": 6300,
     "unit": "bathtubs",
     "source_title": "Showerheads (EPA WaterSense)",
@@ -123,7 +123,7 @@
   },
   {
     "id": "everyday-bhk4cr",
-    "question": "How many birthday candles does a person blow out in an 80-year life, one candle per year of age?",
+    "question": "How many birthday candles does a person blow out in a lifetime, one candle per year of age?",
     "answer": 3200,
     "unit": "candles",
     "source_title": "Birthday cake (Wikipedia)",
@@ -145,7 +145,7 @@
   },
   {
     "id": "everyday-1jcejsv",
-    "question": "How many kilograms of toothpaste does a person squeeze out in an 80-year life?",
+    "question": "How many kilograms of toothpaste does a person squeeze out in a lifetime?",
     "answer": 58.4,
     "unit": "kg",
     "source_title": "Toothpaste (Wikipedia)",
@@ -156,7 +156,7 @@
   },
   {
     "id": "everyday-h562k2",
-    "question": "How many years of an 80-year life does the average American spend on their phone, at five hours a day?",
+    "question": "How many years of a lifetime does the average American spend looking at their phone?",
     "answer": 16.7,
     "unit": "years",
     "source_title": "Study finds the average American spent 2.5 months on their phone in 2024 (Reviews.org)",
@@ -167,7 +167,7 @@
   },
   {
     "id": "everyday-gey4jp",
-    "question": "How many times would a lifetime of walking climb the Empire State Building's 1,576 steps?",
+    "question": "How many times would a lifetime of walking climb the Empire State Building's stairs?",
     "answer": 130000,
     "unit": "climbs",
     "source_title": "Empire State Building Run-Up (Wikipedia)",
@@ -189,7 +189,7 @@
   },
   {
     "id": "everyday-ehaw73",
-    "question": "How many times does a person wash their hands in an 80-year life, at eight times a day?",
+    "question": "How many times does a person wash their hands in a lifetime?",
     "answer": 230000,
     "unit": "washes",
     "source_title": "Hand washing (Wikipedia)",

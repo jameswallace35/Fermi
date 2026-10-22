@@ -1,17 +1,5 @@
 [
   {
-    "id": "culture-1f097ae",
-    "question": "How many days would it take to watch all 236 episodes of Friends back to back?",
-    "answer": 3.6,
-    "unit": "days",
-    "explainer": "236 episodes of about 22 minutes is 5,192 minutes, 87 hours: about three and a half days.",
-    "source_title": "List of Friends episodes (Wikipedia)",
-    "source_url": "https://en.wikipedia.org/wiki/List_of_Friends_episodes",
-    "as_of": "stable",
-    "difficulty": 1,
-    "retired": true
-  },
-  {
     "id": "culture-1mad9vt",
     "question": "How many days would it take to binge every episode of The Simpsons back to back?",
     "answer": 12.1,
@@ -24,7 +12,7 @@
   },
   {
     "id": "culture-1947t0j",
-    "question": "How many days would it take to watch the first 33 Marvel Cinematic Universe films back to back?",
+    "question": "How many days would it take to watch every Marvel Cinematic Universe film released up to 2023, back to back?",
     "answer": 3,
     "unit": "days",
     "source_title": "How long would it take to watch all 33 MCU movies (Fiction Horizon)",
@@ -35,7 +23,7 @@
   },
   {
     "id": "culture-1dsd1ry",
-    "question": "Reading aloud at 150 words a minute, how many hours would it take to read all seven Harry Potter books?",
+    "question": "Reading aloud, how many hours would it take to read all seven Harry Potter books?",
     "answer": 120,
     "unit": "hours",
     "source_title": "How many words are in the Harry Potter books (Word Counter)",
@@ -57,7 +45,7 @@
   },
   {
     "id": "culture-8i6rfe",
-    "question": "Reading at 250 words a minute, how many hours would it take to read everything Shakespeare wrote?",
+    "question": "Reading at a normal pace, how many hours would it take to read everything Shakespeare wrote?",
     "answer": 59,
     "unit": "hours",
     "source_title": "Shakespeare statistics (Open Source Shakespeare)",
@@ -76,6 +64,18 @@
     "explainer": "The Pokémon Company had shipped 64.8 billion cards by March 2024. With 8.1 billion people, that is eight cards each.",
     "difficulty": 1,
     "as_of": "2024"
+  },
+  {
+    "id": "culture-1f097ae",
+    "question": "How many days would it take to watch all 236 episodes of Friends back to back?",
+    "answer": 3.6,
+    "unit": "days",
+    "source_title": "List of Friends episodes (Wikipedia)",
+    "source_url": "https://en.wikipedia.org/wiki/List_of_Friends_episodes",
+    "explainer": "236 episodes of about 22 minutes is 5,192 minutes, 87 hours: about three and a half days.",
+    "difficulty": 1,
+    "as_of": "stable",
+    "retired": true
   },
   {
     "id": "culture-16tqzyq",
@@ -112,7 +112,7 @@
   },
   {
     "id": "culture-8x291u",
-    "question": "How many years of non-stop listening do one billion Spotify streams of a 3.5-minute song add up to?",
+    "question": "How many years of non-stop listening do one billion Spotify streams of a typical song add up to?",
     "answer": 6700,
     "unit": "years",
     "source_title": "Spotify (Wikipedia)",
@@ -123,7 +123,7 @@
   },
   {
     "id": "culture-rknxrl",
-    "question": "How many $5 lattes could Taylor Swift's Eras Tour ticket sales have bought?",
+    "question": "How many lattes could Taylor Swift's Eras Tour ticket sales have bought?",
     "answer": 420000000,
     "unit": "lattes",
     "source_title": "The Eras Tour (Wikipedia)",
@@ -189,7 +189,7 @@
   },
   {
     "id": "culture-2nzqs4",
-    "question": "How many $10 cinema tickets does Avatar's worldwide box office add up to?",
+    "question": "How many cinema tickets does Avatar's worldwide box office add up to?",
     "answer": 290000000,
     "unit": "tickets",
     "source_title": "Avatar (2009 film) (Wikipedia)",

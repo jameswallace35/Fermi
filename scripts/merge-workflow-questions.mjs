@@ -1,6 +1,7 @@
 // One-off helper: turn fact-checked questions into data/bank/*.json, keeping
 // only the old questions that already-played puzzles need (flagged retired)
-// and dropping the rest.
+// and dropping the rest. An entry carrying an "id" replaces the published
+// question with that id in place (a rewording), keeping the id stable.
 //
 // Input: a directory holding verify-<slug>.json files, each a JSON array of
 // entries with a "verdict" ("accept" | "reject") plus the question fields,
@@ -70,6 +71,7 @@ for (let n = 1; n <= keepDays; n++) for (const q of selectQuestions(bank, n)) ke
 
 const perSlug = new Map(CATEGORIES.map((c) => [c.slug, []]));
 let dropped = 0;
+let replaced = 0;
 for (const r of accepted) {
   if (!perSlug.has(r.slug)) continue;
   const q = tidy(r);
@@ -81,22 +83,38 @@ for (const r of accepted) {
     dropped++;
     continue;
   }
+  // A reworded question keeps the id it was first published under, so days
+  // already played with it still resolve and its wording simply updates.
+  const explicitId = typeof r.id === 'string' && /^[a-z0-9][a-z0-9-]*$/.test(r.id) ? r.id : null;
+  const id = explicitId || questionId(r.slug, q.question);
   const list = perSlug.get(r.slug);
-  if (list.some((o) => isDuplicate(o, q)) || [...keepIds].some((id) => isDuplicate(byId.get(id), q))) {
+  if (list.some((o) => o.id === id)) {
+    console.warn(`skip duplicate id: ${q.question}`);
+    dropped++;
+    continue;
+  }
+  if (list.some((o) => isDuplicate(o, q)) || [...keepIds].some((kid) => kid !== id && isDuplicate(byId.get(kid), q))) {
     console.warn(`skip duplicate: ${q.question}`);
     dropped++;
     continue;
   }
-  list.push({ id: questionId(r.slug, q.question), ...q });
+  const existing = byId.get(id);
+  if (existing) replaced++;
+  list.push({ id, ...q, ...(existing?.retired ? { retired: true } : {}) });
 }
 
 let total = 0;
 for (const cat of CATEGORIES) {
-  const kept = bank.questions.filter((q) => q.category === cat.slug && keepIds.has(q.id)).map(({ category, ...q }) => ({ ...q, retired: true }));
   const fresh = perSlug.get(cat.slug);
+  const freshIds = new Set(fresh.map((q) => q.id));
+  // Entries already retired stay (their ids must keep resolving); entries the
+  // kept days need are retired unless a fresh entry replaces them in place.
+  const kept = bank.questions
+    .filter((q) => q.category === cat.slug && !freshIds.has(q.id) && (q.retired || keepIds.has(q.id)))
+    .map(({ category, ...q }) => ({ ...q, retired: true }));
   total += fresh.length;
   const file = path.join(root, 'data', 'bank', `${cat.slug}.json`);
   console.log(`${cat.slug}: ${fresh.length} new, ${kept.length} retired`);
   if (!dryRun) fs.writeFileSync(file, JSON.stringify([...kept, ...fresh], null, 2) + '\n');
 }
-console.log(`${total} questions written (${dropped} skipped) from ${accepted.length} accepted verdicts${dryRun ? ' [dry run]' : ''}.`);
+console.log(`${total} questions written (${replaced} replacing a published entry in place, ${dropped} skipped) from ${accepted.length} accepted verdicts${dryRun ? ' [dry run]' : ''}.`);

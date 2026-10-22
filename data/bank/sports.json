@@ -1,17 +1,5 @@
 [
   {
-    "id": "sports-1yruugx",
-    "question": "How many Olympic gold medals' worth of real gold is in one standard 12.4 kg gold bar?",
-    "answer": 2100,
-    "unit": "medals",
-    "explainer": "A Paris 2024 gold medal contains just 6 g of gold on a silver core. A 12.4 kg bar holds about 2,100 medals' worth.",
-    "source_title": "Paris 2024 medals (Olympics.com)",
-    "source_url": "https://olympics.com/en/paris-2024/the-games/the-brand/medals",
-    "as_of": "2024",
-    "difficulty": 1,
-    "retired": true
-  },
-  {
     "id": "sports-m4bjze",
     "question": "How many footballs would it take to fill Wembley's pitch to a depth of one metre?",
     "answer": 820000,
@@ -101,7 +89,7 @@
   },
   {
     "id": "sports-1bwdwmq",
-    "question": "How many kilometres does a Premier League outfield player run over a full 38-game season?",
+    "question": "How many kilometres does a Premier League outfield player run over a full season?",
     "answer": 418,
     "unit": "km",
     "source_title": "Premier League (Wikipedia)",
@@ -120,6 +108,18 @@
     "explainer": "Fans ate about 19.1 million ballpark hot dogs in 2022. At 15 cm each that is 2.9 million metres, about 2,900 km: New York to Denver.",
     "difficulty": 1,
     "as_of": "2022"
+  },
+  {
+    "id": "sports-1yruugx",
+    "question": "How many Olympic gold medals' worth of real gold is in one standard 12.4 kg gold bar?",
+    "answer": 2100,
+    "unit": "medals",
+    "source_title": "Paris 2024 medals (Olympics.com)",
+    "source_url": "https://olympics.com/en/paris-2024/the-games/the-brand/medals",
+    "explainer": "A Paris 2024 gold medal contains just 6 g of gold on a silver core. A 12.4 kg bar holds about 2,100 medals' worth.",
+    "difficulty": 1,
+    "as_of": "2024",
+    "retired": true
   },
   {
     "id": "sports-szxcuq",
@@ -222,7 +222,7 @@
   },
   {
     "id": "sports-qmvoon",
-    "question": "How many marathons does a Premier League outfield player run over a 38-game season?",
+    "question": "How many marathons does a Premier League outfield player run over a full season?",
     "answer": 9.9,
     "unit": "marathons",
     "source_title": "Premier League (Wikipedia)",
