@@ -673,6 +673,57 @@ button {
   overflow-wrap: anywhere;
 }
 
+/* community stats */
+.community {
+  margin: 4px 0 18px;
+  padding: 12px 14px;
+  background: var(--surface-2);
+  border-radius: var(--radius-sm);
+}
+.community-line {
+  margin: 0;
+  font-size: 0.92rem;
+}
+.community-chart {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 56px;
+  margin: 10px 0 4px;
+  padding-bottom: 2px;
+  border-bottom: 1px solid var(--border);
+}
+.community-chart .cbar {
+  flex: 1;
+  background: var(--muted);
+  opacity: 0.55;
+  border-radius: 3px 3px 0 0;
+  min-height: 2px;
+}
+.community-chart .cbar.mine {
+  background: var(--accent);
+  opacity: 1;
+}
+.community-chart .community-answer {
+  position: absolute;
+  left: 50%;
+  top: -4px;
+  bottom: -4px;
+  width: 2px;
+  background: var(--text);
+  border-radius: 1px;
+}
+.community-ticks {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.7rem;
+  color: var(--muted);
+}
+.community-note {
+  margin: 6px 0 0;
+}
+
 /* ---------------------------------------------------------------- summary */
 
 .summary-head {

@@ -3,11 +3,12 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import worker, { sanitizePuzzle, mergePuzzle, timingSafeEqual, createPasswordRecord, verifyPassword, validateUsername, HttpError } from '../worker/src/index.js';
+import worker, { sanitizePuzzle, mergePuzzle, timingSafeEqual, createPasswordRecord, verifyPassword, validateUsername, computeStats, HttpError } from '../worker/src/index.js';
 import { createD1 } from './helpers/d1.js';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const schema = fs.readFileSync(path.join(root, 'worker', 'migrations', '0001_init.sql'), 'utf8');
+const migrations = path.join(root, 'worker', 'migrations');
+const schema = fs.readdirSync(migrations).filter((f) => f.endsWith('.sql')).sort().map((f) => fs.readFileSync(path.join(migrations, f), 'utf8')).join('\n');
 
 function makeEnv() {
   return { DB: createD1(schema), ALLOWED_ORIGINS: 'https://game.example', PBKDF2_ITERATIONS: '10000' };
@@ -190,4 +191,60 @@ test('CORS, content types, unknown routes and health', async () => {
   assert.equal(r.status, 404);
   r = await call(env, 'DELETE', '/api/login', {});
   assert.equal(r.status, 405);
+});
+
+test('computeStats measures in decades and compares against other players', () => {
+  const empty = computeStats([], 100, 100);
+  assert.equal(empty.count, 0);
+  assert.equal(empty.histogram.length, 12);
+  const s = computeStats([100, 1000, 10, 100000, 0.001], 100, 1000);
+  assert.equal(s.count, 5);
+  assert.ok(Math.abs(s.typical - 100 * 10 ** ((0 + 1 - 1 + 3 - 5) / 5)) < 1e-6);
+  assert.equal(s.median, 100);
+  assert.equal(s.histogram.reduce((a, b) => a + b, 0), 5);
+  assert.equal(s.histogram[6], 1); // exact answer sits in the first bucket above the centre
+  assert.equal(s.histogram[11], 1); // 1000x folds into the top bucket
+  assert.equal(s.histogram[0], 1); // 100000x too low folds into the bottom bucket
+  assert.equal(s.within2x, 0.2);
+  // my guess (1000, one decade off) beats the players at 3 and 5 decades off, not the exact one or the 10 (also one decade)
+  assert.equal(s.beat, 0.5);
+  assert.equal(computeStats([100], 100, 100).beat, null); // alone: nobody to compare against
+  assert.equal(computeStats([100, 5], 100).beat, null);
+});
+
+test('guess stats endpoints: one guess per player, anonymous or signed in', async () => {
+  const env = makeEnv();
+  const token = (await call(env, 'POST', '/api/signup', { body: { username: 'stats_user', password: 'estimate123' } })).body.token;
+  const q = 'geography-abc123';
+  let r = await call(env, 'POST', '/api/guesses', { body: { question_id: q, guess: 1000, answer: 100 } });
+  assert.equal(r.status, 400, 'anonymous guesses need a player id');
+  r = await call(env, 'POST', '/api/guesses', { body: { question_id: q, guess: 1000, answer: 100, player: 'anon_player_0000000001' } });
+  assert.equal(r.status, 200);
+  assert.equal(r.body.count, 1);
+  assert.equal(r.body.beat, null);
+  r = await call(env, 'POST', '/api/guesses', { body: { question_id: q, guess: 5, answer: 100, player: 'anon_player_0000000001' } });
+  assert.equal(r.body.count, 1, 'a second guess from the same player is ignored');
+  r = await call(env, 'POST', '/api/guesses', { token, body: { question_id: q, guess: 120, answer: 100 } });
+  assert.equal(r.body.count, 2);
+  assert.ok(Math.abs(r.body.beat - 1) < 1e-9, 'the signed-in player (1.2x off) beats the anonymous one (10x off)');
+  r = await call(env, 'POST', '/api/guesses', { body: { question_id: q, guess: 10, answer: 100, player: 'anon_player_0000000002' } });
+  assert.equal(r.body.count, 3);
+  assert.ok(Math.abs(r.body.beat - 0) < 1e-9, 'ties do not count as beating');
+  r = await call(env, 'GET', `/api/stats?question_id=${q}&answer=100&guess=120`, {});
+  assert.equal(r.status, 200);
+  assert.equal(r.body.count, 3);
+  assert.ok(Math.abs(r.body.beat - 1) < 1e-9);
+  assert.ok(Math.abs(r.body.typical - 100 * 10 ** ((1 + Math.log10(1.2) - 1) / 3)) < 1e-6);
+  r = await call(env, 'GET', `/api/stats?question_id=${q}&answer=100`, {});
+  assert.equal(r.body.beat, null);
+  r = await call(env, 'GET', '/api/stats?question_id=nope!&answer=100', {});
+  assert.equal(r.status, 400);
+  r = await call(env, 'GET', `/api/stats?question_id=${q}&answer=0`, {});
+  assert.equal(r.status, 400);
+  r = await call(env, 'POST', '/api/guesses', { body: { question_id: q, guess: -1, answer: 100, player: 'anon_player_0000000003' } });
+  assert.equal(r.status, 400);
+  // deleting the account removes its guesses
+  await call(env, 'DELETE', '/api/account', { token, body: { password: 'estimate123' } });
+  r = await call(env, 'GET', `/api/stats?question_id=${q}&answer=100`, {});
+  assert.equal(r.body.count, 2);
 });

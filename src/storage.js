@@ -68,6 +68,17 @@ export function listPuzzleStates() {
   return out;
 }
 
+/** A random id that identifies this browser in the community statistics. Never tied to a name. */
+export function anonymousId() {
+  let id = read('anon', null);
+  if (typeof id === 'string' && /^[A-Za-z0-9_-]{16,64}$/.test(id)) return id;
+  const bytes = new Uint8Array(18);
+  crypto.getRandomValues(bytes);
+  id = Array.from(bytes, (b) => 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_-'[b % 64]).join('');
+  write('anon', id);
+  return id;
+}
+
 /** Always returns a plain object. */
 export function loadPrefs() {
   const p = read('prefs', {});

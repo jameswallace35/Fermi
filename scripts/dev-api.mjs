@@ -7,7 +7,8 @@ import worker from '../worker/src/index.js';
 import { createD1 } from '../tests/helpers/d1.js';
 
 const port = Number(process.argv[2] || process.env.API_PORT || 8787);
-const schema = fs.readFileSync(new URL('../worker/migrations/0001_init.sql', import.meta.url), 'utf8');
+const migrationsDir = new URL('../worker/migrations/', import.meta.url);
+const schema = fs.readdirSync(migrationsDir).filter((f) => f.endsWith('.sql')).sort().map((f) => fs.readFileSync(new URL(f, migrationsDir), 'utf8')).join('\n');
 const env = { DB: createD1(schema), ALLOWED_ORIGINS: '*', PBKDF2_ITERATIONS: process.env.PBKDF2_ITERATIONS || '20000' };
 
 http

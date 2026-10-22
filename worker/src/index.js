@@ -13,6 +13,9 @@
 //   GET    /api/puzzles  (Bearer)                        -> { puzzles: { [n]: state } }
 //   PUT    /api/puzzles  (Bearer) { puzzles: {...} }     -> { puzzles: merged }
 //   DELETE /api/account  (Bearer) { password }           -> 204
+//   POST   /api/guesses  { question_id, guess, answer, player? } (Bearer optional)
+//                                                        -> stats for that question, including you
+//   GET    /api/stats?question_id=..&answer=..&guess=..  -> stats for that question
 
 export const USERNAME_RE = /^[a-z0-9_]{3,24}$/;
 export const PASSWORD_MIN = 8;
@@ -24,6 +27,10 @@ const BODY_LIMIT = 256 * 1024;
 const MAX_PUZZLES_PER_REQUEST = 500;
 const MAX_PUZZLE_NUMBER = 100000;
 const DEFAULT_ITERATIONS = 100000;
+const GUESS_LIMIT_PER_IP = 200;
+const STATS_SAMPLE = 5000;
+const QUESTION_ID_RE = /^[a-z0-9][a-z0-9-]{0,63}$/;
+const ANON_ID_RE = /^[A-Za-z0-9_-]{16,64}$/;
 const LOGIN_LIMIT_PER_IP = 30;
 const LOGIN_LIMIT_PER_USER = 10;
 const SIGNUP_LIMIT_PER_IP = 10;
@@ -122,6 +129,55 @@ export function sanitizePuzzle(raw) {
   if (Array.isArray(raw.ids) && raw.ids.length <= QUESTIONS_PER_DAY && raw.ids.every((id) => typeof id === 'string' && id.length <= 64)) state.ids = raw.ids.slice();
   if (Array.isArray(raw.units) && raw.units.length <= QUESTIONS_PER_DAY) state.units = raw.units.map((u) => (typeof u === 'string' && u.length <= 32 ? u : null));
   return state;
+}
+
+export function validateQuestionId(raw) {
+  const id = String(raw ?? '').trim();
+  if (!QUESTION_ID_RE.test(id)) throw new HttpError(400, 'Invalid question id');
+  return id;
+}
+
+function positiveNumber(raw, what) {
+  const v = typeof raw === 'number' ? raw : Number(raw);
+  if (!Number.isFinite(v) || v <= 0) throw new HttpError(400, `${what} must be a positive number`);
+  return v;
+}
+
+/**
+ * Community statistics for one question, from every stored guess. Everything
+ * is measured in decades (log10) relative to the answer, so a guess ten times
+ * too high and one ten times too low are the same distance off.
+ *   count      players who answered
+ *   typical    geometric mean of the guesses, in the question's unit
+ *   median     median guess
+ *   histogram  12 buckets of half a decade from 1/1000 to 1000 times the answer (outliers folded into the ends)
+ *   within2x   share of players within 2x of the answer
+ *   beat       share of the OTHER players who were further off than `mine` (null without `mine`)
+ */
+export function computeStats(guesses, answer, mine = null) {
+  const logs = guesses.map((g) => Math.log10(g / answer)).filter((l) => Number.isFinite(l));
+  const count = logs.length;
+  const RANGE = 3;
+  const WIDTH = 0.5;
+  const BUCKETS = (RANGE * 2) / WIDTH;
+  const histogram = new Array(BUCKETS).fill(0);
+  if (!count) return { count: 0, typical: null, median: null, histogram, bucketWidth: WIDTH, range: RANGE, within2x: null, beat: null };
+  const sorted = [...logs].sort((a, b) => a - b);
+  const mean = logs.reduce((a, b) => a + b, 0) / count;
+  const mid = count / 2;
+  const medianLog = count % 2 ? sorted[Math.floor(mid)] : (sorted[mid - 1] + sorted[mid]) / 2;
+  for (const l of logs) histogram[Math.max(0, Math.min(BUCKETS - 1, Math.floor((l + RANGE) / WIDTH)))] += 1;
+  const within2x = logs.filter((l) => Math.abs(l) <= Math.log10(2) + 1e-12).length / count;
+  let beat = null;
+  if (mine !== null && mine > 0) {
+    const d = Math.abs(Math.log10(mine / answer));
+    // Compare against the other players: drop one entry matching the caller's own guess.
+    const others = [...logs];
+    const self = others.findIndex((l) => Math.abs(l - Math.log10(mine / answer)) < 1e-9);
+    if (self >= 0) others.splice(self, 1);
+    beat = others.length ? others.filter((l) => Math.abs(l) > d + 1e-9).length / others.length : null;
+  }
+  return { count, typical: answer * 10 ** mean, median: answer * 10 ** medianLog, histogram, bucketWidth: WIDTH, range: RANGE, within2x, beat };
 }
 
 /** The record with more guesses wins; ties keep what is stored. */
@@ -304,6 +360,46 @@ async function putPuzzles(request, env, now) {
   return json({ puzzles: stored });
 }
 
+/** "u:<user id>" for a valid bearer token, else "a:<anonymous id>" from the body. */
+async function playerKey(env, request, body, now) {
+  if (request.headers.get('Authorization')) {
+    try {
+      const session = await requireSession(env, request, now);
+      return `u:${session.userId}`;
+    } catch {
+      // fall through to the anonymous id
+    }
+  }
+  const anon = String(body.player ?? '').trim();
+  if (!ANON_ID_RE.test(anon)) throw new HttpError(400, 'A player id is required');
+  return `a:${anon}`;
+}
+
+async function questionStats(env, questionId, answer, mine) {
+  const { results } = await env.DB.prepare('SELECT guess FROM guesses WHERE question_id = ? LIMIT ?').bind(questionId, STATS_SAMPLE).all();
+  return { question_id: questionId, ...computeStats((results || []).map((r) => Number(r.guess)), answer, mine) };
+}
+
+async function postGuess(request, env, now) {
+  const body = await readJson(request);
+  const questionId = validateQuestionId(body.question_id);
+  const guess = positiveNumber(body.guess, 'guess');
+  const answer = positiveNumber(body.answer, 'answer');
+  await rateLimit(env, `guess:${clientIp(request)}`, GUESS_LIMIT_PER_IP, now);
+  const key = await playerKey(env, request, body, now);
+  await env.DB.prepare('INSERT OR IGNORE INTO guesses (question_id, player_key, guess, created_at) VALUES (?, ?, ?, ?)').bind(questionId, key, guess, now).run();
+  return json(await questionStats(env, questionId, answer, guess));
+}
+
+async function getStats(request, env) {
+  const url = new URL(request.url);
+  const questionId = validateQuestionId(url.searchParams.get('question_id'));
+  const answer = positiveNumber(url.searchParams.get('answer'), 'answer');
+  const mineRaw = url.searchParams.get('guess');
+  const mine = mineRaw === null || mineRaw === '' ? null : positiveNumber(mineRaw, 'guess');
+  return json(await questionStats(env, questionId, answer, mine));
+}
+
 async function deleteAccount(request, env, now) {
   const session = await requireSession(env, request, now);
   const body = await readJson(request);
@@ -312,6 +408,7 @@ async function deleteAccount(request, env, now) {
   await env.DB.batch([
     env.DB.prepare('DELETE FROM puzzles WHERE user_id = ?').bind(user.id),
     env.DB.prepare('DELETE FROM sessions WHERE user_id = ?').bind(user.id),
+    env.DB.prepare('DELETE FROM guesses WHERE player_key = ?').bind(`u:${user.id}`),
     env.DB.prepare('DELETE FROM users WHERE id = ?').bind(user.id),
   ]);
   return json(null, 204);
@@ -326,6 +423,8 @@ const ROUTES = [
   ['GET', '/api/puzzles', getPuzzles],
   ['PUT', '/api/puzzles', putPuzzles],
   ['DELETE', '/api/account', deleteAccount],
+  ['POST', '/api/guesses', postGuess],
+  ['GET', '/api/stats', getStats],
 ];
 
 export async function handle(request, env, now = Date.now()) {

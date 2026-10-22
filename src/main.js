@@ -39,6 +39,7 @@ let archiveShown = 0;
 let sync = null; // cloud sync handle: claude.ai artifact database or the accounts API
 let syncState = 'off'; // off | connecting | on
 let syncKind = 'none'; // none | claude | account
+const communityCache = new Map(); // question id -> stats from the API
 
 const ARCHIVE_PAGE = 60;
 
@@ -402,8 +403,9 @@ function lockIn(i, value, typedUnit) {
       }
     });
   }
-  view = { kind: 'result', index: i };
+  view = { kind: 'result', index: i, justLocked: true };
   render({ focus: true });
+  view.justLocked = false;
   const q = questions[i];
   const m = L.scoreMultiple(value, q.answer);
   const tier = L.tierFor(m);
@@ -491,9 +493,57 @@ function renderResult(i) {
       ${scaleHtml(g, q.answer)}
       <p class="explainer">${esc(q.explainer || '')}</p>
       <p class="source">Source: <a href="${esc(q.source_url)}" target="_blank" rel="noopener noreferrer">${esc(q.source_title || srcHost || 'link')}</a>${asOf}</p>
+      ${A.available() ? '<div class="community" id="community"><p class="community-line muted">Loading how other players guessed…</p></div>' : ''}
     </div>
     <button type="button" id="continue" class="btn primary wide">${esc(label)}</button>`;
   $('#continue').addEventListener('click', next);
+  if (A.available()) loadCommunity(q, g, i === state.guesses.length - 1 && view.justLocked);
+}
+
+/**
+ * Fill the "how others guessed" block. A freshly locked guess is submitted;
+ * a reviewed one just fetches the statistics.
+ */
+async function loadCommunity(q, guess, submit) {
+  const box = $('#community');
+  if (!box) return;
+  const key = `${q.id}:${guess}`;
+  let stats = communityCache.get(key) || null;
+  if (!stats) {
+    try {
+      stats = submit
+        ? await A.submitGuess({ questionId: q.id, guess, answer: q.answer, anonymousId: S.anonymousId() })
+        : await A.fetchStats({ questionId: q.id, answer: q.answer, guess });
+      communityCache.set(key, stats);
+    } catch (err) {
+      if ($('#community') === box) box.innerHTML = '<p class="community-line muted">Other players\' guesses are unavailable right now.</p>';
+      return;
+    }
+  }
+  if ($('#community') !== box) return; // the card was re-rendered meanwhile
+  box.innerHTML = communityHtml(stats, q, guess);
+}
+
+function communityHtml(stats, q, guess) {
+  const count = stats && Number.isInteger(stats.count) ? stats.count : 0;
+  if (count <= 1) return '<p class="community-line muted">You are the first player to answer this one. Check back later to see how others did.</p>';
+  const parts = [`${count.toLocaleString('en-US')} players`];
+  if (Number.isFinite(stats.typical)) parts.push(`typical guess ${rowNumber(stats.typical)} ${esc(q.unit)}`);
+  if (Number.isFinite(stats.beat)) parts.push(`<strong>you beat ${Math.round(stats.beat * 100)}%</strong>`);
+  else if (Number.isFinite(stats.within2x)) parts.push(`${Math.round(stats.within2x * 100)}% within 2×`);
+  const hist = Array.isArray(stats.histogram) ? stats.histogram : [];
+  const max = Math.max(1, ...hist);
+  const range = Number(stats.range) || 3;
+  const width = Number(stats.bucketWidth) || 0.5;
+  const mineIdx = guess > 0 ? Math.max(0, Math.min(hist.length - 1, Math.floor((Math.log10(guess / q.answer) + range) / width))) : -1;
+  const bars = hist
+    .map((n, i) => `<span class="cbar${i === mineIdx ? ' mine' : ''}" style="height:${Math.max(4, Math.round((100 * n) / max))}%" title="${n} player${n === 1 ? '' : 's'}"></span>`)
+    .join('');
+  return `
+    <p class="community-line">${parts.join(' · ')}</p>
+    <div class="community-chart" aria-hidden="true">${bars}<span class="community-answer"></span></div>
+    <div class="community-ticks" aria-hidden="true"><span>÷1000</span><span>÷10</span><span>answer</span><span>×10</span><span>×1000</span></div>
+    <p class="community-note muted small">Where other players' guesses landed, on the same scale as yours. Your bucket is highlighted.</p>`;
 }
 
 function renderSummary() {

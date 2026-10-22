@@ -88,6 +88,21 @@ export function forgetSession() {
   saveSession(null);
 }
 
+/** Record a guess and get the community statistics for that question. */
+export async function submitGuess({ questionId, guess, answer, anonymousId }) {
+  const s = session();
+  const body = { question_id: questionId, guess, answer };
+  if (!s) body.player = anonymousId;
+  return request('POST', '/api/guesses', { body, token: s ? s.token : undefined });
+}
+
+/** Community statistics for a question, optionally compared against a guess. */
+export async function fetchStats({ questionId, answer, guess }) {
+  const params = new URLSearchParams({ question_id: questionId, answer: String(answer) });
+  if (guess) params.set('guess', String(guess));
+  return request('GET', `/api/stats?${params}`);
+}
+
 /** A sync handle with the same shape as the claude.ai one, or null when signed out. */
 export function connectAccountSync() {
   const s = session();

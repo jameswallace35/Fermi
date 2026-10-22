@@ -148,13 +148,36 @@ try {
     assert.equal(await page.inputValue('#guess'), '6000000');
   });
 
-  await step('lock in a guess and see the result card', async () => {
-    await page.fill('#guess', '1000');
+  const firstQuestion = await page.evaluate(async () => {
+    const bank = await (await fetch('data/questions.json')).json();
+    const L = await import('./src/logic.js');
+    const n = Math.max(1, L.todayPuzzleNumber());
+    const q = L.selectQuestions(bank, n)[0];
+    return { id: q.id, answer: q.answer };
+  });
+
+  await step('two other players have already answered the first question', async () => {
+    for (const [player, factor] of [['e2e_player_000000000001', 2], ['e2e_player_000000000002', 50]]) {
+      const r = await fetch(`${apiUrl}/api/guesses`, {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ question_id: firstQuestion.id, guess: firstQuestion.answer * factor, answer: firstQuestion.answer, player }),
+      });
+      assert.equal(r.status, 200);
+    }
+  });
+
+  await step('lock in a guess and see the result card with community stats', async () => {
+    await page.fill('#guess', String(firstQuestion.answer * 1.1));
     await page.click('#lock');
     await page.waitForSelector('#continue');
     assert.match(await page.textContent('.result-mult'), /×/);
     assert.ok(await page.locator('.scale .marker.guess').isVisible());
     assert.equal(await page.locator('#progress .dot.done').count(), 1);
+    await page.waitForFunction(() => /3 players/.test(document.querySelector('#community')?.textContent || ''));
+    const line = await page.textContent('#community .community-line');
+    assert.match(line, /you beat 100%/, line);
+    assert.equal(await page.locator('#community .cbar.mine').count(), 1);
     await page.screenshot({ path: path.join(shots, '04-result.png') });
   });
 
