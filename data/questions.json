@@ -3,19 +3,19 @@
  "categories": [
   {
    "slug": "geography",
-   "name": "Geography & Earth"
+   "name": "Planet Earth"
   },
   {
    "slug": "space",
-   "name": "Space & Astronomy"
+   "name": "Space"
   },
   {
    "slug": "science",
-   "name": "Science & Physics"
+   "name": "Big & Small"
   },
   {
    "slug": "body",
-   "name": "Human Body & Health"
+   "name": "The Human Body"
   },
   {
    "slug": "animals",
@@ -27,15 +27,15 @@
   },
   {
    "slug": "population",
-   "name": "People & Society"
+   "name": "People & Crowds"
   },
   {
    "slug": "money",
-   "name": "Money & Economy"
+   "name": "Money & Shopping"
   },
   {
    "slug": "tech",
-   "name": "Technology & Internet"
+   "name": "Phones & Internet"
   },
   {
    "slug": "sports",
@@ -47,15 +47,15 @@
   },
   {
    "slug": "culture",
-   "name": "Culture & Entertainment"
+   "name": "Movies, Music & TV"
   },
   {
    "slug": "everyday",
-   "name": "Everyday Life & Objects"
+   "name": "Everyday Life"
   },
   {
    "slug": "transport",
-   "name": "Transport & Infrastructure"
+   "name": "Travel & Vehicles"
   }
  ],
  "questions": [

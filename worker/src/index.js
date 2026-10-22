@@ -25,6 +25,7 @@
 //   POST   /api/plays    { mode, run_id?, question_id, guess, answer?, player? } (Bearer optional)
 //                                                         -> { multiple, ballpark, run, stats }
 //   POST   /api/suggestions { text, player? } (Bearer optional) -> 201 { ok: true }
+//   GET    /api/seen     (Bearer)                         -> { ids: [...] } every question the account has answered
 //   GET    /api/leaderboard?n=<puzzle>  (Bearer)          -> players who finished puzzle n, best first
 //   GET    /api/leaderboard?scope=all   (Bearer)          -> all-time standings
 //   GET    /api/leaderboard?scope=unlimited | timed       -> unlimited-mode and timed-mode standings
@@ -620,6 +621,18 @@ async function postPlay(request, env, now) {
   return json({ multiple, ballpark: multiple <= BALLPARK_MAX, run, stats: await questionStats(env, questionId, answer, guess) });
 }
 
+/** Every question id the signed-in account has answered in any mode, so unlimited and timed never repeat one. */
+async function seenQuestions(request, env, now) {
+  const session = await requireSession(env, request, now);
+  const [plays, guesses] = await Promise.all([
+    env.DB.prepare('SELECT DISTINCT question_id AS id FROM plays WHERE user_id = ? LIMIT 20000').bind(session.userId).all(),
+    env.DB.prepare('SELECT question_id AS id FROM guesses WHERE player_key = ? LIMIT 20000').bind(`u:${session.userId}`).all(),
+  ]);
+  const ids = new Set();
+  for (const r of [...(plays.results || []), ...(guesses.results || [])]) ids.add(r.id);
+  return json({ ids: [...ids] });
+}
+
 // ------------------------------------------------------------ leaderboards
 
 async function leaderboard(request, env, now) {
@@ -856,6 +869,7 @@ const ROUTES = [
   ['POST', '/api/runs', createRun],
   ['POST', '/api/plays', postPlay],
   ['POST', '/api/suggestions', postSuggestion],
+  ['GET', '/api/seen', seenQuestions],
   ['GET', '/api/leaderboard', leaderboard],
   ['GET', '/api/admin/players', adminPlayers],
   ['GET', '/api/admin/answers', adminAnswers],

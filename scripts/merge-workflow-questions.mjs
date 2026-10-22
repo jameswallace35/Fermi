@@ -1,8 +1,12 @@
-// One-off helper: turn the fact-checked questions from the "fun-fermi-questions"
-// workflow journal into data/bank/*.json, keeping only the old questions that
-// already-played puzzles need (flagged retired) and dropping the rest.
+// One-off helper: turn fact-checked questions into data/bank/*.json, keeping
+// only the old questions that already-played puzzles need (flagged retired)
+// and dropping the rest.
 //
-// Usage: node scripts/merge-workflow-questions.mjs <journal.jsonl> [--keep-days N] [--dry-run]
+// Input: a directory holding verify-<slug>.json files, each a JSON array of
+// entries with a "verdict" ("accept" | "reject") plus the question fields,
+// as written by the fact-checking agents.
+//
+// Usage: node scripts/merge-workflow-questions.mjs <dir> [--keep-days=N] [--dry-run]
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -11,37 +15,31 @@ import { selectQuestions } from '../src/logic.js';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const args = process.argv.slice(2);
-const journalFile = args.find((a) => !a.startsWith('--'));
+const inputDir = args.find((a) => !a.startsWith('--'));
 const keepDays = Number((args.find((a) => a.startsWith('--keep-days=')) || '--keep-days=3').split('=')[1]);
 const dryRun = args.includes('--dry-run');
-if (!journalFile) {
-  console.error('Usage: node scripts/merge-workflow-questions.mjs <journal.jsonl> [--keep-days=N] [--dry-run]');
+if (!inputDir) {
+  console.error('Usage: node scripts/merge-workflow-questions.mjs <dir> [--keep-days=N] [--dry-run]');
   process.exit(1);
 }
 
 const UNITS = new Set(['km', 'metres', 'cm', 'mm', 'kg', 'grams', 'tonnes', 'km/h', 'km²', 'hectares', 'litres', 'km³', 'cubic metres', '°C', 'kcal', 'joules', 'GWh', 'TWh', 'megawatts', 'minutes', 'hours', 'days', 'months', 'years', 'US$']);
 
-/** Every accepted verifier result, newest first per label (a resumed run may log a label twice). */
-function readAccepted(file) {
-  const byLabel = new Map();
-  for (const line of fs.readFileSync(file, 'utf8').split('\n')) {
-    if (!line.trim()) continue;
-    let j;
+/** Every accepted entry from verify-<slug>.json files in the directory. */
+function readAccepted(dir) {
+  const out = [];
+  for (const f of fs.readdirSync(dir)) {
+    const m = /^verify-([a-z]+)\.json$/.exec(f);
+    if (!m) continue;
+    let list;
     try {
-      j = JSON.parse(line);
-    } catch {
+      list = JSON.parse(fs.readFileSync(path.join(dir, f), 'utf8'));
+    } catch (err) {
+      console.warn(`skip ${f}: ${err.message}`);
       continue;
     }
-    const label = j.label || j.opts?.label || '';
-    if (!label.startsWith('verify:')) continue;
-    const result = j.result ?? j.value ?? j.output ?? null;
-    if (result && typeof result === 'object') byLabel.set(label, result);
-  }
-  const out = [];
-  for (const [label, r] of byLabel) {
-    if (r.verdict !== 'accept') continue;
-    const slug = label.split(':')[1];
-    out.push({ slug, ...r });
+    if (!Array.isArray(list)) continue;
+    for (const r of list) if (r && typeof r === 'object' && r.verdict === 'accept') out.push({ slug: m[1], ...r });
   }
   return out;
 }
@@ -62,7 +60,7 @@ function tidy(r) {
   return q;
 }
 
-const accepted = readAccepted(journalFile);
+const accepted = readAccepted(inputDir);
 const bank = JSON.parse(fs.readFileSync(path.join(root, 'data', 'questions.json'), 'utf8'));
 const byId = new Map(bank.questions.map((q) => [q.id, q]));
 

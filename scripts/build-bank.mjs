@@ -36,20 +36,20 @@ export function workerBankSource(bank) {
 }
 
 export const CATEGORIES = [
-  { slug: 'geography', name: 'Geography & Earth' },
-  { slug: 'space', name: 'Space & Astronomy' },
-  { slug: 'science', name: 'Science & Physics' },
-  { slug: 'body', name: 'Human Body & Health' },
+  { slug: 'geography', name: 'Planet Earth' },
+  { slug: 'space', name: 'Space' },
+  { slug: 'science', name: 'Big & Small' },
+  { slug: 'body', name: 'The Human Body' },
   { slug: 'animals', name: 'Animals & Nature' },
   { slug: 'history', name: 'History' },
-  { slug: 'population', name: 'People & Society' },
-  { slug: 'money', name: 'Money & Economy' },
-  { slug: 'tech', name: 'Technology & Internet' },
+  { slug: 'population', name: 'People & Crowds' },
+  { slug: 'money', name: 'Money & Shopping' },
+  { slug: 'tech', name: 'Phones & Internet' },
   { slug: 'sports', name: 'Sports & Games' },
   { slug: 'food', name: 'Food & Drink' },
-  { slug: 'culture', name: 'Culture & Entertainment' },
-  { slug: 'everyday', name: 'Everyday Life & Objects' },
-  { slug: 'transport', name: 'Transport & Infrastructure' },
+  { slug: 'culture', name: 'Movies, Music & TV' },
+  { slug: 'everyday', name: 'Everyday Life' },
+  { slug: 'transport', name: 'Travel & Vehicles' },
 ];
 
 const REQUIRED = ['question', 'answer', 'unit', 'source_title', 'source_url', 'explainer', 'difficulty', 'as_of'];

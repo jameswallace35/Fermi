@@ -126,6 +126,14 @@ export async function fetchStats({ questionId, answer, guess }) {
   return request('GET', `/api/stats?${params}`);
 }
 
+/** Every question id the signed-in account has answered anywhere; [] when signed out. */
+export async function fetchSeen() {
+  const s = session();
+  if (!s) return [];
+  const d = await request('GET', '/api/seen', { token: s.token });
+  return Array.isArray(d.ids) ? d.ids.filter((id) => typeof id === 'string') : [];
+}
+
 /** Start a timed run on the server (signed in only). Returns { id, startedAt, durationMs }. */
 export function createRun() {
   return authed('POST', '/api/runs', { mode: 'timed' });

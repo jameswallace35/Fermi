@@ -441,6 +441,23 @@ test('signing in claims the guesses and suggestions a browser made as a guest', 
   assert.equal(r.status, 200, 'a malformed guest id is ignored');
 });
 
+test('an account can list every question it has answered, in any mode', async () => {
+  const env = makeEnv();
+  const token = await signupUser(env, 'seen_user');
+  const [q1, q2, q3] = REAL_IDS;
+  let r = await call(env, 'GET', '/api/seen', {});
+  assert.equal(r.status, 401);
+  r = await call(env, 'GET', '/api/seen', { token });
+  assert.deepEqual(r.body.ids, []);
+  await call(env, 'POST', '/api/guesses', { token, body: { question_id: q1, guess: ANSWERS[q1] } });
+  await call(env, 'POST', '/api/plays', { token, body: { mode: 'unlimited', question_id: q2, guess: ANSWERS[q2] } });
+  await call(env, 'POST', '/api/plays', { token, body: { mode: 'unlimited', question_id: q2, guess: ANSWERS[q2] } });
+  const run = (await call(env, 'POST', '/api/runs', { token, body: { mode: 'timed' } })).body.id;
+  await call(env, 'POST', '/api/plays', { token, body: { mode: 'timed', run_id: run, question_id: q3, guess: ANSWERS[q3] } });
+  r = await call(env, 'GET', '/api/seen', { token });
+  assert.deepEqual(r.body.ids.sort(), [q1, q2, q3].sort());
+});
+
 test('suggestions are stored for the owner only', async () => {
   const env = makeEnv();
   const alice = await signupUser(env, 'alice');

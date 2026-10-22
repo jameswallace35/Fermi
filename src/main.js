@@ -47,6 +47,7 @@ let syncKind = 'none'; // none | claude | account
 const communityCache = new Map(); // question id -> stats from the API
 let mode = 'daily'; // daily | unlimited | timed
 let arena = null; // state of the unlimited or timed game in progress
+let accountSeen = new Set(); // question ids the signed-in account has answered anywhere (from the server)
 
 const ARCHIVE_PAGE = 60;
 const TIMED_MS = (() => {
@@ -335,23 +336,41 @@ function dailyAnsweredIds() {
   return ids;
 }
 
-/** A question the player has not seen in this mode (or anywhere, for unlimited); starts over when all are used. */
+/**
+ * A random question the player has not answered before: not in a daily puzzle
+ * on this device, not in unlimited or timed mode on this device, and (when
+ * signed in) not anywhere on the account. Starts the deck over when every
+ * question has been used.
+ */
 function pickQuestion() {
   const exclude = new Set(dailyAnsweredIds());
   for (const id of arena.seen) exclude.add(id);
-  if (arena.mode === 'unlimited') for (const id of S.loadModeStats('unlimited').seen) exclude.add(id);
+  for (const id of accountSeen) exclude.add(id);
+  for (const id of S.loadModeStats('unlimited').seen) exclude.add(id);
+  for (const id of S.loadModeStats('timed').seen) exclude.add(id);
   const active = bank.questions.filter((q) => !q.retired);
   let pool = active.filter((q) => !exclude.has(q.id));
   if (!pool.length) {
-    if (arena.mode === 'unlimited') {
-      const st = S.loadModeStats('unlimited');
-      S.saveModeStats('unlimited', { ...st, seen: [] });
-      toast('You have seen every question. Starting the deck again.');
-    }
+    for (const mName of ['unlimited', 'timed']) S.saveModeStats(mName, { ...S.loadModeStats(mName), seen: [] });
+    accountSeen = new Set();
+    toast('You have answered every question. Starting the deck again.');
     pool = active.filter((q) => !arena.seen.has(q.id));
     if (!pool.length) pool = active.length ? active : bank.questions;
   }
   return withCategory(pool[Math.floor(Math.random() * pool.length)]);
+}
+
+/** Refresh the account's answered-question list from the server; harmless when signed out. */
+async function refreshAccountSeen() {
+  if (!A.available() || !A.session()) {
+    accountSeen = new Set();
+    return;
+  }
+  try {
+    accountSeen = new Set(await A.fetchSeen());
+  } catch {
+    // keep what we had; local lists still prevent repeats on this device
+  }
 }
 
 function arenaStatsHtml() {
@@ -468,10 +487,11 @@ function arenaLock(value, typedUnit) {
   if (inBallpark) arena.ballpark += 1;
   arena.sumMultiple += m;
   arena.status = 'result';
-  if (arena.mode === 'unlimited') {
-    const st = S.loadModeStats('unlimited');
-    S.saveModeStats('unlimited', { ...st, answered: st.answered + 1, ballpark: st.ballpark + (inBallpark ? 1 : 0), sumMultiple: st.sumMultiple + m, seen: [...st.seen, q.id].slice(-2000) });
-  }
+  accountSeen.add(q.id);
+  const st = S.loadModeStats(arena.mode);
+  const seen = [...st.seen, q.id].slice(-2000);
+  if (arena.mode === 'unlimited') S.saveModeStats('unlimited', { ...st, answered: st.answered + 1, ballpark: st.ballpark + (inBallpark ? 1 : 0), sumMultiple: st.sumMultiple + m, seen });
+  else S.saveModeStats('timed', { ...st, seen });
   arena.lastPlay = A.available() ? { mode: arena.mode, runId: arena.runId, submit: true } : null;
   renderArena({ focus: true });
   const tier = L.tierFor(m);
@@ -1050,6 +1070,7 @@ function renderStats() {
       sync = null;
       syncState = 'off';
       syncKind = 'none';
+      accountSeen = new Set();
       syncOwnerUi();
       toast('Signed out. Your results stay in this browser.');
       renderStats();
@@ -1120,6 +1141,7 @@ async function startSync() {
     if (syncKind === 'account') {
       await A.refresh();
       syncOwnerUi();
+      await refreshAccountSeen();
     }
     const remote = await sync.pull();
     const changed = S.mergePuzzleStates(remote);
