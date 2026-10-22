@@ -282,8 +282,8 @@
     "question": "How many times does a person laugh in a lifetime?",
     "answer": 530000,
     "unit": "laughs",
-    "source_title": "Frontiers in Psychology (2024): laughter in everyday life",
-    "source_url": "https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2024.1296955/full",
+    "source_title": "Martin & Kuiper (1999), Daily occurrence of laughter - Humor",
+    "source_url": "https://doi.org/10.1515/humr.1999.12.4.355",
     "explainer": "Diary studies find adults laugh about 18 times a day. Over 80 years that is about 530,000 laughs.",
     "difficulty": 1,
     "as_of": "stable"

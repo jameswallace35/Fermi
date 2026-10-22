@@ -335,7 +335,7 @@ export default {
   "money-ssstno": 55,
   "history-3drmhm": 400,
   "history-kfjkby": 35,
-  "science-1tm64m4": 100000000,
+  "science-1tm64m4": 300000000,
   "history-i7ld57": 7.3,
   "history-192q3nb": 36000,
   "science-17ft3ab": 10000000,
@@ -343,9 +343,9 @@ export default {
   "history-sqxarf": 196,
   "history-1d5l1ye": 7,
   "everyday-2hy8ae": 530000,
-  "culture-llpgjq": 9.2,
+  "culture-llpgjq": 8.7,
   "history-sl95ek": 10500,
   "money-czxgdg": 3900,
-  "money-1bkuin2": 2900000
+  "money-1bkuin2": 2600000
  }
 };

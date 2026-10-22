@@ -269,11 +269,11 @@
   {
     "id": "science-1tm64m4",
     "question": "How many grains of beach sand would it take to fill a 10-litre bucket?",
-    "answer": 100000000,
+    "answer": 300000000,
     "unit": "grains",
     "source_title": "Counting Sand Grains - Fred M. Haynes",
     "source_url": "https://fredmhaynes.com/2019/12/28/counting-sand-grains/",
-    "explainer": "A grain of medium beach sand is about half a millimetre across, so a litre of loosely packed sand holds roughly 10 million grains. A 10-litre bucket holds about 100 million.",
+    "explainer": "A grain of beach sand is about a third of a millimetre across, so a litre of loosely packed sand holds roughly 30 million grains. A 10-litre bucket holds about 300 million.",
     "difficulty": 2,
     "as_of": "stable"
   },

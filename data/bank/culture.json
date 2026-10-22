@@ -268,11 +268,11 @@
   {
     "id": "culture-llpgjq",
     "question": "How many years of a lifetime does the average American spend watching TV?",
-    "answer": 9.2,
+    "answer": 8.7,
     "unit": "years",
-    "source_title": "Television capturing America’s attention - U.S. Bureau of Labor Statistics",
-    "source_url": "https://www.bls.gov/opub/btn/volume-7/television-capturing-americas-attention.htm",
-    "explainer": "Americans watch about two and three-quarter hours of TV a day. Over an 80-year life that is about 9 years in front of the screen.",
+    "source_title": "American Time Use Survey 2024 - U.S. Bureau of Labor Statistics",
+    "source_url": "https://www.bls.gov/news.release/atus.nr0.htm",
+    "explainer": "The American Time Use Survey finds people watch about two and a half hours of TV a day. Over an 80-year life that is close to 9 years in front of the screen.",
     "difficulty": 1,
     "as_of": "2024"
   }

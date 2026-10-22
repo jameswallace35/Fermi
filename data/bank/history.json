@@ -298,8 +298,8 @@
     "question": "How many Olympic swimming pools of water did ancient Rome's aqueducts deliver every day?",
     "answer": 400,
     "unit": "pools",
-    "source_title": "Aqueducts: Quenching Rome’s Thirst - National Geographic",
-    "source_url": "https://www.nationalgeographic.com/history/world-history-magazine/article/roman-aqueducts-engineering-innovation",
+    "source_title": "Roman aqueduct - Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Roman_aqueduct",
     "explainer": "Rome's eleven aqueducts are usually reckoned to have delivered about a million cubic metres a day for a city of about a million people. An Olympic pool holds 2,500 cubic metres, so about 400 pools a day.",
     "difficulty": 2,
     "as_of": "stable"
