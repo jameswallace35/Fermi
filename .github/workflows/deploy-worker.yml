@@ -19,7 +19,11 @@ permissions:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    timeout-minutes: 12
     env:
+      # Pinned: a floating wrangler@4 once hung in "d1 create" for over ten minutes.
+      WRANGLER: wrangler@4.151.3
+      WRANGLER_SEND_METRICS: "false"
       CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
       CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
     steps:
@@ -81,11 +85,15 @@ jobs:
           CLOUDFLARE_ACCOUNT_ID: ${{ steps.account.outputs.id }}
         run: |
           set -o pipefail
-          npx --yes wrangler@4 d1 create fermi 2>&1 | tail -n 3 || true
-          if ! LIST=$(npx --yes wrangler@4 d1 list --json 2>&1); then
+          if ! LIST=$(npx --yes "$WRANGLER" d1 list --json 2>&1 </dev/null); then
             echo "$LIST" | tail -n 20
             echo "::error::wrangler could not list D1 databases. The token probably lacks the D1: Edit permission."
             exit 1
+          fi
+          if ! echo "$LIST" | node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>{let l;try{l=JSON.parse(s)}catch{process.exit(1)}process.exit(l.some(d=>d.name==="fermi")?0:1)})'; then
+            echo "Creating the D1 database fermi"
+            npx --yes "$WRANGLER" d1 create fermi 2>&1 </dev/null | tail -n 5
+            LIST=$(npx --yes "$WRANGLER" d1 list --json 2>&1 </dev/null)
           fi
           ID=$(echo "$LIST" | node -e '
             let s = ""; process.stdin.on("data", (d) => (s += d)).on("end", () => {
@@ -100,12 +108,12 @@ jobs:
         working-directory: worker
         env:
           CLOUDFLARE_ACCOUNT_ID: ${{ steps.account.outputs.id }}
-        run: npx --yes wrangler@4 d1 migrations apply fermi --remote
+        run: npx --yes "$WRANGLER" d1 migrations apply fermi --remote </dev/null
       - name: Deploy the Worker
         working-directory: worker
         env:
           CLOUDFLARE_ACCOUNT_ID: ${{ steps.account.outputs.id }}
-        run: npx --yes wrangler@4 deploy 2>&1 | tee deploy.log
+        run: npx --yes "$WRANGLER" deploy 2>&1 </dev/null | tee deploy.log
       - name: Smoke test the live API
         working-directory: worker
         run: |
