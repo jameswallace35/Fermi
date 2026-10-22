@@ -52,13 +52,19 @@ export function sanitizePuzzleState(s) {
   };
   if (Array.isArray(s.ids) && s.ids.every((id) => typeof id === 'string')) state.ids = s.ids.slice();
   if (Array.isArray(s.units)) state.units = s.units.slice(0, QUESTIONS_PER_DAY).map((u) => (typeof u === 'string' ? u : null));
-  if (typeof s.notes === 'string' && s.notes) state.notes = s.notes.slice(0, NOTES_MAX);
+  // notesAt is when the notes were last edited; cleared notes keep it so the
+  // clearing wins over an older copy elsewhere.
+  const notesAt = typeof s.notesAt === 'number' && Number.isFinite(s.notesAt) && s.notesAt > 0 ? s.notesAt : null;
+  if (typeof s.notes === 'string' && (s.notes !== '' || notesAt !== null)) {
+    state.notes = s.notes.slice(0, NOTES_MAX);
+    if (notesAt !== null) state.notesAt = notesAt;
+  }
   return state;
 }
 
-/** True for a record worth keeping, syncing or backing up: at least one answer or some notes. */
+/** True for a record worth keeping, syncing or backing up: an answer, some notes, or a dated clearing of them. */
 export function hasContent(state) {
-  return answeredCount(state) > 0 || (typeof state.notes === 'string' && state.notes.trim() !== '');
+  return answeredCount(state) > 0 || (typeof state.notes === 'string' && (state.notes.trim() !== '' || typeof state.notesAt === 'number'));
 }
 
 export function loadPuzzleState(n) {
@@ -158,13 +164,16 @@ export function parseBackup(code) {
  * Merge puzzle records into storage, question by question (see
  * mergePuzzleRecords). Returns the puzzle numbers that changed.
  */
-export function mergePuzzleStates(puzzles) {
+export function mergePuzzleStates(puzzles, knownId = null) {
   const changed = [];
   for (const [k, incoming] of Object.entries(puzzles)) {
     const n = Number(k);
     if (!Number.isInteger(n) || n < 1) continue;
     const state = sanitizePuzzleState(incoming);
     if (!hasContent(state)) continue;
+    // A record of questions that are no longer in the bank cannot be played
+    // or shown; leave it where it is rather than importing it again and again.
+    if (knownId && Array.isArray(state.ids) && state.ids.length && !state.ids.every((id) => knownId(id))) continue;
     const local = loadPuzzleState(n);
     const merged = mergePuzzleRecords(local, state);
     if (merged !== local) {

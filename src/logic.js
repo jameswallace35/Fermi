@@ -371,8 +371,25 @@ export function mergePuzzleRecords(existing, incoming, now = Date.now()) {
   else delete merged.units;
   if (!merged.ids && incoming.ids) merged.ids = incoming.ids.slice();
   if (merged.completedAt == null && isFinished(merged)) merged.completedAt = typeof incoming.completedAt === 'number' ? incoming.completedAt : now;
-  if (typeof incoming.notes === 'string' && incoming.notes !== (existing.notes ?? '')) merged.notes = incoming.notes;
+  mergeNotes(merged, existing, incoming);
   return JSON.stringify(merged) === JSON.stringify(existing) ? existing : merged;
+}
+
+/**
+ * Notes: the later edit wins (by notesAt, the time of the last edit),
+ * clearing included, so an older copy from the cloud or a backup can never
+ * overwrite newer text. Without timestamps on either side the incoming text
+ * wins, as it always did.
+ */
+function mergeNotes(merged, existing, incoming) {
+  if (typeof incoming.notes !== 'string') return;
+  const eAt = typeof existing.notesAt === 'number' ? existing.notesAt : 0;
+  const iAt = typeof incoming.notesAt === 'number' ? incoming.notesAt : 0;
+  if (typeof existing.notes === 'string' && iAt < eAt) return;
+  if (iAt === eAt && incoming.notes === (existing.notes ?? '')) return;
+  merged.notes = incoming.notes;
+  if (iAt) merged.notesAt = iAt;
+  else delete merged.notesAt;
 }
 
 export function computeStreak(counts, todayNumber) {

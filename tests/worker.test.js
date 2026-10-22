@@ -4,7 +4,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
-import worker, { sanitizePuzzle, mergePuzzle, timingSafeEqual, createPasswordRecord, verifyPassword, validateUsername, computeStats, scorePuzzle, answeredCount, isFinished, ANSWERS, HttpError, TIMED_DURATION_MS, TIMED_GRACE_MS } from '../worker/src/index.js';
+import worker, { sanitizePuzzle, mergePuzzle, timingSafeEqual, createPasswordRecord, verifyPassword, validateUsername, computeStats, scorePuzzle, answeredCount, isFinished, maxPuzzleNumber, ANSWERS, HttpError, TIMED_DURATION_MS, TIMED_GRACE_MS } from '../worker/src/index.js';
 import { createD1 } from './helpers/d1.js';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -478,7 +478,7 @@ test('suggestions are stored for the owner only', async () => {
 test('the owner login opens the admin view: players, every answer, passwords and suggestions', async () => {
   const env = makeEnv();
   const alice = await signupUser(env, 'alice');
-  await call(env, 'PUT', '/api/puzzles', { token: alice, body: { puzzles: { 4: { guesses: exactGuesses().map((a) => a * 2), ids: REAL_IDS, completedAt: 5, notes: 'my working' } } } });
+  await call(env, 'PUT', '/api/puzzles', { token: alice, body: { puzzles: { 2: { guesses: exactGuesses().map((a) => a * 2), ids: REAL_IDS, completedAt: 5, notes: 'my working' } } } });
   await call(env, 'POST', '/api/guesses', { token: alice, body: { question_id: REAL_IDS[0], guess: ANSWERS[REAL_IDS[0]] * 2 } });
   await call(env, 'POST', '/api/guesses', { body: { question_id: REAL_IDS[0], guess: ANSWERS[REAL_IDS[0]] * 5, player: 'anon_player_0000000001' } });
   await call(env, 'POST', '/api/plays', { token: alice, body: { mode: 'unlimited', question_id: REAL_IDS[1], guess: ANSWERS[REAL_IDS[1]] } });
@@ -515,7 +515,7 @@ test('the owner login opens the admin view: players, every answer, passwords and
   assert.equal(r.status, 200);
   assert.equal(r.body.user.username, 'alice');
   assert.equal(r.body.puzzles.length, 1);
-  assert.equal(r.body.puzzles[0].n, 4);
+  assert.equal(r.body.puzzles[0].n, 2);
   assert.deepEqual(r.body.puzzles[0].multiples, [2, 2, 2, 2, 2]);
   assert.equal(r.body.puzzles[0].notes, 'my working');
   assert.deepEqual(r.body.plays.map((p) => [p.mode, p.questionId, p.multiple]), [['unlimited', REAL_IDS[1], 1]]);
@@ -557,4 +557,126 @@ test('the owner login opens the admin view: players, every answer, passwords and
   assert.equal(r.status, 200);
   r = await call(env, 'POST', '/api/admin/password', { token: owner, body: { user_id: 999, password: 'newpassword1' } });
   assert.equal(r.status, 404);
+});
+
+test('notes: the later edit wins, notes-only records are kept, cleared notes stay cleared', () => {
+  // records carry notesAt, the time of the last edit
+  assert.deepEqual(sanitizePuzzle({ guesses: [], notes: 'thinking', notesAt: 5 }), { guesses: [], completedAt: null, notes: 'thinking', notesAt: 5 }, 'notes before any answer');
+  assert.deepEqual(sanitizePuzzle({ guesses: [], notes: '', notesAt: 5 }), { guesses: [], completedAt: null, notes: '', notesAt: 5 }, 'a dated clearing is kept');
+  assert.equal(sanitizePuzzle({ guesses: [], notes: '' }), null, 'empty undated notes are nothing');
+  assert.equal(sanitizePuzzle({ guesses: [1], notes: 'x', notesAt: 'soon' }).notesAt, undefined);
+  const stored = { guesses: [1], completedAt: null, notes: 'newer', notesAt: 200 };
+  assert.equal(mergePuzzle(stored, { guesses: [1], completedAt: null, notes: 'older', notesAt: 100 }), stored, 'an older copy cannot overwrite newer notes');
+  assert.equal(mergePuzzle(stored, { guesses: [1], completedAt: null, notes: 'legacy' }), stored, 'nor can an undated one');
+  assert.deepEqual(mergePuzzle(stored, { guesses: [1], completedAt: null, notes: 'newest', notesAt: 300 }), { ...stored, notes: 'newest', notesAt: 300 });
+  assert.deepEqual(mergePuzzle(stored, { guesses: [1], completedAt: null, notes: '', notesAt: 300 }), { ...stored, notes: '', notesAt: 300 }, 'clearing later wins');
+  assert.deepEqual(mergePuzzle({ guesses: [1], completedAt: null, notes: 'legacy' }, { guesses: [1], completedAt: null, notes: 'dated', notesAt: 7 }), { guesses: [1], completedAt: null, notes: 'dated', notesAt: 7 });
+  const merged = mergePuzzle({ guesses: [1], completedAt: null }, { guesses: [null, 2], completedAt: null, notes: 'first', notesAt: 9 });
+  assert.deepEqual(merged, { guesses: [1, 2], completedAt: null, notes: 'first', notesAt: 9 }, 'answers and notes combine');
+});
+
+test('puzzle records: notes sync before any answer and beyond-today numbers are ignored', async () => {
+  const env = makeEnv();
+  const a = await signupUser(env, 'alice');
+  const day = 24 * 60 * 60 * 1000;
+  const now = Date.UTC(2026, 9, 25); // puzzle No. 5 in UTC
+  assert.equal(maxPuzzleNumber(now), 7);
+  let r = await call(env, 'PUT', '/api/puzzles', { token: a, body: { puzzles: { 3: { guesses: [], notes: 'just thinking', notesAt: now - day }, 7: { guesses: [1] }, 8: { guesses: [1] } } }, now });
+  assert.equal(r.status, 200);
+  assert.deepEqual(Object.keys(r.body.puzzles), ['3', '7'], 'a notes-only record is stored; a number no client could be playing is not');
+  assert.equal(r.body.puzzles[3].notes, 'just thinking');
+  r = await call(env, 'PUT', '/api/puzzles', { token: a, body: { puzzles: { 3: { guesses: [], notes: 'an older copy', notesAt: now - 2 * day } } }, now });
+  assert.equal(r.body.puzzles[3].notes, 'just thinking', 'an older device cannot roll the notes back');
+  r = await call(env, 'PUT', '/api/puzzles', { token: a, body: { puzzles: { 3: { guesses: [], notes: '', notesAt: now } } }, now });
+  assert.equal(r.body.puzzles[3].notes, '', 'cleared, and the clearing is dated');
+  assert.equal(r.body.puzzles[3].notesAt, now);
+  r = await call(env, 'GET', '/api/puzzles', { token: a, now });
+  assert.equal(r.body.puzzles[3].notes, '', 'the clearing persists');
+});
+
+test('rate limits hold under a concurrent burst', async () => {
+  const env = makeEnv();
+  await signupUser(env, 'alice');
+  const attempts = await Promise.all(Array.from({ length: 40 }, (_, i) => call(env, 'POST', '/api/login', { body: { username: 'alice', password: 'wrong-password-' + i }, ip: '9.9.9.' + (i % 7) })));
+  const codes = attempts.map((r) => r.status);
+  assert.equal(codes.filter((c) => c === 401).length, 10, 'only the per-user allowance of wrong passwords is tried');
+  assert.equal(codes.filter((c) => c === 429).length, 30);
+  assert.equal(env.DB.raw.prepare("SELECT count FROM attempts WHERE key = 'login:user:alice'").get().count, 40);
+});
+
+test('the owner key takes over a squatted "owner" account and ends its sessions', async () => {
+  const env = makeEnv();
+  // "owner" registered as an ordinary account before the name was reserved
+  const record = await createPasswordRecord('squatter-pass', 10000);
+  env.DB.raw.prepare('INSERT INTO users (username, pw_hash, pw_salt, pw_iterations, created_at, is_admin) VALUES (?, ?, ?, ?, ?, 0)').run('owner', record.pw_hash, record.pw_salt, record.pw_iterations, 1);
+  const squatterId = env.DB.raw.prepare("SELECT id FROM users WHERE username = 'owner'").get().id;
+  const token = 'squatter_token_000000000000000001';
+  const { createHash: sha } = await import('node:crypto');
+  env.DB.raw.prepare('INSERT INTO sessions (token_hash, user_id, created_at, expires_at) VALUES (?, ?, ?, ?)').run(sha('sha256').update(token).digest('hex'), squatterId, 1, Date.now() + 1e9);
+  let r = await call(env, 'GET', '/api/admin/players', { token });
+  assert.equal(r.status, 403, 'an ordinary "owner" is not the owner');
+
+  r = await call(env, 'POST', '/api/login', { body: { username: 'owner', password: OWNER_KEY } });
+  assert.equal(r.status, 200);
+  assert.equal(r.body.admin, true);
+  const owner = r.body.token;
+  r = await call(env, 'GET', '/api/admin/players', { token: owner });
+  assert.equal(r.status, 200);
+  r = await call(env, 'GET', '/api/admin/players', { token });
+  assert.equal(r.status, 401, 'the squatter is signed out everywhere');
+  r = await call(env, 'GET', '/api/me', { token });
+  assert.equal(r.status, 401);
+  r = await call(env, 'POST', '/api/login', { body: { username: 'owner', password: 'squatter-pass' }, ip: '3.3.3.3' });
+  assert.equal(r.status, 401, 'the old password no longer works');
+  r = await call(env, 'DELETE', '/api/account', { token: owner, body: { password: 'squatter-pass' } });
+  assert.equal(r.status, 401, 'nor can it delete the account');
+  assert.equal(env.DB.raw.prepare("SELECT COUNT(*) AS c FROM users WHERE username = 'owner'").get().c, 1);
+});
+
+test('plays: known questions only, one answer per question per run, totals from the plays, stale tokens rejected', async () => {
+  const env = makeEnv();
+  const alice = await signupUser(env, 'alice');
+  const bob = await signupUser(env, 'bob_b', '5.5.5.5');
+  const [q1, q2, q3] = REAL_IDS;
+  const play = (token, body, extra = {}) => call(env, 'POST', '/api/plays', { token, body, ...extra });
+  let r = await play(alice, { mode: 'unlimited', question_id: 'made-up-0', guess: 1, answer: 1 });
+  assert.equal(r.status, 400, 'the client cannot bring its own answer');
+  r = await call(env, 'POST', '/api/plays', { token: 'expired_token_0000000000000000000', body: { mode: 'unlimited', question_id: q1, guess: 1, player: 'anon_player_0000000009' } });
+  assert.equal(r.status, 401, 'a token that no longer works is reported, not treated as a guest');
+
+  // the same question three times in unlimited mode counts once on the board
+  for (let i = 0; i < 3; i++) await play(alice, { mode: 'unlimited', question_id: q1, guess: ANSWERS[q1] });
+  await play(alice, { mode: 'unlimited', question_id: q2, guess: ANSWERS[q2] * 100 });
+  await play(bob, { mode: 'unlimited', question_id: q3, guess: ANSWERS[q3] });
+  r = await call(env, 'GET', '/api/leaderboard?scope=unlimited', { token: alice });
+  assert.deepEqual(r.body.players.map((p) => [p.username, p.answered, p.ballpark]), [['alice', 2, 1], ['bob_b', 1, 1]]);
+
+  // a timed run: a repeated question is ignored and the totals come from the plays themselves
+  const t0 = 1_700_000_000_000;
+  r = await call(env, 'POST', '/api/runs', { token: alice, body: { mode: 'timed' }, now: t0 });
+  const runId = r.body.id;
+  r = await play(alice, { mode: 'timed', run_id: runId, question_id: q1, guess: ANSWERS[q1] }, { now: t0 + 1000 });
+  assert.deepEqual([r.body.run.answered, r.body.run.ballpark], [1, 1]);
+  r = await play(alice, { mode: 'timed', run_id: runId, question_id: q1, guess: ANSWERS[q1] }, { now: t0 + 2000 });
+  assert.equal(r.status, 200);
+  assert.deepEqual([r.body.run.answered, r.body.run.ballpark], [1, 1], 'answering the same question again does not count');
+  r = await play(alice, { mode: 'timed', run_id: runId, question_id: q2, guess: ANSWERS[q2] * 1000 }, { now: t0 + 3000 });
+  assert.deepEqual([r.body.run.answered, r.body.run.ballpark], [2, 1]);
+  r = await call(env, 'GET', '/api/leaderboard?scope=timed', { token: alice, now: t0 + 4000 });
+  assert.deepEqual(r.body.players.map((p) => [p.username, p.answered, p.ballpark, p.you]), [['alice', 2, 1, true]]);
+  assert.equal(env.DB.raw.prepare('SELECT COUNT(*) AS c FROM plays WHERE run_id = ?').get(runId).c, 2);
+
+  // a run holds only as many answers as fit in the time
+  env.DB.raw.prepare('UPDATE runs SET answered = 200 WHERE id = ?').run(runId);
+  r = await play(alice, { mode: 'timed', run_id: runId, question_id: q3, guess: ANSWERS[q3] }, { now: t0 + 5000 });
+  assert.equal(r.status, 400);
+
+  // runs cannot be created without limit
+  let created = 0;
+  for (let i = 0; i < 70; i++) {
+    r = await call(env, 'POST', '/api/runs', { token: bob, body: { mode: 'timed' }, now: t0 + i });
+    if (r.status === 201) created++;
+    else assert.equal(r.status, 429);
+  }
+  assert.equal(created, 60);
 });

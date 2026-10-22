@@ -48,6 +48,9 @@ const communityCache = new Map(); // question id -> stats from the API
 let mode = 'daily'; // daily | unlimited | timed
 let arena = null; // state of the unlimited or timed game in progress
 let accountSeen = new Set(); // question ids the signed-in account has answered anywhere (from the server)
+let accountSeenLoaded = false; // true once the server has been asked for that list this session (or there is no account)
+let accountSeenPromise = null; // the request in flight, shared by whoever needs it
+let dailyStale = false; // the daily puzzle's record changed (cloud sync) while another mode was showing
 
 const ARCHIVE_PAGE = 60;
 const TIMED_MS = (() => {
@@ -251,8 +254,14 @@ function load(n) {
   const resolved = resolveQuestions(n, state);
   if (resolved === null) {
     // The stored guesses belong to questions that are no longer in the bank:
-    // start the puzzle afresh and persist the reset so archive and streak agree.
+    // start the puzzle afresh (keeping any notes) and persist the reset so
+    // archive and streak agree.
+    const old = state;
     state = S.freshPuzzleState();
+    if (typeof old.notes === 'string') {
+      state.notes = old.notes;
+      if (typeof old.notesAt === 'number') state.notesAt = old.notesAt;
+    }
     S.savePuzzleState(n, state);
     questions = L.selectQuestions(bank, n);
   } else {
@@ -308,7 +317,10 @@ function setMode(next, { silent = false } = {}) {
   }
   if (mode === 'daily') {
     els.progress.hidden = false;
-    if (state) render({ focus: true });
+    if (dailyStale) {
+      dailyStale = false;
+      load(puzzleNumber); // the record changed under the other mode: resolve its questions again
+    } else if (state) render({ focus: true });
     refreshNotesBox();
     return;
   }
@@ -321,7 +333,7 @@ function setMode(next, { silent = false } = {}) {
 }
 
 function newArena(m, status) {
-  return { mode: m, status, q: null, guess: null, typedUnit: null, answered: 0, ballpark: 0, sumMultiple: 0, runId: null, endsAt: null, seen: new Set(), lastPlay: null };
+  return { mode: m, status, q: null, guess: null, typedUnit: null, answered: 0, ballpark: 0, sumMultiple: 0, runId: null, endsAt: null, seen: new Set(), lastPlay: null, restarted: false };
 }
 
 /** Ids answered in the daily puzzles on this device: no point serving those again. */
@@ -343,7 +355,12 @@ function dailyAnsweredIds() {
  * question has been used.
  */
 function pickQuestion() {
-  const exclude = new Set(dailyAnsweredIds());
+  // Today's daily questions, and those of the daily puzzle open right now,
+  // are never served here: seeing one with its answer would spoil the daily.
+  const protectedIds = new Set();
+  for (const q of L.selectQuestions(bank, todayNumber)) protectedIds.add(q.id);
+  for (const q of questions || []) protectedIds.add(q.id);
+  const exclude = new Set([...dailyAnsweredIds(), ...protectedIds]);
   for (const id of arena.seen) exclude.add(id);
   for (const id of accountSeen) exclude.add(id);
   for (const id of S.loadModeStats('unlimited').seen) exclude.add(id);
@@ -351,26 +368,39 @@ function pickQuestion() {
   const active = bank.questions.filter((q) => !q.retired);
   let pool = active.filter((q) => !exclude.has(q.id));
   if (!pool.length) {
-    for (const mName of ['unlimited', 'timed']) S.saveModeStats(mName, { ...S.loadModeStats(mName), seen: [] });
-    accountSeen = new Set();
-    toast('You have answered every question. Starting the deck again.');
-    pool = active.filter((q) => !arena.seen.has(q.id));
+    // Every question has been used: start the deck over (once per session in
+    // this mode), still keeping the daily questions and this run's own out.
+    if (!arena.restarted) {
+      for (const mName of ['unlimited', 'timed']) S.saveModeStats(mName, { ...S.loadModeStats(mName), seen: [] });
+      toast('You have answered every question. Starting the deck again.');
+      arena.restarted = true;
+    }
+    pool = active.filter((q) => !protectedIds.has(q.id) && !arena.seen.has(q.id));
+    if (!pool.length) pool = active.filter((q) => !arena.seen.has(q.id));
     if (!pool.length) pool = active.length ? active : bank.questions;
   }
   return withCategory(pool[Math.floor(Math.random() * pool.length)]);
 }
 
 /** Refresh the account's answered-question list from the server; harmless when signed out. */
-async function refreshAccountSeen() {
+function refreshAccountSeen() {
   if (!A.available() || !A.session()) {
     accountSeen = new Set();
-    return;
+    accountSeenLoaded = true;
+    return Promise.resolve();
   }
-  try {
-    accountSeen = new Set(await A.fetchSeen());
-  } catch {
-    // keep what we had; local lists still prevent repeats on this device
-  }
+  if (accountSeenPromise) return accountSeenPromise;
+  accountSeenPromise = (async () => {
+    try {
+      accountSeen = new Set(await A.fetchSeen());
+    } catch {
+      // keep what we had; local lists still prevent repeats on this device
+    } finally {
+      accountSeenLoaded = true;
+      accountSeenPromise = null;
+    }
+  })();
+  return accountSeenPromise;
 }
 
 function arenaStatsHtml() {
@@ -429,6 +459,15 @@ function renderArena({ focus = false } = {}) {
   }
   if (arena.status === 'ask') {
     if (!arena.q) {
+      if (A.available() && A.session() && !accountSeenLoaded) {
+        // Wait for the account's answered list, so even the first question is not a repeat.
+        els.card.innerHTML = '<p class="muted arena-loading">Finding a question you have not had before…</p>';
+        const mine = arena;
+        refreshAccountSeen().then(() => {
+          if (arena === mine && arena.status === 'ask' && !arena.q) renderArena({ focus });
+        });
+        return;
+      }
       arena.q = pickQuestion();
       arena.seen.add(arena.q.id);
     }
@@ -458,6 +497,7 @@ async function startRun() {
     btn.textContent = 'Starting…';
   }
   let runId = null;
+  const mine = arena; // the idle card this Start button belongs to
   if (A.available() && A.session()) {
     // Register the run first so every answer can be scored against its clock.
     try {
@@ -470,7 +510,7 @@ async function startRun() {
       toast('Could not start a scored run; this one will not count for the leaderboard.');
     }
   }
-  if (mode !== 'timed' || !arena || arena.status !== 'idle') return; // the player moved on meanwhile
+  if (mode !== 'timed' || arena !== mine || arena.status !== 'idle') return; // the player moved on meanwhile
   arena = newArena('timed', 'ask');
   arena.runId = runId;
   arena.endsAt = Date.now() + TIMED_MS;
@@ -796,7 +836,9 @@ async function loadCommunity(q, guess, community) {
   const box = $('#community');
   if (!box) return;
   const key = `${q.id}:${guess}`;
-  let stats = communityCache.get(key) || null;
+  // An unlimited or timed answer is always sent: it is the record of the play, not just a lookup.
+  const recordsPlay = community.submit && community.mode !== 'daily';
+  let stats = recordsPlay ? null : communityCache.get(key) || null;
   if (!stats) {
     try {
       if (community.submit && community.mode === 'timed' && !community.runId && A.session()) {
@@ -808,7 +850,10 @@ async function loadCommunity(q, guess, community) {
       else stats = await A.fetchStats({ questionId: q.id, answer: q.answer, guess });
       communityCache.set(key, stats);
     } catch (err) {
-      if (err && err.status === 401) A.forgetSession();
+      if (err && err.status === 401) {
+        A.forgetSession();
+        syncOwnerUi();
+      }
       if ($('#community') === box) box.innerHTML = '<p class="community-line muted">Other players\' guesses are unavailable right now.</p>';
       return;
     }
@@ -1103,7 +1148,7 @@ function restoreBackup(code) {
     toast('That is not a Ballpark backup code.');
     return;
   }
-  const changed = S.mergePuzzleStates(backup.puzzles);
+  const changed = S.mergePuzzleStates(backup.puzzles, (id) => !!questionById(id));
   const prefs = S.loadPrefs();
   S.savePrefs({ ...backup.prefs, ...prefs, units: { ...(backup.prefs.units || {}), ...(prefs.units || {}) } });
   if (changed.includes(puzzleNumber)) load(puzzleNumber);
@@ -1139,12 +1184,13 @@ async function startSync() {
   }
   try {
     if (syncKind === 'account') {
+      accountSeenLoaded = false;
       await A.refresh();
       syncOwnerUi();
       await refreshAccountSeen();
     }
     const remote = await sync.pull();
-    const changed = S.mergePuzzleStates(remote);
+    const changed = S.mergePuzzleStates(remote, (id) => !!questionById(id));
     const local = S.listPuzzleStates();
     for (const [key, st] of Object.entries(local)) {
       const n = Number(key);
@@ -1155,7 +1201,10 @@ async function startSync() {
     syncState = 'on';
     if (changed.includes(puzzleNumber)) {
       if (mode === 'daily') load(puzzleNumber);
-      else state = S.loadPuzzleState(puzzleNumber);
+      else {
+        state = S.loadPuzzleState(puzzleNumber);
+        dailyStale = true;
+      }
     } else if (state && mode === 'daily' && view.kind === 'summary') renderSummary();
     if (changed.length) toast(`Loaded ${changed.length} puzzle${changed.length === 1 ? '' : 's'} from your ${syncKind === 'account' ? 'account' : 'Claude account'}.`);
   } catch (err) {
@@ -1528,9 +1577,12 @@ function notesTarget() {
       get: () => (typeof state.notes === 'string' ? state.notes : ''),
       set: (text) => {
         state.notes = text;
+        state.notesAt = Date.now(); // the later edit wins when copies meet
         S.savePuzzleState(puzzleNumber, state);
+        // Push this puzzle's record even if another puzzle is open by then.
+        const [n, st] = [puzzleNumber, state];
         clearTimeout(notesTarget.pushTimer);
-        notesTarget.pushTimer = setTimeout(() => pushState(puzzleNumber, state), 1500);
+        notesTarget.pushTimer = setTimeout(() => pushState(n, st), 1500);
         if (view.kind === 'summary') {
           const block = $('.summary-notes, #edit-notes', els.summary);
           if (block) renderSummary();
@@ -1566,14 +1618,21 @@ function sidePanels() {
   return !!(window.matchMedia && window.matchMedia('(min-width: 1240px)').matches);
 }
 
-let relayoutingCalc = false;
-
 function openCalculator({ notes = false, focus = true } = {}) {
   refreshNotesBox();
   els.notesStatus.innerHTML = '&nbsp;';
   if (sidePanels()) {
     els.calc.classList.add('side');
-    if (!els.calc.open) els.calc.show();
+    if (!els.calc.open) {
+      // show() moves focus into the panel; a docked panel opened in passing
+      // (page load, resize) must leave the player's focus where it was.
+      const before = document.activeElement;
+      els.calc.show();
+      if (!focus) {
+        if (before && before !== document.body && typeof before.focus === 'function') before.focus({ preventScroll: true });
+        else if (document.activeElement && els.calc.contains(document.activeElement)) document.activeElement.blur();
+      }
+    }
     S.savePrefs({ ...S.loadPrefs(), sidePanels: true });
   } else {
     els.calc.classList.remove('side');
@@ -1605,7 +1664,12 @@ function recordCalculation(expr, value) {
   const lines = current.split('\n');
   if (lines[lines.length - 1].trim() === line) return;
   if (/^[\d.,]+$/.test(text)) return; // a bare number is not a calculation worth keeping
-  els.calcNotes.value = (current.trim() ? current.replace(/\s+$/, '') + '\n' : '') + line;
+  const next = (current.trim() ? current.replace(/\s+$/, '') + '\n' : '') + line;
+  if (next.length > S.NOTES_MAX) {
+    els.notesStatus.textContent = 'Notes are full';
+    return;
+  }
+  els.calcNotes.value = next;
   saveNotesNow();
 }
 
@@ -1614,9 +1678,8 @@ function relayoutCalculator() {
   if (!els.calc.open) return;
   const wantSide = sidePanels();
   if (wantSide === els.calc.classList.contains('side')) return;
-  relayoutingCalc = true;
+  if (notesSaveTimer) saveNotesNow(); // the close event arrives only after the re-open has refreshed the box
   els.calc.close();
-  relayoutingCalc = false;
   openCalculator({ focus: false });
 }
 
@@ -1668,15 +1731,14 @@ function setupCalculator() {
     notesSaveTimer = setTimeout(saveNotesNow, 500);
   });
   // Closing the docked panels with X keeps them closed on later visits. The
-  // preference is written on the click itself, since the dialog's close event
-  // arrives a task later and a reload in between would lose it.
-  const rememberClosed = () => {
-    if (!relayoutingCalc && els.calc.classList.contains('side')) S.savePrefs({ ...S.loadPrefs(), sidePanels: false });
-  };
-  els.calc.querySelector('.dialog-head').addEventListener('submit', rememberClosed);
+  // preference is written on the click itself: the dialog's close event
+  // arrives a task later, after a reload would have lost it and after a
+  // resize relayout has already re-opened the panel.
+  els.calc.querySelector('.dialog-head').addEventListener('submit', () => {
+    if (els.calc.classList.contains('side')) S.savePrefs({ ...S.loadPrefs(), sidePanels: false });
+  });
   els.calc.addEventListener('close', () => {
     if (notesSaveTimer) saveNotesNow();
-    rememberClosed();
   });
   window.addEventListener('resize', relayoutCalculator);
 }

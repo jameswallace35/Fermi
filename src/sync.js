@@ -65,6 +65,7 @@ export async function connectSync() {
         completedAt: state.completedAt || null,
       };
       if (typeof state.notes === 'string') body.notes = state.notes;
+      if (typeof state.notesAt === 'number') body.notesAt = state.notesAt;
       const prev = inflight.get(n) || Promise.resolve();
       const next = prev.catch(() => {}).then(() => collection.doc(String(n)).set(body));
       inflight.set(n, next);

@@ -382,3 +382,14 @@ test('shareText format', () => {
   const noUrl = shareText({ puzzleNumber: 1, dateKey: '2026-10-21', multiples: [1] });
   assert.equal(noUrl.split('\n').length, 3);
 });
+
+test('mergePuzzleRecords keeps the later notes edit and combines answers', async () => {
+  const { mergePuzzleRecords } = await import('../src/logic.js');
+  const stored = { guesses: [1], completedAt: null, notes: 'newer', notesAt: 200 };
+  assert.equal(mergePuzzleRecords(stored, { guesses: [1], completedAt: null, notes: 'older', notesAt: 100 }), stored, 'an older cloud copy cannot overwrite newer notes');
+  assert.equal(mergePuzzleRecords(stored, { guesses: [1], completedAt: null, notes: 'legacy' }), stored, 'nor can an undated one');
+  assert.deepEqual(mergePuzzleRecords(stored, { guesses: [1], completedAt: null, notes: 'newest', notesAt: 300 }), { ...stored, notes: 'newest', notesAt: 300 });
+  assert.deepEqual(mergePuzzleRecords(stored, { guesses: [1], completedAt: null, notes: '', notesAt: 300 }), { ...stored, notes: '', notesAt: 300 }, 'a later clearing wins');
+  assert.deepEqual(mergePuzzleRecords({ guesses: [1], completedAt: null, notes: 'a' }, { guesses: [1], completedAt: null, notes: 'b' }), { guesses: [1], completedAt: null, notes: 'b' }, 'undated on both sides: incoming wins');
+  assert.deepEqual(mergePuzzleRecords({ guesses: [1], completedAt: null }, { guesses: [null, 2], completedAt: null, notes: 'first', notesAt: 9 }), { guesses: [1, 2], completedAt: null, notes: 'first', notesAt: 9 });
+});

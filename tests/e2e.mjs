@@ -375,6 +375,32 @@ try {
     await fresh.close();
   });
 
+  await step('a notes edit made just before a reload is kept and reaches the account', async () => {
+    // The account holds the notes from before signing up. Edit them, keep the
+    // push from landing, and reload: the newer local text must win over the
+    // older cloud copy, then be pushed up.
+    await page.route('**/api/puzzles', (route) => (route.request().method() === 'PUT' ? route.fulfill({ status: 200, contentType: 'application/json', body: '{"puzzles":{}}' }) : route.continue()));
+    await page.click('#btn-calc');
+    await page.waitForSelector('#dlg-calc[open]');
+    await page.fill('#calc-notes', 'Q1: 330M people x 1.5 = 500M, plus a second thought');
+    await page.waitForFunction(() => document.querySelector('#notes-status').textContent === 'Saved');
+    await page.waitForTimeout(1700); // the push fires and is swallowed
+    await page.unroute('**/api/puzzles');
+    await page.reload();
+    await page.waitForSelector('#summary:not([hidden])');
+    await page.waitForFunction(() => /second thought/.test(document.querySelector('#summary .summary-notes')?.textContent || ''));
+    const token = await page.evaluate(async () => ((await import('./src/account.js')).session() || {}).token);
+    assert.ok(token, 'still signed in');
+    const n = await page.evaluate(async () => (await import('./src/logic.js')).todayPuzzleNumber());
+    let remote = '';
+    for (let i = 0; i < 40 && !/second thought/.test(remote); i++) {
+      await page.waitForTimeout(250);
+      const r = await fetch(`${apiUrl}/api/puzzles`, { headers: { Authorization: `Bearer ${token}` } });
+      remote = ((await r.json()).puzzles[n] || {}).notes || '';
+    }
+    assert.match(remote, /second thought/, 'the account now holds the newer notes');
+  });
+
   await step('leaderboard shows today and all time with a rival', async () => {
     // a rival account finishes today's puzzle with guesses ten times too high
     const rival = `rival_${Math.floor(Math.random() * 1e6)}`;
