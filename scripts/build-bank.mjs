@@ -14,6 +14,8 @@
 //   pass --allow-remove, because players who finished that day lose the result.
 // - Entries whose wording and answer look like an existing question are
 //   refused; put "allow_similar": true on one of them if they really differ.
+// - "retired": true keeps an entry in the bank (so days already played with it
+//   still resolve) but takes it out of the daily rotation and the other modes.
 //
 // Usage: node scripts/build-bank.mjs [--allow-remove] [--fresh]
 import fs from 'node:fs';
@@ -118,11 +120,12 @@ export function validateQuestion(q, where) {
   if (typeof q.as_of !== 'string' || !q.as_of.trim()) problems.push('as_of missing');
   if ('id' in q && (typeof q.id !== 'string' || !ID_RE.test(q.id))) problems.push('id must be lowercase letters, digits and hyphens');
   if ('allow_similar' in q && typeof q.allow_similar !== 'boolean') problems.push('allow_similar must be true or false');
+  if ('retired' in q && typeof q.retired !== 'boolean') problems.push('retired must be true or false');
   return problems.map((p) => `${where}: ${p}`);
 }
 
 function sameContent(a, b) {
-  return a.question === b.question && a.answer === b.answer && a.unit === b.unit && a.source_url === b.source_url;
+  return a.question === b.question && a.answer === b.answer && a.unit === b.unit && a.source_url === b.source_url && !!a.retired === !!b.retired;
 }
 
 /**
@@ -170,6 +173,7 @@ export function buildBank({ files, existing, allowRemove = false }) {
         as_of: raw.as_of.trim(),
         difficulty: raw.difficulty,
       };
+      if (raw.retired === true) q.retired = true;
       const prev = byId.get(q.id);
       if (prev) {
         if (sameContent(prev, q)) warnings.push(`${where}: identical to ${prev.where}, skipped`);
@@ -200,7 +204,7 @@ export function buildBank({ files, existing, allowRemove = false }) {
   }
 
   const questions = [...kept, ...fresh];
-  const categories = CATEGORIES.filter((c) => questions.some((q) => q.category === c.slug));
+  const categories = CATEGORIES.filter((c) => questions.some((q) => q.category === c.slug && !q.retired));
   return { bank: { version: 1, categories, questions }, errors, warnings, removed };
 }
 
@@ -252,8 +256,9 @@ function main() {
   }
   fs.writeFileSync(outFile, JSON.stringify(bank, null, 1) + '\n');
   fs.writeFileSync(workerBankFile, workerBankSource(bank));
-  const perCat = bank.categories.map((c) => `${c.slug}=${bank.questions.filter((q) => q.category === c.slug).length}`).join(', ');
-  console.log(`Wrote ${bank.questions.length} questions in ${bank.categories.length} categories to data/questions.json (${perCat})`);
+  const active = bank.questions.filter((q) => !q.retired);
+  const perCat = bank.categories.map((c) => `${c.slug}=${active.filter((q) => q.category === c.slug).length}`).join(', ');
+  console.log(`Wrote ${bank.questions.length} questions (${active.length} in rotation, ${bank.questions.length - active.length} retired) in ${bank.categories.length} categories to data/questions.json (${perCat})`);
   console.log(`The first repeated question appears on day ${firstRepeatDay(bank)}.`);
 }
 

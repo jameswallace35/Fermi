@@ -44,9 +44,10 @@ bank.questions.forEach((q, i) => {
   }
 });
 
+const active = bank.questions.filter((q) => !q.retired);
 for (const c of bank.categories) {
-  const n = bank.questions.filter((q) => q.category === c.slug).length;
-  if (n === 0) errors.push(`category ${c.slug} has no questions`);
+  const n = active.filter((q) => q.category === c.slug).length;
+  if (n === 0) errors.push(`category ${c.slug} has no questions in rotation`);
 }
 
 if (bank.categories.length < QUESTIONS_PER_DAY) {
@@ -83,7 +84,7 @@ if (errors.length) {
   for (const e of errors) console.error(`error: ${e}`);
   process.exit(1);
 }
-const sizes = bank.categories.map((c) => bank.questions.filter((q) => q.category === c.slug).length);
+const sizes = bank.categories.map((c) => active.filter((q) => q.category === c.slug).length);
 const smallest = bank.categories[sizes.indexOf(Math.min(...sizes))];
-console.log(`OK: ${bank.questions.length} questions in ${bank.categories.length} categories.`);
+console.log(`OK: ${active.length} questions in rotation (${bank.questions.length - active.length} retired) in ${bank.categories.length} categories.`);
 console.log(`First repeated question on day ${firstRepeatDay(bank)} (smallest category: ${smallest.slug} with ${Math.min(...sizes)} questions).`);

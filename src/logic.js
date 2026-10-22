@@ -254,10 +254,15 @@ export function scalePosition(guess, answer) {
 // ---------------------------------------------------------------------------
 // Daily question selection
 
-/** Categories in bank order, each with its questions in bank order. Empty categories are skipped. */
+/**
+ * Categories in bank order, each with its questions in bank order. Empty
+ * categories are skipped, and so are retired questions (kept in the bank only
+ * so that days already played with them still resolve).
+ */
 export function categoriesWithQuestions(bank) {
   const byCat = new Map();
   for (const q of bank.questions || []) {
+    if (q.retired) continue;
     if (!byCat.has(q.category)) byCat.set(q.category, []);
     byCat.get(q.category).push(q);
   }

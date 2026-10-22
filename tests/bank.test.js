@@ -86,3 +86,22 @@ test('isDuplicate needs similar wording and a similar answer', () => {
   const netflix2 = { question: 'How many paid Netflix subscribers were there worldwide at the end of 2024?', answer: 301600000 };
   assert.equal(isDuplicate(netflix, netflix2), true);
 });
+
+test('retired questions stay in the bank but leave the rotation', async () => {
+  const { categoriesWithQuestions, selectQuestions } = await import('../src/logic.js');
+  const a = entry({ id: 'transport-a' });
+  const b = entry({ id: 'transport-b', question: 'How many passengers used Heathrow airport in 2024?', answer: 83900000, unit: 'passengers' });
+  const first = buildBank({ files: { transport: [a, b] }, existing: null });
+  const retired = buildBank({ files: { transport: [{ ...a, retired: true }, b] }, existing: first.bank });
+  assert.deepEqual(retired.errors, []);
+  assert.deepEqual(retired.removed, [], 'retiring is not removing');
+  assert.equal(retired.bank.questions.find((q) => q.id === 'transport-a').retired, true);
+  assert.equal(retired.bank.questions.find((q) => q.id === 'transport-b').retired, undefined);
+  const cats = categoriesWithQuestions(retired.bank);
+  assert.deepEqual(cats.map((c) => c.questions.map((q) => q.id)), [['transport-b']]);
+  assert.ok(selectQuestions(retired.bank, 1).every((q) => q.id === 'transport-b'));
+  // a category with only retired questions disappears from the rotation
+  const allRetired = buildBank({ files: { transport: [{ ...a, retired: true }] }, existing: null });
+  assert.deepEqual(allRetired.bank.categories, []);
+  assert.ok(validateQuestion(entry({ retired: 'yes' }), 'x').some((p) => p.includes('retired')));
+});

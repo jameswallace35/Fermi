@@ -227,10 +227,10 @@ function plainNumber(v) {
   return String(Number(v.toPrecision(12)));
 }
 
-function formatWhen(ms) {
+function formatWhen(ms, { short = false } = {}) {
   if (!Number.isFinite(ms)) return '';
   try {
-    return new Date(ms).toLocaleString(undefined, { dateStyle: 'medium', timeStyle: 'short' });
+    return short ? new Date(ms).toLocaleDateString(undefined, { month: 'short', day: 'numeric' }) : new Date(ms).toLocaleString(undefined, { dateStyle: 'medium', timeStyle: 'short' });
   } catch {
     return new Date(ms).toISOString();
   }
@@ -335,15 +335,16 @@ function pickQuestion() {
   const exclude = new Set(dailyAnsweredIds());
   for (const id of arena.seen) exclude.add(id);
   if (arena.mode === 'unlimited') for (const id of S.loadModeStats('unlimited').seen) exclude.add(id);
-  let pool = bank.questions.filter((q) => !exclude.has(q.id));
+  const active = bank.questions.filter((q) => !q.retired);
+  let pool = active.filter((q) => !exclude.has(q.id));
   if (!pool.length) {
     if (arena.mode === 'unlimited') {
       const st = S.loadModeStats('unlimited');
       S.saveModeStats('unlimited', { ...st, seen: [] });
       toast('You have seen every question. Starting the deck again.');
     }
-    pool = bank.questions.filter((q) => !arena.seen.has(q.id));
-    if (!pool.length) pool = bank.questions;
+    pool = active.filter((q) => !arena.seen.has(q.id));
+    if (!pool.length) pool = active.length ? active : bank.questions;
   }
   return withCategory(pool[Math.floor(Math.random() * pool.length)]);
 }
@@ -1324,13 +1325,13 @@ async function renderOwner() {
       if (ownerView !== view0) return;
       box.innerHTML = players.length
         ? `<p class="board-sub-title">${players.length} account${players.length === 1 ? '' : 's'}. Tap a name to see every answer.</p>
-          <table class="owner-table"><thead><tr><th>Player</th><th>Daily</th><th>Avg</th><th>Unltd</th><th>Timed</th><th>Last active</th></tr></thead><tbody>
+          <div class="owner-scroll"><table class="owner-table"><thead><tr><th>Player</th><th>Daily</th><th>Avg</th><th>Unltd</th><th>Timed</th><th>Last active</th></tr></thead><tbody>
           ${players.map((p) => `<tr>
             <td><button type="button" class="link-btn owner-open" data-id="${p.id}">${esc(p.username)}</button>${p.admin ? ' <span class="badge">owner</span>' : ''}</td>
             <td class="num">${p.played}</td><td class="num">${p.average != null ? esc(L.formatMultiple(p.average)) : '—'}</td>
             <td class="num">${p.unlimited}</td><td class="num">${p.timedBest != null ? p.timedBest : '—'}</td>
-            <td>${p.lastActive ? esc(formatWhen(p.lastActive)) : '—'}</td></tr>`).join('')}
-          </tbody></table><div id="owner-detail"></div>`
+            <td>${p.lastActive ? esc(formatWhen(p.lastActive, { short: true })) : '—'}</td></tr>`).join('')}
+          </tbody></table></div><div id="owner-detail"></div>`
         : '<p class="board-empty">No accounts yet.</p>';
       $$('.owner-open', box).forEach((b) => b.addEventListener('click', () => openPlayer(Number(b.dataset.id))));
       if (ownerPlayer && players.some((p) => p.id === ownerPlayer)) openPlayer(ownerPlayer);
