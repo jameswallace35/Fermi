@@ -340,12 +340,18 @@ export default {
   "history-192q3nb": 36000,
   "science-17ft3ab": 10000000,
   "everyday-1fj7rus": 5400,
-  "history-sqxarf": 196,
+  "history-sqxarf": 290,
   "history-1d5l1ye": 7,
   "everyday-2hy8ae": 530000,
   "culture-llpgjq": 8.7,
   "history-sl95ek": 10500,
   "money-czxgdg": 3900,
-  "money-1bkuin2": 2600000
+  "money-1bkuin2": 2600000,
+  "history-t9yo86": 3.3,
+  "science-urvk2g": 9000,
+  "money-sywi5a": 35,
+  "everyday-1a5bewx": 73000,
+  "history-1seb6zd": 65,
+  "history-53wyki": 2.8
  }
 };

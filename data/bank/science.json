@@ -36,6 +36,18 @@
     "retired": true
   },
   {
+    "id": "science-17ft3ab",
+    "question": "How many tennis balls would it take to fill an Olympic swimming pool?",
+    "answer": 10000000,
+    "unit": "tennis balls",
+    "explainer": "An Olympic pool holds about 2,500 cubic metres. A tennis ball is 6.7 cm across, about 160 cubic centimetres, and loosely poured balls fill about 64% of a space, so roughly 10 million balls.",
+    "source_title": "ITF Technical Booklet 2023 (ball size 6.54 to 6.86 cm)",
+    "source_url": "https://www.itftennis.com/media/4420/2023-technical-booklet.pdf",
+    "as_of": "stable",
+    "difficulty": 2,
+    "retired": true
+  },
+  {
     "id": "science-mz52sc",
     "question": "How many sheets of printer paper stacked up would reach the top of the Eiffel Tower?",
     "answer": 3300000,
@@ -278,13 +290,13 @@
     "as_of": "stable"
   },
   {
-    "id": "science-17ft3ab",
-    "question": "How many tennis balls would it take to fill an Olympic swimming pool?",
-    "answer": 10000000,
-    "unit": "tennis balls",
-    "source_title": "ITF Technical Booklet 2023 (ball size 6.54 to 6.86 cm)",
-    "source_url": "https://www.itftennis.com/media/4420/2023-technical-booklet.pdf",
-    "explainer": "An Olympic pool holds about 2,500 cubic metres. A tennis ball is 6.7 cm across, about 160 cubic centimetres, and loosely poured balls fill about 64% of a space, so roughly 10 million balls.",
+    "id": "science-urvk2g",
+    "question": "How many shoeboxes would fit inside a 40-foot shipping container?",
+    "answer": 9000,
+    "unit": "shoeboxes",
+    "source_title": "Intermodal container - Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Intermodal_container",
+    "explainer": "A 40-foot container holds about 67.7 cubic metres inside. A shoebox is roughly 33 cm by 19 cm by 12 cm, about 7.5 litres, so about 9,000 of them stack in, give or take the gaps.",
     "difficulty": 2,
     "as_of": "stable"
   }

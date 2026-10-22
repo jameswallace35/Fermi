@@ -36,6 +36,18 @@
     "retired": true
   },
   {
+    "id": "everyday-2hy8ae",
+    "question": "How many times does a person laugh in a lifetime?",
+    "answer": 530000,
+    "unit": "laughs",
+    "explainer": "Diary studies find adults laugh about 18 times a day. Over 80 years that is about 530,000 laughs.",
+    "source_title": "Martin & Kuiper (1999), Daily occurrence of laughter - Humor",
+    "source_url": "https://doi.org/10.1515/humr.1999.12.4.355",
+    "as_of": "stable",
+    "difficulty": 1,
+    "retired": true
+  },
+  {
     "id": "everyday-1p75k9g",
     "question": "How many LEGO bricks stacked on top of each other would reach the top of the Eiffel Tower?",
     "answer": 34000,
@@ -278,13 +290,13 @@
     "as_of": "stable"
   },
   {
-    "id": "everyday-2hy8ae",
-    "question": "How many times does a person laugh in a lifetime?",
-    "answer": 530000,
+    "id": "everyday-1a5bewx",
+    "question": "Counting only real belly laughs, how many times does a person laugh in a lifetime?",
+    "answer": 73000,
     "unit": "laughs",
-    "source_title": "Martin & Kuiper (1999), Daily occurrence of laughter - Humor",
-    "source_url": "https://doi.org/10.1515/humr.1999.12.4.355",
-    "explainer": "Diary studies find adults laugh about 18 times a day. Over 80 years that is about 530,000 laughs.",
+    "source_title": "Frontiers in Psychology (2024): laughter in everyday life",
+    "source_url": "https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2024.1296955/full",
+    "explainer": "A 2024 study that recorded people through their days counted about two and a half proper belly laughs a day. Over 80 years that is about 73,000.",
     "difficulty": 1,
     "as_of": "stable"
   },

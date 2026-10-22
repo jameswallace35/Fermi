@@ -244,12 +244,12 @@
   },
   {
     "id": "tech-15barlo",
-    "question": "How many floppy disks from the 1990s would it take to hold what a modern phone stores?",
+    "question": "How many floppy disks from the 1990s would it take to hold what a 128 GB phone stores?",
     "answer": 89000,
     "unit": "floppy disks",
     "source_title": "Floppy disk - Wikipedia",
     "source_url": "https://en.wikipedia.org/wiki/Floppy_disk",
-    "explainer": "A 1990s floppy disk held 1.44 MB and a typical phone today holds 128 GB, which is 128,000 MB. That is about 89,000 floppies, a stack about 300 m tall.",
+    "explainer": "A 1990s floppy disk held 1.44 MB, and 128 GB is 128,000 MB. That is about 89,000 floppies, a stack about 300 m tall.",
     "difficulty": 1,
     "as_of": "stable"
   }

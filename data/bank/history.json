@@ -96,6 +96,42 @@
     "retired": true
   },
   {
+    "id": "history-3drmhm",
+    "question": "How many Olympic swimming pools of water did ancient Rome's aqueducts deliver every day?",
+    "answer": 400,
+    "unit": "pools",
+    "explainer": "Rome's eleven aqueducts are usually reckoned to have delivered about a million cubic metres a day for a city of about a million people. An Olympic pool holds 2,500 cubic metres, so about 400 pools a day.",
+    "source_title": "Roman aqueduct - Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Roman_aqueduct",
+    "as_of": "stable",
+    "difficulty": 2,
+    "retired": true
+  },
+  {
+    "id": "history-i7ld57",
+    "question": "If the whole history of modern humans were squeezed into one year, how many days ago did the first cities appear?",
+    "answer": 7.3,
+    "unit": "days",
+    "explainer": "Our species is about 300,000 years old and the first cities, such as Uruk, appeared about 6,000 years ago: two percent of the way back, which on a one-year scale is the last seven days.",
+    "source_title": "The first of our kind: Jebel Irhoud - Max Planck Society",
+    "source_url": "https://www.mpg.de/11322481/",
+    "as_of": "stable",
+    "difficulty": 2,
+    "retired": true
+  },
+  {
+    "id": "history-192q3nb",
+    "question": "How many Manhattans would fit inside the land of the Louisiana Purchase?",
+    "answer": 36000,
+    "unit": "Manhattans",
+    "explainer": "The Louisiana Purchase of 1803 covered about 2.14 million square kilometres. Manhattan is 59 square kilometres, so about 36,000 Manhattans would fit.",
+    "source_title": "Louisiana Purchase - Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Louisiana_Purchase",
+    "as_of": "stable",
+    "difficulty": 1,
+    "retired": true
+  },
+  {
     "id": "history-10yap3e",
     "question": "Walking all day, every day, how many years would it take to walk every section of the Great Wall of China?",
     "answer": 2.3,
@@ -251,7 +287,7 @@
   },
   {
     "id": "history-sl95ek",
-    "question": "How many people could stand shoulder to shoulder on the arena floor of the Colosseum?",
+    "question": "How many people could stand on the arena floor of the Colosseum, four to a square metre?",
     "answer": 10500,
     "unit": "people",
     "source_title": "The Colosseum in numbers - the-colosseum.net",
@@ -261,13 +297,13 @@
     "as_of": "stable"
   },
   {
-    "id": "history-192q3nb",
-    "question": "How many Manhattans would fit inside the land of the Louisiana Purchase?",
-    "answer": 36000,
-    "unit": "Manhattans",
+    "id": "history-53wyki",
+    "question": "The US paid $15 million for the Louisiana Purchase in 1803. How many cents was that per acre?",
+    "answer": 2.8,
+    "unit": "cents",
     "source_title": "Louisiana Purchase - Wikipedia",
     "source_url": "https://en.wikipedia.org/wiki/Louisiana_Purchase",
-    "explainer": "The Louisiana Purchase of 1803 covered about 2.14 million square kilometres. Manhattan is 59 square kilometres, so about 36,000 Manhattans would fit.",
+    "explainer": "The Purchase covered about 2.14 million square kilometres, which is about 530 million acres. Fifteen million dollars spread over that is under three cents an acre.",
     "difficulty": 1,
     "as_of": "stable"
   },
@@ -284,29 +320,29 @@
   },
   {
     "id": "history-sqxarf",
-    "question": "How many king-size beds would it take to cover the floor of the Hall of Mirrors at Versailles?",
-    "answer": 196,
+    "question": "How many double beds would it take to cover the floor of the Hall of Mirrors at Versailles?",
+    "answer": 290,
     "unit": "beds",
     "source_title": "Palace of Versailles: Hall of Mirrors - Bluffton University",
     "source_url": "https://homepages.bluffton.edu/~SULLIVANM/france/versailles/interior/mirrors.html",
-    "explainer": "The Hall of Mirrors is 73 m long and 10.5 m wide, about 770 square metres. A king-size bed is roughly 1.9 m by 2 m, so about 196 beds would carpet it.",
+    "explainer": "The Hall of Mirrors is 73 m long and 10.5 m wide, about 770 square metres. A double bed is about 1.4 m by 1.9 m, so roughly 290 beds would carpet it.",
     "difficulty": 1,
     "as_of": "stable"
   },
   {
-    "id": "history-3drmhm",
-    "question": "How many Olympic swimming pools of water did ancient Rome's aqueducts deliver every day?",
-    "answer": 400,
-    "unit": "pools",
+    "id": "history-t9yo86",
+    "question": "Rome's aqueducts brought in about a million cubic metres of water a day. How many bathtubs was that for each Roman, every day?",
+    "answer": 3.3,
+    "unit": "bathtubs",
     "source_title": "Roman aqueduct - Wikipedia",
     "source_url": "https://en.wikipedia.org/wiki/Roman_aqueduct",
-    "explainer": "Rome's eleven aqueducts are usually reckoned to have delivered about a million cubic metres a day for a city of about a million people. An Olympic pool holds 2,500 cubic metres, so about 400 pools a day.",
+    "explainer": "Ancient Rome had about a million people, so a million cubic metres a day is about 1,000 litres each: more than three 300-litre bathtubs per Roman, every day.",
     "difficulty": 2,
     "as_of": "stable"
   },
   {
     "id": "history-1d5l1ye",
-    "question": "At a camel caravan's pace, how many months would it take to travel the full length of the Silk Road?",
+    "question": "At a camel caravan's pace, how many months would it take to travel the Silk Road from Xi’an to the Mediterranean?",
     "answer": 7,
     "unit": "months",
     "source_title": "Silk Road - Wikipedia",
@@ -316,13 +352,13 @@
     "as_of": "stable"
   },
   {
-    "id": "history-i7ld57",
-    "question": "If the whole history of modern humans were squeezed into one year, how many days ago did the first cities appear?",
-    "answer": 7.3,
-    "unit": "days",
+    "id": "history-1seb6zd",
+    "question": "How many times longer have modern humans been around than the Great Pyramid has stood?",
+    "answer": 65,
+    "unit": "times",
     "source_title": "The first of our kind: Jebel Irhoud - Max Planck Society",
     "source_url": "https://www.mpg.de/11322481/",
-    "explainer": "Our species is about 300,000 years old and the first cities, such as Uruk, appeared about 6,000 years ago: two percent of the way back, which on a one-year scale is the last seven days.",
+    "explainer": "Our species goes back about 300,000 years, to the Jebel Irhoud fossils, while the Great Pyramid was finished around 2560 BC, about 4,600 years ago. So humans have been around about 65 times longer than the pyramid.",
     "difficulty": 2,
     "as_of": "stable"
   }

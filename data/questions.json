@@ -1186,10 +1186,10 @@
   {
    "id": "tech-15barlo",
    "category": "tech",
-   "question": "How many floppy disks from the 1990s would it take to hold what a modern phone stores?",
+   "question": "How many floppy disks from the 1990s would it take to hold what a 128 GB phone stores?",
    "answer": 89000,
    "unit": "floppy disks",
-   "explainer": "A 1990s floppy disk held 1.44 MB and a typical phone today holds 128 GB, which is 128,000 MB. That is about 89,000 floppies, a stack about 300 m tall.",
+   "explainer": "A 1990s floppy disk held 1.44 MB, and 128 GB is 128,000 MB. That is about 89,000 floppies, a stack about 300 m tall.",
    "source_title": "Floppy disk - Wikipedia",
    "source_url": "https://en.wikipedia.org/wiki/Floppy_disk",
    "as_of": "stable",
@@ -4056,7 +4056,7 @@
    "question": "Spending like the average American household, how many years would a billion dollars last?",
    "answer": 13000,
    "unit": "years",
-   "explainer": "The average American household spent about $78,500 in 2024. A billion dollars covers that for roughly 12,700 years, back past the end of the Ice Age.",
+   "explainer": "The average American household spent about $78,500 in 2024. A billion dollars covers that for roughly 13,000 years, back past the end of the Ice Age.",
    "source_title": "Consumer Expenditures 2024 - U.S. Bureau of Labor Statistics",
    "source_url": "https://www.bls.gov/news.release/cesan.htm",
    "as_of": "2024",
@@ -4072,7 +4072,8 @@
    "source_title": "Kelley Blue Book: new-vehicle average transaction price, October 2025",
    "source_url": "https://mediaroom.kbb.com/2025-11-12-Kelley-Blue-Book-Report-New-Vehicle-Average-Transaction-Price-Declines-in-October-as-EV-Sales-Stall-and-Incentives-Drop",
    "as_of": "2025",
-   "difficulty": 2
+   "difficulty": 2,
+   "retired": true
   },
   {
    "id": "history-3drmhm",
@@ -4084,7 +4085,8 @@
    "source_title": "Roman aqueduct - Wikipedia",
    "source_url": "https://en.wikipedia.org/wiki/Roman_aqueduct",
    "as_of": "stable",
-   "difficulty": 2
+   "difficulty": 2,
+   "retired": true
   },
   {
    "id": "history-kfjkby",
@@ -4120,7 +4122,8 @@
    "source_title": "The first of our kind: Jebel Irhoud - Max Planck Society",
    "source_url": "https://www.mpg.de/11322481/",
    "as_of": "stable",
-   "difficulty": 2
+   "difficulty": 2,
+   "retired": true
   },
   {
    "id": "history-192q3nb",
@@ -4132,7 +4135,8 @@
    "source_title": "Louisiana Purchase - Wikipedia",
    "source_url": "https://en.wikipedia.org/wiki/Louisiana_Purchase",
    "as_of": "stable",
-   "difficulty": 1
+   "difficulty": 1,
+   "retired": true
   },
   {
    "id": "science-17ft3ab",
@@ -4144,7 +4148,8 @@
    "source_title": "ITF Technical Booklet 2023 (ball size 6.54 to 6.86 cm)",
    "source_url": "https://www.itftennis.com/media/4420/2023-technical-booklet.pdf",
    "as_of": "stable",
-   "difficulty": 2
+   "difficulty": 2,
+   "retired": true
   },
   {
    "id": "everyday-1fj7rus",
@@ -4161,10 +4166,10 @@
   {
    "id": "history-sqxarf",
    "category": "history",
-   "question": "How many king-size beds would it take to cover the floor of the Hall of Mirrors at Versailles?",
-   "answer": 196,
+   "question": "How many double beds would it take to cover the floor of the Hall of Mirrors at Versailles?",
+   "answer": 290,
    "unit": "beds",
-   "explainer": "The Hall of Mirrors is 73 m long and 10.5 m wide, about 770 square metres. A king-size bed is roughly 1.9 m by 2 m, so about 196 beds would carpet it.",
+   "explainer": "The Hall of Mirrors is 73 m long and 10.5 m wide, about 770 square metres. A double bed is about 1.4 m by 1.9 m, so roughly 290 beds would carpet it.",
    "source_title": "Palace of Versailles: Hall of Mirrors - Bluffton University",
    "source_url": "https://homepages.bluffton.edu/~SULLIVANM/france/versailles/interior/mirrors.html",
    "as_of": "stable",
@@ -4173,7 +4178,7 @@
   {
    "id": "history-1d5l1ye",
    "category": "history",
-   "question": "At a camel caravan's pace, how many months would it take to travel the full length of the Silk Road?",
+   "question": "At a camel caravan's pace, how many months would it take to travel the Silk Road from Xi’an to the Mediterranean?",
    "answer": 7,
    "unit": "months",
    "explainer": "The Silk Road ran about 6,400 km from Xi’an to the Mediterranean. A laden camel caravan covered roughly 30 km a day, so the whole way took about 210 days, around seven months.",
@@ -4192,7 +4197,8 @@
    "source_title": "Martin & Kuiper (1999), Daily occurrence of laughter - Humor",
    "source_url": "https://doi.org/10.1515/humr.1999.12.4.355",
    "as_of": "stable",
-   "difficulty": 1
+   "difficulty": 1,
+   "retired": true
   },
   {
    "id": "culture-llpgjq",
@@ -4209,7 +4215,7 @@
   {
    "id": "history-sl95ek",
    "category": "history",
-   "question": "How many people could stand shoulder to shoulder on the arena floor of the Colosseum?",
+   "question": "How many people could stand on the arena floor of the Colosseum, four to a square metre?",
    "answer": 10500,
    "unit": "people",
    "explainer": "The arena floor was an oval about 76 m by 44 m, roughly 2,600 square metres. At four people to a square metre, about 10,500 people could pack onto it.",
@@ -4240,6 +4246,78 @@
    "source_title": "Lamborghini Temerario - Kelley Blue Book",
    "source_url": "https://www.kbb.com/lamborghini/temerario/",
    "as_of": "2025",
+   "difficulty": 1
+  },
+  {
+   "id": "history-t9yo86",
+   "category": "history",
+   "question": "Rome's aqueducts brought in about a million cubic metres of water a day. How many bathtubs was that for each Roman, every day?",
+   "answer": 3.3,
+   "unit": "bathtubs",
+   "explainer": "Ancient Rome had about a million people, so a million cubic metres a day is about 1,000 litres each: more than three 300-litre bathtubs per Roman, every day.",
+   "source_title": "Roman aqueduct - Wikipedia",
+   "source_url": "https://en.wikipedia.org/wiki/Roman_aqueduct",
+   "as_of": "stable",
+   "difficulty": 2
+  },
+  {
+   "id": "science-urvk2g",
+   "category": "science",
+   "question": "How many shoeboxes would fit inside a 40-foot shipping container?",
+   "answer": 9000,
+   "unit": "shoeboxes",
+   "explainer": "A 40-foot container holds about 67.7 cubic metres inside. A shoebox is roughly 33 cm by 19 cm by 12 cm, about 7.5 litres, so about 9,000 of them stack in, give or take the gaps.",
+   "source_title": "Intermodal container - Wikipedia",
+   "source_url": "https://en.wikipedia.org/wiki/Intermodal_container",
+   "as_of": "stable",
+   "difficulty": 2
+  },
+  {
+   "id": "money-sywi5a",
+   "category": "money",
+   "question": "How many football pitches would it take to park a billion dollars' worth of brand-new cars?",
+   "answer": 35,
+   "unit": "pitches",
+   "explainer": "A new car in the United States sold for about $49,800 on average in late 2025, so a billion dollars buys about 20,000 of them. A parking space is about 2.5 m by 5 m, and a football pitch about 7,100 square metres, so the fleet fills about 35 pitches.",
+   "source_title": "Kelley Blue Book: new-vehicle average transaction price, October 2025",
+   "source_url": "https://mediaroom.kbb.com/2025-11-12-Kelley-Blue-Book-Report-New-Vehicle-Average-Transaction-Price-Declines-in-October-as-EV-Sales-Stall-and-Incentives-Drop",
+   "as_of": "2025",
+   "difficulty": 2
+  },
+  {
+   "id": "everyday-1a5bewx",
+   "category": "everyday",
+   "question": "Counting only real belly laughs, how many times does a person laugh in a lifetime?",
+   "answer": 73000,
+   "unit": "laughs",
+   "explainer": "A 2024 study that recorded people through their days counted about two and a half proper belly laughs a day. Over 80 years that is about 73,000.",
+   "source_title": "Frontiers in Psychology (2024): laughter in everyday life",
+   "source_url": "https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2024.1296955/full",
+   "as_of": "stable",
+   "difficulty": 1
+  },
+  {
+   "id": "history-1seb6zd",
+   "category": "history",
+   "question": "How many times longer have modern humans been around than the Great Pyramid has stood?",
+   "answer": 65,
+   "unit": "times",
+   "explainer": "Our species goes back about 300,000 years, to the Jebel Irhoud fossils, while the Great Pyramid was finished around 2560 BC, about 4,600 years ago. So humans have been around about 65 times longer than the pyramid.",
+   "source_title": "The first of our kind: Jebel Irhoud - Max Planck Society",
+   "source_url": "https://www.mpg.de/11322481/",
+   "as_of": "stable",
+   "difficulty": 2
+  },
+  {
+   "id": "history-53wyki",
+   "category": "history",
+   "question": "The US paid $15 million for the Louisiana Purchase in 1803. How many cents was that per acre?",
+   "answer": 2.8,
+   "unit": "cents",
+   "explainer": "The Purchase covered about 2.14 million square kilometres, which is about 530 million acres. Fifteen million dollars spread over that is under three cents an acre.",
+   "source_title": "Louisiana Purchase - Wikipedia",
+   "source_url": "https://en.wikipedia.org/wiki/Louisiana_Purchase",
+   "as_of": "stable",
    "difficulty": 1
   }
  ]

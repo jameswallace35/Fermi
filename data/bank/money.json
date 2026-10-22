@@ -60,6 +60,18 @@
     "retired": true
   },
   {
+    "id": "money-ssstno",
+    "question": "Buying a brand-new car every single day, how many years would it take to get through a billion dollars?",
+    "answer": 55,
+    "unit": "years",
+    "explainer": "A new car in the United States sold for about $49,800 on average in late 2025, so a billion dollars buys about 20,000 of them: one a day for 55 years.",
+    "source_title": "Kelley Blue Book: new-vehicle average transaction price, October 2025",
+    "source_url": "https://mediaroom.kbb.com/2025-11-12-Kelley-Blue-Book-Report-New-Vehicle-Average-Transaction-Price-Declines-in-October-as-EV-Sales-Stall-and-Incentives-Drop",
+    "as_of": "2025",
+    "difficulty": 2,
+    "retired": true
+  },
+  {
     "id": "money-xaemkz",
     "question": "How many standard gold bars are stored in Fort Knox?",
     "answer": 370000,
@@ -264,7 +276,7 @@
     "unit": "years",
     "source_title": "Consumer Expenditures 2024 - U.S. Bureau of Labor Statistics",
     "source_url": "https://www.bls.gov/news.release/cesan.htm",
-    "explainer": "The average American household spent about $78,500 in 2024. A billion dollars covers that for roughly 12,700 years, back past the end of the Ice Age.",
+    "explainer": "The average American household spent about $78,500 in 2024. A billion dollars covers that for roughly 13,000 years, back past the end of the Ice Age.",
     "difficulty": 1,
     "as_of": "2024"
   },
@@ -280,13 +292,13 @@
     "as_of": "stable"
   },
   {
-    "id": "money-ssstno",
-    "question": "Buying a brand-new car every single day, how many years would it take to get through a billion dollars?",
-    "answer": 55,
-    "unit": "years",
+    "id": "money-sywi5a",
+    "question": "How many football pitches would it take to park a billion dollars' worth of brand-new cars?",
+    "answer": 35,
+    "unit": "pitches",
     "source_title": "Kelley Blue Book: new-vehicle average transaction price, October 2025",
     "source_url": "https://mediaroom.kbb.com/2025-11-12-Kelley-Blue-Book-Report-New-Vehicle-Average-Transaction-Price-Declines-in-October-as-EV-Sales-Stall-and-Incentives-Drop",
-    "explainer": "A new car in the United States sold for about $49,800 on average in late 2025, so a billion dollars buys about 20,000 of them: one a day for 55 years.",
+    "explainer": "A new car in the United States sold for about $49,800 on average in late 2025, so a billion dollars buys about 20,000 of them. A parking space is about 2.5 m by 5 m, and a football pitch about 7,100 square metres, so the fleet fills about 35 pitches.",
     "difficulty": 2,
     "as_of": "2025"
   },
