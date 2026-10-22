@@ -7,7 +7,7 @@
 // entries with a "verdict" ("accept" | "reject") plus the question fields,
 // as written by the fact-checking agents.
 //
-// Usage: node scripts/merge-workflow-questions.mjs <dir> [--keep-days=N] [--dry-run]
+// Usage: node scripts/merge-workflow-questions.mjs <dir> [--keep-days=N] [--retire-missing] [--dry-run]
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -19,6 +19,9 @@ const args = process.argv.slice(2);
 const inputDir = args.find((a) => !a.startsWith('--'));
 const keepDays = Number((args.find((a) => a.startsWith('--keep-days=')) || '--keep-days=3').split('=')[1]);
 const dryRun = args.includes('--dry-run');
+// --retire-missing: a published question absent from the fresh list is kept, retired,
+// instead of being dropped, so ids players met in unlimited or timed mode still resolve.
+const retireMissing = args.includes('--retire-missing');
 if (!inputDir) {
   console.error('Usage: node scripts/merge-workflow-questions.mjs <dir> [--keep-days=N] [--dry-run]');
   process.exit(1);
@@ -110,7 +113,7 @@ for (const cat of CATEGORIES) {
   // Entries already retired stay (their ids must keep resolving); entries the
   // kept days need are retired unless a fresh entry replaces them in place.
   const kept = bank.questions
-    .filter((q) => q.category === cat.slug && !freshIds.has(q.id) && (q.retired || keepIds.has(q.id)))
+    .filter((q) => q.category === cat.slug && !freshIds.has(q.id) && (q.retired || keepIds.has(q.id) || retireMissing))
     .map(({ category, ...q }) => ({ ...q, retired: true }));
   total += fresh.length;
   const file = path.join(root, 'data', 'bank', `${cat.slug}.json`);

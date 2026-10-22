@@ -81,6 +81,16 @@ There is no server, so the same puzzle appears for everyone on the same calendar
 
 New categories go at the **end** of `CATEGORIES` in `scripts/build-bank.mjs`.
 
+### What makes a good question
+
+Every question must make the player **estimate** at least one real-world quantity they do not know exactly: how heavy a grain of rice is, how many searches Google handles in a day, how fast an airliner cruises, what a Big Mac costs. The fun is in reasoning from everyday knowledge to a number.
+
+- **No arithmetic puzzles.** If every input is stated in the question and a calculator alone gives the exact answer ("Spending $1,000 a day, how many years would it take to get through a billion dollars?"), it is not an estimation question. Do not hand over the key rate or size either: say "walking all day, every day", "a lifetime", "an airliner at cruising speed", and let the explainer state the figure used.
+- **No trivia.** A question whose answer hinges on one exact fact nobody could reason towards (a date, a record time, a precise count) tests recall, not estimation.
+- **Keep it playful.** Familiar things measured in other familiar things; no science jargon, no bare statistics.
+
+The explainer, shown after the answer, is where the real figures and the working go.
+
 ## Accounts (optional)
 
 The game works without accounts. If you want players to create a username and password so their history follows them between devices, deploy the small API in `worker/` to Cloudflare Workers (free tier) and point the game at it.
